@@ -1,0 +1,19 @@
+---
+title: R foundations
+---
+
+Schedule for Term 1 (subject to change).
+
+Click on the topic to be taken to the page with its slides and resources.
+
+| Week    | Date (2022)   | Topic                                                           |
+|------------------------|------------------------|------------------------|
+| Week 2  | October 10th  | [Intro to R and RStudio](/content/01-foundations/01-intro.qmd)  |
+| Week 3  | October 17th  | [Data Wrangling](/content/01-foundations/02-data-wrangling.qmd) |
+| Week 4  | October 24th  | Break/online clinic                                             |
+| Week 5  | October 31st  | Programming in R                                                |
+| Week 6  | November 7th  | Simulation and Optimisation                                     |
+| Week 7  | November 14th | Break/online clinic                                             |
+| Week 8  | November 21st | Graphics                                                        |
+| Week 9  | November 28th | Quarto reporting and presentations                              |
+| Week 10 | December 5th  | Break/online clinic                                             |
