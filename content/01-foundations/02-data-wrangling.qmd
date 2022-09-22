@@ -2,4 +2,4 @@
 title: Data Wrangling
 ---
 
-Some text
+*The notes for this session are still under development.*

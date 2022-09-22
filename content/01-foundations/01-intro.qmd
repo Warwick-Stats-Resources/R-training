@@ -2,9 +2,9 @@
 title: Introduction to R and RStudio
 ---
 
-These are the notes for the first session.
+*The notes for this session are still under development.*
 
-Here's a link to the [slides](/slides/01-foundations/01-intro/index.qmd){target="_blank"} in a new window.
+Here's a link to the [slides](/slides/01-foundations/01-intro/index.qmd){target="_blank"} in a new window. *The slides are still under development.*
 
 Here are the slides embedded:
 

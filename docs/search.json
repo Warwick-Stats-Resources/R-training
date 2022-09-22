@@ -4,14 +4,14 @@
     "href": "schedule/01-foundations.html",
     "title": "R foundations",
     "section": "",
-    "text": "Click on the topic to be taken to the page with its slides and resources.\n\n\n\nWeek\nDate (2022)\nTopic\n\n\n\n\nWeek 2\nOctober 10th\nIntro to R and RStudio\n\n\nWeek 3\nOctober 17th\nData Wrangling\n\n\nWeek 4\nOctober 24th\nBreak/online clinic\n\n\nWeek 5\nOctober 31st\nProgramming in R\n\n\nWeek 6\nNovember 7th\nSimulation and Optimisation\n\n\nWeek 7\nNovember 14th\nBreak/online clinic\n\n\nWeek 8\nNovember 21st\nGraphics\n\n\nWeek 9\nNovember 28th\nQuarto reporting and presentations\n\n\nWeek 10\nDecember 5th\nBreak/online clinic"
+    "text": "Click on the topic to be taken to the page with its slides and resources (will be updated throughout the term).\n\n\n\nWeek\nDate (2022)\nTopic\n\n\n\n\nWeek 2\nOctober 10th\nIntro to R and RStudio\n\n\nWeek 3\nOctober 17th\nData Wrangling\n\n\nWeek 4\nOctober 24th\nBreak/online clinic\n\n\nWeek 5\nOctober 31st\nProgramming in R\n\n\nWeek 6\nNovember 7th\nSimulation and Optimisation\n\n\nWeek 7\nNovember 14th\nBreak/online clinic\n\n\nWeek 8\nNovember 21st\nGraphics\n\n\nWeek 9\nNovember 28th\nQuarto reporting and presentations\n\n\nWeek 10\nDecember 5th\nBreak/online clinic"
   },
   {
     "objectID": "schedule/02-advanced.html",
     "href": "schedule/02-advanced.html",
     "title": "Advanced R",
     "section": "",
-    "text": "Click on the topic to be taken to the page with its slides and resources.\n\n\n\nWeek\nDate (2022)\nTopic\n\n\n\n\nWeek 2\nOctober 10th\nIntro to R and RStudio\n\n\nWeek 3\nOctober 17th\nData Wrangling\n\n\nWeek 4\nOctober 24th\nBreak/online clinic\n\n\nWeek 5\nOctober 31st\nProgramming in R\n\n\nWeek 6\nNovember 7th\nSimulation and Optimisation\n\n\nWeek 7\nNovember 14th\nBreak/online clinic\n\n\nWeek 8\nNovember 21st\nGraphics\n\n\nWeek 9\nNovember 28th\nQuarto reporting and presentations\n\n\nWeek 10\nDecember 5th\nBreak/online clinic"
+    "text": "Click on the topic to be taken to the page with its slides and resources (will be updated throughout the term).\n\n\n\nWeek\nDate (2023)\nTopic\n\n\n\n\nWeek 2\nJanuary 16th\nGitHub\n\n\nWeek 3\nJanuary 23rd\nFunctions\n\n\nWeek 4\nJanuary 30th\nBreak/online clinic\n\n\nWeek 5\nFebruary 6th\nMemory/parallel\n\n\nWeek 6\nFebruary 13th\nProfiling\n\n\nWeek 7\nFebruary 20th\nBreak/online clinic\n\n\nWeek 8\nFebruary 27th\nC++ and Rcpp\n\n\nWeek 9\nMarch 6th\nClasses and Methods\n\n\nWeek 10\nMarch 13th\nBreak/online clinic"
   },
   {
     "objectID": "content.html",
@@ -32,14 +32,14 @@
     "href": "content/01-foundations/01-intro.html",
     "title": "Introduction to R and RStudio",
     "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+    "text": "Here’s a link to the slides in a new window. The slides are still under development.\nHere are the slides embedded:"
   },
   {
     "objectID": "content/01-foundations/02-data-wrangling.html",
     "href": "content/01-foundations/02-data-wrangling.html",
     "title": "Data Wrangling",
     "section": "",
-    "text": "Some text"
+    "text": "The notes for this session are still under development."
   },
   {
     "objectID": "index.html",

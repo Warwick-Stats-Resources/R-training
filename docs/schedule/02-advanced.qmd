@@ -2,18 +2,18 @@
 title: Advanced R
 ---
 
-Schedule for Term 2
+Schedule for Term 2 (subject to change).
 
-Click on the topic to be taken to the page with its slides and resources.
+Click on the topic to be taken to the page with its slides and resources (will be updated throughout the term).
 
-| Week    | Date (2022)   | Topic                              |
-|---------|---------------|------------------------------------|
-| Week 2  | October 10th  | Intro to R and RStudio             |
-| Week 3  | October 17th  | Data Wrangling                     |
-| Week 4  | October 24th  | Break/online clinic                |
-| Week 5  | October 31st  | Programming in R                   |
-| Week 6  | November 7th  | Simulation and Optimisation        |
-| Week 7  | November 14th | Break/online clinic                |
-| Week 8  | November 21st | Graphics                           |
-| Week 9  | November 28th | Quarto reporting and presentations |
-| Week 10 | December 5th  | Break/online clinic                |
+| Week    | Date (2023)   | Topic               |
+|---------|---------------|---------------------|
+| Week 2  | January 16th  | GitHub              |
+| Week 3  | January 23rd  | Functions           |
+| Week 4  | January 30th  | Break/online clinic |
+| Week 5  | February 6th  | Memory/parallel     |
+| Week 6  | February 13th | Profiling           |
+| Week 7  | February 20th | Break/online clinic |
+| Week 8  | February 27th | C++ and Rcpp        |
+| Week 9  | March 6th     | Classes and Methods |
+| Week 10 | March 13th    | Break/online clinic |

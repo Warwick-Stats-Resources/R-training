@@ -26,7 +26,7 @@ website:
       contents:
           - text: Overview
             href: content.qmd
-          - section: "R Foundations"
+          - section: "Term 1: R Foundations"
             contents: 
               - content/01-foundations/01-intro.qmd
               - content/01-foundations/02-data-wrangling.qmd
