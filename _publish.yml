@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 4e453ba3-3ef4-4fb2-8035-0bfd0984b666
+      url: 'https://quartopub.com/sites/ellakaye/r-training'

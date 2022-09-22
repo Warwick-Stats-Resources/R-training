@@ -1,0 +1,8 @@
+---
+title: Introduction to R and RStudio
+format: revealjs
+---
+
+# My first slide
+
+# My second slide

@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "schedule/01-foundations.html",
+    "href": "schedule/01-foundations.html",
+    "title": "R foundations",
+    "section": "",
+    "text": "Click on the topic to be taken to the page with its slides and resources.\n\n\n\nWeek\nDate (2022)\nTopic\n\n\n\n\nWeek 2\nOctober 10th\nIntro to R and RStudio\n\n\nWeek 3\nOctober 17th\nData Wrangling\n\n\nWeek 4\nOctober 24th\nBreak/online clinic\n\n\nWeek 5\nOctober 31st\nProgramming in R\n\n\nWeek 6\nNovember 7th\nSimulation and Optimisation\n\n\nWeek 7\nNovember 14th\nBreak/online clinic\n\n\nWeek 8\nNovember 21st\nGraphics\n\n\nWeek 9\nNovember 28th\nQuarto reporting and presentations\n\n\nWeek 10\nDecember 5th\nBreak/online clinic"
+  },
+  {
+    "objectID": "schedule/02-advanced.html",
+    "href": "schedule/02-advanced.html",
+    "title": "Advanced R",
+    "section": "",
+    "text": "Click on the topic to be taken to the page with its slides and resources.\n\n\n\nWeek\nDate (2022)\nTopic\n\n\n\n\nWeek 2\nOctober 10th\nIntro to R and RStudio\n\n\nWeek 3\nOctober 17th\nData Wrangling\n\n\nWeek 4\nOctober 24th\nBreak/online clinic\n\n\nWeek 5\nOctober 31st\nProgramming in R\n\n\nWeek 6\nNovember 7th\nSimulation and Optimisation\n\n\nWeek 7\nNovember 14th\nBreak/online clinic\n\n\nWeek 8\nNovember 21st\nGraphics\n\n\nWeek 9\nNovember 28th\nQuarto reporting and presentations\n\n\nWeek 10\nDecember 5th\nBreak/online clinic"
+  },
+  {
+    "objectID": "prerequisites.html",
+    "href": "prerequisites.html",
+    "title": "Getting set up",
+    "section": "",
+    "text": "Installing R\nDownload the pre-compiled binary for your OS from https://cloud.r-project.org/ and install. More specifically:\nFor Windows\nClick “Download R for Windows”, then “base”, then “Download R-4.2.1 for Windows”. This will download an .exe file; once downloaded, open to start the installation.\nFor Mac\nClick “Download R for macOS”, then “R-4.2.1.pkg” (the first option) to download the installer for Macs with Intel chips or “R-4.2.1-arm64.pkg” (the second option) to download the installer for Macs with Apple Silicon chips. Run the installer to complete installation.\nFor Linux\nClick “Download R for Linux”. Instructions on installing are given for Debian, Fedora, Redhat, Suse and Ubuntu distributions. Where there is a choice, install both r-base and r-base-dev.\n\n\nInstalling R Studio Desktop (Open Source Edition)\nDownloads are available from https://www.rstudio.com/products/rstudio/download/#download\nFor Windows with no admin rights\nDownload the .zip source archive under “Zip/Tarballs”. Extract the files to a folder where you have write access, e.g. C:\\Users\\username\\RStudio. In this folder, open the bin directory and find the RStudio program: it is named rstudio.exe, but the file extension will typically be hidden, so look for rstudio. Right-click this executable to create a desktop shortcut. Double-click the executable or use the shortcut to open.\nFor all other operating systems\nDownload the relevant installer for your OS listed under “Installers for Supported Platforms”. Run the installer to complete installation.\n\n\nDevelopment Tools\nSome additional tools may be required to compile R packages from source.\nFor Windows with no admin rights\nDownload the latest (recommended) Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer keeping the default settings.\nFor Windows with admin rights\nDownload the latest Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer making the following selections: keep the default settings for the installation location and components to install; check the box to add rtools to the system PATH.\nFor Mac\nInstall XCode. Either:\n\nDownload and install XCode from the Mac AppStore: http://itunes.apple.com/us/app/xcode/id497799835?mt=12\nWithin XCode go to Preferences : Downloads and install the Command Line Tools\n\nOr for a smaller download size:\n\nRegister as an Apple Developer (free) here: https://developer.apple.com/programs/register/\nDownload the Command Line Tools for XCode appropriate for the version of OS X you are running from here: https://developer.apple.com/downloads/\n\nFor Linux\nIf you installed r-base-dev, when installing R, you should have all you need to build packages from source. Otherwise return to the instructions for installing R for your distribution and follow the instructions there to install the additional tools.\n\n\nTerms 2 and 3\nThis page will be updated with prerequisites for terms 2 and 3 in due course."
+  },
+  {
+    "objectID": "content/01-foundations/01-intro.html",
+    "href": "content/01-foundations/01-intro.html",
+    "title": "Introduction to R and RStudio",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/01-foundations/02-data-wrangling.html",
+    "href": "content/01-foundations/02-data-wrangling.html",
+    "title": "Data Wrangling",
+    "section": "",
+    "text": "Some text"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R training",
+    "section": "",
+    "text": "Welcome to the R training course!\nThis course is aimed at first year PhD students in the Department of Statistics at the University of Warwick."
+  },
+  {
+    "objectID": "index.html#syllabus-overview",
+    "href": "index.html#syllabus-overview",
+    "title": "R training",
+    "section": "Syllabus overview",
+    "text": "Syllabus overview\n\nTerm 1: R Foundations, to cover the information and skills necessary to enable successful completion of the APTS programme.\nTerm 2: Advanced R\nTerm 3: R package development\n\nAll slides and further resources can be found from the content page. Material will be added as the year progresses. There is one page per session."
+  },
+  {
+    "objectID": "index.html#session-details",
+    "href": "index.html#session-details",
+    "title": "R training",
+    "section": "Session details",
+    "text": "Session details\n   Most Mondays in term time\n   10:00-11:30\n   Microsoft Teams (invitations will be sent to eligible participants)\n   See the full schedule."
+  },
+  {
+    "objectID": "index.html#instructor-details",
+    "href": "index.html#instructor-details",
+    "title": "R training",
+    "section": "Instructor details",
+    "text": "Instructor details\n   Ella Kaye\n   Ella.M.Kaye@warwick.ac.uk"
+  },
+  {
+    "objectID": "index.html#prerequistes",
+    "href": "index.html#prerequistes",
+    "title": "R training",
+    "section": "Prerequistes",
+    "text": "Prerequistes\nPlease see the prerequisites page for details on getting set up in advance of the first session."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "schedule",
+    "section": "",
+    "text": "Note that these are all subject to change."
+  }
+]

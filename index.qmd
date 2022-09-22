@@ -1,0 +1,37 @@
+---
+title: "R training"
+---
+
+Welcome to the R training course! 
+
+This course is aimed at first year PhD students in the Department of Statistics at the University of Warwick.
+
+## Syllabus overview
+
+-   Term 1: R Foundations, to cover the information and skills necessary to enable successful completion of the [APTS programme](https://warwick.ac.uk/fac/sci/statistics/apts/).
+
+-   Term 2: Advanced R
+
+-   Term 3: R package development
+
+All slides and further resources can be found from the [content](content.qmd) page. Material will be added as the year progresses. There is one page per session.
+
+## Session details
+
+{{< fa calendar >}} &nbsp; Most Mondays in term time
+
+{{< fa clock >}} &nbsp; 10:00-11:30
+
+{{< fa brands microsoft >}} &nbsp; Microsoft Teams (invitations will be sent to eligible participants)
+
+{{< fa calendar-alt >}} &nbsp; See the full [schedule](schedule.qmd).
+
+## Instructor details
+
+{{< fa user >}} &nbsp; [Ella Kaye](https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/kaye/)
+
+{{< fa envelope >}} &nbsp; [Ella.M.Kaye@warwick.ac.uk](mailto:Ella.M.Kaye@warwick.ac.uk)
+
+## Prerequistes
+
+Please see the [prerequisites](prerequisites.qmd) page for details on getting set up in advance of the first session.

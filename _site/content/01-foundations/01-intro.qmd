@@ -1,0 +1,12 @@
+---
+title: Introduction to R and RStudio
+---
+
+These are the notes for the first session.
+
+Here's a link to the [slides](/slides/01-foundations/01-intro/index.qmd){target="_blank"} in a new window.
+
+Here are the slides embedded:
+
+<iframe class="slide-deck ar3x2" src="/slides/01-foundations/01-intro/index.html" title="Introduction to R and RStudio slides">
+</iframe>

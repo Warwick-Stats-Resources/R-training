@@ -1,0 +1,52 @@
+project:
+  type: website
+  resources: 
+    - "content/"
+    - "schedule/"
+
+website:
+  title: "R training"
+  favicon: images/warwick-university.png
+  navbar:
+    search: true
+    right:
+      - text: "prerequisites"
+        file: prerequisites.qmd
+      - text: "schedule"
+        file: schedule.qmd
+      - text: "content"
+        file: content.qmd
+
+  sidebar:
+    - title: "content"
+      style: "docked"
+      collapse-level: 2
+      background: light
+      contents:
+          - text: Overview
+            href: content.qmd
+          - section: "R Foundations"
+            contents: 
+              - content/01-foundations/01-intro.qmd
+              - content/01-foundations/02-data-wrangling.qmd
+          
+    - title: "schedule"
+      style: "docked"
+      background: light
+      contents:
+        - text: "Schedule"
+          href: schedule.qmd
+        - text: "Term 1: R Foundations"
+          href: schedule/01-foundations.qmd
+        - text: "Term 2: Advanced R"
+          href: schedule/02-advanced.qmd
+  page-footer: "All material is shared under the [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/) license."
+
+format:
+  html:
+    theme: [cosmo, custom.scss]
+    css: styles.css
+    toc: true
+
+
+
