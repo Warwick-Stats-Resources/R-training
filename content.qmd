@@ -2,3 +2,4 @@
 title: "content"
 ---
 
+Please use the links in the sidebar to navigate to the page for each session.

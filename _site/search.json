@@ -14,6 +14,13 @@
     "text": "Click on the topic to be taken to the page with its slides and resources.\n\n\n\nWeek\nDate (2022)\nTopic\n\n\n\n\nWeek 2\nOctober 10th\nIntro to R and RStudio\n\n\nWeek 3\nOctober 17th\nData Wrangling\n\n\nWeek 4\nOctober 24th\nBreak/online clinic\n\n\nWeek 5\nOctober 31st\nProgramming in R\n\n\nWeek 6\nNovember 7th\nSimulation and Optimisation\n\n\nWeek 7\nNovember 14th\nBreak/online clinic\n\n\nWeek 8\nNovember 21st\nGraphics\n\n\nWeek 9\nNovember 28th\nQuarto reporting and presentations\n\n\nWeek 10\nDecember 5th\nBreak/online clinic"
   },
   {
+    "objectID": "content.html",
+    "href": "content.html",
+    "title": "content",
+    "section": "",
+    "text": "Please use the links in the sidebar to navigate to the page for each session."
+  },
+  {
     "objectID": "prerequisites.html",
     "href": "prerequisites.html",
     "title": "Getting set up",
@@ -39,14 +46,14 @@
     "href": "index.html",
     "title": "R training",
     "section": "",
-    "text": "Welcome to the R training course!\nThis course is aimed at first year PhD students in the Department of Statistics at the University of Warwick."
+    "text": "Welcome to the  training course!\nThis course is aimed at first year PhD students in the Department of Statistics at the University of Warwick."
   },
   {
     "objectID": "index.html#syllabus-overview",
     "href": "index.html#syllabus-overview",
     "title": "R training",
     "section": "Syllabus overview",
-    "text": "Syllabus overview\n\nTerm 1: R Foundations, to cover the information and skills necessary to enable successful completion of the APTS programme.\nTerm 2: Advanced R\nTerm 3: R package development\n\nAll slides and further resources can be found from the content page. Material will be added as the year progresses. There is one page per session."
+    "text": "Syllabus overview\n\nTerm 1: R Foundations, to cover the information and skills necessary to enable successful completion of the APTS programme.\nTerm 2: Advanced R\nTerm 3: R package development\n\nAll slides and further resources can be accessed from the content page and also via the schedule. Material will be added as the year progresses. There is one page per session."
   },
   {
     "objectID": "index.html#session-details",
@@ -60,7 +67,7 @@
     "href": "index.html#instructor-details",
     "title": "R training",
     "section": "Instructor details",
-    "text": "Instructor details\n   Ella Kaye\n   Ella.M.Kaye@warwick.ac.uk"
+    "text": "Instructor details\n   Ella Kaye"
   },
   {
     "objectID": "index.html#prerequistes",

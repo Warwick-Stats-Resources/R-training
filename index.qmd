@@ -2,7 +2,7 @@
 title: "R training"
 ---
 
-Welcome to the R training course! 
+Welcome to the {{< fa brands r-project >}} training course! 
 
 This course is aimed at first year PhD students in the Department of Statistics at the University of Warwick.
 
@@ -14,7 +14,7 @@ This course is aimed at first year PhD students in the Department of Statistics 
 
 -   Term 3: R package development
 
-All slides and further resources can be found from the [content](content.qmd) page. Material will be added as the year progresses. There is one page per session.
+All slides and further resources can be accessed from the [content](content.qmd) page and also via the [schedule](schedule.qmd). Material will be added as the year progresses. There is one page per session.
 
 ## Session details
 
@@ -30,7 +30,7 @@ All slides and further resources can be found from the [content](content.qmd) pa
 
 {{< fa user >}} &nbsp; [Ella Kaye](https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/kaye/)
 
-{{< fa envelope >}} &nbsp; [Ella.M.Kaye@warwick.ac.uk](mailto:Ella.M.Kaye@warwick.ac.uk)
+<!-- {{< fa envelope >}} &nbsp; [Ella.M.Kaye@warwick.ac.uk](mailto:Ella.M.Kaye@warwick.ac.uk) -->
 
 ## Prerequistes
 
