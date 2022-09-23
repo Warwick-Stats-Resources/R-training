@@ -53,7 +53,7 @@
     "href": "index.html#syllabus-overview",
     "title": "R training",
     "section": "Syllabus overview",
-    "text": "Syllabus overview\n\nTerm 1: R Foundations, to cover the information and skills necessary to enable successful completion of the APTS programme.\nTerm 2: Advanced R\nTerm 3: R package development\n\nAll slides and further resources can be accessed from the content page and also via the schedule. Material will be added as the year progresses. There is one page per session."
+    "text": "Syllabus overview\n\nTerm 1: R Foundations, to cover the information and skills necessary to enable successful completion of the APTS programme and equip you to use R for standard analysis and reporting.\nTerm 2: Advanced R, to develop your R programming skills and equip you to write custom code for simulations, new statistical methods, etc.\nTerm 3: R package development, to equip you to share code with others, following good research software engineering practices.\n\nAll slides and further resources can be accessed from the content page and also via the schedule. Material will be added as the year progresses. There is one page per session."
   },
   {
     "objectID": "index.html#session-details",

@@ -8,11 +8,11 @@ This course is aimed at first year PhD students in the Department of Statistics 
 
 ## Syllabus overview
 
--   Term 1: R Foundations, to cover the information and skills necessary to enable successful completion of the [APTS programme](https://warwick.ac.uk/fac/sci/statistics/apts/).
+-   Term 1: **R Foundations**, to cover the information and skills necessary to enable successful completion of the [APTS programme](https://warwick.ac.uk/fac/sci/statistics/apts/) and equip you to use R for standard analysis and reporting.
 
--   Term 2: Advanced R
+-   Term 2: **Advanced R**, to develop your R programming skills and equip you to write custom code for simulations, new statistical methods, etc.
 
--   Term 3: R package development
+-   Term 3: **R package development**, to equip you to share code with others, following good research software engineering practices.
 
 All slides and further resources can be accessed from the [content](content.qmd) page and also via the [schedule](schedule.qmd). Material will be added as the year progresses. There is one page per session.
 
