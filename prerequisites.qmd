@@ -2,7 +2,7 @@
 title: Getting set up
 ---
 
-Please ensure that you have the latest versions of R and RStudio installed prior to the first session. Currently, that's R-4.2.1 and RStudio-2022.07.2. You will also need to install Quarto for the final session of the term.
+Please ensure that you have the latest versions of R and RStudio installed prior to the first session. Currently, that's R-4.2.1 and RStudio-2022.07.2. 
 
 ### Installing R
 
@@ -69,10 +69,6 @@ If you installed `r-base-dev`, when installing R, you should have all you need
 to build packages from source. Otherwise return to the instructions for 
 installing R for your distribution and follow the instructions there to install 
 the additional tools.
-
-### Installing Quarto
-
-Quarto can be downloaded from <https://quarto.org/docs/get-started/>. Choose the appropriate installer for your operating system. 
 
 ### Terms 2 and 3
 
