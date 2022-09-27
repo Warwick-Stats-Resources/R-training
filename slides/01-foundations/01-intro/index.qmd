@@ -1,8 +1,26 @@
 ---
 title: Introduction to R and RStudio
-format: revealjs
+format: 
+  revealjs:
+    theme: [default, ../../slides.scss]
 ---
 
-# My first slide
+# What can R do?
+
+- Data import
+- Data management and wrangling
+
+- Exploratory data analysis
+- Statistical modelling
+- Advanced statistics
+
+- Data visualisation
+
+- Reports, articles, dashboards, presentations, websites
+
+- Integrates well with other languages
+
+- Packages: share your code and use others
+
 
 # My second slide

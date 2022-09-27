@@ -4,7 +4,7 @@ title: "R training"
 
 Welcome to the {{< fa brands r-project >}} training course! 
 
-This course is aimed at first year PhD students in the Department of Statistics at the University of Warwick.
+This course is aimed at first year PhD students in the Department of Statistics at the University of Warwick, alongside 4th year undergraduates and MSc students. 
 
 ## Syllabus overview
 
