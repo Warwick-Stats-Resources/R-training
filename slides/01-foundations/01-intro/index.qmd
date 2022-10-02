@@ -5,22 +5,149 @@ format:
     theme: [default, ../../slides.scss]
 ---
 
+# Overview
+
+-   What can R do
+
+-   Use RStudio to write and run R programmes
+
+-   Create and start an R project
+
+-   Use `install.packages()` to install packages (libraries)
+
+-   See an example of data wrangling and visualisation
+
 # What can R do?
 
-- Data import
-- Data management and wrangling
+-   Data import
 
-- Exploratory data analysis
-- Statistical modelling
-- Advanced statistics
+-   Data management and wrangling
 
-- Data visualisation
+-   Exploratory data analysis
 
-- Reports, articles, dashboards, presentations, websites
+-   Statistical modelling
 
-- Integrates well with other languages
+-   Advanced statistics
 
-- Packages: share your code and use others
+-   Data visualisation
 
+-   Reports, articles, dashboards, presentations, websites
 
-# My second slide
+-   Integrates well with other languages
+
+-   Packages: share your code and use others
+
+## The R Ecosystem
+
+### Base R
+
+::: columns
+::: {.column width="50%"}
+#### base
+
+-   create R objects
+-   summaries
+-   maths functions
+:::
+
+::: {.column width="50%"}
+#### recommended
+
+-   statistics
+-   graphics
+-   example data
+:::
+:::
+
+## The R Ecosystem
+
+### Contributed packages
+
+::: columns
+::: {.column width="50%"}
+#### CRAN
+
+-   Official R repository
+-   <https://cran.r-project.org>
+-   nearly 19000 packages
+:::
+
+::: {.column width="50%"}
+#### bioconductor
+
+-   bioinformatics packages
+-   <https://www.bioconductor.org>
+-   \~2100 packages
+
+#### GitHub
+
+-   packages in development
+-   GitHub-only packages
+:::
+::::
+
+# Introducing RStudio
+
+## At first
+
+![](new-RStudio-project.png)
+
+## With script
+
+![](RStudio-project-with-script.png)
+
+## Best practice: use R projects
+
+An RStudio project is a contect for working on a specific project
+
+- keeps files well-organised
+
+- automatically sets working directory to project root
+
+- has separate workspace and command history
+
+- works well with version control via git or svn
+
+## Getting started with projects
+
+- Create a project from a new or existing directory via the file menu or new project button
+
+- Switch project, or open a different project in a new RStudio instance via the project menu
+
+## RStudio project demo
+
+- create r-foundations project
+
+- create first script
+
+## Using the console
+
+- for things that only need doing once, e.g. installing packages
+
+- for doing things you don't need to track, e.g. requesting help files
+
+- to quickly explore new ideas before adding them to a script
+
+## Using the console demo
+
+```{.r}
+?sum
+sum(1, 2, 3)
+```
+
+## Using scripts
+
+Text files saved with an .R suffix are recognised as R code
+
+Code can be sent directly from a script to the console as follows:
+
+## Good practice for R Scripts
+
+Organising your R script well will help you and others understand and use it. 
+
+- Add comment or two at start to describe purpose of script
+- Load required data and packages at the start
+- Avoid hard-coding: define variables such as file paths early on
+- Give functions and variable meaningful names
+- use `###` or `#---` to separate sections (in RStudio Code > Insert Section)
+

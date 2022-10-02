@@ -82,5 +82,96 @@
     "title": "schedule",
     "section": "",
     "text": "Please use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#base-r",
+    "href": "slides/01-foundations/01-intro/index.html#base-r",
+    "title": "Introduction to R and RStudio",
+    "section": "Base R",
+    "text": "Base R"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#contributed-packages",
+    "href": "slides/01-foundations/01-intro/index.html#contributed-packages",
+    "title": "Introduction to R and RStudio",
+    "section": "Contributed packages",
+    "text": "Contributed packages"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#the-r-ecosystem",
+    "href": "slides/01-foundations/01-intro/index.html#the-r-ecosystem",
+    "title": "Introduction to R and RStudio",
+    "section": "The R Ecosystem",
+    "text": "The R Ecosystem\nBase R\n\n\nbase\n\ncreate R objects\nsummaries\nmaths functions\n\n\nrecommended\n\nstatistics\ngraphics\nexample data"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#the-r-ecosystem-1",
+    "href": "slides/01-foundations/01-intro/index.html#the-r-ecosystem-1",
+    "title": "Introduction to R and RStudio",
+    "section": "The R Ecosystem",
+    "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\nbioconductor\n\nbioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\nGitHub\n\npackages in development\nGitHub-only packages"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#at-first",
+    "href": "slides/01-foundations/01-intro/index.html#at-first",
+    "title": "Introduction to R and RStudio",
+    "section": "At first",
+    "text": "At first"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#with-script",
+    "href": "slides/01-foundations/01-intro/index.html#with-script",
+    "title": "Introduction to R and RStudio",
+    "section": "With script",
+    "text": "With script"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#best-practice-use-r-projects",
+    "href": "slides/01-foundations/01-intro/index.html#best-practice-use-r-projects",
+    "title": "Introduction to R and RStudio",
+    "section": "Best practice: use R projects",
+    "text": "Best practice: use R projects\nAn RStudio project is a contect for working on a specific project\n\nkeeps files well-organised\nautomatically sets working directory to project root\nhas separate workspace and command history\nworks well with version control via git or svn"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#getting-started-with-projects",
+    "href": "slides/01-foundations/01-intro/index.html#getting-started-with-projects",
+    "title": "Introduction to R and RStudio",
+    "section": "Getting started with projects",
+    "text": "Getting started with projects\n\nCreate a project from a new or existing directory via the file menu or new project button\nSwitch project, or open a different project in a new RStudio instance via the project menu"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#rstudio-project-demo",
+    "href": "slides/01-foundations/01-intro/index.html#rstudio-project-demo",
+    "title": "Introduction to R and RStudio",
+    "section": "RStudio project demo",
+    "text": "RStudio project demo\n\ncreate r-foundations project\ncreate first script"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#using-the-console",
+    "href": "slides/01-foundations/01-intro/index.html#using-the-console",
+    "title": "Introduction to R and RStudio",
+    "section": "Using the console",
+    "text": "Using the console\n\nfor things that only need doing once, e.g. installing packages\nfor doing things you don’t need to track, e.g. requesting help files\nto quickly explore new ideas before adding them to a script"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#using-the-console-demo",
+    "href": "slides/01-foundations/01-intro/index.html#using-the-console-demo",
+    "title": "Introduction to R and RStudio",
+    "section": "Using the console demo",
+    "text": "Using the console demo\n?sum\nsum(1, 2, 3)"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#using-scripts",
+    "href": "slides/01-foundations/01-intro/index.html#using-scripts",
+    "title": "Introduction to R and RStudio",
+    "section": "Using scripts",
+    "text": "Using scripts\nText files saved with an .R suffix are recognised as R code\nCode can be sent directly from a script to the console as follows:"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#good-practice-for-r-scripts",
+    "href": "slides/01-foundations/01-intro/index.html#good-practice-for-r-scripts",
+    "title": "Introduction to R and RStudio",
+    "section": "Good practice for R Scripts",
+    "text": "Good practice for R Scripts\nOrganising your R script well will help you and others understand and use it.\n\nAdd comment or two at start to describe purpose of script\nLoad required data and packages at the start\nAvoid hard-coding: define variables such as file paths early on\nGive functions and variable meaningful names\nuse ### or #--- to separate sections (in RStudio Code > Insert Section)"
   }
 ]
