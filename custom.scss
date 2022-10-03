@@ -2,13 +2,13 @@
 
 
 @import url(https://fonts.googleapis.com/css?family=Fira+Mono&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Jost&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Figtree:400,700&display=swap);
 
 
 // fonts
-$font-family-sans-serif: Jost, Helvetica, sans-serif !default;
+$font-family-sans-serif: Figtree, Helvetica, sans-serif !default;
 $font-family-monospace: "Fira Mono", monospace;
-$headings-font-family: Jost, Helvetica, sans-serif !default;
+$headings-font-family: Figtree, Helvetica, sans-serif !default;
 
 //  Warwick colors 
 $aubergine: #552D62;
@@ -37,11 +37,12 @@ pre.sourceCode {
 
 h1, h2 {
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 #quarto-header {
   text-transform: uppercase;
-  font-family: Jost, Helvetica, sans-serif;
+  font-family: Figtree, Helvetica, sans-serif;
 }
 
 // iframes for slides embedded in talks pages

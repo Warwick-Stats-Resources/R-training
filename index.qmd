@@ -30,7 +30,7 @@ All slides and further resources can be accessed from the [content](content.qmd)
 
 {{< fa user >}} &nbsp; [Ella Kaye](https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/kaye/)
 
-<!-- {{< fa envelope >}} &nbsp; [Ella.M.Kaye@warwick.ac.uk](mailto:Ella.M.Kaye@warwick.ac.uk) -->
+{{< fa envelope >}} &nbsp; [Ella.M.Kaye@warwick.ac.uk](mailto:Ella.M.Kaye@warwick.ac.uk)
 
 ## Prerequistes
 

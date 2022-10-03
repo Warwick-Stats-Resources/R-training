@@ -7,7 +7,7 @@ format:
 
 # Overview
 
--   What can R do
+-   What can R do?
 
 -   Use RStudio to write and run R programmes
 
@@ -131,8 +131,9 @@ An RStudio project is a contect for working on a specific project
 ## Using the console demo
 
 ```{.r}
-?sum
-sum(1, 2, 3)
+1 + 1
+?log
+log(10)
 ```
 
 ## Using scripts
