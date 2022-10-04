@@ -397,6 +397,11 @@ ggplot(data = penguins,
         plot.title.position = "plot")
 ```
 
+### what?!
+
+This is an illustration of [Simpson's Paradox](https://en.wikipedia.org/wiki/Simpson's_paradox){target="__blank"}.
+
+> Simpson's paradox is a phenomenon in probability and statistics in which a trend appears in several groups of data but disappears or reverses when the groups are combined. 
 
 :::
 
