@@ -5,7 +5,7 @@ format:
     theme: [default, ../../slides.scss]
 ---
 
-# Overview
+## Overview
 
 -   What can R do?
 
@@ -17,7 +17,7 @@ format:
 
 -   See an example of data wrangling and visualisation
 
-# What can R do?
+## What can R do?
 
 -   Data import
 
@@ -79,61 +79,84 @@ format:
 -   <https://www.bioconductor.org>
 -   \~2100 packages
 
+:::
+:::
+
+::: {.middle}
 #### GitHub
 
 -   packages in development
 -   GitHub-only packages
 :::
-::::
+
+# Key packages
+
+------------------------------------------------------------------------
+
+## The tidyverse
+
+The [tidyverse](https://www.tidyverse.org) is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures.
+
+![](/slides/01-foundations/images/tidyverse-packages.png){fig-align="center"}
+
+## palmerpenguins
+
+ - [**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins/) is a dataset package, designed to be a great example for data exploration and visualisation. 
+
+- It contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica.
+
+![](/slides/01-foundations/images/lter_penguins.png){fig-align="center"}
 
 # Introducing RStudio
 
 ## At first
 
-![](new-RStudio-project.png)
+![](images/new-RStudio-project.png)
 
 ## With script
 
-![](RStudio-project-with-script.png)
+![](images/RStudio-project-with-script.png)
 
 ## Best practice: use R projects
 
 An RStudio project is a contect for working on a specific project
 
-- keeps files well-organised
+-   keeps files well-organised
 
-- automatically sets working directory to project root
+-   automatically sets working directory to project root
 
-- has separate workspace and command history
+-   has separate workspace and command history
 
-- works well with version control via git or svn
+-   works well with version control via git or svn
 
 ## Getting started with projects
 
-- Create a project from a new or existing directory via the file menu or new project button
+-   Create a project from a new or existing directory via the file menu or new project button
 
-- Switch project, or open a different project in a new RStudio instance via the project menu
+-   Switch project, or open a different project in a new RStudio instance via the project menu
 
 ## RStudio project demo
 
-- create r-foundations project
+-   create r-foundations project
 
-- create first script
+-   create first script
 
 ## Using the console
 
-- for things that only need doing once, e.g. installing packages
+-   for things that only need doing once, e.g. installing packages
 
-- for doing things you don't need to track, e.g. requesting help files
+-   for doing things you don't need to track, e.g. requesting help files
 
-- to quickly explore new ideas before adding them to a script
+-   to quickly explore new ideas before adding them to a script
 
 ## Using the console demo
 
-```{.r}
+``` r
 1 + 1
 ?log
 log(10)
+install.packages("tidyverse")
+install.packages("palmerpenguins")
 ```
 
 ## Using scripts
@@ -142,13 +165,22 @@ Text files saved with an .R suffix are recognised as R code
 
 Code can be sent directly from a script to the console as follows:
 
+-   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd title = "enter">↵</kbd> or <img src="images/run_button.png" alt="Run button" height="30px" style="vertical-align: middle;"/> run current line
+    -   run multiple lines by selecting first
+-   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd>Shift</kbd> + <kbd title = "enter">↵</kbd> or <img src="images/source_button.png" alt="Source button" height="30px" style="vertical-align: middle;"/>
+    -   Run the script from start to finish.
+
 ## Good practice for R Scripts
 
-Organising your R script well will help you and others understand and use it. 
+Organising your R script well will help you and others understand and use it.
 
-- Add comment or two at start to describe purpose of script
-- Load required data and packages at the start
-- Avoid hard-coding: define variables such as file paths early on
-- Give functions and variable meaningful names
-- use `###` or `#---` to separate sections (in RStudio Code > Insert Section)
+-   Add comment or two at start to describe purpose of script
+-   Load required data and packages at the start
+-   Avoid hard-coding: define variables such as file paths early on
+-   Give functions and variable meaningful names
+-   use `###` or `#---` to separate sections (in RStudio Code \> Insert Section)
 
+## R script demo
+
+``` r
+```

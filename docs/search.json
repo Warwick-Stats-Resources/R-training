@@ -88,7 +88,7 @@
     "href": "slides/01-foundations/01-intro/index.html#the-r-ecosystem-1",
     "title": "Introduction to R and RStudio",
     "section": "The R Ecosystem",
-    "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\nbioconductor\n\nbioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\nGitHub\n\npackages in development\nGitHub-only packages"
+    "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\nbioconductor\n\nbioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\n\n\n\nGitHub\n\npackages in development\nGitHub-only packages"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#at-first",
@@ -137,14 +137,14 @@
     "href": "slides/01-foundations/01-intro/index.html#using-the-console-demo",
     "title": "Introduction to R and RStudio",
     "section": "Using the console demo",
-    "text": "Using the console demo\n1 + 1\n?log\nlog(10)"
+    "text": "Using the console demo\n1 + 1\n?log\nlog(10)\ninstall.packages(\"tidyverse\")\ninstall.packages(\"palmerpenguins\")"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#using-scripts",
     "href": "slides/01-foundations/01-intro/index.html#using-scripts",
     "title": "Introduction to R and RStudio",
     "section": "Using scripts",
-    "text": "Using scripts\nText files saved with an .R suffix are recognised as R code\nCode can be sent directly from a script to the console as follows:"
+    "text": "Using scripts\nText files saved with an .R suffix are recognised as R code\nCode can be sent directly from a script to the console as follows:\n\nCtrl/⌘ + ↵ or  run current line\n\nrun multiple lines by selecting first\n\nCtrl/⌘ + Shift + ↵ or \n\nRun the script from start to finish."
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#good-practice-for-r-scripts",
@@ -159,5 +159,61 @@
     "title": "schedule",
     "section": "",
     "text": "Please use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#key-packages",
+    "href": "slides/01-foundations/01-intro/index.html#key-packages",
+    "title": "Introduction to R and RStudio",
+    "section": "Key packages",
+    "text": "Key packages"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#r-script-demo",
+    "href": "slides/01-foundations/01-intro/index.html#r-script-demo",
+    "title": "Introduction to R and RStudio",
+    "section": "R script demo",
+    "text": "R script demo"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#palmer-penguins",
+    "href": "slides/01-foundations/01-intro/index.html#palmer-penguins",
+    "title": "Introduction to R and RStudio",
+    "section": "Palmer penguins",
+    "text": "Palmer penguins\n\npalmerpenguins is a dataset package, designed to be a great example for data exploration and visualisation.\nIt contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica."
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#the-tidyverse",
+    "href": "slides/01-foundations/01-intro/index.html#the-tidyverse",
+    "title": "Introduction to R and RStudio",
+    "section": "The tidyverse",
+    "text": "The tidyverse\nThe tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures."
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#tidyverse",
+    "href": "slides/01-foundations/01-intro/index.html#tidyverse",
+    "title": "Introduction to R and RStudio",
+    "section": "tidyverse",
+    "text": "tidyverse"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#palmerpenguins",
+    "href": "slides/01-foundations/01-intro/index.html#palmerpenguins",
+    "title": "Introduction to R and RStudio",
+    "section": "palmerpenguins",
+    "text": "palmerpenguins\n\npalmerpenguins is a dataset package, designed to be a great example for data exploration and visualisation.\nIt contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica."
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#overview",
+    "href": "slides/01-foundations/01-intro/index.html#overview",
+    "title": "Introduction to R and RStudio",
+    "section": "Overview",
+    "text": "Overview\n\nWhat can R do?\nUse RStudio to write and run R programmes\nCreate and start an R project\nUse install.packages() to install packages (libraries)\nSee an example of data wrangling and visualisation"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#what-can-r-do",
+    "href": "slides/01-foundations/01-intro/index.html#what-can-r-do",
+    "title": "Introduction to R and RStudio",
+    "section": "What can R do?",
+    "text": "What can R do?\n\nData import\nData management and wrangling\nExploratory data analysis\nStatistical modelling\nAdvanced statistics\nData visualisation\nReports, articles, dashboards, presentations, websites\nIntegrates well with other languages\nPackages: share your code and use others"
   }
 ]

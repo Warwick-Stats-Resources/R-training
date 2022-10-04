@@ -391,8 +391,8 @@
   <h1 class="title">Introduction to R and RStudio</h1>
 </section>
 
-<section id="overview" class="title-slide slide level1 center">
-<h1>Overview</h1>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
 <ul>
 <li><p>What can R do?</p></li>
 <li><p>Use RStudio to write and run R programmes</p></li>
@@ -401,10 +401,8 @@
 <li><p>See an example of data wrangling and visualisation</p></li>
 </ul>
 </section>
-
-<section>
-<section id="what-can-r-do" class="title-slide slide level1 center">
-<h1>What can R do?</h1>
+<section id="what-can-r-do" class="slide level2">
+<h2>What can R do?</h2>
 <ul>
 <li><p>Data import</p></li>
 <li><p>Data management and wrangling</p></li>
@@ -456,14 +454,34 @@
 <li><a href="https://www.bioconductor.org" class="uri">https://www.bioconductor.org</a></li>
 <li>~2100 packages</li>
 </ul>
-<h4 id="github">GitHub</h4>
+</div>
+</div>
+<section id="github" class="middle">
+<h4>GitHub</h4>
 <ul>
 <li>packages in development</li>
 <li>GitHub-only packages</li>
 </ul>
-</div>
-</div>
-</section></section>
+</section>
+</section>
+<section>
+<section id="key-packages" class="title-slide slide level1 center">
+<h1>Key packages</h1>
+
+</section>
+<section id="the-tidyverse" class="slide level2">
+<h2>The tidyverse</h2>
+<p>The <a href="https://www.tidyverse.org">tidyverse</a> is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures.</p>
+
+<img data-src="../../../slides/01-foundations/images/tidyverse-packages.png" class="r-stretch quarto-figure-center"></section>
+<section id="palmerpenguins" class="slide level2">
+<h2>palmerpenguins</h2>
+<ul>
+<li><p><a href="https://allisonhorst.github.io/palmerpenguins/"><strong>palmerpenguins</strong></a> is a dataset package, designed to be a great example for data exploration and visualisation.</p></li>
+<li><p>It contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica.</p></li>
+</ul>
+
+<img data-src="../../../slides/01-foundations/images/lter_penguins.png" class="r-stretch quarto-figure-center"></section></section>
 <section>
 <section id="introducing-rstudio" class="title-slide slide level1 center">
 <h1>Introducing RStudio</h1>
@@ -472,11 +490,11 @@
 <section id="at-first" class="slide level2">
 <h2>At first</h2>
 
-<img data-src="new-RStudio-project.png" class="r-stretch"></section>
+<img data-src="images/new-RStudio-project.png" class="r-stretch"></section>
 <section id="with-script" class="slide level2">
 <h2>With script</h2>
 
-<img data-src="RStudio-project-with-script.png" class="r-stretch"></section>
+<img data-src="images/RStudio-project-with-script.png" class="r-stretch"></section>
 <section id="best-practice-use-r-projects" class="slide level2">
 <h2>Best practice: use R projects</h2>
 <p>An RStudio project is a contect for working on a specific project</p>
@@ -513,12 +531,24 @@
 <h2>Using the console demo</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>?log</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">log</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">log</span>(<span class="dv">10</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="using-scripts" class="slide level2">
 <h2>Using scripts</h2>
 <p>Text files saved with an .R suffix are recognised as R code</p>
 <p>Code can be sent directly from a script to the console as follows:</p>
+<ul>
+<li><kbd>Ctrl</kbd>/<kbd title="command">⌘</kbd> + <kbd title="enter">↵</kbd> or <img src="images/run_button.png" alt="Run button" height="30px" style="vertical-align: middle;"> run current line
+<ul>
+<li>run multiple lines by selecting first</li>
+</ul></li>
+<li><kbd>Ctrl</kbd>/<kbd title="command">⌘</kbd> + <kbd>Shift</kbd> + <kbd title="enter">↵</kbd> or <img src="images/source_button.png" alt="Source button" height="30px" style="vertical-align: middle;">
+<ul>
+<li>Run the script from start to finish.</li>
+</ul></li>
+</ul>
 </section>
 <section id="good-practice-for-r-scripts" class="slide level2">
 <h2>Good practice for R Scripts</h2>
@@ -530,6 +560,10 @@
 <li>Give functions and variable meaningful names</li>
 <li>use <code>###</code> or <code>#---</code> to separate sections (in RStudio Code &gt; Insert Section)</li>
 </ul>
+</section>
+<section id="r-script-demo" class="slide level2">
+<h2>R script demo</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <div class="footer footer-default">
 

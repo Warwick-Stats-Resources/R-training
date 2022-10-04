@@ -2,7 +2,7 @@
 
 
 @import url(https://fonts.googleapis.com/css?family=Fira+Mono&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Figtree:400,700&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Figtree:400,600&display=swap);
 
 
 // fonts
@@ -22,6 +22,10 @@ $gray2: #747576; //paler
 
 $primary:       $aubergine !default;
 
+$presentation-font-size-root: 36px;
+$presentation-heading-font: Figtree, Helvetica, sans-serif !default;
+//$presentation-heading-color: $ruby;
+
 /*-- scss:rules --*/
 
 // color classes
@@ -35,50 +39,41 @@ pre.sourceCode {
   border-left-color: $gray;
 }
 
-h1, h2 {
-  text-transform: uppercase;
-  font-weight: 700;
+kbd {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px 9px;
+  background: linear-gradient(178deg, #fff, #fff, #fff, #ddd);
 }
 
-#quarto-header {
-  text-transform: uppercase;
-  font-family: Figtree, Helvetica, sans-serif;
-  font-weight: bold;
+.middle {
+  text-align: center;
 }
 
-// iframes for slides embedded in talks pages
-iframe.slide-deck {
-  border: 3px solid $gray;
-  width: 100%;
+#title-slide .title {
+  font-size: 70px;
+  text-align: left;
+  margin: auto auto 50px auto;
 }
 
-.ar4x3 {
-  aspect-ratio: 4 / 3;  
+h2 {
+  padding-bottom: 20px;
 }
 
-.ar3x2 {
-  aspect-ratio: 3 / 2;  
+.cell {
+  padding-bottom: 20px;
 }
 
-// icon-links
-.icon-link {
-    background-color: transparent;
-    color: $primary;
-    border: 2px solid !important;
-    border-color: $primary;
-    padding: 5px .4rem 5px .4rem !important;
-    margin-top: 4px;
-    margin-right: 8px;
-    margin-bottom: 4px;
-    border-radius: 5px; 
-    display: inline-block;
-    text-decoration: none;
+.smaller75 {
+  font-size: 75%;
 }
 
-.icon-link:hover{
-    background-color: $primary;
-    border-color: $primary;
-    color: $body-bg;
-    text-decoration: none;
+.smaller70 {
+  font-size: 70%;
+}
+
+.right {
+  text-align: right;  
 }
 
