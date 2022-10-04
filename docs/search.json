@@ -77,6 +77,20 @@
     "text": "Prerequistes\nPlease see the prerequisites page for details on getting set up in advance of the first session."
   },
   {
+    "objectID": "slides/01-foundations/01-intro/index.html#overview",
+    "href": "slides/01-foundations/01-intro/index.html#overview",
+    "title": "Introduction to R and RStudio",
+    "section": "Overview",
+    "text": "Overview\n\nWhat can R do?\nUse RStudio to write and run R programmes\nCreate and start an R project\nUse install.packages() to install packages (libraries)\nHow to get help in R\nSee an example of data wrangling and visualisation"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#what-can-r-do",
+    "href": "slides/01-foundations/01-intro/index.html#what-can-r-do",
+    "title": "Introduction to R and RStudio",
+    "section": "What can R do?",
+    "text": "What can R do?\n\nData import\nData management and wrangling\nExploratory data analysis\nStatistical modelling\nAdvanced statistics\nData visualisation\nReports, articles, dashboards, presentations, websites\nIntegrates well with other languages\nPackages: share your code and use others"
+  },
+  {
     "objectID": "slides/01-foundations/01-intro/index.html#the-r-ecosystem",
     "href": "slides/01-foundations/01-intro/index.html#the-r-ecosystem",
     "title": "Introduction to R and RStudio",
@@ -89,6 +103,20 @@
     "title": "Introduction to R and RStudio",
     "section": "The R Ecosystem",
     "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\nbioconductor\n\nbioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\n\n\n\nGitHub\n\npackages in development\nGitHub-only packages"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#the-tidyverse",
+    "href": "slides/01-foundations/01-intro/index.html#the-tidyverse",
+    "title": "Introduction to R and RStudio",
+    "section": "The tidyverse",
+    "text": "The tidyverse\nThe tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures."
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#palmerpenguins",
+    "href": "slides/01-foundations/01-intro/index.html#palmerpenguins",
+    "title": "Introduction to R and RStudio",
+    "section": "palmerpenguins",
+    "text": "palmerpenguins\n\npalmerpenguins is a dataset package, designed to be a great example for data exploration and visualisation.\nIt contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica."
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#at-first",
@@ -136,8 +164,8 @@
     "objectID": "slides/01-foundations/01-intro/index.html#using-the-console-demo",
     "href": "slides/01-foundations/01-intro/index.html#using-the-console-demo",
     "title": "Introduction to R and RStudio",
-    "section": "Using the console demo",
-    "text": "Using the console demo\n1 + 1\n?log\nlog(10)\ninstall.packages(\"tidyverse\")\ninstall.packages(\"palmerpenguins\")"
+    "section": "Using the console: demo",
+    "text": "Using the console: demo\n1 + 1\n?log\nlog(10)\nx <- log(10)\nexp(-4 * 4 / 2) / sqrt(2 * pi)\ninstall.packages(\"tidyverse\")\ninstall.packages(\"palmerpenguins\")"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#using-scripts",
@@ -154,6 +182,13 @@
     "text": "Good practice for R Scripts\nOrganising your R script well will help you and others understand and use it.\n\nAdd comment or two at start to describe purpose of script\nLoad required data and packages at the start\nAvoid hard-coding: define variables such as file paths early on\nGive functions and variable meaningful names\nuse ### or #--- to separate sections (in RStudio Code > Insert Section)"
   },
   {
+    "objectID": "slides/01-foundations/01-intro/index.html#r-script-demo",
+    "href": "slides/01-foundations/01-intro/index.html#r-script-demo",
+    "title": "Introduction to R and RStudio",
+    "section": "R script demo",
+    "text": "R script demo\n### load libraries\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\n### Inspect data\nView(penguins)\nglimpse(penguins)\nhead(penguins)\nsummary(penguins)"
+  },
+  {
     "objectID": "schedule.html",
     "href": "schedule.html",
     "title": "schedule",
@@ -161,59 +196,101 @@
     "text": "Please use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
   },
   {
-    "objectID": "slides/01-foundations/01-intro/index.html#key-packages",
-    "href": "slides/01-foundations/01-intro/index.html#key-packages",
+    "objectID": "slides/01-foundations/01-intro/index.html#using-the-console-shortcuts",
+    "href": "slides/01-foundations/01-intro/index.html#using-the-console-shortcuts",
     "title": "Introduction to R and RStudio",
-    "section": "Key packages",
-    "text": "Key packages"
+    "section": "Using the console: shortcuts",
+    "text": "Using the console: shortcuts\nRStudio provides a few shortcuts to help write code in the R console\n\n↑/↓ go back/forward through history one command at a time\nCtrl/⌘ + ↑ review recent history and select command\nTab view possible completions for part-written expression\n\nCode completion (using Tab) is also provided in the source editor"
   },
   {
-    "objectID": "slides/01-foundations/01-intro/index.html#r-script-demo",
-    "href": "slides/01-foundations/01-intro/index.html#r-script-demo",
+    "objectID": "slides/01-foundations/01-intro/index.html#why-r-scripts",
+    "href": "slides/01-foundations/01-intro/index.html#why-r-scripts",
     "title": "Introduction to R and RStudio",
-    "section": "R script demo",
-    "text": "R script demo"
+    "section": "Why R scripts",
+    "text": "Why R scripts\nWriting an R script for an analysis has several advantages over a graphical user interface (GUI)\n\nit provides a record of the exact approach used in an analysis\nit enables the analysis to be easily reproduced and modified\nit allows greater control"
   },
   {
-    "objectID": "slides/01-foundations/01-intro/index.html#palmer-penguins",
-    "href": "slides/01-foundations/01-intro/index.html#palmer-penguins",
+    "objectID": "slides/01-foundations/01-intro/index.html#getting-help-in-r",
+    "href": "slides/01-foundations/01-intro/index.html#getting-help-in-r",
     "title": "Introduction to R and RStudio",
-    "section": "Palmer penguins",
-    "text": "Palmer penguins\n\npalmerpenguins is a dataset package, designed to be a great example for data exploration and visualisation.\nIt contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica."
+    "section": "Getting help in R",
+    "text": "Getting help in R"
   },
   {
-    "objectID": "slides/01-foundations/01-intro/index.html#the-tidyverse",
-    "href": "slides/01-foundations/01-intro/index.html#the-tidyverse",
+    "objectID": "slides/01-foundations/01-intro/index.html#within-r---help-with-functions",
+    "href": "slides/01-foundations/01-intro/index.html#within-r---help-with-functions",
     "title": "Introduction to R and RStudio",
-    "section": "The tidyverse",
-    "text": "The tidyverse\nThe tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures."
+    "section": "Within R - Help with functions",
+    "text": "Within R - Help with functions\n\n# help with a specific function\nhelp(function_name)\n?function_name\n\n# quick reminder of the function arguments\narg(function_name)\n\n# see an example\nexample(function_name)\n\n# see the source code\nfunction_name"
   },
   {
-    "objectID": "slides/01-foundations/01-intro/index.html#tidyverse",
-    "href": "slides/01-foundations/01-intro/index.html#tidyverse",
+    "objectID": "slides/01-foundations/01-intro/index.html#within-r---help.search",
+    "href": "slides/01-foundations/01-intro/index.html#within-r---help.search",
     "title": "Introduction to R and RStudio",
-    "section": "tidyverse",
-    "text": "tidyverse"
+    "section": "Within R - help.search",
+    "text": "Within R - help.search\n\n# when ?function_name fails (e.g. don't have library loaded)\nhelp.search(\"function_name\") # note quotation marks\n??function_name\n\n# for when you can't quite remember the function name\n??something_like_function_name"
   },
   {
-    "objectID": "slides/01-foundations/01-intro/index.html#palmerpenguins",
-    "href": "slides/01-foundations/01-intro/index.html#palmerpenguins",
+    "objectID": "slides/01-foundations/01-intro/index.html#within-r---help-with-package",
+    "href": "slides/01-foundations/01-intro/index.html#within-r---help-with-package",
     "title": "Introduction to R and RStudio",
-    "section": "palmerpenguins",
-    "text": "palmerpenguins\n\npalmerpenguins is a dataset package, designed to be a great example for data exploration and visualisation.\nIt contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica."
+    "section": "Within R - Help with package",
+    "text": "Within R - Help with package\n\n# `help`\nhelp(package = \"package_name\")\n# Help panel in RStudio will give links to all documentation\n# and help pages for that package\n\n# find/browse vignettes for installed (or specific) packages\nbrowseVignettes()\nbrowseVignettes(\"package_name\")\n\n# use auto-completion in RStudio to see what functions \n# are in a package\n?package::\n\ndplyr demo\nRStudio Help home demo"
   },
   {
-    "objectID": "slides/01-foundations/01-intro/index.html#overview",
-    "href": "slides/01-foundations/01-intro/index.html#overview",
+    "objectID": "slides/01-foundations/01-intro/index.html#your-turn",
+    "href": "slides/01-foundations/01-intro/index.html#your-turn",
     "title": "Introduction to R and RStudio",
-    "section": "Overview",
-    "text": "Overview\n\nWhat can R do?\nUse RStudio to write and run R programmes\nCreate and start an R project\nUse install.packages() to install packages (libraries)\nSee an example of data wrangling and visualisation"
+    "section": "Your turn",
+    "text": "Your turn\n\ncreate an R project called “R-foundations”\ninstall the packages palmerpenguins and tidyverse\nfind the help page for the penguins dataset\nfind the help page for the filter function in the dplyr package\nexperiment typing commands into the console or in an R script.\n\nlink to slides"
   },
   {
-    "objectID": "slides/01-foundations/01-intro/index.html#what-can-r-do",
-    "href": "slides/01-foundations/01-intro/index.html#what-can-r-do",
+    "objectID": "slides/01-foundations/01-intro/index.html#install-and-loading-packages",
+    "href": "slides/01-foundations/01-intro/index.html#install-and-loading-packages",
     "title": "Introduction to R and RStudio",
-    "section": "What can R do?",
-    "text": "What can R do?\n\nData import\nData management and wrangling\nExploratory data analysis\nStatistical modelling\nAdvanced statistics\nData visualisation\nReports, articles, dashboards, presentations, websites\nIntegrates well with other languages\nPackages: share your code and use others"
+    "section": "Install and loading packages",
+    "text": "Install and loading packages\nIn console\n\nInstall a package with install.packages(\"package_name\")\nInstall multiple packages with install.packages(c(\"package1\", \"package2\"))\nor use install button in packages pane: \n\nIn script\n\nLoad packages with library(package_name)"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#the-data",
+    "href": "slides/01-foundations/01-intro/index.html#the-data",
+    "title": "Introduction to R and RStudio",
+    "section": "The data",
+    "text": "The data\n\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\n\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year\n   <fct>   <fct>              <dbl>         <dbl>      <int>   <int> <fct> <int>\n 1 Adelie  Torgersen           39.1          18.7        181    3750 male   2007\n 2 Adelie  Torgersen           39.5          17.4        186    3800 fema…  2007\n 3 Adelie  Torgersen           40.3          18          195    3250 fema…  2007\n 4 Adelie  Torgersen           NA            NA           NA      NA <NA>   2007\n 5 Adelie  Torgersen           36.7          19.3        193    3450 fema…  2007\n 6 Adelie  Torgersen           39.3          20.6        190    3650 male   2007\n 7 Adelie  Torgersen           38.9          17.8        181    3625 fema…  2007\n 8 Adelie  Torgersen           39.2          19.6        195    4675 male   2007\n 9 Adelie  Torgersen           34.1          18.1        193    3475 <NA>   2007\n10 Adelie  Torgersen           42            20.2        190    4250 <NA>   2007\n# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,\n#   ²​body_mass_g"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#questions",
+    "href": "slides/01-foundations/01-intro/index.html#questions",
+    "title": "Introduction to R and RStudio",
+    "section": "Questions",
+    "text": "Questions\nHow many of each species?\n\npenguins |>\n  count(species)\n\n# A tibble: 3 × 2\n  species       n\n  <fct>     <int>\n1 Adelie      152\n2 Chinstrap    68\n3 Gentoo      124"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#questions-1",
+    "href": "slides/01-foundations/01-intro/index.html#questions-1",
+    "title": "Introduction to R and RStudio",
+    "section": "Questions",
+    "text": "Questions\nHow many of each species on each island?\n\npenguins |>\n  count(species, island, .drop = FALSE)\n\n# A tibble: 9 × 3\n  species   island        n\n  <fct>     <fct>     <int>\n1 Adelie    Biscoe       44\n2 Adelie    Dream        56\n3 Adelie    Torgersen    52\n4 Chinstrap Biscoe        0\n5 Chinstrap Dream        68\n6 Chinstrap Torgersen     0\n7 Gentoo    Biscoe      124\n8 Gentoo    Dream         0\n9 Gentoo    Torgersen     0"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#questions-2",
+    "href": "slides/01-foundations/01-intro/index.html#questions-2",
+    "title": "Introduction to R and RStudio",
+    "section": "Questions",
+    "text": "Questions\nWhat’s the mean bill length, by species?\n\npenguins |>\n  group_by(species) |>\n  summarise(mean_bill_length = mean(bill_length_mm, na.rm = TRUE))\n\n# A tibble: 3 × 2\n  species   mean_bill_length\n  <fct>                <dbl>\n1 Adelie                38.8\n2 Chinstrap             48.8\n3 Gentoo                47.5"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#questions-3",
+    "href": "slides/01-foundations/01-intro/index.html#questions-3",
+    "title": "Introduction to R and RStudio",
+    "section": "Questions",
+    "text": "Questions\nWhat’s the relationship between bill length and depth?\n\npictureplot 1code 1plot 2code 2\n\n\n\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"gray50\") +\n  labs(title = \"Penguin bill dimensions\",\n       subtitle = \"Bill length and depth for Penguins at Palmer Station LTER\",\n       x = \"Bill length (mm)\",\n       y = \"Bill depth (mm)\") +\n  theme_minimal() + \n  theme(plot.title.position = \"plot\")\n\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", se = FALSE, aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  labs(title = \"Penguin bill dimensions\",\n       subtitle = \"Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER\",\n       x = \"Bill length (mm)\",\n       y = \"Bill depth (mm)\",\n       color = \"Penguin species\",\n       shape = \"Penguin species\") +\n  theme_minimal() +\n  theme(legend.position = c(0.85, 0.15),\n        plot.title.position = \"plot\")"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#whats-the-mean-bill-length-by-species",
+    "href": "slides/01-foundations/01-intro/index.html#whats-the-mean-bill-length-by-species",
+    "title": "Introduction to R and RStudio",
+    "section": "What’s the mean bill length, by species?",
+    "text": "What’s the mean bill length, by species?\n\npenguins |>\n  group_by(species) |>\n  summarise(mean_bill_length = mean(bill_length_mm, na.rm = TRUE))\n\n# A tibble: 3 × 2\n  species   mean_bill_length\n  <fct>                <dbl>\n1 Adelie                38.8\n2 Chinstrap             48.8\n3 Gentoo                47.5\n\n\nWhat’s the relationship between bill length and depth?\n\npictureplot 1code 1plot 2code 2\n\n\n\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"gray50\") +\n  labs(title = \"Penguin bill dimensions\",\n       subtitle = \"Bill length and depth for Penguins at Palmer Station LTER\",\n       x = \"Bill length (mm)\",\n       y = \"Bill depth (mm)\") +\n  theme_minimal() + \n  theme(plot.title.position = \"plot\")\n\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", se = FALSE, aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  labs(title = \"Penguin bill dimensions\",\n       subtitle = \"Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER\",\n       x = \"Bill length (mm)\",\n       y = \"Bill depth (mm)\",\n       color = \"Penguin species\",\n       shape = \"Penguin species\") +\n  theme_minimal() +\n  theme(legend.position = c(0.85, 0.15),\n        plot.title.position = \"plot\")"
   }
 ]

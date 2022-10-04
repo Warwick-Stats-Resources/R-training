@@ -25,6 +25,7 @@ $primary:       $aubergine !default;
 $presentation-font-size-root: 36px;
 $presentation-heading-font: Figtree, Helvetica, sans-serif !default;
 //$presentation-heading-color: $ruby;
+$link-color: $sky2;
 
 /*-- scss:rules --*/
 
@@ -57,8 +58,9 @@ kbd {
   margin: auto auto 50px auto;
 }
 
-h2 {
+.reveal h2 {
   padding-bottom: 20px;
+  color: $ruby;
 }
 
 .cell {

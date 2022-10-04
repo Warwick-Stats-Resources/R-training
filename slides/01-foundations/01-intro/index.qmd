@@ -3,6 +3,8 @@ title: Introduction to R and RStudio
 format: 
   revealjs:
     theme: [default, ../../slides.scss]
+    execute:
+      echo: true
 ---
 
 ## Overview
@@ -14,6 +16,8 @@ format:
 -   Create and start an R project
 
 -   Use `install.packages()` to install packages (libraries)
+
+-   How to get help in R
 
 -   See an example of data wrangling and visualisation
 
@@ -78,20 +82,17 @@ format:
 -   bioinformatics packages
 -   <https://www.bioconductor.org>
 -   \~2100 packages
-
 :::
 :::
 
-::: {.middle}
+::: middle
 #### GitHub
 
 -   packages in development
 -   GitHub-only packages
 :::
 
-# Key packages
-
-------------------------------------------------------------------------
+# Key packages {background-color="#552D62"}
 
 ## The tidyverse
 
@@ -101,13 +102,13 @@ The [tidyverse](https://www.tidyverse.org) is an opinionated collection of R pac
 
 ## palmerpenguins
 
- - [**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins/) is a dataset package, designed to be a great example for data exploration and visualisation. 
+-   [**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins/) is a dataset package, designed to be a great example for data exploration and visualisation.
 
-- It contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica.
+-   It contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica.
 
 ![](/slides/01-foundations/images/lter_penguins.png){fig-align="center"}
 
-# Introducing RStudio
+# Introducing RStudio {background-color="#552D62"}
 
 ## At first
 
@@ -149,12 +150,24 @@ An RStudio project is a contect for working on a specific project
 
 -   to quickly explore new ideas before adding them to a script
 
-## Using the console demo
+## Using the console: shortcuts
+
+RStudio provides a few shortcuts to help write code in the R console
+
+-   <kbd title = "up arrow">↑</kbd>/<kbd title = "down arrow">↓</kbd> go back/forward through history one command at a time
+-   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd title = "up arrow">↑</kbd> review recent history and select command
+-   <kbd>Tab</kbd> view possible completions for part-written expression
+
+Code completion (using <kbd>Tab</kbd>) is also provided in the source editor
+
+## Using the console: demo
 
 ``` r
 1 + 1
 ?log
 log(10)
+x <- log(10)
+exp(-4 * 4 / 2) / sqrt(2 * pi)
 install.packages("tidyverse")
 install.packages("palmerpenguins")
 ```
@@ -170,6 +183,14 @@ Code can be sent directly from a script to the console as follows:
 -   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd>Shift</kbd> + <kbd title = "enter">↵</kbd> or <img src="images/source_button.png" alt="Source button" height="30px" style="vertical-align: middle;"/>
     -   Run the script from start to finish.
 
+## Why R scripts
+
+Writing an R script for an analysis has several advantages over a graphical user interface (GUI)
+
+-   it provides a record of the exact approach used in an analysis
+-   it enables the analysis to be easily reproduced and modified
+-   it allows greater control
+
 ## Good practice for R Scripts
 
 Organising your R script well will help you and others understand and use it.
@@ -183,4 +204,201 @@ Organising your R script well will help you and others understand and use it.
 ## R script demo
 
 ``` r
+### load libraries
+library(palmerpenguins)
+library(tidyverse)
+
+### Inspect data
+View(penguins)
+glimpse(penguins)
+head(penguins)
+summary(penguins)
 ```
+
+## Install and loading packages
+
+*In console*
+
+-   Install a package with `install.packages("package_name")`
+
+-   Install multiple packages with `install.packages(c("package1", "package2"))`
+
+-   or use install button in packages pane: ![](images/install_packages.png){width="150"}
+
+*In script*
+
+-   Load packages with `library(package_name)`
+
+
+# Getting help in R {background-color="#552D62"}
+
+## Within R - Help with functions
+
+```{r eval = FALSE}
+# help with a specific function
+help(function_name)
+?function_name
+
+# quick reminder of the function arguments
+arg(function_name)
+
+# see an example
+example(function_name)
+
+# see the source code
+function_name
+```
+
+## Within R - `help.search`
+
+```{r eval = FALSE}
+# when ?function_name fails (e.g. don't have library loaded)
+help.search("function_name") # note quotation marks
+??function_name
+
+# for when you can't quite remember the function name
+??something_like_function_name
+```
+
+## Within R - Help with package
+
+```{r eval = FALSE}
+# `help`
+help(package = "package_name")
+# Help panel in RStudio will give links to all documentation
+# and help pages for that package
+
+# find/browse vignettes for installed (or specific) packages
+browseVignettes()
+browseVignettes("package_name")
+
+# use auto-completion in RStudio to see what functions 
+# are in a package
+?package::
+```
+
+`dplyr` demo
+
+RStudio Help home demo
+
+## Your turn
+
+-   create an R project called "R-foundations"
+
+-   install the packages **palmerpenguins** and **tidyverse**
+
+-   find the help page for the `penguins` dataset
+
+-   find the help page for the `filter` function in the `dplyr` package
+
+-   experiment typing commands into the console or in an R script.
+
+link to [slides](https://warwick-stats-resources.github.io/R-training/slides/01-foundations/01-intro/#/title-slide){target="_blank"}
+
+# What can we learn about penguins? {background-color="#552D62"}
+
+## The data
+
+```{r}
+#| message: false
+library(palmerpenguins)
+library(tidyverse)
+```
+
+
+```{r}
+penguins
+```
+
+---
+
+#### How many of each species?
+
+```{r}
+penguins |>
+  count(species)
+```
+
+---
+
+#### How many of each species on each island?
+
+```{r}
+penguins |>
+  count(species, island, .drop = FALSE)
+```
+
+--- 
+
+#### What's the mean bill length, by species?
+
+```{r}
+penguins |>
+  group_by(species) |>
+  summarise(mean_bill_length = mean(bill_length_mm, na.rm = TRUE))
+```
+
+--- 
+
+#### What's the relationship between bill length and depth?
+
+::: {.panel-tabset}
+### picture
+
+![](images/culmen_depth.png){width=50%}
+
+### plot 1
+![](`r knitr::fig_chunk("bill-no-species", "png")`){width=80%}
+
+### code 1
+  
+```{r}
+#| label: bill-no-species
+#| fig-show: hide
+ggplot(data = penguins,
+       aes(x = bill_length_mm,
+           y = bill_depth_mm)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "gray50") +
+  labs(title = "Penguin bill dimensions",
+       subtitle = "Bill length and depth for Penguins at Palmer Station LTER",
+       x = "Bill length (mm)",
+       y = "Bill depth (mm)") +
+  theme_minimal() + 
+  theme(plot.title.position = "plot")
+```
+
+### plot 2
+![](`r knitr::fig_chunk("bill-species", "png")`){width=80%}
+
+### code 2
+  
+```{r}
+#| label: bill-species
+#| fig-show: hide
+ggplot(data = penguins,
+       aes(x = bill_length_mm,
+           y = bill_depth_mm,
+           group = species)) +
+  geom_point(aes(color = species, 
+                 shape = species),
+             size = 3,
+             alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, aes(color = species)) +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(title = "Penguin bill dimensions",
+       subtitle = "Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+       x = "Bill length (mm)",
+       y = "Bill depth (mm)",
+       color = "Penguin species",
+       shape = "Penguin species") +
+  theme_minimal() +
+  theme(legend.position = c(0.85, 0.15),
+        plot.title.position = "plot")
+```
+
+
+:::
+
+
+
