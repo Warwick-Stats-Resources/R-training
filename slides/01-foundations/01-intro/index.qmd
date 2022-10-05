@@ -1,5 +1,10 @@
 ---
 title: Introduction to R and RStudio
+subtitle: R foundations course
+author: Ella Kaye | Department of Statistics | University of Warwick
+title-slide-attributes:
+  data-background-color: "#552D62"
+date: "October 10th, 2022"
 format: 
   revealjs:
     theme: [default, ../../slides.scss]
@@ -9,7 +14,7 @@ format:
 
 ## Overview
 
--   What can R do?
+-   Why use R?
 
 -   Use RStudio to write and run R programmes
 
@@ -19,7 +24,9 @@ format:
 
 -   How to get help in R
 
--   See an example of data wrangling and visualisation
+-   See examples of data wrangling and visualisation
+
+# Why use R? {background-color="#552D62"}
 
 ## What can R do?
 
@@ -32,6 +39,8 @@ format:
 -   Statistical modelling
 
 -   Advanced statistics
+
+-   Machine learning
 
 -   Data visualisation
 
@@ -85,14 +94,10 @@ format:
 :::
 :::
 
-::: middle
 #### GitHub
 
 -   packages in development
 -   GitHub-only packages
-:::
-
-# Key packages {background-color="#552D62"}
 
 ## The tidyverse
 
@@ -107,6 +112,28 @@ The [tidyverse](https://www.tidyverse.org) is an opinionated collection of R pac
 -   It contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica.
 
 ![](/slides/01-foundations/images/lter_penguins.png){fig-align="center"}
+
+## The R community
+
+Another reason to love R is the community around it. 
+
+It prides itself on being friendly, diverse, helpful, and supportive.
+
+- [R user groups](https://www.r-consortium.org/blog/2019/09/09/r-community-explorer-r-user-groups){target="_blank"}
+
+- [R Ladies](https://rladies.org){target="_blank"}
+
+- [RainbowR](https://rainbowr.netlify.app){target="_blank"}
+
+- [MiR](https://mircommunity.com){target="_blank"} (minorities in R)
+
+- [RStudio Community](https://community.rstudio.com){target="_blank"}
+
+- [#RStats](https://twitter.com/hashtag/rstats){target="_blank"} on twitter
+
+- [R for Data Science](https://www.rfordatasci.com){target="_blank"} on twitter
+
+
 
 # Introducing RStudio {background-color="#552D62"}
 
@@ -166,7 +193,6 @@ Code completion (using <kbd>Tab</kbd>) is also provided in the source editor
 1 + 1
 ?log
 log(10)
-x <- log(10)
 exp(-4 * 4 / 2) / sqrt(2 * pi)
 install.packages("tidyverse")
 install.packages("palmerpenguins")
@@ -315,8 +341,7 @@ penguins
 #### How many of each species?
 
 ```{r}
-penguins |>
-  count(species)
+count(penguins, species)
 ```
 
 ---
@@ -324,9 +349,24 @@ penguins |>
 #### How many of each species on each island?
 
 ```{r}
-penguins |>
-  count(species, island, .drop = FALSE)
+count(penguins, species, island, .drop = FALSE)
 ```
+
+---
+
+#### Show me the body masses of female Gentoo penguins with a bill length greater than 48mm
+
+```{r}
+penguins |>
+  filter(sex == "female",
+         species == "Gentoo",
+         bill_length_mm > 48) |>
+  select(body_mass_g)
+```
+
+`|>` is the pipe. It passes what comes before into the first argument of what comes after.
+
+Pipes are a powerful tool for clearly expressing a sequence of multiple operations. 
 
 --- 
 

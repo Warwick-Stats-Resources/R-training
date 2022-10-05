@@ -10,6 +10,7 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.1.189">
 
+  <meta name="author" content="Ella Kaye | Department of Statistics | University of Warwick">
   <title>R training - Introduction to R and RStudio</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -387,20 +388,28 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
+<section id="title-slide" data-background-color="#552D62" class="center">
   <h1 class="title">Introduction to R and RStudio</h1>
+  <p class="subtitle">R foundations course</p>
+  <p class="author">Ella Kaye | Department of Statistics | University of Warwick</p>
+  <p class="date">October 10th, 2022</p>
 </section>
 
 <section id="overview" class="slide level2">
 <h2>Overview</h2>
 <ul>
-<li><p>What can R do?</p></li>
+<li><p>Why use R?</p></li>
 <li><p>Use RStudio to write and run R programmes</p></li>
 <li><p>Create and start an R project</p></li>
 <li><p>Use <code>install.packages()</code> to install packages (libraries)</p></li>
 <li><p>How to get help in R</p></li>
-<li><p>See an example of data wrangling and visualisation</p></li>
+<li><p>See examples of data wrangling and visualisation</p></li>
 </ul>
+</section>
+<section>
+<section id="why-use-r" class="title-slide slide level1 center" data-background-color="#552D62">
+<h1>Why use R?</h1>
+
 </section>
 <section id="what-can-r-do" class="slide level2">
 <h2>What can R do?</h2>
@@ -410,6 +419,7 @@
 <li><p>Exploratory data analysis</p></li>
 <li><p>Statistical modelling</p></li>
 <li><p>Advanced statistics</p></li>
+<li><p>Machine learning</p></li>
 <li><p>Data visualisation</p></li>
 <li><p>Reports, articles, dashboards, presentations, websites</p></li>
 <li><p>Integrates well with other languages</p></li>
@@ -457,18 +467,11 @@
 </ul>
 </div>
 </div>
-<section id="github" class="middle">
-<h4>GitHub</h4>
+<h4 id="github">GitHub</h4>
 <ul>
 <li>packages in development</li>
 <li>GitHub-only packages</li>
 </ul>
-</section>
-</section>
-<section>
-<section id="key-packages" class="title-slide slide level1 center" data-background-color="#552D62">
-<h1>Key packages</h1>
-
 </section>
 <section id="the-tidyverse" class="slide level2">
 <h2>The tidyverse</h2>
@@ -482,7 +485,21 @@
 <li><p>It contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica.</p></li>
 </ul>
 
-<img data-src="../../../slides/01-foundations/images/lter_penguins.png" class="r-stretch quarto-figure-center"></section></section>
+<img data-src="../../../slides/01-foundations/images/lter_penguins.png" class="r-stretch quarto-figure-center"></section>
+<section id="the-r-community" class="slide level2">
+<h2>The R community</h2>
+<p>Another reason to love R is the community around it.</p>
+<p>It prides itself on being friendly, diverse, helpful, and supportive.</p>
+<ul>
+<li><p><a href="https://www.r-consortium.org/blog/2019/09/09/r-community-explorer-r-user-groups" target="_blank">R user groups</a></p></li>
+<li><p><a href="https://rladies.org" target="_blank">R Ladies</a></p></li>
+<li><p><a href="https://rainbowr.netlify.app" target="_blank">RainbowR</a></p></li>
+<li><p><a href="https://mircommunity.com" target="_blank">MiR</a> (minorities in R)</p></li>
+<li><p><a href="https://community.rstudio.com" target="_blank">RStudio Community</a></p></li>
+<li><p><a href="https://twitter.com/hashtag/rstats" target="_blank">#RStats</a> on twitter</p></li>
+<li><p><a href="https://www.rfordatasci.com" target="_blank">R for Data Science</a> on twitter</p></li>
+</ul>
+</section></section>
 <section>
 <section id="introducing-rstudio" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>Introducing RStudio</h1>
@@ -543,10 +560,9 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>?log</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">log</span>(<span class="dv">10</span>)</span>
-<span id="cb1-4"><a href="#cb1-4"></a>x <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="dv">10</span>)</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">exp</span>(<span class="sc">-</span><span class="dv">4</span> <span class="sc">*</span> <span class="dv">4</span> <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> pi)</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">exp</span>(<span class="sc">-</span><span class="dv">4</span> <span class="sc">*</span> <span class="dv">4</span> <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> pi)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="using-scripts" class="slide level2">
 <h2>Using scripts</h2>
@@ -707,8 +723,7 @@
 
 <h4 id="how-many-of-each-species">How many of each species?</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">count</span>(penguins, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   species       n
@@ -723,8 +738,7 @@
 
 <h4 id="how-many-of-each-species-on-each-island">How many of each species on each island?</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">count</span>(species, island, <span class="at">.drop =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">count</span>(penguins, species, island, <span class="at">.drop =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 3
   species   island        n
@@ -743,11 +757,36 @@
 </section>
 <section class="slide level2">
 
-<h4 id="whats-the-mean-bill-length-by-species">What’s the mean bill length, by species?</h4>
+<h4 id="show-me-the-body-masses-of-female-gentoo-penguins-with-a-bill-length-greater-than-48mm">Show me the body masses of female Gentoo penguins with a bill length greater than 48mm</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">summarise</span>(<span class="at">mean_bill_length =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"female"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3"></a>         species <span class="sc">==</span> <span class="st">"Gentoo"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4"></a>         bill_length_mm <span class="sc">&gt;</span> <span class="dv">48</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">select</span>(body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 1
+  body_mass_g
+        &lt;int&gt;
+1        4450
+2        4600
+3        5150
+4        4625
+5        4625
+6        4850
+7        5000</code></pre>
+</div>
+</div>
+<p><code>|&gt;</code> is the pipe. It passes what comes before into the first argument of what comes after.</p>
+<p>Pipes are a powerful tool for clearly expressing a sequence of multiple operations.</p>
+</section>
+<section class="slide level2">
+
+<h4 id="whats-the-mean-bill-length-by-species">What’s the mean bill length, by species?</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">summarise</span>(<span class="at">mean_bill_length =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   species   mean_bill_length
@@ -772,17 +811,17 @@
 </div>
 <div id="tabset-1-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
-<span id="cb15-2"><a href="#cb15-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
-<span id="cb15-3"><a href="#cb15-3"></a>           <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"gray50"</span>) <span class="sc">+</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin bill dimensions"</span>,</span>
-<span id="cb15-7"><a href="#cb15-7"></a>       <span class="at">subtitle =</span> <span class="st">"Bill length and depth for Penguins at Palmer Station LTER"</span>,</span>
-<span id="cb15-8"><a href="#cb15-8"></a>       <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb15-9"><a href="#cb15-9"></a>       <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>) <span class="sc">+</span></span>
-<span id="cb15-10"><a href="#cb15-10"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb15-11"><a href="#cb15-11"></a>  <span class="fu">theme</span>(<span class="at">plot.title.position =</span> <span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb17-2"><a href="#cb17-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb17-3"><a href="#cb17-3"></a>           <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"gray50"</span>) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin bill dimensions"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7"></a>       <span class="at">subtitle =</span> <span class="st">"Bill length and depth for Penguins at Palmer Station LTER"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8"></a>       <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb17-9"><a href="#cb17-9"></a>       <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb17-10"><a href="#cb17-10"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb17-11"><a href="#cb17-11"></a>  <span class="fu">theme</span>(<span class="at">plot.title.position =</span> <span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-4">
@@ -790,25 +829,25 @@
 </div>
 <div id="tabset-1-5">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
-<span id="cb16-2"><a href="#cb16-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
-<span id="cb16-3"><a href="#cb16-3"></a>           <span class="at">y =</span> bill_depth_mm,</span>
-<span id="cb16-4"><a href="#cb16-4"></a>           <span class="at">group =</span> species)) <span class="sc">+</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, </span>
-<span id="cb16-6"><a href="#cb16-6"></a>                 <span class="at">shape =</span> species),</span>
-<span id="cb16-7"><a href="#cb16-7"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
-<span id="cb16-8"><a href="#cb16-8"></a>             <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb16-9"><a href="#cb16-9"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
-<span id="cb16-11"><a href="#cb16-11"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin bill dimensions"</span>,</span>
-<span id="cb16-12"><a href="#cb16-12"></a>       <span class="at">subtitle =</span> <span class="st">"Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER"</span>,</span>
-<span id="cb16-13"><a href="#cb16-13"></a>       <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb16-14"><a href="#cb16-14"></a>       <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>,</span>
-<span id="cb16-15"><a href="#cb16-15"></a>       <span class="at">color =</span> <span class="st">"Penguin species"</span>,</span>
-<span id="cb16-16"><a href="#cb16-16"></a>       <span class="at">shape =</span> <span class="st">"Penguin species"</span>) <span class="sc">+</span></span>
-<span id="cb16-17"><a href="#cb16-17"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb16-18"><a href="#cb16-18"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.85</span>, <span class="fl">0.15</span>),</span>
-<span id="cb16-19"><a href="#cb16-19"></a>        <span class="at">plot.title.position =</span> <span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb18-2"><a href="#cb18-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb18-3"><a href="#cb18-3"></a>           <span class="at">y =</span> bill_depth_mm,</span>
+<span id="cb18-4"><a href="#cb18-4"></a>           <span class="at">group =</span> species)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, </span>
+<span id="cb18-6"><a href="#cb18-6"></a>                 <span class="at">shape =</span> species),</span>
+<span id="cb18-7"><a href="#cb18-7"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb18-8"><a href="#cb18-8"></a>             <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
+<span id="cb18-11"><a href="#cb18-11"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin bill dimensions"</span>,</span>
+<span id="cb18-12"><a href="#cb18-12"></a>       <span class="at">subtitle =</span> <span class="st">"Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER"</span>,</span>
+<span id="cb18-13"><a href="#cb18-13"></a>       <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb18-14"><a href="#cb18-14"></a>       <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb18-15"><a href="#cb18-15"></a>       <span class="at">color =</span> <span class="st">"Penguin species"</span>,</span>
+<span id="cb18-16"><a href="#cb18-16"></a>       <span class="at">shape =</span> <span class="st">"Penguin species"</span>) <span class="sc">+</span></span>
+<span id="cb18-17"><a href="#cb18-17"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb18-18"><a href="#cb18-18"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.85</span>, <span class="fl">0.15</span>),</span>
+<span id="cb18-19"><a href="#cb18-19"></a>        <span class="at">plot.title.position =</span> <span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-6">

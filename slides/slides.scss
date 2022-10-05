@@ -25,7 +25,7 @@ $primary:       $aubergine !default;
 $presentation-font-size-root: 36px;
 $presentation-heading-font: Figtree, Helvetica, sans-serif !default;
 //$presentation-heading-color: $ruby;
-$link-color: $sky2;
+$link-color: $sky;
 
 /*-- scss:rules --*/
 
@@ -52,10 +52,13 @@ kbd {
   text-align: center;
 }
 
-#title-slide .title {
-  font-size: 70px;
+#title-slide {
   text-align: left;
   margin: auto auto 50px auto;
+}
+
+#title-slide .title {
+  font-size: 70px;
 }
 
 .reveal h2 {
