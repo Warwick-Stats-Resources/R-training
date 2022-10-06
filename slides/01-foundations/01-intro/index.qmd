@@ -119,7 +119,7 @@ Another reason to love R is the community around it.
 
 It prides itself on being friendly, diverse, helpful, and supportive.
 
-- [R user groups](https://www.r-consortium.org/blog/2019/09/09/r-community-explorer-r-user-groups){target="_blank"}, especially [Warwick RUG](https://warwickrug.github.io/wrug_website/index.html){target="_blank"}
+- [R user groups](https://benubah.github.io/r-community-explorer/rugs.html){target="_blank"}, especially [Warwick RUG](https://warwickrug.github.io/wrug_website/index.html){target="_blank"}
 
 - [RLadies](https://rladies.org){target="_blank"}, especially [RLadies Coventry](https://www.meetup.com/rladies-coventry/){target="_blank"}
 
