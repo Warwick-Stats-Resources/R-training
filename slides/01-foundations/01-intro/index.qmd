@@ -1,6 +1,6 @@
 ---
 title: Introduction to R and RStudio
-subtitle: R foundations course
+subtitle: R Foundations course
 author: Ella Kaye | Department of Statistics | University of Warwick
 title-slide-attributes:
   data-background-color: "#552D62"
@@ -8,8 +8,10 @@ date: "October 10th, 2022"
 format: 
   revealjs:
     theme: [default, ../../slides.scss]
+    slide-number: true
     execute:
       echo: true
+      code-overflow: wrap
 ---
 
 ## Overview
@@ -20,7 +22,7 @@ format:
 
 -   Create and start an R project
 
--   Use `install.packages()` to install packages (libraries)
+-   Use `install.packages()` to install packages
 
 -   How to get help in R
 
@@ -86,7 +88,7 @@ format:
 :::
 
 ::: {.column width="50%"}
-#### bioconductor
+#### Bioconductor
 
 -   bioinformatics packages
 -   <https://www.bioconductor.org>
@@ -270,7 +272,10 @@ arg(function_name)
 example(function_name)
 
 # see the source code
+## in console
 function_name
+## in View pane (easier to read, syntax highlighting)
+View(function_name)
 ```
 
 ## Within R - `help.search`
@@ -282,6 +287,10 @@ help.search("function_name") # note quotation marks
 
 # for when you can't quite remember the function name
 ??something_like_function_name
+
+# R help start page
+help.start()
+## note that using the RStudio Help home button gives even more resources
 ```
 
 ## Within R - Help with package
@@ -405,7 +414,8 @@ ggplot(data = penguins,
        x = "Bill length (mm)",
        y = "Bill depth (mm)") +
   theme_minimal() + 
-  theme(plot.title.position = "plot")
+  theme(plot.title.position = "plot",
+        text = element_text(size = 20))
 ```
 
 ### plot 2
@@ -416,6 +426,7 @@ ggplot(data = penguins,
 ```{r}
 #| label: bill-species
 #| fig-show: hide
+#| code-overflow: wrap
 ggplot(data = penguins,
        aes(x = bill_length_mm,
            y = bill_depth_mm,
@@ -434,7 +445,8 @@ ggplot(data = penguins,
        shape = "Penguin species") +
   theme_minimal() +
   theme(legend.position = c(0.85, 0.15),
-        plot.title.position = "plot")
+        plot.title.position = "plot",
+        text = element_text(size = 20))
 ```
 
 ### what?!

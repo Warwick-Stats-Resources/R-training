@@ -8,7 +8,7 @@
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.1.189">
+  <meta name="generator" content="quarto-1.1.251">
 
   <meta name="author" content="Ella Kaye | Department of Statistics | University of Warwick">
   <title>R training - Introduction to R and RStudio</title>
@@ -390,7 +390,7 @@
 
 <section id="title-slide" data-background-color="#552D62" class="center">
   <h1 class="title">Introduction to R and RStudio</h1>
-  <p class="subtitle">R foundations course</p>
+  <p class="subtitle">R Foundations course</p>
   <p class="author">Ella Kaye | Department of Statistics | University of Warwick</p>
   <p class="date">October 10th, 2022</p>
 </section>
@@ -401,7 +401,7 @@
 <li><p>Why use R?</p></li>
 <li><p>Use RStudio to write and run R programmes</p></li>
 <li><p>Create and start an R project</p></li>
-<li><p>Use <code>install.packages()</code> to install packages (libraries)</p></li>
+<li><p>Use <code>install.packages()</code> to install packages</p></li>
 <li><p>How to get help in R</p></li>
 <li><p>See examples of data wrangling and visualisation</p></li>
 </ul>
@@ -459,7 +459,7 @@
 <li>nearly 19000 packages</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<h4 id="bioconductor">bioconductor</h4>
+<h4 id="bioconductor">Bioconductor</h4>
 <ul>
 <li>bioinformatics packages</li>
 <li><a href="https://www.bioconductor.org" class="uri">https://www.bioconductor.org</a></li>
@@ -643,7 +643,10 @@
 <span id="cb3-9"><a href="#cb3-9"></a><span class="fu">example</span>(function_name)</span>
 <span id="cb3-10"><a href="#cb3-10"></a></span>
 <span id="cb3-11"><a href="#cb3-11"></a><span class="co"># see the source code</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a>function_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="do">## in console</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>function_name</span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="do">## in View pane (easier to read, syntax highlighting)</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="fu">View</span>(function_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="within-r---help.search" class="slide level2">
@@ -654,7 +657,11 @@
 <span id="cb4-3"><a href="#cb4-3"></a>??function_name</span>
 <span id="cb4-4"><a href="#cb4-4"></a></span>
 <span id="cb4-5"><a href="#cb4-5"></a><span class="co"># for when you can't quite remember the function name</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>??something_like_function_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-6"><a href="#cb4-6"></a>??something_like_function_name</span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co"># R help start page</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="fu">help.start</span>()</span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="do">## note that using the RStudio Help home button gives even more resources</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="within-r---help-with-package" class="slide level2">
@@ -821,7 +828,8 @@
 <span id="cb17-8"><a href="#cb17-8"></a>       <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
 <span id="cb17-9"><a href="#cb17-9"></a>       <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>) <span class="sc">+</span></span>
 <span id="cb17-10"><a href="#cb17-10"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb17-11"><a href="#cb17-11"></a>  <span class="fu">theme</span>(<span class="at">plot.title.position =</span> <span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-11"><a href="#cb17-11"></a>  <span class="fu">theme</span>(<span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb17-12"><a href="#cb17-12"></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-4">
@@ -829,7 +837,7 @@
 </div>
 <div id="tabset-1-5">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r code-overflow-wrap number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb18-2"><a href="#cb18-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
 <span id="cb18-3"><a href="#cb18-3"></a>           <span class="at">y =</span> bill_depth_mm,</span>
 <span id="cb18-4"><a href="#cb18-4"></a>           <span class="at">group =</span> species)) <span class="sc">+</span></span>
@@ -847,7 +855,8 @@
 <span id="cb18-16"><a href="#cb18-16"></a>       <span class="at">shape =</span> <span class="st">"Penguin species"</span>) <span class="sc">+</span></span>
 <span id="cb18-17"><a href="#cb18-17"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb18-18"><a href="#cb18-18"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.85</span>, <span class="fl">0.15</span>),</span>
-<span id="cb18-19"><a href="#cb18-19"></a>        <span class="at">plot.title.position =</span> <span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-19"><a href="#cb18-19"></a>        <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb18-20"><a href="#cb18-20"></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-6">
@@ -915,7 +924,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',

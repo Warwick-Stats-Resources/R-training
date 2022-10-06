@@ -16,16 +16,18 @@ $aubergine2: #886C91; //paler
 $ruby: #9A1310;
 $ruby2: #B85A58; //paler
 $sky: #00407A;
-$sky2: #4D79A2; //paler
+$sky-80: #336695;
+$sky2: #4D79A2; //paler (70)
 $gray: #393A3B;
 $gray2: #747576; //paler
 
 $primary:       $aubergine !default;
 
 $presentation-font-size-root: 36px;
+$code-block-font-size: .55em;
 $presentation-heading-font: Figtree, Helvetica, sans-serif !default;
 //$presentation-heading-color: $ruby;
-$link-color: $sky;
+$link-color: $sky2;
 
 /*-- scss:rules --*/
 

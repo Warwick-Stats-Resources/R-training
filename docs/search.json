@@ -81,7 +81,7 @@
     "href": "slides/01-foundations/01-intro/index.html#overview",
     "title": "Introduction to R and RStudio",
     "section": "Overview",
-    "text": "Overview\n\nWhy use R?\nUse RStudio to write and run R programmes\nCreate and start an R project\nUse install.packages() to install packages (libraries)\nHow to get help in R\nSee examples of data wrangling and visualisation"
+    "text": "Overview\n\nWhy use R?\nUse RStudio to write and run R programmes\nCreate and start an R project\nUse install.packages() to install packages\nHow to get help in R\nSee examples of data wrangling and visualisation"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#what-can-r-do",
@@ -102,7 +102,7 @@
     "href": "slides/01-foundations/01-intro/index.html#the-r-ecosystem-1",
     "title": "Introduction to R and RStudio",
     "section": "The R Ecosystem",
-    "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\nbioconductor\n\nbioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\n\n\nGitHub\n\npackages in development\nGitHub-only packages"
+    "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\nBioconductor\n\nbioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\n\n\nGitHub\n\npackages in development\nGitHub-only packages"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#the-tidyverse",
@@ -221,14 +221,14 @@
     "href": "slides/01-foundations/01-intro/index.html#within-r---help-with-functions",
     "title": "Introduction to R and RStudio",
     "section": "Within R - Help with functions",
-    "text": "Within R - Help with functions\n\n# help with a specific function\nhelp(function_name)\n?function_name\n\n# quick reminder of the function arguments\narg(function_name)\n\n# see an example\nexample(function_name)\n\n# see the source code\nfunction_name"
+    "text": "Within R - Help with functions\n\n# help with a specific function\nhelp(function_name)\n?function_name\n\n# quick reminder of the function arguments\narg(function_name)\n\n# see an example\nexample(function_name)\n\n# see the source code\n## in console\nfunction_name\n## in View pane (easier to read, syntax highlighting)\nView(function_name)"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#within-r---help.search",
     "href": "slides/01-foundations/01-intro/index.html#within-r---help.search",
     "title": "Introduction to R and RStudio",
     "section": "Within R - help.search",
-    "text": "Within R - help.search\n\n# when ?function_name fails (e.g. don't have library loaded)\nhelp.search(\"function_name\") # note quotation marks\n??function_name\n\n# for when you can't quite remember the function name\n??something_like_function_name"
+    "text": "Within R - help.search\n\n# when ?function_name fails (e.g. don't have library loaded)\nhelp.search(\"function_name\") # note quotation marks\n??function_name\n\n# for when you can't quite remember the function name\n??something_like_function_name\n\n# R help start page\nhelp.start()\n## note that using the RStudio Help home button gives even more resources"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#within-r---help-with-package",
