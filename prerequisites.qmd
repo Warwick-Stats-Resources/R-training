@@ -4,7 +4,7 @@ title: Getting set up
 
 Please ensure that you have the latest versions of R and RStudio installed prior to the first session. Currently, that's R-4.2.1 and RStudio-2022.07.2. 
 
-We also **strongly** recommended you install the development tools to avoid potential issues installing packages.
+We also **strongly** recommend you install the development tools to avoid potential issues installing packages.
 
 ### Installing R
 
