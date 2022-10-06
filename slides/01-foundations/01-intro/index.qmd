@@ -364,7 +364,7 @@ penguins |>
 ```
 . . .
 
-`|>` is the pipe. It passes what comes before into the first argument of what comes after.
+`|>` is a pipe. It passes what comes before into the first argument of what comes after.
 
 Pipes are a powerful tool for clearly expressing a sequence of multiple operations. 
 
