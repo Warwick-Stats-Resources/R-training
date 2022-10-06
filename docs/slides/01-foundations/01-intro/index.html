@@ -411,7 +411,7 @@
 <h1>Why use R?</h1>
 
 </section>
-<section id="what-can-r-do" class="slide level2">
+<section id="what-can-r-do" class="slide level2 smaller">
 <h2>What can R do?</h2>
 <ul>
 <li><p>Data import</p></li>
@@ -491,13 +491,13 @@
 <p>Another reason to love R is the community around it.</p>
 <p>It prides itself on being friendly, diverse, helpful, and supportive.</p>
 <ul>
-<li><p><a href="https://www.r-consortium.org/blog/2019/09/09/r-community-explorer-r-user-groups" target="_blank">R user groups</a></p></li>
-<li><p><a href="https://rladies.org" target="_blank">R Ladies</a></p></li>
-<li><p><a href="https://rainbowr.netlify.app" target="_blank">RainbowR</a></p></li>
-<li><p><a href="https://mircommunity.com" target="_blank">MiR</a> (minorities in R)</p></li>
+<li><p><a href="https://www.r-consortium.org/blog/2019/09/09/r-community-explorer-r-user-groups" target="_blank">R user groups</a>, especially <a href="https://warwickrug.github.io/wrug_website/index.html" target="_blank">Warwick RUG</a></p></li>
+<li><p><a href="https://rladies.org" target="_blank">RLadies</a>, especially <a href="https://www.meetup.com/rladies-coventry/" target="_blank">RLadies Coventry</a></p></li>
 <li><p><a href="https://community.rstudio.com" target="_blank">RStudio Community</a></p></li>
-<li><p><a href="https://twitter.com/hashtag/rstats" target="_blank">#RStats</a> on twitter</p></li>
-<li><p><a href="https://www.rfordatasci.com" target="_blank">R for Data Science</a> on twitter</p></li>
+<li><p><a href="https://www.rfordatasci.com" target="_blank">R for Data Science</a></p></li>
+<li><p><a href="https://twitter.com/hashtag/rstats" target="_blank">#RStats</a> and <a href="https://twitter.com/hashtag/TidyTuesday" target="_blank">#TidyTuesday</a> on twitter</p></li>
+<li><p><a href="https://rainbowr.netlify.app" target="_blank">RainbowR</a> (LGBTQ+)</p></li>
+<li><p><a href="https://mircommunity.com" target="_blank">MiR</a> (minorities in R)</p></li>
 </ul>
 </section></section>
 <section>
@@ -757,28 +757,28 @@
 </section>
 <section class="slide level2">
 
-<h4 id="show-me-the-body-masses-of-female-gentoo-penguins-with-a-bill-length-greater-than-48mm">Show me the body masses of female Gentoo penguins with a bill length greater than 48mm</h4>
+<h4 id="show-me-the-bill-dimensions-of-the-5-heaviest-female-gentoo-penguins">Show me the bill dimensions of the 5 heaviest female Gentoo penguins</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"female"</span>,</span>
-<span id="cb13-3"><a href="#cb13-3"></a>         species <span class="sc">==</span> <span class="st">"Gentoo"</span>,</span>
-<span id="cb13-4"><a href="#cb13-4"></a>         bill_length_mm <span class="sc">&gt;</span> <span class="dv">48</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">select</span>(body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="#cb13-3"></a>         species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">slice_max</span>(body_mass_g, <span class="at">n =</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"bill"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 1
-  body_mass_g
-        &lt;int&gt;
-1        4450
-2        4600
-3        5150
-4        4625
-5        4625
-6        4850
-7        5000</code></pre>
+<pre><code># A tibble: 5 × 2
+  bill_length_mm bill_depth_mm
+           &lt;dbl&gt;         &lt;dbl&gt;
+1           46.5          14.8
+2           45.2          14.8
+3           49.1          14.8
+4           44.9          13.3
+5           45.1          14.5</code></pre>
 </div>
 </div>
+<div class="fragment">
 <p><code>|&gt;</code> is the pipe. It passes what comes before into the first argument of what comes after.</p>
 <p>Pipes are a powerful tool for clearly expressing a sequence of multiple operations.</p>
+</div>
 </section>
 <section class="slide level2">
 

@@ -28,7 +28,7 @@ format:
 
 # Why use R? {background-color="#552D62"}
 
-## What can R do?
+## What can R do? {.smaller}
 
 -   Data import
 
@@ -119,21 +119,19 @@ Another reason to love R is the community around it.
 
 It prides itself on being friendly, diverse, helpful, and supportive.
 
-- [R user groups](https://www.r-consortium.org/blog/2019/09/09/r-community-explorer-r-user-groups){target="_blank"}
+- [R user groups](https://www.r-consortium.org/blog/2019/09/09/r-community-explorer-r-user-groups){target="_blank"}, especially [Warwick RUG](https://warwickrug.github.io/wrug_website/index.html){target="_blank"}
 
-- [R Ladies](https://rladies.org){target="_blank"}
-
-- [RainbowR](https://rainbowr.netlify.app){target="_blank"}
-
-- [MiR](https://mircommunity.com){target="_blank"} (minorities in R)
+- [RLadies](https://rladies.org){target="_blank"}, especially [RLadies Coventry](https://www.meetup.com/rladies-coventry/){target="_blank"}
 
 - [RStudio Community](https://community.rstudio.com){target="_blank"}
 
-- [#RStats](https://twitter.com/hashtag/rstats){target="_blank"} on twitter
+- [R for Data Science](https://www.rfordatasci.com){target="_blank"} 
 
-- [R for Data Science](https://www.rfordatasci.com){target="_blank"} on twitter
+- [#RStats](https://twitter.com/hashtag/rstats){target="_blank"} and [#TidyTuesday](https://twitter.com/hashtag/TidyTuesday){target="_blank"} on twitter
 
+- [RainbowR](https://rainbowr.netlify.app){target="_blank"} (LGBTQ+)
 
+- [MiR](https://mircommunity.com){target="_blank"} (minorities in R)
 
 # Introducing RStudio {background-color="#552D62"}
 
@@ -354,15 +352,17 @@ count(penguins, species, island, .drop = FALSE)
 
 ---
 
-#### Show me the body masses of female Gentoo penguins with a bill length greater than 48mm
+#### Show me the bill dimensions of the 5 heaviest female Gentoo penguins
 
 ```{r}
 penguins |>
   filter(sex == "female",
-         species == "Gentoo",
-         bill_length_mm > 48) |>
-  select(body_mass_g)
+         species == "Gentoo") |>
+  slice_max(body_mass_g, n = 5) |>
+  select(contains("bill"))
+  
 ```
+. . .
 
 `|>` is the pipe. It passes what comes before into the first argument of what comes after.
 
