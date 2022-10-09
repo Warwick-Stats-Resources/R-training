@@ -88,3 +88,11 @@ kbd {
 .reveal .slide figure>figcaption, .reveal .slide img.stretch+p.caption, .reveal .slide img.r-stretch+p.caption {
   font-size: 0.5em;
 }
+
+.reveal .slides #penguin-slide-text {
+  font-size: 1.6em;
+  font-family: $headings-font-family;
+  font-weight: 600;
+  //margin-top: 200px;
+  vertical-align: top;
+}

@@ -204,9 +204,9 @@ Text files saved with an .R suffix are recognised as R code
 
 Code can be sent directly from a script to the console as follows:
 
--   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd title = "enter">↵</kbd> or <img src="images/run_button.png" alt="Run button" height="30px" style="vertical-align: middle;"/> run current line
+-   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd title = "enter">↵</kbd> or <img src="images/run_button.png" alt="Run button" height="50px" style="vertical-align: middle;"/> run current line
     -   Run multiple lines by selecting first
--   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd>Shift</kbd> + <kbd title = "enter">↵</kbd> or <img src="images/source_button.png" alt="Source button" height="30px" style="vertical-align: middle;"/>
+-   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd>Shift</kbd> + <kbd title = "enter">↵</kbd> or <img src="images/source_button.png" alt="Source button" height="50px" style="vertical-align: middle;"/>
     -   Run the script from start to finish.
 
 ## Why R scripts
@@ -335,7 +335,20 @@ RStudio Help home demo
 
 link to [slides](https://warwick-stats-resources.github.io/R-training/slides/01-foundations/01-intro/#/title-slide){target="_blank"}
 
-# What can we learn about penguins? {background-color="#552D62"}
+# {background-image="images/gentoo.jpeg"}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+[What can we learn about penguins?]{#penguin-slide-text}
+:::
+
+::: {.column width="50%"}
+:::
+
+::::
+
+
 
 ## The data
 
@@ -479,6 +492,6 @@ Material inspired by and remixed from:
 
 - <https://carpentries-incubator.github.io/r-tidyverse-4-datasets/>
 
-### License
+## License
 
 Licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){target="_blank"}).

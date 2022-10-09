@@ -277,6 +277,13 @@
     "href": "slides/01-foundations/01-intro/index.html#notes",
     "title": "Introduction to R and RStudio",
     "section": "Notes",
-    "text": "Notes\nMaterial inspired by and remixed from:\n\nhttps://www.heatherturner.net/teaching/zero-to-hero/#1\nhttps://ellakaye.github.io/Rladies-Coventry-getting-help-in-R/getting_help_in_R.html#1\nhttps://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse1.pdf\nhttps://carpentries-incubator.github.io/r-tidyverse-4-datasets/\n\nLicense\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+    "text": "Notes\nMaterial inspired by and remixed from:\n\nhttps://www.heatherturner.net/teaching/zero-to-hero/#1\nhttps://ellakaye.github.io/Rladies-Coventry-getting-help-in-R/getting_help_in_R.html#1\nhttps://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse1.pdf\nhttps://carpentries-incubator.github.io/r-tidyverse-4-datasets/"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#license",
+    "href": "slides/01-foundations/01-intro/index.html#license",
+    "title": "Introduction to R and RStudio",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   }
 ]
