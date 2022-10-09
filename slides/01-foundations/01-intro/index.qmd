@@ -60,17 +60,17 @@ format:
 ::: {.column width="50%"}
 #### base
 
--   create R objects
--   summaries
--   maths functions
+-   Create R objects
+-   Summaries
+-   Maths functions
 :::
 
 ::: {.column width="50%"}
 #### recommended
 
--   statistics
--   graphics
--   example data
+-   Statistics
+-   Graphics
+-   Example data
 :::
 :::
 
@@ -90,7 +90,7 @@ format:
 ::: {.column width="50%"}
 #### Bioconductor
 
--   bioinformatics packages
+-   Bioinformatics packages
 -   <https://www.bioconductor.org>
 -   \~2100 packages
 :::
@@ -98,42 +98,42 @@ format:
 
 #### GitHub
 
--   packages in development
+-   Packages in development
 -   GitHub-only packages
 
 ## The tidyverse
 
 The [tidyverse](https://www.tidyverse.org) is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures.
 
-![](/slides/01-foundations/images/tidyverse-packages.png){fig-align="center"}
+![From <https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/>](/slides/01-foundations/images/tidyverse-packages.png){fig-align="center"}
 
 ## palmerpenguins
 
 -   [**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins/) is a dataset package, designed to be a great example for data exploration and visualisation.
 
--   It contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica.
+-   It contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Archipelago, Antarctica.
 
-![](/slides/01-foundations/images/lter_penguins.png){fig-align="center"}
+![Penguin artwork by Allison Horst <https://allisonhorst.github.io/palmerpenguins/articles/art.html>](/slides/01-foundations/images/lter_penguins.png){fig-align="center"}
 
 ## The R community
 
-Another reason to love R is the community around it. 
+Another reason to love R is the community around it.
 
 It prides itself on being friendly, diverse, helpful, and supportive.
 
-- [R user groups](https://benubah.github.io/r-community-explorer/rugs.html){target="_blank"}, especially [Warwick RUG](https://warwickrug.github.io/wrug_website/index.html){target="_blank"}
+-   [R user groups](https://benubah.github.io/r-community-explorer/rugs.html){target="_blank"}, especially [Warwick RUG](https://warwickrug.github.io/wrug_website/index.html){target="_blank"}
 
-- [RLadies](https://rladies.org){target="_blank"}, especially [RLadies Coventry](https://www.meetup.com/rladies-coventry/){target="_blank"}
+-   [RLadies](https://rladies.org){target="_blank"}, especially [RLadies Coventry](https://www.meetup.com/rladies-coventry/){target="_blank"}
 
-- [RStudio Community](https://community.rstudio.com){target="_blank"}
+-   [RStudio Community](https://community.rstudio.com){target="_blank"}
 
-- [R for Data Science](https://www.rfordatasci.com){target="_blank"} 
+-   [R for Data Science](https://www.rfordatasci.com){target="_blank"}
 
-- [#RStats](https://twitter.com/hashtag/rstats){target="_blank"} and [#TidyTuesday](https://twitter.com/hashtag/TidyTuesday){target="_blank"} on twitter
+-   [#RStats](https://twitter.com/hashtag/rstats){target="_blank"} and [#TidyTuesday](https://twitter.com/hashtag/TidyTuesday){target="_blank"} on twitter
 
-- [RainbowR](https://rainbowr.netlify.app){target="_blank"} (LGBTQ+)
+-   [RainbowR](https://rainbowr.netlify.app){target="_blank"} (LGBTQ+)
 
-- [MiR](https://mircommunity.com){target="_blank"} (minorities in R)
+-   [MiR](https://mircommunity.com){target="_blank"} (minorities in R)
 
 # Introducing RStudio {background-color="#552D62"}
 
@@ -149,13 +149,13 @@ It prides itself on being friendly, diverse, helpful, and supportive.
 
 An RStudio project is a contect for working on a specific project
 
--   keeps files well-organised
+-   Keeps files well-organised
 
--   automatically sets working directory to project root
+-   Automatically sets working directory to project root
 
--   has separate workspace and command history
+-   Has separate workspace and command history
 
--   works well with version control via git or svn
+-   Works well with version control via git or svn
 
 ## Getting started with projects
 
@@ -165,17 +165,17 @@ An RStudio project is a contect for working on a specific project
 
 ## RStudio project demo
 
--   create r-foundations project
+-   Create R-Foundations project
 
--   create first script
+-   Create first script
 
 ## Using the console
 
--   for things that only need doing once, e.g. installing packages
+-   For things that only need doing once, e.g. installing packages
 
--   for doing things you don't need to track, e.g. requesting help files
+-   For doing things you don't need to track, e.g. requesting help files
 
--   to quickly explore new ideas before adding them to a script
+-   To quickly explore new ideas before adding them to a script
 
 ## Using the console: shortcuts
 
@@ -205,7 +205,7 @@ Text files saved with an .R suffix are recognised as R code
 Code can be sent directly from a script to the console as follows:
 
 -   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd title = "enter">↵</kbd> or <img src="images/run_button.png" alt="Run button" height="30px" style="vertical-align: middle;"/> run current line
-    -   run multiple lines by selecting first
+    -   Run multiple lines by selecting first
 -   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd>Shift</kbd> + <kbd title = "enter">↵</kbd> or <img src="images/source_button.png" alt="Source button" height="30px" style="vertical-align: middle;"/>
     -   Run the script from start to finish.
 
@@ -213,9 +213,9 @@ Code can be sent directly from a script to the console as follows:
 
 Writing an R script for an analysis has several advantages over a graphical user interface (GUI)
 
--   it provides a record of the exact approach used in an analysis
--   it enables the analysis to be easily reproduced and modified
--   it allows greater control
+-   It provides a record of the exact approach used in an analysis
+-   It enables the analysis to be easily reproduced and modified
+-   It allows greater control
 
 ## Good practice for R Scripts
 
@@ -241,20 +241,27 @@ head(penguins)
 summary(penguins)
 ```
 
-## Install and loading packages
+## Installing packages
 
 *In console*
 
 -   Install a package with `install.packages("package_name")`
 
+    - Watch out for the plural!
+
 -   Install multiple packages with `install.packages(c("package1", "package2"))`
 
--   or use install button in packages pane: ![](images/install_packages.png){width="150"}
+    - The `c()` function creates a vector
+
+-   Or use install button in packages pane: 
+
+![](images/install_packages.png){width="400" fig-align="center"}
+
+## Loading packages
 
 *In script*
 
 -   Load packages with `library(package_name)`
-
 
 # Getting help in R {background-color="#552D62"}
 
@@ -316,15 +323,15 @@ RStudio Help home demo
 
 ## Your turn
 
--   create an R project called "R-foundations"
+-   Create an R project called "R-foundations"
 
--   install the packages **palmerpenguins** and **tidyverse**
+-   Install the packages **palmerpenguins** and **tidyverse**
 
--   find the help page for the `penguins` dataset
+-   Find the help page for the `penguins` dataset
 
--   find the help page for the `filter` function in the `dplyr` package
+-   Find the help page for the `filter` function in the `dplyr` package
 
--   experiment typing commands into the console or in an R script.
+-   Experiment typing commands into the console or in an R script.
 
 link to [slides](https://warwick-stats-resources.github.io/R-training/slides/01-foundations/01-intro/#/title-slide){target="_blank"}
 
@@ -338,12 +345,11 @@ library(palmerpenguins)
 library(tidyverse)
 ```
 
-
 ```{r}
 penguins
 ```
 
----
+------------------------------------------------------------------------
 
 #### How many of each species?
 
@@ -351,7 +357,7 @@ penguins
 count(penguins, species)
 ```
 
----
+------------------------------------------------------------------------
 
 #### How many of each species on each island?
 
@@ -359,7 +365,7 @@ count(penguins, species)
 count(penguins, species, island, .drop = FALSE)
 ```
 
----
+------------------------------------------------------------------------
 
 #### Show me the bill dimensions of the 5 heaviest female Gentoo penguins
 
@@ -371,13 +377,14 @@ penguins |>
   select(contains("bill"))
   
 ```
+
 . . .
 
 `|>` is a pipe. It passes what comes before into the first argument of what comes after.
 
-Pipes are a powerful tool for clearly expressing a sequence of multiple operations. 
+Pipes are a powerful tool for clearly expressing a sequence of multiple operations.
 
---- 
+------------------------------------------------------------------------
 
 #### What's the mean bill length, by species?
 
@@ -387,20 +394,21 @@ penguins |>
   summarise(mean_bill_length = mean(bill_length_mm, na.rm = TRUE))
 ```
 
---- 
+------------------------------------------------------------------------
 
 #### What's the relationship between bill length and depth?
 
-::: {.panel-tabset}
+::: panel-tabset
 ### picture
 
-![](images/culmen_depth.png){width=50%}
+![Artwork by Allison Horst <https://allisonhorst.github.io/palmerpenguins/articles/art.html>](images/culmen_depth.png){width="50%"}
 
 ### plot 1
-![](`r knitr::fig_chunk("bill-no-species", "png")`){width=80%}
+
+![](`r knitr::fig_chunk("bill-no-species", "png")`){width="80%"}
 
 ### code 1
-  
+
 ```{r}
 #| label: bill-no-species
 #| fig-show: hide
@@ -419,10 +427,11 @@ ggplot(data = penguins,
 ```
 
 ### plot 2
-![](`r knitr::fig_chunk("bill-species", "png")`){width=80%}
+
+![](`r knitr::fig_chunk("bill-species", "png")`){width="80%"} 
 
 ### code 2
-  
+
 ```{r}
 #| label: bill-species
 #| fig-show: hide
@@ -449,13 +458,27 @@ ggplot(data = penguins,
         text = element_text(size = 20))
 ```
 
-### what?!
+### what?
 
-This is an illustration of [Simpson's Paradox](https://en.wikipedia.org/wiki/Simpson's_paradox){target="__blank"}.
+This is an illustration of [Simpson's Paradox](https://en.wikipedia.org/wiki/Simpson's_paradox){target="_blank"}.
 
-> Simpson's paradox is a phenomenon in probability and statistics in which a trend appears in several groups of data but disappears or reverses when the groups are combined. 
-
+> Simpson's paradox is a phenomenon in probability and statistics in which a trend appears in several groups of data but disappears or reverses when the groups are combined.
 :::
 
+[Example adapted from https://allisonhorst.github.io/palmerpenguins/articles/examples.html](https://allisonhorst.github.io/palmerpenguins/articles/examples.html){style="font-size: 50%"}
 
+## Notes
 
+Material inspired by and remixed from:
+
+- <https://www.heatherturner.net/teaching/zero-to-hero/#1>
+
+- <https://ellakaye.github.io/Rladies-Coventry-getting-help-in-R/getting_help_in_R.html#1>
+
+- <https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse1.pdf>
+
+- <https://carpentries-incubator.github.io/r-tidyverse-4-datasets/>
+
+### License
+
+Licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){target="_blank"}).

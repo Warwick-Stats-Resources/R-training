@@ -28,6 +28,7 @@ $code-block-font-size: .55em;
 $presentation-heading-font: Figtree, Helvetica, sans-serif !default;
 //$presentation-heading-color: $ruby;
 $link-color: $sky2;
+$code-color: $ruby2;
 
 /*-- scss:rules --*/
 
@@ -84,3 +85,6 @@ kbd {
   text-align: right;  
 }
 
+.reveal .slide figure>figcaption, .reveal .slide img.stretch+p.caption, .reveal .slide img.r-stretch+p.caption {
+  font-size: 0.5em;
+}

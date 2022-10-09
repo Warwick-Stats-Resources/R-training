@@ -95,28 +95,28 @@
     "href": "slides/01-foundations/01-intro/index.html#the-r-ecosystem",
     "title": "Introduction to R and RStudio",
     "section": "The R Ecosystem",
-    "text": "The R Ecosystem\nBase R\n\n\nbase\n\ncreate R objects\nsummaries\nmaths functions\n\n\nrecommended\n\nstatistics\ngraphics\nexample data"
+    "text": "The R Ecosystem\nBase R\n\n\nbase\n\nCreate R objects\nSummaries\nMaths functions\n\n\nrecommended\n\nStatistics\nGraphics\nExample data"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#the-r-ecosystem-1",
     "href": "slides/01-foundations/01-intro/index.html#the-r-ecosystem-1",
     "title": "Introduction to R and RStudio",
     "section": "The R Ecosystem",
-    "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\nBioconductor\n\nbioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\n\n\nGitHub\n\npackages in development\nGitHub-only packages"
+    "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\nBioconductor\n\nBioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\n\n\nGitHub\n\nPackages in development\nGitHub-only packages"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#the-tidyverse",
     "href": "slides/01-foundations/01-intro/index.html#the-tidyverse",
     "title": "Introduction to R and RStudio",
     "section": "The tidyverse",
-    "text": "The tidyverse\nThe tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures."
+    "text": "The tidyverse\nThe tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures.\n\nFrom https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#palmerpenguins",
     "href": "slides/01-foundations/01-intro/index.html#palmerpenguins",
     "title": "Introduction to R and RStudio",
     "section": "palmerpenguins",
-    "text": "palmerpenguins\n\npalmerpenguins is a dataset package, designed to be a great example for data exploration and visualisation.\nIt contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Alchipelago, Antarctica."
+    "text": "palmerpenguins\n\npalmerpenguins is a dataset package, designed to be a great example for data exploration and visualisation.\nIt contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Archipelago, Antarctica.\n\n\nPenguin artwork by Allison Horst https://allisonhorst.github.io/palmerpenguins/articles/art.html"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#the-r-community",
@@ -144,7 +144,7 @@
     "href": "slides/01-foundations/01-intro/index.html#best-practice-use-r-projects",
     "title": "Introduction to R and RStudio",
     "section": "Best practice: use R projects",
-    "text": "Best practice: use R projects\nAn RStudio project is a contect for working on a specific project\n\nkeeps files well-organised\nautomatically sets working directory to project root\nhas separate workspace and command history\nworks well with version control via git or svn"
+    "text": "Best practice: use R projects\nAn RStudio project is a contect for working on a specific project\n\nKeeps files well-organised\nAutomatically sets working directory to project root\nHas separate workspace and command history\nWorks well with version control via git or svn"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#getting-started-with-projects",
@@ -158,14 +158,14 @@
     "href": "slides/01-foundations/01-intro/index.html#rstudio-project-demo",
     "title": "Introduction to R and RStudio",
     "section": "RStudio project demo",
-    "text": "RStudio project demo\n\ncreate r-foundations project\ncreate first script"
+    "text": "RStudio project demo\n\nCreate R-Foundations project\nCreate first script"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#using-the-console",
     "href": "slides/01-foundations/01-intro/index.html#using-the-console",
     "title": "Introduction to R and RStudio",
     "section": "Using the console",
-    "text": "Using the console\n\nfor things that only need doing once, e.g. installing packages\nfor doing things you don’t need to track, e.g. requesting help files\nto quickly explore new ideas before adding them to a script"
+    "text": "Using the console\n\nFor things that only need doing once, e.g. installing packages\nFor doing things you don’t need to track, e.g. requesting help files\nTo quickly explore new ideas before adding them to a script"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#using-the-console-shortcuts",
@@ -186,14 +186,14 @@
     "href": "slides/01-foundations/01-intro/index.html#using-scripts",
     "title": "Introduction to R and RStudio",
     "section": "Using scripts",
-    "text": "Using scripts\nText files saved with an .R suffix are recognised as R code\nCode can be sent directly from a script to the console as follows:\n\nCtrl/⌘ + ↵ or  run current line\n\nrun multiple lines by selecting first\n\nCtrl/⌘ + Shift + ↵ or \n\nRun the script from start to finish."
+    "text": "Using scripts\nText files saved with an .R suffix are recognised as R code\nCode can be sent directly from a script to the console as follows:\n\nCtrl/⌘ + ↵ or  run current line\n\nRun multiple lines by selecting first\n\nCtrl/⌘ + Shift + ↵ or \n\nRun the script from start to finish."
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#why-r-scripts",
     "href": "slides/01-foundations/01-intro/index.html#why-r-scripts",
     "title": "Introduction to R and RStudio",
     "section": "Why R scripts",
-    "text": "Why R scripts\nWriting an R script for an analysis has several advantages over a graphical user interface (GUI)\n\nit provides a record of the exact approach used in an analysis\nit enables the analysis to be easily reproduced and modified\nit allows greater control"
+    "text": "Why R scripts\nWriting an R script for an analysis has several advantages over a graphical user interface (GUI)\n\nIt provides a record of the exact approach used in an analysis\nIt enables the analysis to be easily reproduced and modified\nIt allows greater control"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#good-practice-for-r-scripts",
@@ -214,7 +214,7 @@
     "href": "slides/01-foundations/01-intro/index.html#install-and-loading-packages",
     "title": "Introduction to R and RStudio",
     "section": "Install and loading packages",
-    "text": "Install and loading packages\nIn console\n\nInstall a package with install.packages(\"package_name\")\nInstall multiple packages with install.packages(c(\"package1\", \"package2\"))\nor use install button in packages pane: \n\nIn script\n\nLoad packages with library(package_name)"
+    "text": "Install and loading packages\nIn console\n\nInstall a package with install.packages(\"package_name\")\nInstall multiple packages with install.packages(c(\"package1\", \"package2\"))\nOr use install button in packages pane: \n\nIn script\n\nLoad packages with library(package_name)"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#within-r---help-with-functions",
@@ -242,7 +242,7 @@
     "href": "slides/01-foundations/01-intro/index.html#your-turn",
     "title": "Introduction to R and RStudio",
     "section": "Your turn",
-    "text": "Your turn\n\ncreate an R project called “R-foundations”\ninstall the packages palmerpenguins and tidyverse\nfind the help page for the penguins dataset\nfind the help page for the filter function in the dplyr package\nexperiment typing commands into the console or in an R script.\n\nlink to slides"
+    "text": "Your turn\n\nCreate an R project called “R-foundations”\nInstall the packages palmerpenguins and tidyverse\nFind the help page for the penguins dataset\nFind the help page for the filter function in the dplyr package\nExperiment typing commands into the console or in an R script.\n\nlink to slides"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#the-data",
@@ -257,5 +257,26 @@
     "title": "schedule",
     "section": "",
     "text": "Please use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#installing-packages",
+    "href": "slides/01-foundations/01-intro/index.html#installing-packages",
+    "title": "Introduction to R and RStudio",
+    "section": "Installing packages",
+    "text": "Installing packages\nIn console\n\nInstall a package with install.packages(\"package_name\")\n\nWatch out for the plural!\n\nInstall multiple packages with install.packages(c(\"package1\", \"package2\"))\n\nThe c() function creates a vector\n\nOr use install button in packages pane:"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#loading-packages",
+    "href": "slides/01-foundations/01-intro/index.html#loading-packages",
+    "title": "Introduction to R and RStudio",
+    "section": "Loading packages",
+    "text": "Loading packages\nIn script\n\nLoad packages with library(package_name)"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#notes",
+    "href": "slides/01-foundations/01-intro/index.html#notes",
+    "title": "Introduction to R and RStudio",
+    "section": "Notes",
+    "text": "Notes\nMaterial inspired by and remixed from:\n\nhttps://www.heatherturner.net/teaching/zero-to-hero/#1\nhttps://ellakaye.github.io/Rladies-Coventry-getting-help-in-R/getting_help_in_R.html#1\nhttps://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse1.pdf\nhttps://carpentries-incubator.github.io/r-tidyverse-4-datasets/\n\nLicense\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   }
 ]
