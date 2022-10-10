@@ -32,7 +32,14 @@
     "href": "content/01-foundations/01-intro.html",
     "title": "Introduction to R and RStudio",
     "section": "",
-    "text": "Here’s a link to the slides in a new window. The slides are still under development.\nHere are the slides embedded:"
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/01-foundations/01-intro.html#resources",
+    "href": "content/01-foundations/01-intro.html#resources",
+    "title": "Introduction to R and RStudio",
+    "section": "Resources",
+    "text": "Resources\n\nR and RStudio\n\nRStudio IDE cheatsheet (11th one down)\nhttps://www.rstudio.com/resources/cheatsheets/\nBeginner resourses from the RStudio Education team\nhttps://education.rstudio.com/learn/beginner/\n\n\n\nPackages\n\nTidyverse\nhttps://www.tidyverse.org\npalmerpenguins\nhttps://allisonhorst.github.io/palmerpenguins/index.html"
   },
   {
     "objectID": "content/01-foundations/02-data-wrangling.html",
@@ -210,11 +217,18 @@
     "text": "R script demo\n### load libraries\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\n### Inspect data\nView(penguins)\nglimpse(penguins)\nhead(penguins)\nsummary(penguins)"
   },
   {
-    "objectID": "slides/01-foundations/01-intro/index.html#install-and-loading-packages",
-    "href": "slides/01-foundations/01-intro/index.html#install-and-loading-packages",
+    "objectID": "slides/01-foundations/01-intro/index.html#installing-packages",
+    "href": "slides/01-foundations/01-intro/index.html#installing-packages",
     "title": "Introduction to R and RStudio",
-    "section": "Install and loading packages",
-    "text": "Install and loading packages\nIn console\n\nInstall a package with install.packages(\"package_name\")\nInstall multiple packages with install.packages(c(\"package1\", \"package2\"))\nOr use install button in packages pane: \n\nIn script\n\nLoad packages with library(package_name)"
+    "section": "Installing packages",
+    "text": "Installing packages\nIn console\n\nInstall a package with install.packages(\"package_name\")\n\nWatch out for the plural!\n\nInstall multiple packages with install.packages(c(\"package1\", \"package2\"))\n\nThe c() function creates a vector\n\nOr use install button in packages pane:"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html#loading-packages",
+    "href": "slides/01-foundations/01-intro/index.html#loading-packages",
+    "title": "Introduction to R and RStudio",
+    "section": "Loading packages",
+    "text": "Loading packages\nIn script\n\nLoad packages with library(package_name)"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#within-r---help-with-functions",
@@ -252,27 +266,6 @@
     "text": "The data\n\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\n\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year\n   <fct>   <fct>              <dbl>         <dbl>      <int>   <int> <fct> <int>\n 1 Adelie  Torgersen           39.1          18.7        181    3750 male   2007\n 2 Adelie  Torgersen           39.5          17.4        186    3800 fema…  2007\n 3 Adelie  Torgersen           40.3          18          195    3250 fema…  2007\n 4 Adelie  Torgersen           NA            NA           NA      NA <NA>   2007\n 5 Adelie  Torgersen           36.7          19.3        193    3450 fema…  2007\n 6 Adelie  Torgersen           39.3          20.6        190    3650 male   2007\n 7 Adelie  Torgersen           38.9          17.8        181    3625 fema…  2007\n 8 Adelie  Torgersen           39.2          19.6        195    4675 male   2007\n 9 Adelie  Torgersen           34.1          18.1        193    3475 <NA>   2007\n10 Adelie  Torgersen           42            20.2        190    4250 <NA>   2007\n# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,\n#   ²​body_mass_g"
   },
   {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "schedule",
-    "section": "",
-    "text": "Please use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
-  },
-  {
-    "objectID": "slides/01-foundations/01-intro/index.html#installing-packages",
-    "href": "slides/01-foundations/01-intro/index.html#installing-packages",
-    "title": "Introduction to R and RStudio",
-    "section": "Installing packages",
-    "text": "Installing packages\nIn console\n\nInstall a package with install.packages(\"package_name\")\n\nWatch out for the plural!\n\nInstall multiple packages with install.packages(c(\"package1\", \"package2\"))\n\nThe c() function creates a vector\n\nOr use install button in packages pane:"
-  },
-  {
-    "objectID": "slides/01-foundations/01-intro/index.html#loading-packages",
-    "href": "slides/01-foundations/01-intro/index.html#loading-packages",
-    "title": "Introduction to R and RStudio",
-    "section": "Loading packages",
-    "text": "Loading packages\nIn script\n\nLoad packages with library(package_name)"
-  },
-  {
     "objectID": "slides/01-foundations/01-intro/index.html#notes",
     "href": "slides/01-foundations/01-intro/index.html#notes",
     "title": "Introduction to R and RStudio",
@@ -285,5 +278,12 @@
     "title": "Introduction to R and RStudio",
     "section": "License",
     "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "schedule",
+    "section": "",
+    "text": "Please use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
   }
 ]

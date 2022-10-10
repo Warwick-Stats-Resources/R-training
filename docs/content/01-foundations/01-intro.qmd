@@ -2,11 +2,33 @@
 title: Introduction to R and RStudio
 ---
 
-*The notes for this session are still under development.*
+## Slides
 
-Here's a link to the [slides](/slides/01-foundations/01-intro/index.qmd){target="_blank"} in a new window. *The slides are still under development.*
+Here's a link to the [slides](/slides/01-foundations/01-intro/index.qmd){target="_blank"} in a new window. 
 
 Here are the slides embedded:
 
 <iframe class="slide-deck ar3x2" src="/slides/01-foundations/01-intro/index.html" title="Introduction to R and RStudio slides">
 </iframe>
+
+## Resources
+
+### R and RStudio
+
+- RStudio IDE cheatsheet (11th one down)
+
+  <https://www.rstudio.com/resources/cheatsheets/>
+  
+- Beginner resourses from the RStudio Education team
+
+  <https://education.rstudio.com/learn/beginner/>
+
+### Packages
+
+- Tidyverse
+
+  <https://www.tidyverse.org>
+  
+- palmerpenguins
+
+  <https://allisonhorst.github.io/palmerpenguins/index.html>
