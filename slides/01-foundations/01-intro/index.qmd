@@ -335,7 +335,7 @@ RStudio Help home demo
 
 link to [slides](https://warwick-stats-resources.github.io/R-training/slides/01-foundations/01-intro/#/title-slide){target="_blank"}
 
-# {background-image="images/gentoo.jpeg"}
+# {#penguin-questions data-menu-title="What can we learn about penguins?" background-image="images/gentoo.jpeg"}
 
 :::: {.columns}
 
