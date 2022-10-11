@@ -22,6 +22,10 @@ Here are the slides embedded:
 - Beginner resourses from the RStudio Education team
 
   <https://education.rstudio.com/learn/beginner/>
+  
+- Introduction to R and RStudio from the Carpentries
+
+  <https://carpentries-incubator.github.io/r-tidyverse-4-datasets/01-project-introduction.html>
 
 ### Packages
 

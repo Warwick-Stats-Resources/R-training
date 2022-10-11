@@ -39,7 +39,7 @@
     "href": "content/01-foundations/01-intro.html#resources",
     "title": "Introduction to R and RStudio",
     "section": "Resources",
-    "text": "Resources\n\nR and RStudio\n\nRStudio IDE cheatsheet (11th one down)\nhttps://www.rstudio.com/resources/cheatsheets/\nBeginner resourses from the RStudio Education team\nhttps://education.rstudio.com/learn/beginner/\n\n\n\nPackages\n\nTidyverse\nhttps://www.tidyverse.org\npalmerpenguins\nhttps://allisonhorst.github.io/palmerpenguins/index.html"
+    "text": "Resources\n\nR and RStudio\n\nRStudio IDE cheatsheet (11th one down)\nhttps://www.rstudio.com/resources/cheatsheets/\nBeginner resourses from the RStudio Education team\nhttps://education.rstudio.com/learn/beginner/\nIntroduction to R and RStudio from the Carpentries\nhttps://carpentries-incubator.github.io/r-tidyverse-4-datasets/01-project-introduction.html\n\n\n\nPackages\n\nTidyverse\nhttps://www.tidyverse.org\npalmerpenguins\nhttps://allisonhorst.github.io/palmerpenguins/index.html"
   },
   {
     "objectID": "content/01-foundations/02-data-wrangling.html",
