@@ -2,4 +2,15 @@
 title: Data Wrangling
 ---
 
-*The notes for this session are still under development.*
+*The notes and slides for this session are still under development.*
+
+## Slides
+
+Here's a link to the [slides](/slides/01-foundations/02-data-wrangling/index.qmd){target="_blank"} in a new window. 
+
+Here are the slides embedded:
+
+<iframe class="slide-deck ar3x2" src="/slides/01-foundations/02-data-wrangling/index.html" title="Introduction to R and RStudio slides">
+</iframe>
+
+## Resources

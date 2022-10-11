@@ -46,7 +46,7 @@
     "href": "content/01-foundations/02-data-wrangling.html",
     "title": "Data Wrangling",
     "section": "",
-    "text": "The notes for this session are still under development."
+    "text": "The notes and slides for this session are still under development."
   },
   {
     "objectID": "index.html",
@@ -285,5 +285,40 @@
     "title": "schedule",
     "section": "",
     "text": "Please use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#overview",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#overview",
+    "title": "Data Wrangling",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#resources",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#resources",
+    "title": "Data Wrangling",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#license",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#license",
+    "title": "Data Wrangling",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "content/01-foundations/02-data-wrangling.html#slides",
+    "href": "content/01-foundations/02-data-wrangling.html#slides",
+    "title": "Data Wrangling",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/01-foundations/02-data-wrangling.html#resources",
+    "href": "content/01-foundations/02-data-wrangling.html#resources",
+    "title": "Data Wrangling",
+    "section": "Resources",
+    "text": "Resources"
   }
 ]

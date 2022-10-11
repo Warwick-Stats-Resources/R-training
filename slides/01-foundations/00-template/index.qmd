@@ -1,0 +1,34 @@
+---
+title: TITLE
+subtitle: R Foundations course
+author: Ella Kaye | Department of Statistics | University of Warwick
+title-slide-attributes:
+  data-background-color: "#552D62"
+date: "DATE"
+format: 
+  revealjs:
+    theme: [default, ../../slides.scss]
+    slide-number: true
+    execute:
+      echo: true
+      code-overflow: wrap
+draft: true
+---
+
+## Overview
+
+-   What we're covering
+
+# SECTION {background-color="#552D62"}
+
+# End matter {background-color="#552D62"}
+
+## Resources
+
+Material inspired by and remixed from:
+
+- 
+
+## License
+
+Licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){target="_blank"}).
