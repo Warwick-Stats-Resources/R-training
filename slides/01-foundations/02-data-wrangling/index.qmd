@@ -1,5 +1,5 @@
 ---
-title: Data Wrangling
+title: Data Types, Structures and Wrangling
 subtitle: R Foundations course
 author: Ella Kaye | Department of Statistics | University of Warwick
 title-slide-attributes:
@@ -17,9 +17,367 @@ draft: false
 
 ## Overview
 
--   What we're covering
+- Data types
 
-# SECTION {background-color="#552D62"}
+- Data structures
+
+- Data wrangling
+
+## Assigning in R
+
+The assignment operator in R is `<-`
+
+We can create objects in R and assign them names:
+
+```{r}
+x <- 1 + 3
+```
+
+Then we can inspect the objects we have created:
+
+```{r}
+x
+```
+
+And use them further:
+
+```{r}
+x + 5
+```
+
+## Naming objects
+
+::: {.panel-tabset}
+## forbidden
+
+Object names cannot:
+
+- start with a number
+
+- contain certain characters like `,` `-` `?`
+
+- contain a space (unless in ` `` `, but that is not best practice)
+
+## good
+
+- meaningful yet cconcise
+
+```
+day_one
+day_1
+```
+
+- consistent
+
+```
+i_use_snake_case
+other.people.use.periods
+evenOthersUseCamelCase
+```
+
+`snake_case` is preferred in R, especially in the tidyverse.
+
+## bad
+
+- not meaningful
+
+```
+foo
+bar
+```
+
+- unnecessarily long or difficult to read
+
+```
+first_day_of_month
+dayone
+```
+
+- inconsistent
+
+:::
+
+
+
+
+## RStudio demo
+
+Assigning and environment pane.
+
+There is an RStudio shortcut for `<-` which also puts spaces around it: <kbd>Alt</kbd>/<kbd title = "option">⌥</kbd> + <kbd title = "minus">-</kbd>
+
+# Data types and structures {background-color="#552D62"}
+
+## Basic data types in R
+
+- character: `"a"`, `"hello, world!"`
+
+- double: `3`, `3.14`, `pi`
+
+- integer: `3L` (the `L` tells R to store this as an interger)
+
+- logical: `TRUE` and `FALSE`
+
+- complex: `3+2i`. N.B. need to write `1i` for $\sqrt(-1)$.
+
+- raw: holds raw bytes (rarely used)
+
+N.B. double and integer types are both numeric
+
+## Special values
+
+- `NA`: The value `NA` is given to any data which R knows to be missing. It is not a character string, i.e. it is different to `"NA"`
+
+- `Inf`: Positive infinity, e.g. the result of dividing a non-zero number by zero
+
+- `NaN`: not a number, e.g. attempting to find the logarithm of a negative number
+
+- `NULL`: the null object. Often returned by expressions and functions whose value is undefined
+
+## Data structures
+
+Data structures are the building blocks of R code.
+
+In R, the main types of structures are
+
+- vectors
+
+- factors
+
+- matrices and arrays
+
+- lists
+
+- data frames
+
+Focus today on vectors, factors and data frames
+
+## Vectors
+
+A single number is a special case of a numeric vector. Vectors of length greater than one can be created using the concatenate function, `c`.
+
+```{r}
+x <- c(1, 3, 6)
+fruits <- c("apple", "pear")
+```
+
+The elements of the vector must be of the same type: common types are numeric, character and logical.
+
+## Creating vectors
+
+There are some useful shortcuts for certain types of vector:
+
+```{r}
+1:5
+seq(from = 3, to = 5, by = 0.5)
+LETTERS
+```
+
+## Subsetting vectors
+
+We subset vectors using `[]`:
+
+- By position, starting at 1
+
+```{r}
+letters[c(1, 5, 9, 15, 21)]
+```
+
+- By logical vector 
+
+```{r}
+x <- c(5, 3, 6, 1)
+x[c(TRUE, FALSE, TRUE, FALSE)]
+```
+
+```{r}
+x[x > 4]
+```
+
+
+## Factors 
+
+Factors are used to represent categorical data. They can be ordered or unordered.
+
+Factors are stored as integers, and have labels associated with these unique integers. While factors usually look (and often behave) like character vectors, they are actually integers under the hood, and you need to be careful when treating them like strings.
+
+## Factors
+
+Once created, factors can only contain a pre-defined set values, known as levels. By default, R always sorts levels in alphabetical order. For instance, if you have a factor with 2 levels:
+
+```{r}
+fruits <- factor(c("apple", "apple", "pear"))
+fruits
+str(fruits)
+```
+
+## Data frames
+
+Data sets are stored in R as *data frames*
+
+These are structured as a list of objects, typically vectors, of the same length.
+
+```{r}
+#| message: false
+library(tidyverse)
+library(palmerpenguins)
+str(penguins)
+```
+## tibbles
+
+From the [tibble](https://tibble.tidyverse.org){target="_blank"} page:
+
+> A **tibble**, or `tbl_df`, is a modern reimagining of the data.frame, keeping what time has proven to be effective, and throwing out what is not. Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.
+
+## Creating data frames
+
+```{r}
+`my numbers` <- 1:3
+fruits <- c("apple", "pear", "orange")
+```
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+data.frame(`my numbers`, 
+           fruits)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+tibble(`my numbers`, 
+       fruits)
+```
+:::
+::::
+
+Spot the differences!
+
+## Reading in a data frame
+
+## Import dataset (button)
+
+# Data wrangling {background-color="#552D62"}
+
+## dplyr
+
+The **dplyr** package (part of the tidyverse) provides the following key functions to operate on data frames:
+
+- filter()
+
+- arrange()
+
+- select()
+
+- mutate()
+
+- summarise()
+
+They all take a data frame as their first argument. The subsequent arguments describe what to do with the data frame. The result is a new data frame.
+
+## `filter()`
+
+Picks rows based on values of observations.
+
+::: {.panel-tabset}
+## Example
+```{r}
+library(dplyr)
+filter(penguins, species == "Gentoo", body_mass_g > 500)
+```
+
+## Notes
+- variable names are unquoted
+- use of `==` to test equality
+:::
+
+## `arrange()`
+
+Change the ordering of rows
+
+::: {.panel-tabset}
+## Example 1
+
+```{r}
+arrange(penguins, flipper_length_mm)
+```
+
+## Example 2
+```{r}
+arrange(penguins, species, flipper_length_mm)
+```
+
+## Example 3
+```{r}
+arrange(penguins, desc(flipper_length_mm))
+```
+:::
+
+## `select()`
+
+Select variables in a dataset
+
+::: {.panel-tabset}
+## Example 1
+```{r}
+select(penguins, bill_length_mm, bill_depth_mm)
+```
+
+## Example 2
+```{r}
+select(penguins, bill_length_mm:body_mass_g)
+```
+
+## Example 3
+```{r}
+select(penguins, starts_with("bill"))
+```
+
+## Example 4
+```{r}
+select(penguins, where(is.numeric))
+```
+
+## Note
+There are several other selectors. See `?dplyr::select` or [online](https://dplyr.tidyverse.org/reference/select.html){target="_blank"} for further details.
+:::
+
+## `mutate()`
+
+Create and modify columns
+
+::: {.panel-tabset}
+
+## Example 1
+```{r}
+penguins |>
+  select(bill_length_mm) |>
+  mutate(bill_length_mm_sq = bill_length_mm^2)
+```
+
+## Example 2
+```{r}
+penguins |>
+  mutate()
+```
+
+
+## Example 3
+```{r}
+penguins |>
+  select(bill_length_mm) |>
+  filter(!is.na(bill_length_mm)) |>
+  mutate(bill_length_mm_cumsum = cumsum(bill_length_mm))
+```
+
+
+:::
+
+
+## `summarise()`
+
 
 # End matter {background-color="#552D62"}
 

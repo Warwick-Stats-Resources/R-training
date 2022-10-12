@@ -19,7 +19,7 @@ draft: true
 
 -   What we're covering
 
-# SECTION {background-color="#552D62"}
+# Section {background-color="#552D62"}
 
 # End matter {background-color="#552D62"}
 
