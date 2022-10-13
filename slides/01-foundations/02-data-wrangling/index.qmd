@@ -17,11 +17,11 @@ draft: false
 
 ## Overview
 
-- Data types
+-   Data types
 
-- Data structures
+-   Data structures
 
-- Data wrangling
+-   Data wrangling
 
 ## Assigning in R
 
@@ -47,58 +47,58 @@ x + 5
 
 ## Naming objects
 
-::: {.panel-tabset}
+::: panel-tabset
 ## forbidden
 
 Object names cannot:
 
-- start with a number
+-   start with a number
 
-- contain certain characters like `,` `-` `?`
+-   contain certain characters like `,` `-` `?`
 
-- contain a space (unless in ` `` `, but that is not best practice)
+-   contain a space (unless in ``` `` ```, but that is not best practice)
 
 ## good
 
-- meaningful yet cconcise
+-   meaningful yet cconcise
 
+```{=html}
+<!-- -->
 ```
-day_one
-day_1
-```
+    day_one
+    day_1
 
-- consistent
+-   consistent
 
+```{=html}
+<!-- -->
 ```
-i_use_snake_case
-other.people.use.periods
-evenOthersUseCamelCase
-```
+    i_use_snake_case
+    other.people.use.periods
+    evenOthersUseCamelCase
 
 `snake_case` is preferred in R, especially in the tidyverse.
 
 ## bad
 
-- not meaningful
+-   not meaningful
 
+```{=html}
+<!-- -->
 ```
-foo
-bar
+    foo
+    bar
+
+-   unnecessarily long or difficult to read
+
+```{=html}
+<!-- -->
 ```
+    first_day_of_month
+    dayone
 
-- unnecessarily long or difficult to read
-
-```
-first_day_of_month
-dayone
-```
-
-- inconsistent
-
+-   inconsistent
 :::
-
-
-
 
 ## RStudio demo
 
@@ -110,29 +110,29 @@ There is an RStudio shortcut for `<-` which also puts spaces around it: <kbd>Alt
 
 ## Basic data types in R
 
-- character: `"a"`, `"hello, world!"`
+-   character: `"a"`, `"hello, world!"`
 
-- double: `3`, `3.14`, `pi`
+-   double: `3`, `3.14`, `pi`
 
-- integer: `3L` (the `L` tells R to store this as an interger)
+-   integer: `3L` (the `L` tells R to store this as an interger)
 
-- logical: `TRUE` and `FALSE`
+-   logical: `TRUE` and `FALSE`
 
-- complex: `3+2i`. N.B. need to write `1i` for $\sqrt(-1)$.
+-   complex: `3+2i`. N.B. need to write `1i` for $\sqrt(-1)$.
 
-- raw: holds raw bytes (rarely used)
+-   raw: holds raw bytes (rarely used)
 
 N.B. double and integer types are both numeric
 
 ## Special values
 
-- `NA`: The value `NA` is given to any data which R knows to be missing. It is not a character string, i.e. it is different to `"NA"`
+-   `NA`: The value `NA` is given to any data which R knows to be missing. It is not a character string, i.e. it is different to `"NA"`
 
-- `Inf`: Positive infinity, e.g. the result of dividing a non-zero number by zero
+-   `Inf`: Positive infinity, e.g. the result of dividing a non-zero number by zero
 
-- `NaN`: not a number, e.g. attempting to find the logarithm of a negative number
+-   `NaN`: not a number, e.g. attempting to find the logarithm of a negative number
 
-- `NULL`: the null object. Often returned by expressions and functions whose value is undefined
+-   `NULL`: the null object. Often returned by expressions and functions whose value is undefined
 
 ## Data structures
 
@@ -140,15 +140,15 @@ Data structures are the building blocks of R code.
 
 In R, the main types of structures are
 
-- vectors
+-   vectors
 
-- factors
+-   factors
 
-- matrices and arrays
+-   matrices and arrays
 
-- lists
+-   lists
 
-- data frames
+-   data frames
 
 Focus today on vectors, factors and data frames
 
@@ -177,13 +177,13 @@ LETTERS
 
 We subset vectors using `[]`:
 
-- By position, starting at 1
+-   By position, starting at 1
 
 ```{r}
 letters[c(1, 5, 9, 15, 21)]
 ```
 
-- By logical vector 
+-   By logical vector
 
 ```{r}
 x <- c(5, 3, 6, 1)
@@ -194,8 +194,7 @@ x[c(TRUE, FALSE, TRUE, FALSE)]
 x[x > 4]
 ```
 
-
-## Factors 
+## Factors
 
 Factors are used to represent categorical data. They can be ordered or unordered.
 
@@ -223,11 +222,12 @@ library(tidyverse)
 library(palmerpenguins)
 str(penguins)
 ```
+
 ## tibbles
 
 From the [tibble](https://tibble.tidyverse.org){target="_blank"} page:
 
-> A **tibble**, or `tbl_df`, is a modern reimagining of the data.frame, keeping what time has proven to be effective, and throwing out what is not. Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.
+> A **tibble**, or `tbl_df`, is a modern reimagining of the data.frame, keeping what time has proven to be effective, and throwing out what is not. Tibbles are data.frames that are lazy and surly: they do less (i.e. they don't change variable names or types, and don't do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.
 
 ## Creating data frames
 
@@ -236,8 +236,7 @@ From the [tibble](https://tibble.tidyverse.org){target="_blank"} page:
 fruits <- c("apple", "pear", "orange")
 ```
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
 ```{r}
 data.frame(`my numbers`, 
@@ -251,7 +250,7 @@ tibble(`my numbers`,
        fruits)
 ```
 :::
-::::
+:::
 
 Spot the differences!
 
@@ -265,92 +264,101 @@ Spot the differences!
 
 The **dplyr** package (part of the tidyverse) provides the following key functions to operate on data frames:
 
-- filter()
+-   filter()
 
-- arrange()
+-   arrange()
 
-- select()
+-   select()
 
-- mutate()
+-   mutate()
 
-- summarise()
+-   summarise()
 
 They all take a data frame as their first argument. The subsequent arguments describe what to do with the data frame. The result is a new data frame.
 
-## `filter()`
+## `filter()`: rows based on values of observations.
 
-Picks rows based on values of observations.
-
-::: {.panel-tabset}
+::: panel-tabset
 ## Example
+
 ```{r}
 library(dplyr)
 filter(penguins, species == "Gentoo", body_mass_g > 500)
 ```
 
 ## Notes
-- variable names are unquoted
-- use of `==` to test equality
+
+-   variable names are unquoted
+-   use of `==` to test equality
 :::
 
-## `arrange()`
+## `select()`: select variables (columns) in a dataset
 
-Change the ordering of rows
-
-::: {.panel-tabset}
+::: panel-tabset
 ## Example 1
 
-```{r}
-arrange(penguins, flipper_length_mm)
-```
-
-## Example 2
-```{r}
-arrange(penguins, species, flipper_length_mm)
-```
-
-## Example 3
-```{r}
-arrange(penguins, desc(flipper_length_mm))
-```
-:::
-
-## `select()`
-
-Select variables in a dataset
-
-::: {.panel-tabset}
-## Example 1
 ```{r}
 select(penguins, bill_length_mm, bill_depth_mm)
 ```
 
 ## Example 2
+
 ```{r}
 select(penguins, bill_length_mm:body_mass_g)
 ```
 
 ## Example 3
+
 ```{r}
 select(penguins, starts_with("bill"))
 ```
 
 ## Example 4
+
 ```{r}
 select(penguins, where(is.numeric))
 ```
 
 ## Note
+
 There are several other selectors. See `?dplyr::select` or [online](https://dplyr.tidyverse.org/reference/select.html){target="_blank"} for further details.
+:::
+
+## `arrange()`: change the ordering of rows
+
+::: panel-tabset
+## Example 1
+
+```{r}
+penguins |>
+  select(species, sex, flipper_length_mm) |>
+  arrange(flipper_length_mm)
+```
+
+## Example 2
+
+```{r}
+penguins |>
+  select(species, sex, flipper_length_mm) |>
+  arrange(species, flipper_length_mm)
+```
+
+## Example 3
+
+```{r}
+penguins |>
+  select(species, sex, flipper_length_mm) |>
+  arrange(desc(flipper_length_mm))
+```
 :::
 
 ## `mutate()`
 
 Create and modify columns
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Example 1
+
 ```{r}
 penguins |>
   select(bill_length_mm) |>
@@ -358,26 +366,38 @@ penguins |>
 ```
 
 ## Example 2
+
 ```{r}
 penguins |>
-  mutate()
+  filter(species == "Gentoo") |>
+  select(sex, flipper_length_mm) |>
+  mutate(size = if_else(flipper_length_mm > 217, "big", "small"))
 ```
 
-
 ## Example 3
+
 ```{r}
 penguins |>
   select(bill_length_mm) |>
   filter(!is.na(bill_length_mm)) |>
   mutate(bill_length_mm_cumsum = cumsum(bill_length_mm))
 ```
-
-
 :::
 
+## `summarise()`: reduces multiple values down to a single summary
 
-## `summarise()`
+::: panel-tabset
+## Example 1
 
+```{r}
+penguins |>
+  select(species, sex, body_mass_g) |>
+  group_by(species, sex) |>
+  summarise(mean = mean(body_mass_g))
+```
+:::
+
+## tidydatatutor.com
 
 # End matter {background-color="#552D62"}
 
@@ -385,7 +405,7 @@ penguins |>
 
 Material inspired by and remixed from:
 
-- 
+-   
 
 ## License
 

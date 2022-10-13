@@ -442,11 +442,13 @@
 <ul>
 <li>meaningful yet cconcise</li>
 </ul>
+<!-- -->
 <pre><code>day_one
 day_1</code></pre>
 <ul>
 <li>consistent</li>
 </ul>
+<!-- -->
 <pre><code>i_use_snake_case
 other.people.use.periods
 evenOthersUseCamelCase</code></pre>
@@ -456,11 +458,13 @@ evenOthersUseCamelCase</code></pre>
 <ul>
 <li>not meaningful</li>
 </ul>
+<!-- -->
 <pre><code>foo
 bar</code></pre>
 <ul>
 <li>unnecessarily long or difficult to read</li>
 </ul>
+<!-- -->
 <pre><code>first_day_of_month
 dayone</code></pre>
 <ul>
@@ -678,9 +682,8 @@ Levels: apple pear</code></pre>
 </ul>
 <p>They all take a data frame as their first argument. The subsequent arguments describe what to do with the data frame. The result is a new data frame.</p>
 </section>
-<section id="filter" class="slide level2">
-<h2><code>filter()</code></h2>
-<p>Picks rows based on values of observations.</p>
+<section id="filter-rows-based-on-values-of-observations." class="slide level2">
+<h2><code>filter()</code>: rows based on values of observations.</h2>
 <div class="panel-tabset">
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Example</a></li><li><a href="#tabset-2-2">Notes</a></li></ul>
 <div class="tab-content">
@@ -716,90 +719,14 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </section>
-<section id="arrange" class="slide level2">
-<h2><code>arrange()</code></h2>
-<p>Change the ordering of rows</p>
+<section id="select-select-variables-columns-in-a-dataset" class="slide level2">
+<h2><code>select()</code>: select variables (columns) in a dataset</h2>
 <div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Example 1</a></li><li><a href="#tabset-3-2">Example 2</a></li><li><a href="#tabset-3-3">Example 3</a></li></ul>
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Example 1</a></li><li><a href="#tabset-3-2">Example 2</a></li><li><a href="#tabset-3-3">Example 3</a></li><li><a href="#tabset-3-4">Example 4</a></li><li><a href="#tabset-3-5">Note</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">arrange</span>(penguins, flipper_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 8
-   species   island    bill_length_mm bill_depth_mm flippe…¹ body_…² sex    year
-   &lt;fct&gt;     &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;    &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
- 1 Adelie    Biscoe              37.9          18.6      172    3150 fema…  2007
- 2 Adelie    Biscoe              37.8          18.3      174    3400 fema…  2007
- 3 Adelie    Torgersen           40.2          17        176    3450 fema…  2009
- 4 Adelie    Dream               39.5          16.7      178    3250 fema…  2007
- 5 Adelie    Dream               37.2          18.1      178    3900 male   2007
- 6 Adelie    Dream               33.1          16.1      178    2900 fema…  2008
- 7 Chinstrap Dream               46.1          18.2      178    3250 fema…  2007
- 8 Adelie    Dream               37.5          18.9      179    2975 &lt;NA&gt;   2007
- 9 Adelie    Torgersen           37.8          17.3      180    3700 &lt;NA&gt;   2007
-10 Adelie    Biscoe              37.7          18.7      180    3600 male   2007
-# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
-#   ²​body_mass_g</code></pre>
-</div>
-</div>
-</div>
-<div id="tabset-3-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">arrange</span>(penguins, species, flipper_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 8
-   species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year
-   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;      &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
- 1 Adelie  Biscoe              37.9          18.6        172    3150 fema…  2007
- 2 Adelie  Biscoe              37.8          18.3        174    3400 fema…  2007
- 3 Adelie  Torgersen           40.2          17          176    3450 fema…  2009
- 4 Adelie  Dream               39.5          16.7        178    3250 fema…  2007
- 5 Adelie  Dream               37.2          18.1        178    3900 male   2007
- 6 Adelie  Dream               33.1          16.1        178    2900 fema…  2008
- 7 Adelie  Dream               37.5          18.9        179    2975 &lt;NA&gt;   2007
- 8 Adelie  Torgersen           37.8          17.3        180    3700 &lt;NA&gt;   2007
- 9 Adelie  Biscoe              37.7          18.7        180    3600 male   2007
-10 Adelie  Biscoe              38.8          17.2        180    3800 male   2007
-# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
-#   ²​body_mass_g</code></pre>
-</div>
-</div>
-</div>
-<div id="tabset-3-3">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">arrange</span>(penguins, <span class="fu">desc</span>(flipper_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 8
-   species island bill_length_mm bill_depth_mm flipper_len…¹ body_…² sex    year
-   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;         &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
- 1 Gentoo  Biscoe           54.3          15.7           231    5650 male   2008
- 2 Gentoo  Biscoe           50            16.3           230    5700 male   2007
- 3 Gentoo  Biscoe           59.6          17             230    6050 male   2007
- 4 Gentoo  Biscoe           49.8          16.8           230    5700 male   2008
- 5 Gentoo  Biscoe           48.6          16             230    5800 male   2008
- 6 Gentoo  Biscoe           52.1          17             230    5550 male   2009
- 7 Gentoo  Biscoe           51.5          16.3           230    5500 male   2009
- 8 Gentoo  Biscoe           55.1          16             230    5850 male   2009
- 9 Gentoo  Biscoe           49.5          16.2           229    5800 male   2008
-10 Gentoo  Biscoe           49.8          15.9           229    5950 male   2009
-# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
-#   ²​body_mass_g</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="select" class="slide level2">
-<h2><code>select()</code></h2>
-<p>Select variables in a dataset</p>
-<div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Example 1</a></li><li><a href="#tabset-4-2">Example 2</a></li><li><a href="#tabset-4-3">Example 3</a></li><li><a href="#tabset-4-4">Example 4</a></li><li><a href="#tabset-4-5">Note</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">select</span>(penguins, bill_length_mm, bill_depth_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">select</span>(penguins, bill_length_mm, bill_depth_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 2
    bill_length_mm bill_depth_mm
@@ -818,9 +745,9 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-4-2">
+<div id="tabset-3-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">select</span>(penguins, bill_length_mm<span class="sc">:</span>body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">select</span>(penguins, bill_length_mm<span class="sc">:</span>body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 4
    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
@@ -839,9 +766,9 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-4-3">
+<div id="tabset-3-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">select</span>(penguins, <span class="fu">starts_with</span>(<span class="st">"bill"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">select</span>(penguins, <span class="fu">starts_with</span>(<span class="st">"bill"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 2
    bill_length_mm bill_depth_mm
@@ -860,9 +787,9 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-4-4">
+<div id="tabset-3-4">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">select</span>(penguins, <span class="fu">where</span>(is.numeric))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">select</span>(penguins, <span class="fu">where</span>(is.numeric))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 5
    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year
@@ -881,8 +808,85 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-4-5">
+<div id="tabset-3-5">
 <p>There are several other selectors. See <code>?dplyr::select</code> or <a href="https://dplyr.tidyverse.org/reference/select.html" target="_blank">online</a> for further details.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="arrange-change-the-ordering-of-rows" class="slide level2">
+<h2><code>arrange()</code>: change the ordering of rows</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Example 1</a></li><li><a href="#tabset-4-2">Example 2</a></li><li><a href="#tabset-4-3">Example 3</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">select</span>(species, sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a>  <span class="fu">arrange</span>(flipper_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 3
+   species   sex    flipper_length_mm
+   &lt;fct&gt;     &lt;fct&gt;              &lt;int&gt;
+ 1 Adelie    female               172
+ 2 Adelie    female               174
+ 3 Adelie    female               176
+ 4 Adelie    female               178
+ 5 Adelie    male                 178
+ 6 Adelie    female               178
+ 7 Chinstrap female               178
+ 8 Adelie    &lt;NA&gt;                 179
+ 9 Adelie    &lt;NA&gt;                 180
+10 Adelie    male                 180
+# … with 334 more rows</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>  <span class="fu">select</span>(species, sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a>  <span class="fu">arrange</span>(species, flipper_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 3
+   species sex    flipper_length_mm
+   &lt;fct&gt;   &lt;fct&gt;              &lt;int&gt;
+ 1 Adelie  female               172
+ 2 Adelie  female               174
+ 3 Adelie  female               176
+ 4 Adelie  female               178
+ 5 Adelie  male                 178
+ 6 Adelie  female               178
+ 7 Adelie  &lt;NA&gt;                 179
+ 8 Adelie  &lt;NA&gt;                 180
+ 9 Adelie  male                 180
+10 Adelie  male                 180
+# … with 334 more rows</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">select</span>(species, sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(flipper_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 3
+   species sex   flipper_length_mm
+   &lt;fct&gt;   &lt;fct&gt;             &lt;int&gt;
+ 1 Gentoo  male                231
+ 2 Gentoo  male                230
+ 3 Gentoo  male                230
+ 4 Gentoo  male                230
+ 5 Gentoo  male                230
+ 6 Gentoo  male                230
+ 7 Gentoo  male                230
+ 8 Gentoo  male                230
+ 9 Gentoo  male                229
+10 Gentoo  male                229
+# … with 334 more rows</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -919,23 +923,24 @@ Levels: apple pear</code></pre>
 <div id="tabset-5-2">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">mutate</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb52-3"><a href="#cb52-3"></a>  <span class="fu">select</span>(sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
+<span id="cb52-4"><a href="#cb52-4"></a>  <span class="fu">mutate</span>(<span class="at">size =</span> <span class="fu">if_else</span>(flipper_length_mm <span class="sc">&gt;</span> <span class="dv">217</span>, <span class="st">"big"</span>, <span class="st">"small"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 8
-   species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year
-   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;      &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
- 1 Adelie  Torgersen           39.1          18.7        181    3750 male   2007
- 2 Adelie  Torgersen           39.5          17.4        186    3800 fema…  2007
- 3 Adelie  Torgersen           40.3          18          195    3250 fema…  2007
- 4 Adelie  Torgersen           NA            NA           NA      NA &lt;NA&gt;   2007
- 5 Adelie  Torgersen           36.7          19.3        193    3450 fema…  2007
- 6 Adelie  Torgersen           39.3          20.6        190    3650 male   2007
- 7 Adelie  Torgersen           38.9          17.8        181    3625 fema…  2007
- 8 Adelie  Torgersen           39.2          19.6        195    4675 male   2007
- 9 Adelie  Torgersen           34.1          18.1        193    3475 &lt;NA&gt;   2007
-10 Adelie  Torgersen           42            20.2        190    4250 &lt;NA&gt;   2007
-# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
-#   ²​body_mass_g</code></pre>
+<pre><code># A tibble: 124 × 3
+   sex    flipper_length_mm size 
+   &lt;fct&gt;              &lt;int&gt; &lt;chr&gt;
+ 1 female               211 small
+ 2 male                 230 big  
+ 3 female               210 small
+ 4 male                 218 big  
+ 5 male                 215 small
+ 6 female               210 small
+ 7 female               211 small
+ 8 male                 219 big  
+ 9 female               209 small
+10 male                 215 small
+# … with 114 more rows</code></pre>
 </div>
 </div>
 </div>
@@ -966,8 +971,38 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </section>
-<section id="summarise" class="slide level2">
-<h2><code>summarise()</code></h2>
+<section id="summarise-reduces-multiple-values-down-to-a-single-summary" class="slide level2">
+<h2><code>summarise()</code>: reduces multiple values down to a single summary</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Example 1</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>  <span class="fu">select</span>(species, sex, body_mass_g) <span class="sc">|&gt;</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>  <span class="fu">group_by</span>(species, sex) <span class="sc">|&gt;</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 3
+# Groups:   species [3]
+  species   sex     mean
+  &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt;
+1 Adelie    female 3369.
+2 Adelie    male   4043.
+3 Adelie    &lt;NA&gt;     NA 
+4 Chinstrap female 3527.
+5 Chinstrap male   3939.
+6 Gentoo    female 4680.
+7 Gentoo    male   5485.
+8 Gentoo    &lt;NA&gt;     NA </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="tidydatatutor.com" class="slide level2">
+<h2>tidydatatutor.com</h2>
 </section></section>
 <section>
 <section id="end-matter" class="title-slide slide level1 center" data-background-color="#552D62">
