@@ -49,6 +49,20 @@
     "text": "The notes and slides for this session are still under development."
   },
   {
+    "objectID": "content/01-foundations/02-data-wrangling.html#slides",
+    "href": "content/01-foundations/02-data-wrangling.html#slides",
+    "title": "Data Wrangling",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/01-foundations/02-data-wrangling.html#resources",
+    "href": "content/01-foundations/02-data-wrangling.html#resources",
+    "title": "Data Wrangling",
+    "section": "Resources",
+    "text": "Resources"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "R training",
@@ -280,13 +294,6 @@
     "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   },
   {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "schedule",
-    "section": "",
-    "text": "Please use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
-  },
-  {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#overview",
     "href": "slides/01-foundations/02-data-wrangling/index.html#overview",
     "title": "Data Types, Structures and Wrangling",
@@ -294,32 +301,25 @@
     "text": "Overview\n\nData types\nData structures\nData wrangling"
   },
   {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#resources",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#resources",
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#assigning-in-r",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#assigning-in-r",
     "title": "Data Types, Structures and Wrangling",
-    "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:"
+    "section": "Assigning in R",
+    "text": "Assigning in R\nThe assignment operator in R is <-\nWe can create objects in R and assign them names:\n\nx <- 1 + 3\n\nThen we can inspect the objects we have created:\n\nx\n\n[1] 4\n\n\nAnd use them further:\n\nx + 5\n\n[1] 9"
   },
   {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#license",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#license",
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#naming-objects",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#naming-objects",
     "title": "Data Types, Structures and Wrangling",
-    "section": "License",
-    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+    "section": "Naming objects",
+    "text": "Naming objects\n\nforbiddengoodbad\n\n\nObject names cannot:\n\nstart with a number\ncontain certain characters like , - ?\ncontain a space (unless in ``, but that is not best practice)\n\n\n\n\nmeaningful yet cconcise\n\n\nday_one\nday_1\n\nconsistent\n\n\ni_use_snake_case\nother.people.use.periods\nevenOthersUseCamelCase\nsnake_case is preferred in R, especially in the tidyverse.\n\n\n\nnot meaningful\n\n\nfoo\nbar\n\nunnecessarily long or difficult to read\n\n\nfirst_day_of_month\ndayone\n\ninconsistent"
   },
   {
-    "objectID": "content/01-foundations/02-data-wrangling.html#slides",
-    "href": "content/01-foundations/02-data-wrangling.html#slides",
-    "title": "Data Wrangling",
-    "section": "Slides",
-    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/01-foundations/02-data-wrangling.html#resources",
-    "href": "content/01-foundations/02-data-wrangling.html#resources",
-    "title": "Data Wrangling",
-    "section": "Resources",
-    "text": "Resources"
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#rstudio-demo",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#rstudio-demo",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "RStudio demo",
+    "text": "RStudio demo\nAssigning and environment pane.\nThere is an RStudio shortcut for <- which also puts spaces around it: Alt/⌥ + -"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#basic-data-types-in-r",
@@ -334,13 +334,6 @@
     "title": "Data Types, Structures and Wrangling",
     "section": "Special values",
     "text": "Special values\n\nNA: The value NA is given to any data which R knows to be missing. It is not a character string, i.e. it is different to \"NA\"\nInf: Positive infinity, e.g. the result of dividing a non-zero number by zero\nNaN: not a number, e.g. attempting to find the logarithm of a negative number\nNULL: the null object. Often returned by expressions and functions whose value is undefined"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#assigning-in-r",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#assigning-in-r",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Assigning in R",
-    "text": "Assigning in R\nThe assignment operator in R is <-\nWe can create objects in R and assign them names:\n\nx <- 1 + 3\n\nThen we can inspect the objects we have created:\n\nx\n\n[1] 4\n\n\nAnd use them further:\n\nx + 5\n\n[1] 9"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#data-structures",
@@ -378,6 +371,13 @@
     "text": "Factors\nFactors are used to represent categorical data. They can be ordered or unordered.\nFactors are stored as integers, and have labels associated with these unique integers. While factors usually look (and often behave) like character vectors, they are actually integers under the hood, and you need to be careful when treating them like strings."
   },
   {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#factors-1",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#factors-1",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Factors",
+    "text": "Factors\nOnce created, factors can only contain a pre-defined set values, known as levels. By default, R always sorts levels in alphabetical order. For instance, if you have a factor with 2 levels:\n\nfruits <- factor(c(\"apple\", \"apple\", \"pear\"))\nfruits\n\n[1] apple apple pear \nLevels: apple pear\n\nstr(fruits)\n\n Factor w/ 2 levels \"apple\",\"pear\": 1 1 2\n\n\nThe forcats package from the tidyverse has many functions for dealing with factors."
+  },
+  {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#data-frames",
     "href": "slides/01-foundations/02-data-wrangling/index.html#data-frames",
     "title": "Data Types, Structures and Wrangling",
@@ -392,18 +392,11 @@
     "text": "tibbles\nFrom the tibble page:\n\nA tibble, or tbl_df, is a modern reimagining of the data.frame, keeping what time has proven to be effective, and throwing out what is not. Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects."
   },
   {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#creating-a-data-frame",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#creating-a-data-frame",
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#creating-data-frames",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#creating-data-frames",
     "title": "Data Types, Structures and Wrangling",
-    "section": "Creating a data frame",
-    "text": "Creating a data frame"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#using-a-built-in-data-frame-or-one-from-a-package",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#using-a-built-in-data-frame-or-one-from-a-package",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Using a built-in data frame or one from a package",
-    "text": "Using a built-in data frame or one from a package"
+    "section": "Creating data frames",
+    "text": "Creating data frames\n\n`my numbers` <- 1:9\nfruits <- rep(c(\"apple\", \"pear\", \"orange\"), 3)\n\n\n\n\ndata.frame(`my numbers`, \n           fruits)\n\n  my.numbers fruits\n1          1  apple\n2          2   pear\n3          3 orange\n4          4  apple\n5          5   pear\n6          6 orange\n7          7  apple\n8          8   pear\n9          9 orange\n\n\n\n\ntibble(`my numbers`, \n       fruits)\n\n# A tibble: 9 × 2\n  `my numbers` fruits\n         <int> <chr> \n1            1 apple \n2            2 pear  \n3            3 orange\n4            4 apple \n5            5 pear  \n6            6 orange\n7            7 apple \n8            8 pear  \n9            9 orange\n\n\n\n\nSpot the differences!"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#reading-in-a-data-frame",
@@ -427,95 +420,11 @@
     "text": "dplyr\nThe dplyr package (part of the tidyverse) provides the following key functions to operate on data frames:\n\nfilter()\narrange()\nselect()\nmutate()\nsummarise()\n\nThey all take a data frame as their first argument. The subsequent arguments describe what to do with the data frame. The result is a new data frame."
   },
   {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#filter",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#filter",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "filter()",
-    "text": "filter()\nPicks rows based on values of observations.\n\nExampleNotes\n\n\n\nlibrary(dplyr)\nfilter(penguins, species == \"Gentoo\", body_mass_g > 500)\n\n# A tibble: 123 × 8\n   species island bill_length_mm bill_depth_mm flipper_len…¹ body_…² sex    year\n   <fct>   <fct>           <dbl>         <dbl>         <int>   <int> <fct> <int>\n 1 Gentoo  Biscoe           46.1          13.2           211    4500 fema…  2007\n 2 Gentoo  Biscoe           50            16.3           230    5700 male   2007\n 3 Gentoo  Biscoe           48.7          14.1           210    4450 fema…  2007\n 4 Gentoo  Biscoe           50            15.2           218    5700 male   2007\n 5 Gentoo  Biscoe           47.6          14.5           215    5400 male   2007\n 6 Gentoo  Biscoe           46.5          13.5           210    4550 fema…  2007\n 7 Gentoo  Biscoe           45.4          14.6           211    4800 fema…  2007\n 8 Gentoo  Biscoe           46.7          15.3           219    5200 male   2007\n 9 Gentoo  Biscoe           43.3          13.4           209    4400 fema…  2007\n10 Gentoo  Biscoe           46.8          15.4           215    5150 male   2007\n# … with 113 more rows, and abbreviated variable names ¹​flipper_length_mm,\n#   ²​body_mass_g\n\n\n\n\n\nvariable names are unquoted\nuse of == to test equality"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#environment",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#environment",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Environment",
-    "text": "Environment"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#rstudio-demo",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#rstudio-demo",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "RStudio demo",
-    "text": "RStudio demo\nAssigning and environment pane.\nThere is an RStudio shortcut for <- which also puts spaces around it: Alt/⌥ + -"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#factors-1",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#factors-1",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Factors",
-    "text": "Factors\nOnce created, factors can only contain a pre-defined set values, known as levels. By default, R always sorts levels in alphabetical order. For instance, if you have a factor with 2 levels:\n\nfruits <- factor(c(\"apple\", \"apple\", \"pear\"))\nfruits\n\n[1] apple apple pear \nLevels: apple pear\n\nstr(fruits)\n\n Factor w/ 2 levels \"apple\",\"pear\": 1 1 2"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#creating-a-data.frame",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#creating-a-data.frame",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Creating a data.frame",
-    "text": "Creating a data.frame\n\nnumbers <- 1:3\nfruits <- c(\"apple\", \"pear\", \"orange\")\n\ndata.frame(numbers, fruits)\n\n  numbers fruits\n1       1  apple\n2       2   pear\n3       3 orange"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#creating-a-tibble",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#creating-a-tibble",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Creating a tibble",
-    "text": "Creating a tibble\n\nnumbers <- 1:3\nfruits <- c(\"apple\", \"pear\", \"orange\")\n\ntibble(numbers, fruits)\n\n# A tibble: 3 × 2\n  numbers fruits\n    <int> <chr> \n1       1 apple \n2       2 pear  \n3       3 orange"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#creating-data-frames",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#creating-data-frames",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Creating data frames",
-    "text": "Creating data frames\n\n`my numbers` <- 1:3\nfruits <- c(\"apple\", \"pear\", \"orange\")\n\n\n\n\ndata.frame(`my numbers`, \n           fruits)\n\n  my.numbers fruits\n1          1  apple\n2          2   pear\n3          3 orange\n\n\n\n\ntibble(`my numbers`, \n       fruits)\n\n# A tibble: 3 × 2\n  `my numbers` fruits\n         <int> <chr> \n1            1 apple \n2            2 pear  \n3            3 orange\n\n\n\n\nSpot the differences!"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#naming-objects",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#naming-objects",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Naming objects",
-    "text": "Naming objects\n\nforbiddengoodbad\n\n\nObject names cannot:\n\nstart with a number\ncontain certain characters like , - ?\ncontain a space (unless in ``, but that is not best practice)\n\n\n\n\nmeaningful yet cconcise\n\n\nday_one\nday_1\n\nconsistent\n\n\ni_use_snake_case\nother.people.use.periods\nevenOthersUseCamelCase\nsnake_case is preferred in R, especially in the tidyverse.\n\n\n\nnot meaningful\n\n\nfoo\nbar\n\nunnecessarily long or difficult to read\n\n\nfirst_day_of_month\ndayone\n\ninconsistent"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#arrange",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#arrange",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "arrange()",
-    "text": "arrange()\nChange the ordering of rows\n\nExample 1Example 2Example 3\n\n\n\npenguins |>\n  select(species, sex, flipper_length_mm) |>\n  arrange(flipper_length_mm)\n\n# A tibble: 344 × 3\n   species   sex    flipper_length_mm\n   <fct>     <fct>              <int>\n 1 Adelie    female               172\n 2 Adelie    female               174\n 3 Adelie    female               176\n 4 Adelie    female               178\n 5 Adelie    male                 178\n 6 Adelie    female               178\n 7 Chinstrap female               178\n 8 Adelie    <NA>                 179\n 9 Adelie    <NA>                 180\n10 Adelie    male                 180\n# … with 334 more rows\n\n\n\n\n\npenguins |>\n  select(species, sex, flipper_length_mm) |>\n  arrange(species, flipper_length_mm)\n\n# A tibble: 344 × 3\n   species sex    flipper_length_mm\n   <fct>   <fct>              <int>\n 1 Adelie  female               172\n 2 Adelie  female               174\n 3 Adelie  female               176\n 4 Adelie  female               178\n 5 Adelie  male                 178\n 6 Adelie  female               178\n 7 Adelie  <NA>                 179\n 8 Adelie  <NA>                 180\n 9 Adelie  male                 180\n10 Adelie  male                 180\n# … with 334 more rows\n\n\n\n\n\npenguins |>\n  select(species, sex, flipper_length_mm) |>\n  arrange(desc(flipper_length_mm))\n\n# A tibble: 344 × 3\n   species sex   flipper_length_mm\n   <fct>   <fct>             <int>\n 1 Gentoo  male                231\n 2 Gentoo  male                230\n 3 Gentoo  male                230\n 4 Gentoo  male                230\n 5 Gentoo  male                230\n 6 Gentoo  male                230\n 7 Gentoo  male                230\n 8 Gentoo  male                230\n 9 Gentoo  male                229\n10 Gentoo  male                229\n# … with 334 more rows"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#select",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#select",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "select()",
-    "text": "select()\nSelect variables in a dataset\n\nExample 1Example 2Example 3Example 4Note\n\n\n\nselect(penguins, bill_length_mm, bill_depth_mm)\n\n# A tibble: 344 × 2\n   bill_length_mm bill_depth_mm\n            <dbl>         <dbl>\n 1           39.1          18.7\n 2           39.5          17.4\n 3           40.3          18  \n 4           NA            NA  \n 5           36.7          19.3\n 6           39.3          20.6\n 7           38.9          17.8\n 8           39.2          19.6\n 9           34.1          18.1\n10           42            20.2\n# … with 334 more rows\n\n\n\n\n\nselect(penguins, bill_length_mm:body_mass_g)\n\n# A tibble: 344 × 4\n   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n            <dbl>         <dbl>             <int>       <int>\n 1           39.1          18.7               181        3750\n 2           39.5          17.4               186        3800\n 3           40.3          18                 195        3250\n 4           NA            NA                  NA          NA\n 5           36.7          19.3               193        3450\n 6           39.3          20.6               190        3650\n 7           38.9          17.8               181        3625\n 8           39.2          19.6               195        4675\n 9           34.1          18.1               193        3475\n10           42            20.2               190        4250\n# … with 334 more rows\n\n\n\n\n\nselect(penguins, starts_with(\"bill\"))\n\n# A tibble: 344 × 2\n   bill_length_mm bill_depth_mm\n            <dbl>         <dbl>\n 1           39.1          18.7\n 2           39.5          17.4\n 3           40.3          18  \n 4           NA            NA  \n 5           36.7          19.3\n 6           39.3          20.6\n 7           38.9          17.8\n 8           39.2          19.6\n 9           34.1          18.1\n10           42            20.2\n# … with 334 more rows\n\n\n\n\n\nselect(penguins, where(is.numeric))\n\n# A tibble: 344 × 5\n   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year\n            <dbl>         <dbl>             <int>       <int> <int>\n 1           39.1          18.7               181        3750  2007\n 2           39.5          17.4               186        3800  2007\n 3           40.3          18                 195        3250  2007\n 4           NA            NA                  NA          NA  2007\n 5           36.7          19.3               193        3450  2007\n 6           39.3          20.6               190        3650  2007\n 7           38.9          17.8               181        3625  2007\n 8           39.2          19.6               195        4675  2007\n 9           34.1          18.1               193        3475  2007\n10           42            20.2               190        4250  2007\n# … with 334 more rows\n\n\n\n\nThere are several other selectors. See ?dplyr::select or online for further details."
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#mutate",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#mutate",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "mutate()",
-    "text": "mutate()\nCreate and modify columns\n\nExample 1Example 2Example 3\n\n\n\npenguins |>\n  select(bill_length_mm) |>\n  mutate(bill_length_mm_sq = bill_length_mm^2)\n\n# A tibble: 344 × 2\n   bill_length_mm bill_length_mm_sq\n            <dbl>             <dbl>\n 1           39.1             1529.\n 2           39.5             1560.\n 3           40.3             1624.\n 4           NA                 NA \n 5           36.7             1347.\n 6           39.3             1544.\n 7           38.9             1513.\n 8           39.2             1537.\n 9           34.1             1163.\n10           42               1764 \n# … with 334 more rows\n\n\n\n\n\npenguins |>\n  filter(species == \"Gentoo\") |>\n  select(sex, flipper_length_mm) |>\n  mutate(size = if_else(flipper_length_mm > 217, \"big\", \"small\"))\n\n# A tibble: 124 × 3\n   sex    flipper_length_mm size \n   <fct>              <int> <chr>\n 1 female               211 small\n 2 male                 230 big  \n 3 female               210 small\n 4 male                 218 big  \n 5 male                 215 small\n 6 female               210 small\n 7 female               211 small\n 8 male                 219 big  \n 9 female               209 small\n10 male                 215 small\n# … with 114 more rows\n\n\n\n\n\npenguins |>\n  select(bill_length_mm) |>\n  filter(!is.na(bill_length_mm)) |>\n  mutate(bill_length_mm_cumsum = cumsum(bill_length_mm))\n\n# A tibble: 342 × 2\n   bill_length_mm bill_length_mm_cumsum\n            <dbl>                 <dbl>\n 1           39.1                  39.1\n 2           39.5                  78.6\n 3           40.3                 119. \n 4           36.7                 156. \n 5           39.3                 195. \n 6           38.9                 234. \n 7           39.2                 273  \n 8           34.1                 307. \n 9           42                   349. \n10           37.8                 387. \n# … with 332 more rows"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html#summarise",
-    "href": "slides/01-foundations/02-data-wrangling/index.html#summarise",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "summarise()",
-    "text": "summarise()"
-  },
-  {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#filter-rows-based-on-values-of-observations.",
     "href": "slides/01-foundations/02-data-wrangling/index.html#filter-rows-based-on-values-of-observations.",
     "title": "Data Types, Structures and Wrangling",
     "section": "filter(): rows based on values of observations.",
-    "text": "filter(): rows based on values of observations.\n\nExampleNotes\n\n\n\nlibrary(dplyr)\nfilter(penguins, species == \"Gentoo\", body_mass_g > 500)\n\n# A tibble: 123 × 8\n   species island bill_length_mm bill_depth_mm flipper_len…¹ body_…² sex    year\n   <fct>   <fct>           <dbl>         <dbl>         <int>   <int> <fct> <int>\n 1 Gentoo  Biscoe           46.1          13.2           211    4500 fema…  2007\n 2 Gentoo  Biscoe           50            16.3           230    5700 male   2007\n 3 Gentoo  Biscoe           48.7          14.1           210    4450 fema…  2007\n 4 Gentoo  Biscoe           50            15.2           218    5700 male   2007\n 5 Gentoo  Biscoe           47.6          14.5           215    5400 male   2007\n 6 Gentoo  Biscoe           46.5          13.5           210    4550 fema…  2007\n 7 Gentoo  Biscoe           45.4          14.6           211    4800 fema…  2007\n 8 Gentoo  Biscoe           46.7          15.3           219    5200 male   2007\n 9 Gentoo  Biscoe           43.3          13.4           209    4400 fema…  2007\n10 Gentoo  Biscoe           46.8          15.4           215    5150 male   2007\n# … with 113 more rows, and abbreviated variable names ¹​flipper_length_mm,\n#   ²​body_mass_g\n\n\n\n\n\nvariable names are unquoted\nuse of == to test equality"
+    "text": "filter(): rows based on values of observations.\n\nExampleNotes\n\n\n\nlibrary(dplyr)\nfilter(penguins, \n       species == \"Gentoo\", \n       body_mass_g > 500, \n       !is.na(sex))\n\n# A tibble: 119 × 8\n   species island bill_length_mm bill_depth_mm flipper_len…¹ body_…² sex    year\n   <fct>   <fct>           <dbl>         <dbl>         <int>   <int> <fct> <int>\n 1 Gentoo  Biscoe           46.1          13.2           211    4500 fema…  2007\n 2 Gentoo  Biscoe           50            16.3           230    5700 male   2007\n 3 Gentoo  Biscoe           48.7          14.1           210    4450 fema…  2007\n 4 Gentoo  Biscoe           50            15.2           218    5700 male   2007\n 5 Gentoo  Biscoe           47.6          14.5           215    5400 male   2007\n 6 Gentoo  Biscoe           46.5          13.5           210    4550 fema…  2007\n 7 Gentoo  Biscoe           45.4          14.6           211    4800 fema…  2007\n 8 Gentoo  Biscoe           46.7          15.3           219    5200 male   2007\n 9 Gentoo  Biscoe           43.3          13.4           209    4400 fema…  2007\n10 Gentoo  Biscoe           46.8          15.4           215    5150 male   2007\n# … with 109 more rows, and abbreviated variable names ¹​flipper_length_mm,\n#   ²​body_mass_g\n\n\n\n\n\nvariable names are unquoted\n\n\n\n\nBuilding block\nR code\n\n\n\n\nBinary comparisons\n>, <, ==, <=, >=, !=\n\n\nLogical operators\nor |, and &, not !\n\n\nValue matching\ne.g. x %in% 6:9\n\n\nMissing indicator\ne.g. is.na(x)"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#select-select-variables-columns-in-a-dataset",
@@ -525,6 +434,27 @@
     "text": "select(): select variables (columns) in a dataset\n\nExample 1Example 2Example 3Example 4Note\n\n\n\nselect(penguins, bill_length_mm, bill_depth_mm)\n\n# A tibble: 344 × 2\n   bill_length_mm bill_depth_mm\n            <dbl>         <dbl>\n 1           39.1          18.7\n 2           39.5          17.4\n 3           40.3          18  \n 4           NA            NA  \n 5           36.7          19.3\n 6           39.3          20.6\n 7           38.9          17.8\n 8           39.2          19.6\n 9           34.1          18.1\n10           42            20.2\n# … with 334 more rows\n\n\n\n\n\nselect(penguins, bill_length_mm:body_mass_g)\n\n# A tibble: 344 × 4\n   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n            <dbl>         <dbl>             <int>       <int>\n 1           39.1          18.7               181        3750\n 2           39.5          17.4               186        3800\n 3           40.3          18                 195        3250\n 4           NA            NA                  NA          NA\n 5           36.7          19.3               193        3450\n 6           39.3          20.6               190        3650\n 7           38.9          17.8               181        3625\n 8           39.2          19.6               195        4675\n 9           34.1          18.1               193        3475\n10           42            20.2               190        4250\n# … with 334 more rows\n\n\n\n\n\nselect(penguins, starts_with(\"bill\"))\n\n# A tibble: 344 × 2\n   bill_length_mm bill_depth_mm\n            <dbl>         <dbl>\n 1           39.1          18.7\n 2           39.5          17.4\n 3           40.3          18  \n 4           NA            NA  \n 5           36.7          19.3\n 6           39.3          20.6\n 7           38.9          17.8\n 8           39.2          19.6\n 9           34.1          18.1\n10           42            20.2\n# … with 334 more rows\n\n\n\n\n\nselect(penguins, where(is.numeric))\n\n# A tibble: 344 × 5\n   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year\n            <dbl>         <dbl>             <int>       <int> <int>\n 1           39.1          18.7               181        3750  2007\n 2           39.5          17.4               186        3800  2007\n 3           40.3          18                 195        3250  2007\n 4           NA            NA                  NA          NA  2007\n 5           36.7          19.3               193        3450  2007\n 6           39.3          20.6               190        3650  2007\n 7           38.9          17.8               181        3625  2007\n 8           39.2          19.6               195        4675  2007\n 9           34.1          18.1               193        3475  2007\n10           42            20.2               190        4250  2007\n# … with 334 more rows\n\n\n\n\nThere are several other selectors. See ?dplyr::select or online for further details."
   },
   {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#a-note-on-pipes-vs",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#a-note-on-pipes-vs",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "A note on pipes: |> vs %>%",
+    "text": "A note on pipes: |> vs %>%"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#section",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#section",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "|>",
+    "text": "|>\n\nThe ‘native’ pipe, built into base R since v4.1 (May 2021)\nImproved in v4.2 (April 2022)"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#section-1",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#section-1",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "%>%",
+    "text": "%>%\n\nHas been around in the magrittr package since 2014\nUsed throughout the tidyverse (though that is changing)"
+  },
+  {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#arrange-change-the-ordering-of-rows",
     "href": "slides/01-foundations/02-data-wrangling/index.html#arrange-change-the-ordering-of-rows",
     "title": "Data Types, Structures and Wrangling",
@@ -532,17 +462,101 @@
     "text": "arrange(): change the ordering of rows\n\nExample 1Example 2Example 3\n\n\n\npenguins |>\n  select(species, sex, flipper_length_mm) |>\n  arrange(flipper_length_mm)\n\n# A tibble: 344 × 3\n   species   sex    flipper_length_mm\n   <fct>     <fct>              <int>\n 1 Adelie    female               172\n 2 Adelie    female               174\n 3 Adelie    female               176\n 4 Adelie    female               178\n 5 Adelie    male                 178\n 6 Adelie    female               178\n 7 Chinstrap female               178\n 8 Adelie    <NA>                 179\n 9 Adelie    <NA>                 180\n10 Adelie    male                 180\n# … with 334 more rows\n\n\n\n\n\npenguins |>\n  select(species, sex, flipper_length_mm) |>\n  arrange(species, flipper_length_mm)\n\n# A tibble: 344 × 3\n   species sex    flipper_length_mm\n   <fct>   <fct>              <int>\n 1 Adelie  female               172\n 2 Adelie  female               174\n 3 Adelie  female               176\n 4 Adelie  female               178\n 5 Adelie  male                 178\n 6 Adelie  female               178\n 7 Adelie  <NA>                 179\n 8 Adelie  <NA>                 180\n 9 Adelie  male                 180\n10 Adelie  male                 180\n# … with 334 more rows\n\n\n\n\n\npenguins |>\n  select(species, sex, flipper_length_mm) |>\n  arrange(desc(flipper_length_mm))\n\n# A tibble: 344 × 3\n   species sex   flipper_length_mm\n   <fct>   <fct>             <int>\n 1 Gentoo  male                231\n 2 Gentoo  male                230\n 3 Gentoo  male                230\n 4 Gentoo  male                230\n 5 Gentoo  male                230\n 6 Gentoo  male                230\n 7 Gentoo  male                230\n 8 Gentoo  male                230\n 9 Gentoo  male                229\n10 Gentoo  male                229\n# … with 334 more rows"
   },
   {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#mutate",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#mutate",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "mutate()",
+    "text": "mutate()\nCreate and modify columns\n\nExample 1Example 2Example 3\n\n\n\npenguins |>\n  select(bill_length_mm) |>\n  mutate(bill_length_mm_sq = bill_length_mm^2)\n\n# A tibble: 344 × 2\n   bill_length_mm bill_length_mm_sq\n            <dbl>             <dbl>\n 1           39.1             1529.\n 2           39.5             1560.\n 3           40.3             1624.\n 4           NA                 NA \n 5           36.7             1347.\n 6           39.3             1544.\n 7           38.9             1513.\n 8           39.2             1537.\n 9           34.1             1163.\n10           42               1764 \n# … with 334 more rows\n\n\n\n\n\npenguins |>\n  filter(species == \"Gentoo\") |>\n  select(sex, flipper_length_mm) |>\n  mutate(size = if_else(flipper_length_mm > 217, \"big\", \"small\"))\n\n# A tibble: 124 × 3\n   sex    flipper_length_mm size \n   <fct>              <int> <chr>\n 1 female               211 small\n 2 male                 230 big  \n 3 female               210 small\n 4 male                 218 big  \n 5 male                 215 small\n 6 female               210 small\n 7 female               211 small\n 8 male                 219 big  \n 9 female               209 small\n10 male                 215 small\n# … with 114 more rows\n\n\n\n\n\npenguins |>\n  select(bill_length_mm) |>\n  filter(!is.na(bill_length_mm)) |>\n  mutate(bill_length_mm_cumsum = cumsum(bill_length_mm))\n\n# A tibble: 342 × 2\n   bill_length_mm bill_length_mm_cumsum\n            <dbl>                 <dbl>\n 1           39.1                  39.1\n 2           39.5                  78.6\n 3           40.3                 119. \n 4           36.7                 156. \n 5           39.3                 195. \n 6           38.9                 234. \n 7           39.2                 273  \n 8           34.1                 307. \n 9           42                   349. \n10           37.8                 387. \n# … with 332 more rows"
+  },
+  {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#summarise-reduces-multiple-values-down-to-a-single-summary",
     "href": "slides/01-foundations/02-data-wrangling/index.html#summarise-reduces-multiple-values-down-to-a-single-summary",
     "title": "Data Types, Structures and Wrangling",
     "section": "summarise(): reduces multiple values down to a single summary",
-    "text": "summarise(): reduces multiple values down to a single summary\n\nExample 1\n\n\n\npenguins |>\n  select(species, sex, body_mass_g) |>\n  group_by(species, sex) |>\n  summarise(mean = mean(body_mass_g))\n\n# A tibble: 8 × 3\n# Groups:   species [3]\n  species   sex     mean\n  <fct>     <fct>  <dbl>\n1 Adelie    female 3369.\n2 Adelie    male   4043.\n3 Adelie    <NA>     NA \n4 Chinstrap female 3527.\n5 Chinstrap male   3939.\n6 Gentoo    female 4680.\n7 Gentoo    male   5485.\n8 Gentoo    <NA>     NA"
+    "text": "summarise(): reduces multiple values down to a single summary\n\nExample 1Example 2\n\n\n\npenguins |>\n  summarise(mean(body_mass_g, na.rm = TRUE))  \n\n# A tibble: 1 × 1\n  `mean(body_mass_g, na.rm = TRUE)`\n                              <dbl>\n1                             4202.\n\n\n\n\n\npenguins |>\n  group_by(species, sex) |>\n  filter(!is.na(sex)) |>\n  summarise(mean = mean(body_mass_g, na.rm = TRUE)) # give column a name\n\n# A tibble: 6 × 3\n# Groups:   species [3]\n  species   sex     mean\n  <fct>     <fct>  <dbl>\n1 Adelie    female 3369.\n2 Adelie    male   4043.\n3 Chinstrap female 3527.\n4 Chinstrap male   3939.\n5 Gentoo    female 4680.\n6 Gentoo    male   5485."
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#tidydatatutor.com",
     "href": "slides/01-foundations/02-data-wrangling/index.html#tidydatatutor.com",
     "title": "Data Types, Structures and Wrangling",
     "section": "tidydatatutor.com",
-    "text": "tidydatatutor.com"
+    "text": "tidydatatutor.com\nTidy Data Tutor lets you write R and Tidyverse code in your browser and see how your data frame changes at each step of a data analysis pipeline.\nDEMO"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#resources",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#resources",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#license",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#license",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "schedule",
+    "section": "",
+    "text": "Please use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#filter",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#filter",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "filter()",
+    "text": "filter()\nPick rows based on values of observations.\n\nExampleNotes\n\n\n\nfilter(penguins, \n       species == \"Gentoo\", \n       bill_length_mm > 48 & bill_depth_mm > 15, \n       !is.na(sex))\n\n# A tibble: 39 × 8\n   species island bill_length_mm bill_depth_mm flipper_len…¹ body_…² sex    year\n   <fct>   <fct>           <dbl>         <dbl>         <int>   <int> <fct> <int>\n 1 Gentoo  Biscoe           50            16.3           230    5700 male   2007\n 2 Gentoo  Biscoe           50            15.2           218    5700 male   2007\n 3 Gentoo  Biscoe           49            16.1           216    5550 male   2007\n 4 Gentoo  Biscoe           49.3          15.7           217    5850 male   2007\n 5 Gentoo  Biscoe           49.2          15.2           221    6300 male   2007\n 6 Gentoo  Biscoe           48.7          15.1           222    5350 male   2007\n 7 Gentoo  Biscoe           50            15.3           220    5550 male   2007\n 8 Gentoo  Biscoe           59.6          17             230    6050 male   2007\n 9 Gentoo  Biscoe           48.4          16.3           220    5400 male   2008\n10 Gentoo  Biscoe           48.7          15.7           208    5350 male   2008\n# … with 29 more rows, and abbreviated variable names ¹​flipper_length_mm,\n#   ²​body_mass_g\n\n\n\n\n\nvariable names are unquoted\nbuilding blocks of conditions:\n\n\n\n\nBuilding block\nR code\n\n\n\n\nBinary comparisons\n>, <, ==, <=, >=, !=\n\n\nLogical operators\nor |, and &, not !\n\n\nValue matching\ne.g. x %in% 6:9\n\n\nMissing indicator\ne.g. is.na(x)"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#a-note-about-pipes",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#a-note-about-pipes",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "A note about pipes",
+    "text": "A note about pipes"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#a-note-about-pipes-vs",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#a-note-about-pipes-vs",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "A note about pipes: |> vs %>%",
+    "text": "A note about pipes: |> vs %>%\nPipes pass what comes before into an argument (by default the first) of what comes after.\n\n\n|>\n\nThe ‘native’ pipe, built into base R since v4.1 (May 2021)\nImproved in v4.2 (April 2022)\n\n\n%>%\n\nHas been around in the magrittr package since 2014\nUsed throughout the tidyverse (though that is changing)"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#main-difference",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#main-difference",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Main difference",
+    "text": "Main difference\n\npaste(\"a\", \"b\", \"c\")\n\n[1] \"a b c\"\n\n\n\nfirst argumentsubsequent argument\n\n\n\n\"a\" %>% paste(\"b\", \"c\")\n\n[1] \"a b c\"\n\n\n\n\"a\" |> paste(\"b\", \"c\")\n\n[1] \"a b c\"\n\n\n\n\n\n\"b\" %>% paste(\"a\", ., \"c\")\n\n[1] \"a b c\"\n\n\n\n\"b\" |> paste(\"b\", ..2 = _, \"c\")\n\n[1] \"b b c\""
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#similarity-and-key-difference",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#similarity-and-key-difference",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Similarity and key difference",
+    "text": "Similarity and key difference\nBy default, a pipe takes what comes before and pass it to first argument of what comes after.\n\nExample 1Example 2\n\n\n\nlog(2, base = 10)\n\n[1] 0.30103\n\n2 %>% log(base = 10)\n\n[1] 0.30103\n\n2 |> log(base = 10)\n\n[1] 0.30103\n\n\n\n\n\npaste(\"a\", \"b\", \"c\")\n\n[1] \"a b c\"\n\n\"a\" %>% paste(\"b\", \"c\")\n\n[1] \"a b c\"\n\n\"a\" |> paste(\"b\", \"c\")\n\n[1] \"a b c\""
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#similarity-and-key-difference-1",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#similarity-and-key-difference-1",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Similarity and key difference",
+    "text": "Similarity and key difference\nSo far, so good, but what if we want to pipe into a subsequent argument?\n\nExample 1Example 2\n\n\n\nlog(2, 10) ## don't need to name the argument\n\n[1] 0.30103\n\n10 %>% log(2, .)\n\n[1] 0.30103\n\n10 |> log(2, base = _)\n\n[1] 0.30103\n\n\n\n\n\npaste(\"a\", \"b\", \"c\")\n\n[1] \"a b c\"\n\n\"b\" %>% paste(\"a\", ., \"c\")\n\n[1] \"a b c\"\n\n\"b\" |> paste(\"a\", ..2 = _, \"c\")\n\n[1] \"a b c\"\n\n\n\n\n\nDifferent placeholder (. vs _) and with native pipe need a named argument"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#load-packages",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#load-packages",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Load packages",
+    "text": "Load packages\n\nlibrary(dplyr)\nlibrary(palmerpenguins)"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#mutate-create-and-modify-columns",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#mutate-create-and-modify-columns",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "mutate(): create and modify columns",
+    "text": "mutate(): create and modify columns\n\nExample 1Example 2Example 3\n\n\n\npenguins |>\n  select(bill_length_mm) |>\n  mutate(bill_length_mm_sq = bill_length_mm^2)\n\n# A tibble: 344 × 2\n   bill_length_mm bill_length_mm_sq\n            <dbl>             <dbl>\n 1           39.1             1529.\n 2           39.5             1560.\n 3           40.3             1624.\n 4           NA                 NA \n 5           36.7             1347.\n 6           39.3             1544.\n 7           38.9             1513.\n 8           39.2             1537.\n 9           34.1             1163.\n10           42               1764 \n# … with 334 more rows\n\n\n\n\n\npenguins |>\n  filter(species == \"Gentoo\") |>\n  select(sex, flipper_length_mm) |>\n  mutate(size = if_else(flipper_length_mm > 217, \"big\", \"small\"))\n\n# A tibble: 124 × 3\n   sex    flipper_length_mm size \n   <fct>              <int> <chr>\n 1 female               211 small\n 2 male                 230 big  \n 3 female               210 small\n 4 male                 218 big  \n 5 male                 215 small\n 6 female               210 small\n 7 female               211 small\n 8 male                 219 big  \n 9 female               209 small\n10 male                 215 small\n# … with 114 more rows\n\n\n\n\n\npenguins |>\n  select(bill_length_mm) |>\n  filter(!is.na(bill_length_mm)) |>\n  mutate(bill_length_mm_cumsum = cumsum(bill_length_mm))\n\n# A tibble: 342 × 2\n   bill_length_mm bill_length_mm_cumsum\n            <dbl>                 <dbl>\n 1           39.1                  39.1\n 2           39.5                  78.6\n 3           40.3                 119. \n 4           36.7                 156. \n 5           39.3                 195. \n 6           38.9                 234. \n 7           39.2                 273  \n 8           34.1                 307. \n 9           42                   349. \n10           37.8                 387. \n# … with 332 more rows"
   }
 ]

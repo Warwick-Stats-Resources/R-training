@@ -595,6 +595,7 @@ Levels: apple pear</code></pre>
 <pre><code> Factor w/ 2 levels "apple","pear": 1 1 2</code></pre>
 </div>
 </div>
+<p>The <a href="https://forcats.tidyverse.org" target="_blank"><strong>forcats</strong></a> package from the tidyverse has many functions for dealing with factors.</p>
 </section>
 <section id="data-frames" class="slide level2">
 <h2>Data frames</h2>
@@ -627,8 +628,8 @@ Levels: apple pear</code></pre>
 <section id="creating-data-frames" class="slide level2">
 <h2>Creating data frames</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="st">`</span><span class="at">my numbers</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"pear"</span>, <span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="st">`</span><span class="at">my numbers</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>fruits <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"pear"</span>, <span class="st">"orange"</span>), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -639,7 +640,13 @@ Levels: apple pear</code></pre>
 <pre><code>  my.numbers fruits
 1          1  apple
 2          2   pear
-3          3 orange</code></pre>
+3          3 orange
+4          4  apple
+5          5   pear
+6          6 orange
+7          7  apple
+8          8   pear
+9          9 orange</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -647,12 +654,18 @@ Levels: apple pear</code></pre>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">tibble</span>(<span class="st">`</span><span class="at">my numbers</span><span class="st">`</span>, </span>
 <span id="cb32-2"><a href="#cb32-2"></a>       fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
+<pre><code># A tibble: 9 × 2
   `my numbers` fruits
          &lt;int&gt; &lt;chr&gt; 
 1            1 apple 
 2            2 pear  
-3            3 orange</code></pre>
+3            3 orange
+4            4 apple 
+5            5 pear  
+6            6 orange
+7            7 apple 
+8            8 pear  
+9            9 orange</code></pre>
 </div>
 </div>
 </div>
@@ -674,47 +687,83 @@ Levels: apple pear</code></pre>
 <h2>dplyr</h2>
 <p>The <strong>dplyr</strong> package (part of the tidyverse) provides the following key functions to operate on data frames:</p>
 <ul>
-<li><p>filter()</p></li>
-<li><p>arrange()</p></li>
-<li><p>select()</p></li>
-<li><p>mutate()</p></li>
-<li><p>summarise()</p></li>
+<li>filter()</li>
+<li>arrange()</li>
+<li>select()</li>
+<li>mutate()</li>
+<li>summarise()</li>
 </ul>
 <p>They all take a data frame as their first argument. The subsequent arguments describe what to do with the data frame. The result is a new data frame.</p>
 </section>
-<section id="filter-rows-based-on-values-of-observations." class="slide level2">
-<h2><code>filter()</code>: rows based on values of observations.</h2>
+<section id="load-packages" class="slide level2">
+<h2>Load packages</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="filter" class="slide level2">
+<h2><code>filter()</code></h2>
+<p>Pick rows based on values of observations.</p>
 <div class="panel-tabset">
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Example</a></li><li><a href="#tabset-2-2">Notes</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb34-2"><a href="#cb34-2"></a><span class="fu">filter</span>(penguins, species <span class="sc">==</span> <span class="st">"Gentoo"</span>, body_mass_g <span class="sc">&gt;</span> <span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">filter</span>(penguins, </span>
+<span id="cb35-2"><a href="#cb35-2"></a>       species <span class="sc">==</span> <span class="st">"Gentoo"</span>, </span>
+<span id="cb35-3"><a href="#cb35-3"></a>       bill_length_mm <span class="sc">&gt;</span> <span class="dv">48</span> <span class="sc">&amp;</span> bill_depth_mm <span class="sc">&gt;</span> <span class="dv">15</span>, </span>
+<span id="cb35-4"><a href="#cb35-4"></a>       <span class="sc">!</span><span class="fu">is.na</span>(sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 123 × 8
+<pre><code># A tibble: 39 × 8
    species island bill_length_mm bill_depth_mm flipper_len…¹ body_…² sex    year
    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;         &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
- 1 Gentoo  Biscoe           46.1          13.2           211    4500 fema…  2007
- 2 Gentoo  Biscoe           50            16.3           230    5700 male   2007
- 3 Gentoo  Biscoe           48.7          14.1           210    4450 fema…  2007
- 4 Gentoo  Biscoe           50            15.2           218    5700 male   2007
- 5 Gentoo  Biscoe           47.6          14.5           215    5400 male   2007
- 6 Gentoo  Biscoe           46.5          13.5           210    4550 fema…  2007
- 7 Gentoo  Biscoe           45.4          14.6           211    4800 fema…  2007
- 8 Gentoo  Biscoe           46.7          15.3           219    5200 male   2007
- 9 Gentoo  Biscoe           43.3          13.4           209    4400 fema…  2007
-10 Gentoo  Biscoe           46.8          15.4           215    5150 male   2007
-# … with 113 more rows, and abbreviated variable names ¹​flipper_length_mm,
+ 1 Gentoo  Biscoe           50            16.3           230    5700 male   2007
+ 2 Gentoo  Biscoe           50            15.2           218    5700 male   2007
+ 3 Gentoo  Biscoe           49            16.1           216    5550 male   2007
+ 4 Gentoo  Biscoe           49.3          15.7           217    5850 male   2007
+ 5 Gentoo  Biscoe           49.2          15.2           221    6300 male   2007
+ 6 Gentoo  Biscoe           48.7          15.1           222    5350 male   2007
+ 7 Gentoo  Biscoe           50            15.3           220    5550 male   2007
+ 8 Gentoo  Biscoe           59.6          17             230    6050 male   2007
+ 9 Gentoo  Biscoe           48.4          16.3           220    5400 male   2008
+10 Gentoo  Biscoe           48.7          15.7           208    5350 male   2008
+# … with 29 more rows, and abbreviated variable names ¹​flipper_length_mm,
 #   ²​body_mass_g</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-2-2">
 <ul>
-<li>variable names are unquoted</li>
-<li>use of <code>==</code> to test equality</li>
+<li><p>variable names are unquoted</p></li>
+<li><p>building blocks of conditions:</p></li>
 </ul>
+<table>
+<thead>
+<tr class="header">
+<th>Building block</th>
+<th>R code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Binary comparisons</td>
+<td><code>&gt;</code>,&nbsp;<code>&lt;</code>,&nbsp;<code>==</code>,&nbsp;<code>&lt;=</code>,&nbsp;<code>&gt;=</code>,&nbsp;<code>!=</code></td>
+</tr>
+<tr class="even">
+<td>Logical operators</td>
+<td>or&nbsp;<code>|</code>,&nbsp;and&nbsp;<code>&amp;</code>, not&nbsp;<code>!</code></td>
+</tr>
+<tr class="odd">
+<td>Value matching</td>
+<td>e.g.&nbsp;<code>x %in% 6:9</code></td>
+</tr>
+<tr class="even">
+<td>Missing indicator</td>
+<td>e.g.&nbsp;<code>is.na(x)</code></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -726,7 +775,7 @@ Levels: apple pear</code></pre>
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">select</span>(penguins, bill_length_mm, bill_depth_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">select</span>(penguins, bill_length_mm, bill_depth_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 2
    bill_length_mm bill_depth_mm
@@ -747,7 +796,7 @@ Levels: apple pear</code></pre>
 </div>
 <div id="tabset-3-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">select</span>(penguins, bill_length_mm<span class="sc">:</span>body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">select</span>(penguins, bill_length_mm<span class="sc">:</span>body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 4
    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
@@ -768,7 +817,7 @@ Levels: apple pear</code></pre>
 </div>
 <div id="tabset-3-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">select</span>(penguins, <span class="fu">starts_with</span>(<span class="st">"bill"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">select</span>(penguins, <span class="fu">starts_with</span>(<span class="st">"bill"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 2
    bill_length_mm bill_depth_mm
@@ -789,7 +838,7 @@ Levels: apple pear</code></pre>
 </div>
 <div id="tabset-3-4">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">select</span>(penguins, <span class="fu">where</span>(is.numeric))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">select</span>(penguins, <span class="fu">where</span>(is.numeric))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 5
    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year
@@ -814,16 +863,118 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </section>
-<section id="arrange-change-the-ordering-of-rows" class="slide level2">
-<h2><code>arrange()</code>: change the ordering of rows</h2>
+<section id="a-note-about-pipes-vs" class="slide level2">
+<h2>A note about pipes: <code>|&gt;</code> vs <code>%&gt;%</code></h2>
+<p>Pipes pass what comes before into an argument (by default the first) of what comes after.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="section"><code>|&gt;</code></h3>
+<ul>
+<li>The ‘native’ pipe, built into base R since v4.1 (May 2021)</li>
+<li>Improved in v4.2 (April 2022)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="section-1"><code>%&gt;%</code></h3>
+<ul>
+<li>Has been around in the <strong>magrittr</strong> package since 2014</li>
+<li>Used throughout the tidyverse (though that is changing)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="similarity-and-key-difference" class="slide level2">
+<h2>Similarity and key difference</h2>
+<p>By default, a pipe takes what comes before and pass it to first argument of what comes after.</p>
 <div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Example 1</a></li><li><a href="#tabset-4-2">Example 2</a></li><li><a href="#tabset-4-3">Example 3</a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Example 1</a></li><li><a href="#tabset-4-2">Example 2</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">select</span>(species, sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
-<span id="cb44-3"><a href="#cb44-3"></a>  <span class="fu">arrange</span>(flipper_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">log</span>(<span class="dv">2</span>, <span class="at">base =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.30103</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="dv">2</span> <span class="sc">%&gt;%</span> <span class="fu">log</span>(<span class="at">base =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.30103</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="dv">2</span> <span class="sc">|&gt;</span> <span class="fu">log</span>(<span class="at">base =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.30103</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">paste</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a b c"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="st">"a"</span> <span class="sc">%&gt;%</span> <span class="fu">paste</span>(<span class="st">"b"</span>, <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a b c"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="st">"a"</span> <span class="sc">|&gt;</span> <span class="fu">paste</span>(<span class="st">"b"</span>, <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a b c"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="similarity-and-key-difference-1" class="slide level2">
+<h2>Similarity and key difference</h2>
+<p>So far, so good, but what if we want to pipe into a subsequent argument?</p>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Example 1</a></li><li><a href="#tabset-5-2">Example 2</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">log</span>(<span class="dv">2</span>, <span class="dv">10</span>) <span class="do">## don't need to name the argument</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.30103</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="dv">10</span> <span class="sc">%&gt;%</span> <span class="fu">log</span>(<span class="dv">2</span>, .)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.30103</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="dv">10</span> <span class="sc">|&gt;</span> <span class="fu">log</span>(<span class="dv">2</span>, <span class="at">base =</span> _)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.30103</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">paste</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a b c"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="st">"b"</span> <span class="sc">%&gt;%</span> <span class="fu">paste</span>(<span class="st">"a"</span>, ., <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a b c"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="st">"b"</span> <span class="sc">|&gt;</span> <span class="fu">paste</span>(<span class="st">"a"</span>, <span class="at">..2 =</span> _, <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a b c"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Different placeholder (<code>.</code> vs <code>_</code>) and with native pipe need a named argument</p>
+</section>
+<section id="arrange-change-the-ordering-of-rows" class="slide level2">
+<h2><code>arrange()</code>: change the ordering of rows</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Example 1</a></li><li><a href="#tabset-6-2">Example 2</a></li><li><a href="#tabset-6-3">Example 3</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a>  <span class="fu">select</span>(species, sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
+<span id="cb69-3"><a href="#cb69-3"></a>  <span class="fu">arrange</span>(flipper_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 3
    species   sex    flipper_length_mm
@@ -842,11 +993,11 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-4-2">
+<div id="tabset-6-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a>  <span class="fu">select</span>(species, sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
-<span id="cb46-3"><a href="#cb46-3"></a>  <span class="fu">arrange</span>(species, flipper_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb71-2"><a href="#cb71-2"></a>  <span class="fu">select</span>(species, sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
+<span id="cb71-3"><a href="#cb71-3"></a>  <span class="fu">arrange</span>(species, flipper_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 3
    species sex    flipper_length_mm
@@ -865,11 +1016,11 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-4-3">
+<div id="tabset-6-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">select</span>(species, sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
-<span id="cb48-3"><a href="#cb48-3"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(flipper_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb73-2"><a href="#cb73-2"></a>  <span class="fu">select</span>(species, sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
+<span id="cb73-3"><a href="#cb73-3"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(flipper_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 3
    species sex   flipper_length_mm
@@ -891,17 +1042,16 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </section>
-<section id="mutate" class="slide level2">
-<h2><code>mutate()</code></h2>
-<p>Create and modify columns</p>
+<section id="mutate-create-and-modify-columns" class="slide level2">
+<h2><code>mutate()</code>: create and modify columns</h2>
 <div class="panel-tabset">
-<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Example 1</a></li><li><a href="#tabset-5-2">Example 2</a></li><li><a href="#tabset-5-3">Example 3</a></li></ul>
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Example 1</a></li><li><a href="#tabset-7-2">Example 2</a></li><li><a href="#tabset-7-3">Example 3</a></li></ul>
 <div class="tab-content">
-<div id="tabset-5-1">
+<div id="tabset-7-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">select</span>(bill_length_mm) <span class="sc">|&gt;</span></span>
-<span id="cb50-3"><a href="#cb50-3"></a>  <span class="fu">mutate</span>(<span class="at">bill_length_mm_sq =</span> bill_length_mm<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb75-2"><a href="#cb75-2"></a>  <span class="fu">select</span>(bill_length_mm) <span class="sc">|&gt;</span></span>
+<span id="cb75-3"><a href="#cb75-3"></a>  <span class="fu">mutate</span>(<span class="at">bill_length_mm_sq =</span> bill_length_mm<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 2
    bill_length_mm bill_length_mm_sq
@@ -920,12 +1070,12 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-5-2">
+<div id="tabset-7-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb52-3"><a href="#cb52-3"></a>  <span class="fu">select</span>(sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
-<span id="cb52-4"><a href="#cb52-4"></a>  <span class="fu">mutate</span>(<span class="at">size =</span> <span class="fu">if_else</span>(flipper_length_mm <span class="sc">&gt;</span> <span class="dv">217</span>, <span class="st">"big"</span>, <span class="st">"small"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb77-2"><a href="#cb77-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb77-3"><a href="#cb77-3"></a>  <span class="fu">select</span>(sex, flipper_length_mm) <span class="sc">|&gt;</span></span>
+<span id="cb77-4"><a href="#cb77-4"></a>  <span class="fu">mutate</span>(<span class="at">size =</span> <span class="fu">if_else</span>(flipper_length_mm <span class="sc">&gt;</span> <span class="dv">217</span>, <span class="st">"big"</span>, <span class="st">"small"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 124 × 3
    sex    flipper_length_mm size 
@@ -944,12 +1094,12 @@ Levels: apple pear</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-5-3">
+<div id="tabset-7-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a>  <span class="fu">select</span>(bill_length_mm) <span class="sc">|&gt;</span></span>
-<span id="cb54-3"><a href="#cb54-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(bill_length_mm)) <span class="sc">|&gt;</span></span>
-<span id="cb54-4"><a href="#cb54-4"></a>  <span class="fu">mutate</span>(<span class="at">bill_length_mm_cumsum =</span> <span class="fu">cumsum</span>(bill_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb79-2"><a href="#cb79-2"></a>  <span class="fu">select</span>(bill_length_mm) <span class="sc">|&gt;</span></span>
+<span id="cb79-3"><a href="#cb79-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(bill_length_mm)) <span class="sc">|&gt;</span></span>
+<span id="cb79-4"><a href="#cb79-4"></a>  <span class="fu">mutate</span>(<span class="at">bill_length_mm_cumsum =</span> <span class="fu">cumsum</span>(bill_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 342 × 2
    bill_length_mm bill_length_mm_cumsum
@@ -974,27 +1124,37 @@ Levels: apple pear</code></pre>
 <section id="summarise-reduces-multiple-values-down-to-a-single-summary" class="slide level2">
 <h2><code>summarise()</code>: reduces multiple values down to a single summary</h2>
 <div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Example 1</a></li></ul>
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Example 1</a></li><li><a href="#tabset-8-2">Example 2</a></li></ul>
 <div class="tab-content">
-<div id="tabset-6-1">
+<div id="tabset-8-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb56-2"><a href="#cb56-2"></a>  <span class="fu">select</span>(species, sex, body_mass_g) <span class="sc">|&gt;</span></span>
-<span id="cb56-3"><a href="#cb56-3"></a>  <span class="fu">group_by</span>(species, sex) <span class="sc">|&gt;</span></span>
-<span id="cb56-4"><a href="#cb56-4"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb81-2"><a href="#cb81-2"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 3
+<pre><code># A tibble: 1 × 1
+  `mean(body_mass_g, na.rm = TRUE)`
+                              &lt;dbl&gt;
+1                             4202.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-8-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb83-2"><a href="#cb83-2"></a>  <span class="fu">group_by</span>(species, sex) <span class="sc">|&gt;</span></span>
+<span id="cb83-3"><a href="#cb83-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sex)) <span class="sc">|&gt;</span></span>
+<span id="cb83-4"><a href="#cb83-4"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="co"># give column a name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
 # Groups:   species [3]
   species   sex     mean
   &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt;
 1 Adelie    female 3369.
 2 Adelie    male   4043.
-3 Adelie    &lt;NA&gt;     NA 
-4 Chinstrap female 3527.
-5 Chinstrap male   3939.
-6 Gentoo    female 4680.
-7 Gentoo    male   5485.
-8 Gentoo    &lt;NA&gt;     NA </code></pre>
+3 Chinstrap female 3527.
+4 Chinstrap male   3939.
+5 Gentoo    female 4680.
+6 Gentoo    male   5485.</code></pre>
 </div>
 </div>
 </div>
@@ -1003,6 +1163,8 @@ Levels: apple pear</code></pre>
 </section>
 <section id="tidydatatutor.com" class="slide level2">
 <h2>tidydatatutor.com</h2>
+<p><a href="https://tidydatatutor.com" target="_blank">Tidy Data Tutor</a> lets you write R and Tidyverse code in your browser and see how your data frame changes at each step of a data analysis pipeline.</p>
+<p>DEMO</p>
 </section></section>
 <section>
 <section id="end-matter" class="title-slide slide level1 center" data-background-color="#552D62">
