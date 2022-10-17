@@ -577,7 +577,15 @@ DEMO
 
 # End matter {background-color="#552D62"}
 
-## Resources
+## Additional resources
+
+- [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/){target="_blank"}
+
+- [R for data science book](https://r4ds.had.co.nz){target="_blank"}
+
+- [**ferriswheels**](https://github.com/EmilHvitfeldt/ferriswheels){target="_blank"}
+
+## Sources
 
 Material inspired by and remixed from:
 

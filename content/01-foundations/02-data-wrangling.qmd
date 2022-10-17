@@ -2,8 +2,6 @@
 title: Data Wrangling
 ---
 
-*The notes and slides for this session are still under development.*
-
 ## Slides
 
 Here's a link to the [slides](/slides/01-foundations/02-data-wrangling/index.qmd){target="_blank"} in a new window. 
@@ -14,3 +12,27 @@ Here are the slides embedded:
 </iframe>
 
 ## Resources
+
+### R and RStudio
+
+- [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/){target="_blank"}
+
+- [R for data science book](https://r4ds.had.co.nz){target="_blank"}
+
+### Packages
+
+- dplyr
+
+  <https://dplyr.tidyverse.org>
+  
+- forcats
+
+  <https://forcats.tidyverse.org>
+
+- ferriswheels
+
+  <https://github.com/EmilHvitfeldt/ferriswheels>
+  
+- here
+
+  <https://here.r-lib.org>
