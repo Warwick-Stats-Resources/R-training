@@ -21,7 +21,7 @@ draft: false
 
 -   Data structures
 
--   Data wrangling
+-   Data import and wrangling
 
 ## Assigning in R
 
@@ -60,7 +60,7 @@ Object names cannot:
 
 ## good
 
--   meaningful yet cconcise
+-   meaningful yet concise
 
 <!-- -->
 
@@ -126,9 +126,9 @@ N.B. double and integer types are both numeric
 
 -   `Inf`: Positive infinity, e.g. the result of dividing a non-zero number by zero
 
--   `NaN`: not a number, e.g. attempting to find the logarithm of a negative number
+-   `NaN`: Not a number, e.g. attempting to find the logarithm of a negative number
 
--   `NULL`: the null object. Often returned by expressions and functions whose value is undefined
+-   `NULL`: The null object. Often returned by expressions and functions whose value is undefined
 
 ## Data structures
 
@@ -159,6 +159,12 @@ fruits <- c("apple", "pear")
 
 The elements of the vector must be of the same type: common types are numeric, character and logical.
 
+There are built-in functions for getting information about vectors, e.g.
+
+```{r}
+length(fruits)
+```
+
 ## Creating vectors
 
 There are some useful shortcuts for certain types of vector:
@@ -168,6 +174,8 @@ There are some useful shortcuts for certain types of vector:
 seq(from = 3, to = 5, by = 0.5)
 LETTERS
 ```
+
+What do you think `letters` returns?
 
 ## Subsetting vectors
 
@@ -189,6 +197,18 @@ x[c(TRUE, FALSE, TRUE, FALSE)]
 ```{r}
 x[x > 4]
 ```
+
+## Your turn!
+
+- In your R-Foundations project from last week, create and save a new script called data-types.R
+
+- Look at the help page for the `rep()` function: `?rep`
+
+- Starting with the vector `c(1,3,6)`, can you make the following patterns:
+
+  - 1, 3, 6, 1, 3, 6
+  - 1, 1, 3, 3, 6, 6
+  - 1, 1, 3, 3, 6, 6, 1, 1, 3, 3, 6, 6
 
 ## Factors
 
@@ -252,9 +272,54 @@ tibble(`my numbers`,
 
 Spot the differences!
 
-## Reading in a data frame
-
 ## Import dataset (button)
+
+Using the Import Dataset dialog in RStudio
+
+![](images/import_dataset.png){fig-align="center"}
+
+we can import files stored locally or online in the following formats:
+
+-   `.txt`/`.csv` via `read_delim`/`read_csv` from **readr**.
+-   `.xlsx` via `read_excel` from **readxl**.
+-   `.sav/.por` , `.sas7bdat` and `.dta` via `read_spss`, `read_sas` and `read_stata` respectively from **haven**.
+
+Most of these functions also allow files to be compressed, e.g. as `.zip`.
+
+## File names and paths and project structure
+
+It's REALLY important to have good file names and paths, and a good project structure.
+
+I leave you in the extremely capable hand of Danielle Navarro to take you thoroughly through best practices:
+
+<https://djnavarro.net/slides-project-structure/#1>
+
+I also HIGHLY recommend you check out the [**here**](https://here.r-lib.org){target="_blank"} package, which enables easy file referencing in [project-oriented workflows](https://rstats.wtf/project-oriented-workflow.html){target="_blank"}
+
+## Import data (code)
+
+The **rio** package provides a common interface to the functions used by *Import Dataset* as well as many others.
+
+The data format is automatically recognised from the file extension. To read the data in as a tibble, we use the setclass argument.
+
+```{r}
+#| eval: false
+library(rio)
+penguins_lter <- import("data/penguins_lter.csv")
+penguins_lter_tbl <- import("data/penguins_lter.csv", setclass = "tibble")
+```
+
+See `?rio` for the underlying functions used for each format and the corresponding optional arguments, e.g. the skip argument to `read_excel` to skip a certain number of rows.
+
+## Import data demo
+
+- From file
+
+- From URL 
+
+  - [<https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-09/wheels.csv>]{.smaller60}
+  
+- Your turn!
 
 # Data wrangling {background-color="#552D62"}
 
@@ -277,10 +342,7 @@ library(dplyr)
 library(palmerpenguins)
 ```
 
-
-## `filter()`
-
-Pick rows based on values of observations.
+## `filter()`: pick rows based on values of observations.
 
 ::: panel-tabset
 ## Example
@@ -292,20 +354,18 @@ filter(penguins,
        !is.na(sex))
 ```
 
-
 ## Notes
 
 -   variable names are unquoted
 
-- building blocks of conditions:
+-   building blocks of conditions:
 
 | Building block     | R code                           |
 |--------------------|----------------------------------|
 | Binary comparisons | `>`, `<`, `==`, `<=`, `>=`, `!=` |
-| Logical operators  | or `|`, and `&`, not `!`          |
+| Logical operators  | or `|`, and `&`, not `!`         |
 | Value matching     | e.g. `x %in% 6:9`                |
 | Missing indicator  | e.g. `is.na(x)`                  |
-
 :::
 
 ## `select()`: select variables (columns) in a dataset
@@ -344,27 +404,31 @@ There are several other selectors. See `?dplyr::select` or [online](https://dply
 
 Pipes pass what comes before into an argument (by default the first) of what comes after.
 
-:::: {.columns}
+Pipes are a powerful tool for clearly expressing a sequence of multiple operations.
 
+::: columns
 ::: {.column width="50%"}
 ### `|>`
-- The 'native' pipe, built into base R since v4.1 (May 2021)
-- Improved in v4.2 (April 2022)
+
+-   The 'native' pipe, built into base R since v4.1 (May 2021)
+-   Improved in v4.2 (April 2022)
 :::
 
 ::: {.column width="50%"}
 ### `%>%`
-- Has been around in the **magrittr** package since 2014
-- Used throughout the tidyverse (though that is changing)
-:::
-::::
 
-## Similarity and key difference
+-   Has been around in the **magrittr** package since 2014
+-   Used throughout the tidyverse (though that is changing)
+:::
+:::
+
+## Pipes: similarity
 
 By default, a pipe takes what comes before and pass it to first argument of what comes after.
 
-::: {.panel-tabset}
+::: panel-tabset
 ### Example 1
+
 ```{r}
 log(2, base = 10)
 2 %>% log(base = 10)
@@ -372,20 +436,21 @@ log(2, base = 10)
 ```
 
 ### Example 2
+
 ```{r}
 paste("a", "b", "c")
 "a" %>% paste("b", "c")
 "a" |> paste("b", "c")
 ```
-
 :::
 
-## Similarity and key difference
+## Pipes: key difference
 
 So far, so good, but what if we want to pipe into a subsequent argument?
 
-::: {.panel-tabset}
+::: panel-tabset
 ### Example 1
+
 ```{r}
 log(2, 10) ## don't need to name the argument
 10 %>% log(2, .)
@@ -393,16 +458,15 @@ log(2, 10) ## don't need to name the argument
 ```
 
 ### Example 2
+
 ```{r}
 paste("a", "b", "c")
 "b" %>% paste("a", ., "c")
 "b" |> paste("a", ..2 = _, "c")
 ```
-
 :::
 
 Different placeholder (`.` vs `_`) and with native pipe need a named argument
-
 
 ## `arrange()`: change the ordering of rows
 
@@ -466,11 +530,11 @@ penguins |>
 
 ::: panel-tabset
 ## Example 1
+
 ```{r}
 penguins |>
   summarise(mean(body_mass_g, na.rm = TRUE))  
 ```
-
 
 ## Example 2
 
@@ -480,7 +544,30 @@ penguins |>
   filter(!is.na(sex)) |>
   summarise(mean = mean(body_mass_g, na.rm = TRUE)) # give column a name
 ```
+
+## Example 3: count
+
+```{r}
+penguins |>
+  count(species, island)
+```
+
+Shortcut for
+
+```{r}
+#| eval: false
+penguins |>
+  group_by(species, island) %>%
+  summarise(n = n())
+```
+
 :::
+
+## Your turn!
+
+- Explore the `wheels` data!
+
+- Be ready to share some of your code in the chat
 
 ## tidydatatutor.com
 
@@ -494,7 +581,11 @@ DEMO
 
 Material inspired by and remixed from:
 
--   
+-   <https://stat545.com/r-basics.html>
+-   <https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/>
+-   <https://slides.silviacanelon.com/tour-of-the-tidyverse-v2/>
+-   <https://www.heatherturner.net/teaching/zero-to-hero/>
+-   <http://adv-r.had.co.nz/Style.html>
 
 ## License
 

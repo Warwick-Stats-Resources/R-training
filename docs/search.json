@@ -298,7 +298,7 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#overview",
     "title": "Data Types, Structures and Wrangling",
     "section": "Overview",
-    "text": "Overview\n\nData types\nData structures\nData wrangling"
+    "text": "Overview\n\nData types\nData structures\nData import and wrangling"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#assigning-in-r",
@@ -312,7 +312,7 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#naming-objects",
     "title": "Data Types, Structures and Wrangling",
     "section": "Naming objects",
-    "text": "Naming objects\n\nforbiddengoodbad\n\n\nObject names cannot:\n\nstart with a number\ncontain certain characters like , - ?\ncontain a space (unless in ``, but that is not best practice)\n\n\n\n\nmeaningful yet cconcise\n\n\nday_one\nday_1\n\nconsistent\n\n\ni_use_snake_case\nother.people.use.periods\nevenOthersUseCamelCase\nsnake_case is preferred in R, especially in the tidyverse.\n\n\n\nnot meaningful\n\n\nfoo\nbar\n\nunnecessarily long or difficult to read\n\n\nfirst_day_of_month\ndayone\n\ninconsistent"
+    "text": "Naming objects\n\nforbiddengoodbad\n\n\nObject names cannot:\n\nstart with a number\ncontain certain characters like , - ?\ncontain a space (unless in ``, but that is not best practice)\n\n\n\n\nmeaningful yet concise\n\n\nday_one\nday_1\n\nconsistent\n\n\ni_use_snake_case\nother.people.use.periods\nevenOthersUseCamelCase\nsnake_case is preferred in R, especially in the tidyverse.\n\n\n\nnot meaningful\n\n\nfoo\nbar\n\nunnecessarily long or difficult to read\n\n\nfirst_day_of_month\ndayone\n\ninconsistent"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#rstudio-demo",
@@ -333,7 +333,7 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#special-values",
     "title": "Data Types, Structures and Wrangling",
     "section": "Special values",
-    "text": "Special values\n\nNA: The value NA is given to any data which R knows to be missing. It is not a character string, i.e. it is different to \"NA\"\nInf: Positive infinity, e.g. the result of dividing a non-zero number by zero\nNaN: not a number, e.g. attempting to find the logarithm of a negative number\nNULL: the null object. Often returned by expressions and functions whose value is undefined"
+    "text": "Special values\n\nNA: The value NA is given to any data which R knows to be missing. It is not a character string, i.e. it is different to \"NA\"\nInf: Positive infinity, e.g. the result of dividing a non-zero number by zero\nNaN: Not a number, e.g. attempting to find the logarithm of a negative number\nNULL: The null object. Often returned by expressions and functions whose value is undefined"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#data-structures",
@@ -347,14 +347,14 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#vectors",
     "title": "Data Types, Structures and Wrangling",
     "section": "Vectors",
-    "text": "Vectors\nA single number is a special case of a numeric vector. Vectors of length greater than one can be created using the concatenate function, c.\n\nx <- c(1, 3, 6)\nfruits <- c(\"apple\", \"pear\")\n\nThe elements of the vector must be of the same type: common types are numeric, character and logical."
+    "text": "Vectors\nA single number is a special case of a numeric vector. Vectors of length greater than one can be created using the concatenate function, c.\n\nx <- c(1, 3, 6)\nfruits <- c(\"apple\", \"pear\")\n\nThe elements of the vector must be of the same type: common types are numeric, character and logical.\nThere are built-in functions for getting information about vectors, e.g.\n\nlength(fruits)\n\n[1] 2"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#creating-vectors",
     "href": "slides/01-foundations/02-data-wrangling/index.html#creating-vectors",
     "title": "Data Types, Structures and Wrangling",
     "section": "Creating vectors",
-    "text": "Creating vectors\nThere are some useful shortcuts for certain types of vector:\n\n1:5\n\n[1] 1 2 3 4 5\n\nseq(from = 3, to = 5, by = 0.5)\n\n[1] 3.0 3.5 4.0 4.5 5.0\n\nLETTERS\n\n [1] \"A\" \"B\" \"C\" \"D\" \"E\" \"F\" \"G\" \"H\" \"I\" \"J\" \"K\" \"L\" \"M\" \"N\" \"O\" \"P\" \"Q\" \"R\" \"S\"\n[20] \"T\" \"U\" \"V\" \"W\" \"X\" \"Y\" \"Z\""
+    "text": "Creating vectors\nThere are some useful shortcuts for certain types of vector:\n\n1:5\n\n[1] 1 2 3 4 5\n\nseq(from = 3, to = 5, by = 0.5)\n\n[1] 3.0 3.5 4.0 4.5 5.0\n\nLETTERS\n\n [1] \"A\" \"B\" \"C\" \"D\" \"E\" \"F\" \"G\" \"H\" \"I\" \"J\" \"K\" \"L\" \"M\" \"N\" \"O\" \"P\" \"Q\" \"R\" \"S\"\n[20] \"T\" \"U\" \"V\" \"W\" \"X\" \"Y\" \"Z\"\n\n\nWhat do you think letters returns?"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#subsetting-vectors",
@@ -410,7 +410,7 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#import-dataset-button",
     "title": "Data Types, Structures and Wrangling",
     "section": "Import dataset (button)",
-    "text": "Import dataset (button)"
+    "text": "Import dataset (button)\nUsing the Import Dataset dialog in RStudio\n\nwe can import files stored locally or online in the following formats:\n\n.txt/.csv via read_delim/read_csv from readr.\n.xlsx via read_excel from readxl.\n.sav/.por , .sas7bdat and .dta via read_spss, read_sas and read_stata respectively from haven.\n\nMost of these functions also allow files to be compressed, e.g. as .zip."
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#dplyr",
@@ -473,7 +473,7 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#summarise-reduces-multiple-values-down-to-a-single-summary",
     "title": "Data Types, Structures and Wrangling",
     "section": "summarise(): reduces multiple values down to a single summary",
-    "text": "summarise(): reduces multiple values down to a single summary\n\nExample 1Example 2\n\n\n\npenguins |>\n  summarise(mean(body_mass_g, na.rm = TRUE))  \n\n# A tibble: 1 × 1\n  `mean(body_mass_g, na.rm = TRUE)`\n                              <dbl>\n1                             4202.\n\n\n\n\n\npenguins |>\n  group_by(species, sex) |>\n  filter(!is.na(sex)) |>\n  summarise(mean = mean(body_mass_g, na.rm = TRUE)) # give column a name\n\n# A tibble: 6 × 3\n# Groups:   species [3]\n  species   sex     mean\n  <fct>     <fct>  <dbl>\n1 Adelie    female 3369.\n2 Adelie    male   4043.\n3 Chinstrap female 3527.\n4 Chinstrap male   3939.\n5 Gentoo    female 4680.\n6 Gentoo    male   5485."
+    "text": "summarise(): reduces multiple values down to a single summary\n\nExample 1Example 2Example 3: count\n\n\n\npenguins |>\n  summarise(mean(body_mass_g, na.rm = TRUE))  \n\n# A tibble: 1 × 1\n  `mean(body_mass_g, na.rm = TRUE)`\n                              <dbl>\n1                             4202.\n\n\n\n\n\npenguins |>\n  group_by(species, sex) |>\n  filter(!is.na(sex)) |>\n  summarise(mean = mean(body_mass_g, na.rm = TRUE)) # give column a name\n\n# A tibble: 6 × 3\n# Groups:   species [3]\n  species   sex     mean\n  <fct>     <fct>  <dbl>\n1 Adelie    female 3369.\n2 Adelie    male   4043.\n3 Chinstrap female 3527.\n4 Chinstrap male   3939.\n5 Gentoo    female 4680.\n6 Gentoo    male   5485.\n\n\n\n\n\npenguins |>\n  count(species, island)\n\n# A tibble: 5 × 3\n  species   island        n\n  <fct>     <fct>     <int>\n1 Adelie    Biscoe       44\n2 Adelie    Dream        56\n3 Adelie    Torgersen    52\n4 Chinstrap Dream        68\n5 Gentoo    Biscoe      124\n\n\nShortcut for\n\npenguins |>\n  group_by(species, island) %>%\n  summarise(n = n())"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#tidydatatutor.com",
@@ -487,7 +487,7 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#resources",
     "title": "Data Types, Structures and Wrangling",
     "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:"
+    "text": "Resources\nMaterial inspired by and remixed from:\n\nhttps://stat545.com/r-basics.html\nhttps://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/\nhttps://slides.silviacanelon.com/tour-of-the-tidyverse-v2/\nhttps://www.heatherturner.net/teaching/zero-to-hero/\nhttp://adv-r.had.co.nz/Style.html"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#license",
@@ -522,7 +522,7 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#a-note-about-pipes-vs",
     "title": "Data Types, Structures and Wrangling",
     "section": "A note about pipes: |> vs %>%",
-    "text": "A note about pipes: |> vs %>%\nPipes pass what comes before into an argument (by default the first) of what comes after.\n\n\n|>\n\nThe ‘native’ pipe, built into base R since v4.1 (May 2021)\nImproved in v4.2 (April 2022)\n\n\n%>%\n\nHas been around in the magrittr package since 2014\nUsed throughout the tidyverse (though that is changing)"
+    "text": "A note about pipes: |> vs %>%\nPipes pass what comes before into an argument (by default the first) of what comes after.\nPipes are a powerful tool for clearly expressing a sequence of multiple operations.\n\n\n|>\n\nThe ‘native’ pipe, built into base R since v4.1 (May 2021)\nImproved in v4.2 (April 2022)\n\n\n%>%\n\nHas been around in the magrittr package since 2014\nUsed throughout the tidyverse (though that is changing)"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#main-difference",
@@ -558,5 +558,61 @@
     "title": "Data Types, Structures and Wrangling",
     "section": "mutate(): create and modify columns",
     "text": "mutate(): create and modify columns\n\nExample 1Example 2Example 3\n\n\n\npenguins |>\n  select(bill_length_mm) |>\n  mutate(bill_length_mm_sq = bill_length_mm^2)\n\n# A tibble: 344 × 2\n   bill_length_mm bill_length_mm_sq\n            <dbl>             <dbl>\n 1           39.1             1529.\n 2           39.5             1560.\n 3           40.3             1624.\n 4           NA                 NA \n 5           36.7             1347.\n 6           39.3             1544.\n 7           38.9             1513.\n 8           39.2             1537.\n 9           34.1             1163.\n10           42               1764 \n# … with 334 more rows\n\n\n\n\n\npenguins |>\n  filter(species == \"Gentoo\") |>\n  select(sex, flipper_length_mm) |>\n  mutate(size = if_else(flipper_length_mm > 217, \"big\", \"small\"))\n\n# A tibble: 124 × 3\n   sex    flipper_length_mm size \n   <fct>              <int> <chr>\n 1 female               211 small\n 2 male                 230 big  \n 3 female               210 small\n 4 male                 218 big  \n 5 male                 215 small\n 6 female               210 small\n 7 female               211 small\n 8 male                 219 big  \n 9 female               209 small\n10 male                 215 small\n# … with 114 more rows\n\n\n\n\n\npenguins |>\n  select(bill_length_mm) |>\n  filter(!is.na(bill_length_mm)) |>\n  mutate(bill_length_mm_cumsum = cumsum(bill_length_mm))\n\n# A tibble: 342 × 2\n   bill_length_mm bill_length_mm_cumsum\n            <dbl>                 <dbl>\n 1           39.1                  39.1\n 2           39.5                  78.6\n 3           40.3                 119. \n 4           36.7                 156. \n 5           39.3                 195. \n 6           38.9                 234. \n 7           39.2                 273  \n 8           34.1                 307. \n 9           42                   349. \n10           37.8                 387. \n# … with 332 more rows"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#file-names-and-paths-and-project-structure",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#file-names-and-paths-and-project-structure",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "File names and paths and project structure",
+    "text": "File names and paths and project structure\nIt’s REALLY important to have good file names and paths, and a good project structure.\nI leave you in the extremely capable hand of Danielle Navarro to take you thoroughly through best practices:\nhttps://djnavarro.net/slides-project-structure/#1\nI also HIGHLY recommend you check out the here package, which enables easy file referencing in project-oriented workflows"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#import-data-code",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#import-data-code",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Import data (code)",
+    "text": "Import data (code)\nThe rio package provides a common interface to the functions used by Import Dataset as well as many others.\nThe data format is automatically recognised from the file extension. To read the data in as a tibble, we use the setclass argument.\n\nlibrary(rio)\npenguins_lter <- import(\"data/penguins_lter.csv\")\npenguins_lter_tbl <- import(\"data/penguins_lter.csv\", setclass = \"tibble\")\n\nSee ?rio for the underlying functions used for each format and the corresponding optional arguments, e.g. the skip argument to read_excel to skip a certain number of rows."
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#import-data-demo",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#import-data-demo",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Import data demo",
+    "text": "Import data demo\n\nFrom file\nFrom URL\n\nhttps://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-09/wheels.csv\n\nYour turn!"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#filter-pick-rows-based-on-values-of-observations.",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#filter-pick-rows-based-on-values-of-observations.",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "filter(): pick rows based on values of observations.",
+    "text": "filter(): pick rows based on values of observations.\n\nExampleNotes\n\n\n\nfilter(penguins, \n       species == \"Gentoo\", \n       bill_length_mm > 48 & bill_depth_mm > 15, \n       !is.na(sex))\n\n# A tibble: 39 × 8\n   species island bill_length_mm bill_depth_mm flipper_len…¹ body_…² sex    year\n   <fct>   <fct>           <dbl>         <dbl>         <int>   <int> <fct> <int>\n 1 Gentoo  Biscoe           50            16.3           230    5700 male   2007\n 2 Gentoo  Biscoe           50            15.2           218    5700 male   2007\n 3 Gentoo  Biscoe           49            16.1           216    5550 male   2007\n 4 Gentoo  Biscoe           49.3          15.7           217    5850 male   2007\n 5 Gentoo  Biscoe           49.2          15.2           221    6300 male   2007\n 6 Gentoo  Biscoe           48.7          15.1           222    5350 male   2007\n 7 Gentoo  Biscoe           50            15.3           220    5550 male   2007\n 8 Gentoo  Biscoe           59.6          17             230    6050 male   2007\n 9 Gentoo  Biscoe           48.4          16.3           220    5400 male   2008\n10 Gentoo  Biscoe           48.7          15.7           208    5350 male   2008\n# … with 29 more rows, and abbreviated variable names ¹​flipper_length_mm,\n#   ²​body_mass_g\n\n\n\n\n\nvariable names are unquoted\nbuilding blocks of conditions:\n\n\n\n\nBuilding block\nR code\n\n\n\n\nBinary comparisons\n>, <, ==, <=, >=, !=\n\n\nLogical operators\nor |, and &, not !\n\n\nValue matching\ne.g. x %in% 6:9\n\n\nMissing indicator\ne.g. is.na(x)"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#pipes-similarity",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#pipes-similarity",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Pipes: similarity",
+    "text": "Pipes: similarity\nBy default, a pipe takes what comes before and pass it to first argument of what comes after.\n\nExample 1Example 2\n\n\n\nlog(2, base = 10)\n\n[1] 0.30103\n\n2 %>% log(base = 10)\n\n[1] 0.30103\n\n2 |> log(base = 10)\n\n[1] 0.30103\n\n\n\n\n\npaste(\"a\", \"b\", \"c\")\n\n[1] \"a b c\"\n\n\"a\" %>% paste(\"b\", \"c\")\n\n[1] \"a b c\"\n\n\"a\" |> paste(\"b\", \"c\")\n\n[1] \"a b c\""
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#pipes-key-difference",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#pipes-key-difference",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Pipes: key difference",
+    "text": "Pipes: key difference\nSo far, so good, but what if we want to pipe into a subsequent argument?\n\nExample 1Example 2\n\n\n\nlog(2, 10) ## don't need to name the argument\n\n[1] 0.30103\n\n10 %>% log(2, .)\n\n[1] 0.30103\n\n10 |> log(2, base = _)\n\n[1] 0.30103\n\n\n\n\n\npaste(\"a\", \"b\", \"c\")\n\n[1] \"a b c\"\n\n\"b\" %>% paste(\"a\", ., \"c\")\n\n[1] \"a b c\"\n\n\"b\" |> paste(\"a\", ..2 = _, \"c\")\n\n[1] \"a b c\"\n\n\n\n\n\nDifferent placeholder (. vs _) and with native pipe need a named argument"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#your-turn",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#your-turn",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Your turn!",
+    "text": "Your turn!\n\nIn your R-Foundations project from last week, create and save a new script called data-types.R\nLook at the help page for the rep() function: ?rep\nStarting with the vector c(1,3,6), can you make the following patterns:\n\n1, 3, 6, 1, 3, 6\n1, 1, 3, 3, 6, 6\n1, 1, 3, 3, 6, 6, 1, 1, 3, 3, 6, 6"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html#your-turn-1",
+    "href": "slides/01-foundations/02-data-wrangling/index.html#your-turn-1",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Your turn!",
+    "text": "Your turn!\n\nExplore the wheels data!\nBe ready to share some of your code in the chat"
   }
 ]
