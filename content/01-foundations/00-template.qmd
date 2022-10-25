@@ -1,0 +1,33 @@
+---
+title: TITLE
+---
+
+***This page and the slides for this session are still under development***
+
+## TODO
+
+- Update TITLE
+- Update link to slides in new window
+- Update link to slides in iframe
+- Update title of slides in iframe
+- Fill in resources
+
+## Slides
+
+Here's a link to the [slides](/slides/01-foundations/UPDATE/index.qmd){target="_blank"} in a new window. 
+
+Here are the slides embedded:
+
+<iframe class="slide-deck ar3x2" src="/slides/01-foundations/UPDATE/index.html" title="UPDATE slides">
+</iframe>
+
+## Resources
+
+### Reading
+
+- TITLE
+
+  <LINK>
+
+
+### Packages

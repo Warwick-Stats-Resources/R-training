@@ -63,6 +63,21 @@ kbd {
 
 #title-slide .title {
   font-size: 70px;
+  padding-bottom: .25em;
+}
+
+#title-slide .subtitle {
+  margin-bottom: 6rem;
+}
+
+.reveal .quarto-title-block .quarto-title-authors {
+  display: block;
+}
+
+.reveal .quarto-title-block .quarto-title-authors .quarto-title-author {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0.5em;
 }
 
 .reveal h2 {

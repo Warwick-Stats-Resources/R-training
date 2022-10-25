@@ -1,10 +1,10 @@
 ---
-title: TITLE
+title: Programming in R
 subtitle: R Foundations course
 author: Ella Kaye | Department of Statistics | University of Warwick
 title-slide-attributes:
   data-background-color: "#552D62"
-date: yyyy-MM-dd
+date: 2022-10-31
 date-format: long
 format: 
   revealjs:

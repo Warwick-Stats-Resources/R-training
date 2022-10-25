@@ -4,7 +4,7 @@
     "href": "schedule/01-foundations.html",
     "title": "R foundations",
     "section": "",
-    "text": "Click on the topic to be taken to the page with its slides and resources (will be updated throughout the term).\n\n\n\nWeek\nDate (2022)\nTopic\n\n\n\n\nWeek 2\nOctober 10th\nIntro to R and RStudio\n\n\nWeek 3\nOctober 17th\nData Wrangling\n\n\nWeek 4\nOctober 24th\nBreak/online clinic\n\n\nWeek 5\nOctober 31st\nProgramming in R\n\n\nWeek 6\nNovember 7th\nSimulation and Optimisation\n\n\nWeek 7\nNovember 14th\nBreak/online clinic\n\n\nWeek 8\nNovember 21st\nGraphics\n\n\nWeek 9\nNovember 28th\nQuarto reporting and presentations\n\n\nWeek 10\nDecember 5th\nBreak/online clinic"
+    "text": "Schedule for Term 1 (subject to change).\nClick on the topic to be taken to the page with its slides and resources (will be updated throughout the term).\n\n\n\nWeek\nDate (2022)\nTopic\n\n\n\n\nWeek 2\nOctober 10th\nIntro to R and RStudio\n\n\nWeek 3\nOctober 17th\nData Wrangling\n\n\nWeek 4\nOctober 24th\nBreak/online clinic\n\n\nWeek 5\nOctober 31st\nProgramming in R\n\n\nWeek 6\nNovember 7th\nSimulation and Optimisation\n\n\nWeek 7\nNovember 14th\nBreak/online clinic\n\n\nWeek 8\nNovember 21st\nGraphics\n\n\nWeek 9\nNovember 28th\nQuarto reporting and presentations\n\n\nWeek 10\nDecember 5th\nBreak/online clinic"
   },
   {
     "objectID": "schedule/02-advanced.html",
@@ -536,6 +536,62 @@
     "href": "schedule.html",
     "title": "schedule",
     "section": "",
-    "text": "Please use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+    "text": "Sessions will be held most Mondays in term time, from 10:00-11:30 in Term 1.\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "content/01-foundations/00-template.html",
+    "href": "content/01-foundations/00-template.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "The page and slides for this session are still under development"
+  },
+  {
+    "objectID": "content/01-foundations/00-template.html#todo",
+    "href": "content/01-foundations/00-template.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nUpdate TITLE\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/01-foundations/00-template.html#slides",
+    "href": "content/01-foundations/00-template.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/01-foundations/00-template.html#resources",
+    "href": "content/01-foundations/00-template.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/01-foundations/03-programming.html",
+    "href": "content/01-foundations/03-programming.html",
+    "title": "Programming in R",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/01-foundations/03-programming.html#todo",
+    "href": "content/01-foundations/03-programming.html#todo",
+    "title": "Programming in R",
+    "section": "TODO",
+    "text": "TODO\n\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/01-foundations/03-programming.html#slides",
+    "href": "content/01-foundations/03-programming.html#slides",
+    "title": "Programming in R",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/01-foundations/03-programming.html#resources",
+    "href": "content/01-foundations/03-programming.html#resources",
+    "title": "Programming in R",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
   }
 ]

@@ -36,6 +36,7 @@ website:
             contents: 
               - content/01-foundations/01-intro.qmd
               - content/01-foundations/02-data-wrangling.qmd
+              - content/01-foundations/03-programming.qmd
           
     - title: "schedule"
       style: "docked"

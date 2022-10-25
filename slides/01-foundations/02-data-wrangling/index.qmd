@@ -4,7 +4,8 @@ subtitle: R Foundations course
 author: Ella Kaye | Department of Statistics | University of Warwick
 title-slide-attributes:
   data-background-color: "#552D62"
-date: "October 17th, 2022"
+date: 2022-10-17
+date-format: long
 format: 
   revealjs:
     theme: [default, ../../slides.scss]
