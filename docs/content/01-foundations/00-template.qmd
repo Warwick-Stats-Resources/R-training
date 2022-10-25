@@ -6,6 +6,8 @@ title: TITLE
 
 ## TODO
 
+- Link to this page in schedule
+- Link to this page in _quarto.yml
 - Update TITLE
 - Update link to slides in new window
 - Update link to slides in iframe

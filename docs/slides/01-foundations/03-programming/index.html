@@ -30,6 +30,70 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -345,11 +409,242 @@ Ella Kaye | Department of Statistics | University of Warwick
 <li>What we’re covering</li>
 </ul>
 </section>
+<section id="intro" class="slide level2">
+<h2>Intro</h2>
+<p>Understanding the basics of R programming helps to improve analysis/reporting scripts and extend what we can do with R.</p>
+<p>Good coding practice follows the DRY principle: <strong>D</strong>on’t <strong>R</strong>epeat <strong>Y</strong>ourself. Rather than modifying copy-pasted code chunks, we might</p>
+<ul>
+<li>write a custom function</li>
+<li>use loops or iteration functions to perform multiple similar tasks</li>
+</ul>
+<p>Custom functions can be used to provide convenient wrappers to complex code chunks as well as implement novel functionality.</p>
+</section>
+<section>
 <section id="section" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>Section</h1>
 
 </section>
+<section id="data-structures-revisited" class="slide level2">
+<h2>Data Structures Revisited</h2>
+<p>For basic data analysis, our data is usually imported and we use high-level functions (e.g.&nbsp;from <strong>dplyr</strong>) to handle it.</p>
+<p>For programming, we need to work with lower-level data structures and be able to</p>
+<ul>
+<li>create basic objects</li>
+<li>extract components</li>
+<li>coerce one data type to another</li>
+</ul>
+<p>Working with base R functions when programming also helps avoid dependencies, which is useful when writing packages.</p>
+</section>
+<section id="vectors" class="slide level2">
+<h2>Vectors</h2>
+<p><code>numeric()</code>, <code>character()</code> and <code>logical()</code> can be used to initialize vectors of the corresponding type for a given length</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">3</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 0 0</code></pre>
+</div>
+</div>
+<p>Elements can be assigned by indexing the positions to be filled, e.g.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>x[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="co"># assign 4 to 1st element</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>x[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)] <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="co"># assign 4 to everying *except* 2nd and 3rd element</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is particularly useful when programming an iterative procedure.</p>
+<p><code>as.logical()</code>, <code>as.numeric()</code> and <code>as.character()</code> coerce to the corresponding type, producing <code>NA</code>s if coercion fails.</p>
+</section>
+<section id="logical-vectors" class="slide level2">
+<h2>Logical Vectors</h2>
+<p>Logical vectors are commonly used when indexing. The vector might be produced by a logical operator:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>x <span class="sc">&gt;</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 2 2</code></pre>
+</div>
+</div>
+<p><code>duplicated()</code> is also useful here:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">duplicated</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE FALSE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="sc">!</span><span class="fu">duplicated</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE FALSE  TRUE FALSE FALSE</code></pre>
+</div>
+</div>
+</section>
+<section id="numeric-vectors" class="slide level2">
+<h2>Numeric Vectors</h2>
+<p>The are several convenience function for creating numeric vectors, notably <code>seq()</code> and <code>rep()</code>.</p>
+<p>As they are so useful there are fast shortcuts for particular cases</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">seq_len</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"pear"</span>, <span class="st">"banana"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">seq_along</span>(fruits) <span class="co"># a sequence from 1 to the length of x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">rep.int</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 1 2 2 2</code></pre>
+</div>
+</div>
+</section>
+<section id="character-vectors" class="slide level2">
+<h2>Character Vectors</h2>
+<p>Character vectors may be used for creating names</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="dv">1229</span><span class="sc">:</span><span class="dv">1231</span>)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A1229 B1230 C1231 
+    3     4     5 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">names</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "A1229" "B1230" "C1231"</code></pre>
+</div>
+</div>
+<p>Names can be used as an alternative to numeric or logical vectors when indexing</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>x[<span class="st">"B1230"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>B1230 
+    4 </code></pre>
+</div>
+</div>
+</section>
+<section id="matrices" class="slide level2">
+<h2>Matrices</h2>
+<p>A matrix is in fact also a vector, with an attribute giving the dimensions of the matrix</p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">default</a></li><li><a href="#tabset-1-2">byrow</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># data, nrow, ncol</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>M</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">str</span>(M)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> int [1:2, 1:3] 1 2 3 4 5 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">attributes</span>(M)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$dim
+[1] 2 3</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<p>The <code>byrow</code> argument is also useful:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>N <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>) <span class="co"># data, nrow, ncol</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>N</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="matrix-functions" class="slide level2">
+<h2>Matrix functions</h2>
+<p>Useful functions for matrices include <code>dim()</code>, <code>ncol()</code>, <code>nrow()</code>, <code>colnames()</code> and <code>rownames()</code>. <code>rbind()</code> and <code>cbind()</code> can be used to row-bind or column-bind vectors.</p>
+<p>Matrices enable computation via matrix algebra as well as row/column-wise operations.</p>
+</section>
+<section id="lists" class="slide level2">
+<h2>Lists</h2>
+<p>Lists collect together items which may be different types or lengths. Like a vector, elements may be named.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>results <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">matrix =</span> M, <span class="at">vector =</span> x)</span>
+<span id="cb32-2"><a href="#cb32-2"></a>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$matrix
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
 
+$vector
+A1229 B1230 C1231 
+    3     4     5 </code></pre>
+</div>
+</div>
+<p>Lists are often used to return the results of a function.</p>
+</section>
+<section id="indexing-lists" class="slide level2">
+<h2>Indexing lists</h2>
+<p>Elements can be indexed by <code>[</code> to return a list or <code>[[</code> to return a single element, either by index or name:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>results[<span class="st">"vector"</span>] <span class="co"># returns a list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$vector
+A1229 B1230 C1231 
+    3     4     5 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>results[[<span class="dv">2</span>]] <span class="co"># returns a vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A1229 B1230 C1231 
+    3     4     5 </code></pre>
+</div>
+</div>
+<p><code>$</code> can be used to extract elements by name:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>results<span class="sc">$</span>vector <span class="co"># equivalent to results[["vector"]]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A1229 B1230 C1231 
+    3     4     5 </code></pre>
+</div>
+</div>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your turn!</h2>
+<p>The <code>lm</code> function calls the “workhorse” function <code>lm.fit</code> to actually fit the model. Unlike <code>lm</code>, which works from a formula, <code>lm.fit</code> works from the model matrix and the response vector.</p>
+<ol type="1">
+<li><p>Define a response <code>y</code> containing 10 numeric values. Define an explanatory variable <code>z</code> of the numbers 1 to 10.</p></li>
+<li><p>Use the function <code>cbind()</code> to create a matrix <code>x</code> with 1s in the first column and <code>z</code> in the second column.</p></li>
+<li><p>Fit a model using <code>fit1 &lt;- lm.fit(x, y)</code>. Use <code>str</code> to explore the structure of the results. Use <code>$</code> to extract the coefficients.</p></li>
+<li><p>Create a second fit using <code>lm(y ~ z)</code>. Use <code>names</code> to compare the results. Check the coefficients of the second fit are the same.</p></li>
+</ol>
+</section>
+<section id="your-turn-a-solution" class="slide level2">
+<h2>Your turn! (a solution)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># A possible solution</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a></span>
+<span id="cb40-3"><a href="#cb40-3"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb40-4"><a href="#cb40-4"></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
+<span id="cb40-5"><a href="#cb40-5"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb40-6"><a href="#cb40-6"></a></span>
+<span id="cb40-7"><a href="#cb40-7"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, z)</span>
+<span id="cb40-8"><a href="#cb40-8"></a></span>
+<span id="cb40-9"><a href="#cb40-9"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">lm.fit</span>(x,y)</span>
+<span id="cb40-10"><a href="#cb40-10"></a><span class="fu">str</span>(fit1)</span>
+<span id="cb40-11"><a href="#cb40-11"></a>fit1<span class="sc">$</span>coefficients</span>
+<span id="cb40-12"><a href="#cb40-12"></a></span>
+<span id="cb40-13"><a href="#cb40-13"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> z)</span>
+<span id="cb40-14"><a href="#cb40-14"></a><span class="fu">names</span>(fit1)</span>
+<span id="cb40-15"><a href="#cb40-15"></a><span class="fu">names</span>(fit2)</span>
+<span id="cb40-16"><a href="#cb40-16"></a>fit2<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
 <section>
 <section id="end-matter" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>End matter</h1>
@@ -581,6 +876,44 @@ Ella Kaye | Department of Statistics | University of Warwick
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

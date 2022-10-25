@@ -13,7 +13,6 @@ format:
     execute:
       echo: true
       code-overflow: wrap
-draft: true
 ---
 
 ## Overview

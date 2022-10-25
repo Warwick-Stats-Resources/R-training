@@ -13,14 +13,209 @@ format:
     execute:
       echo: true
       code-overflow: wrap
-draft: true
 ---
+
 
 ## Overview
 
 -   What we're covering
 
+## Intro
+
+Understanding the basics of R programming helps to improve
+analysis/reporting scripts and extend what we can do with R.
+
+Good coding practice follows the DRY principle: **D**on't **R**epeat **Y**ourself. 
+Rather than modifying copy-pasted code chunks, we might
+
+- write a custom function
+- use loops or iteration functions to perform multiple similar tasks
+ 
+Custom functions can be used to provide convenient wrappers to complex 
+code chunks as well as implement novel functionality.
+
+
 # Section {background-color="#552D62"}
+
+## Data Structures Revisited
+
+For basic data analysis, our data is usually imported and we use 
+high-level functions (e.g. from **dplyr**) to handle it.
+
+For programming, we need to work with lower-level data structures and be
+able to
+
+- create basic objects
+- extract components
+- coerce one data type to another
+
+Working with base R functions when programming also helps avoid dependencies, which is useful when writing packages.
+
+
+## Vectors
+
+`numeric()`, `character()` and `logical()` can be used to initialize 
+vectors of the corresponding type for a given length
+
+```{r}
+x <- numeric(3)
+x
+```
+
+Elements can be assigned by indexing the positions to be filled, e.g.
+
+```{r}
+x[1] <- 4 # assign 4 to 1st element
+x[-c(2, 3)] <- 4 # assign 4 to everying *except* 2nd and 3rd element
+```
+
+This is particularly useful when programming an iterative procedure.
+
+`as.logical()`, `as.numeric()` and `as.character()` coerce to the 
+corresponding type, producing `NA`s if coercion fails.
+
+## Logical Vectors
+
+Logical vectors are commonly used when indexing. The vector might be 
+produced by a logical operator:
+```{r}
+x <- c(1, 1, 2, 2, 2)
+x > 1
+x[x > 1]
+```
+`duplicated()` is also useful here:
+```{r}
+duplicated(x)
+!duplicated(x)
+```
+
+## Numeric Vectors
+
+The are several convenience function for creating
+numeric vectors, notably `seq()` and `rep()`.
+
+As they are so useful there are fast shortcuts for
+particular cases
+```{r}
+seq_len(4)
+fruits <- c("apple", "pear", "banana")
+seq_along(fruits) # a sequence from 1 to the length of x
+rep.int(1:2, times = c(2, 3))
+```
+
+## Character Vectors
+
+Character vectors may be used for creating names
+```{r}
+x <- 3:5
+names(x) <- paste0(LETTERS[1:3], 1229:1231)
+x
+names(x)
+```
+Names can be used as an alternative to numeric or logical vectors when indexing
+```{r}
+x["B1230"]
+```
+
+## Matrices
+
+A matrix is in fact also a vector, with an attribute giving the dimensions of the matrix
+
+::: {.panel-tabset}
+## default
+```{r}
+M <- matrix(1:6, 2, 3) # data, nrow, ncol
+M
+str(M)
+attributes(M)
+```
+
+## byrow
+The `byrow` argument is also useful:
+
+```{r}
+N <- matrix(1:6, 2, 3, byrow = TRUE) # data, nrow, ncol
+N
+```
+:::
+
+## Matrix functions 
+
+Useful functions for matrices include `dim()`, `ncol()`, `nrow()`, 
+`colnames()` and `rownames()`. `rbind()` and `cbind()` can be used to 
+row-bind or column-bind vectors.
+
+Matrices enable computation via matrix algebra as well as row/column-wise operations.
+
+## Lists
+
+Lists collect together items which may be different types or lengths. Like a 
+vector, elements may be named.
+```{r}
+results <- list(matrix = M, vector = x)
+results
+```
+
+Lists are often used to return the results of a function. 
+
+## Indexing lists
+
+Elements can be indexed by `[` to return a list or `[[` to return a 
+single element, either by index or name:
+
+```{r}
+results["vector"] # returns a list
+results[[2]] # returns a vector
+```
+
+
+`$` can be used to extract elements by name:
+
+```{r}
+results$vector # equivalent to results[["vector"]]
+```
+
+## Your turn!
+
+The `lm` function calls the "workhorse" function `lm.fit` to actually 
+fit the model. Unlike `lm`, which works from a formula, `lm.fit` works 
+from the model matrix and the response vector.
+
+1. Define a response `y` containing 10 numeric values. Define an 
+explanatory variable `z` of the numbers 1 to 10.
+
+1. Use the function `cbind()` to create a matrix `x` with 1s in the first
+column and `z` in the second column.
+
+1. Fit a model using `fit1 <- lm.fit(x, y)`. Use `str` to explore the structure of
+the results. Use `$` to extract the coefficients.
+
+1. Create a second fit using `lm(y ~ z)`. Use `names` to compare the 
+results. Check the coefficients of the second fit are the same. 
+
+## Your turn! (a solution)
+
+```{r}
+#| eval: false
+
+# A possible solution
+
+set.seed(1)
+y <- sample(10)
+z <- 1:10
+
+x <- cbind(1, z)
+
+fit1 <- lm.fit(x,y)
+str(fit1)
+fit1$coefficients
+
+fit2 <- lm(y ~ z)
+names(fit1)
+names(fit2)
+fit2$coefficients
+```
+
 
 # End matter {background-color="#552D62"}
 

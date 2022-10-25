@@ -543,14 +543,14 @@
     "href": "content/01-foundations/00-template.html",
     "title": "TITLE",
     "section": "",
-    "text": "The page and slides for this session are still under development"
+    "text": "This page and the slides for this session are still under development"
   },
   {
     "objectID": "content/01-foundations/00-template.html#todo",
     "href": "content/01-foundations/00-template.html#todo",
     "title": "TITLE",
     "section": "TODO",
-    "text": "TODO\n\nUpdate TITLE\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
   },
   {
     "objectID": "content/01-foundations/00-template.html#slides",
@@ -593,5 +593,117 @@
     "title": "Programming in R",
     "section": "Resources",
     "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#overview",
+    "href": "slides/01-foundations/03-programming/index.html#overview",
+    "title": "Programming in R",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#resources",
+    "href": "slides/01-foundations/03-programming/index.html#resources",
+    "title": "Programming in R",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#license",
+    "href": "slides/01-foundations/03-programming/index.html#license",
+    "title": "Programming in R",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#intro",
+    "href": "slides/01-foundations/03-programming/index.html#intro",
+    "title": "Programming in R",
+    "section": "Intro",
+    "text": "Intro\nUnderstanding the basics of R programming helps to improve analysis/reporting scripts and extend what we can do with R.\nGood coding practice follows the DRY principle: Don’t Repeat Yourself. Rather than modifying copy-pasted code chunks, we might\n\nwrite a custom function\nuse loops or iteration functions to perform multiple similar tasks\n\nCustom functions can be used to provide convenient wrappers to complex code chunks as well as implement novel functionality."
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#data-structures-revisited",
+    "href": "slides/01-foundations/03-programming/index.html#data-structures-revisited",
+    "title": "Programming in R",
+    "section": "Data Structures Revisited",
+    "text": "Data Structures Revisited\nFor basic data analysis, our data is usually imported and we use high-level functions (e.g. from dplyr) to handle it.\nFor programming, we need to work with lower-level data structures and be able to\n\ncreate basic objects\nextract components\ncoerce one data type to another\n\nWorking with base R functions when programming also helps avoid dependencies, which is useful when writing packages."
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#vectors",
+    "href": "slides/01-foundations/03-programming/index.html#vectors",
+    "title": "Programming in R",
+    "section": "Vectors",
+    "text": "Vectors\nnumeric(), character() and logical() can be used to initialize vectors of the corresponding type for a given length\n\nx <- numeric(3)\nx\n\n[1] 0 0 0\n\n\nElements can be assigned by indexing the positions to be filled, e.g.\n\nx[1] <- 4 # assign 4 to 1st element\nx[-c(2, 3)] <- 4 # assign 4 to everying *except* 2nd and 3rd element\n\nThis is particularly useful when programming an iterative procedure.\nas.logical(), as.numeric() and as.character() coerce to the corresponding type, producing NAs if coercion fails."
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#logical-vectors",
+    "href": "slides/01-foundations/03-programming/index.html#logical-vectors",
+    "title": "Programming in R",
+    "section": "Logical Vectors",
+    "text": "Logical Vectors\nLogical vectors are commonly used when indexing. The vector might be produced by a logical operator:\n\nx <- c(1, 1, 2, 2, 2)\nx > 1\n\n[1] FALSE FALSE  TRUE  TRUE  TRUE\n\nx[x > 1]\n\n[1] 2 2 2\n\n\nduplicated() is also useful here:\n\nduplicated(x)\n\n[1] FALSE  TRUE FALSE  TRUE  TRUE\n\n!duplicated(x)\n\n[1]  TRUE FALSE  TRUE FALSE FALSE"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#numeric-vectors",
+    "href": "slides/01-foundations/03-programming/index.html#numeric-vectors",
+    "title": "Programming in R",
+    "section": "Numeric Vectors",
+    "text": "Numeric Vectors\nThe are several convenience function for creating numeric vectors, notably seq() and rep().\nAs they are so useful there are fast shortcuts for particular cases\n\nseq_len(4)\n\n[1] 1 2 3 4\n\nfruits <- c(\"apple\", \"pear\", \"banana\")\nseq_along(fruits) # a sequence from 1 to the length of x\n\n[1] 1 2 3\n\nrep.int(1:2, times = c(2, 3))\n\n[1] 1 1 2 2 2"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#character-vectors",
+    "href": "slides/01-foundations/03-programming/index.html#character-vectors",
+    "title": "Programming in R",
+    "section": "Character Vectors",
+    "text": "Character Vectors\nCharacter vectors may be used for creating names\n\nx <- 3:5\nnames(x) <- paste0(LETTERS[1:3], 1229:1231)\nx\n\nA1229 B1230 C1231 \n    3     4     5 \n\nnames(x)\n\n[1] \"A1229\" \"B1230\" \"C1231\"\n\n\nNames can be used as an alternative to numeric or logical vectors when indexing\n\nx[\"B1230\"]\n\nB1230 \n    4"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#matrices",
+    "href": "slides/01-foundations/03-programming/index.html#matrices",
+    "title": "Programming in R",
+    "section": "Matrices",
+    "text": "Matrices\nA matrix is in fact also a vector, with an attribute giving the dimensions of the matrix\n\ndefaultbyrow\n\n\n\nM <- matrix(1:6, 2, 3) # data, nrow, ncol\nM\n\n     [,1] [,2] [,3]\n[1,]    1    3    5\n[2,]    2    4    6\n\nstr(M)\n\n int [1:2, 1:3] 1 2 3 4 5 6\n\nattributes(M)\n\n$dim\n[1] 2 3\n\n\n\n\nThe byrow argument is also useful:\n\nN <- matrix(1:6, 2, 3, byrow = TRUE) # data, nrow, ncol\nN\n\n     [,1] [,2] [,3]\n[1,]    1    2    3\n[2,]    4    5    6"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#matrix-functions",
+    "href": "slides/01-foundations/03-programming/index.html#matrix-functions",
+    "title": "Programming in R",
+    "section": "Matrix functions",
+    "text": "Matrix functions\nUseful functions for matrices include dim(), ncol(), nrow(), colnames() and rownames(). rbind() and cbind() can be used to row-bind or column-bind vectors.\nMatrices enable computation via matrix algebra as well as row/column-wise operations."
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#lists",
+    "href": "slides/01-foundations/03-programming/index.html#lists",
+    "title": "Programming in R",
+    "section": "Lists",
+    "text": "Lists\nLists collect together items which may be different types or lengths. Like a vector, elements may be named.\n\nresults <- list(matrix = M, vector = x)\nresults\n\n$matrix\n     [,1] [,2] [,3]\n[1,]    1    3    5\n[2,]    2    4    6\n\n$vector\nA1229 B1230 C1231 \n    3     4     5 \n\n\nLists are often used to return the results of a function."
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#indexing-lists",
+    "href": "slides/01-foundations/03-programming/index.html#indexing-lists",
+    "title": "Programming in R",
+    "section": "Indexing lists",
+    "text": "Indexing lists\nElements can be indexed by [ to return a list or [[ to return a single element, either by index or name:\n\nresults[\"vector\"] # returns a list\n\n$vector\nA1229 B1230 C1231 \n    3     4     5 \n\nresults[[2]] # returns a vector\n\nA1229 B1230 C1231 \n    3     4     5 \n\n\n$ can be used to extract elements by name:\n\nresults$vector # equivalent to results[[\"vector\"]]\n\nA1229 B1230 C1231 \n    3     4     5"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#your-turn",
+    "href": "slides/01-foundations/03-programming/index.html#your-turn",
+    "title": "Programming in R",
+    "section": "Your turn!",
+    "text": "Your turn!\nThe lm function calls the “workhorse” function lm.fit to actually fit the model. Unlike lm, which works from a formula, lm.fit works from the model matrix and the response vector.\n\nDefine a response y containing 10 numeric values. Define an explanatory variable z of the numbers 1 to 10.\nUse the function cbind() to create a matrix x with 1s in the first column and z in the second column.\nFit a model using fit1 <- lm.fit(x, y). Use str to explore the structure of the results. Use $ to extract the coefficients.\nCreate a second fit using lm(y ~ z). Use names to compare the results. Check the coefficients of the second fit are the same."
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#your-turn-code",
+    "href": "slides/01-foundations/03-programming/index.html#your-turn-code",
+    "title": "Programming in R",
+    "section": "Your turn (code)",
+    "text": "Your turn (code)\n\n# A possible solution\nset.seed(1)\ny <- sample(10)\nz <- 1:10\n\nx <- cbind(1, z)\n\nfit1 <- lm.fit(x,y)\nstr(fit1)\nfit1$coefficients\n\nfit2 <- lm(y ~ z)\nnames(fit1)\nnames(fit2)\nfit2$coefficients"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#your-turn-a-solution",
+    "href": "slides/01-foundations/03-programming/index.html#your-turn-a-solution",
+    "title": "Programming in R",
+    "section": "Your turn! (a solution)",
+    "text": "Your turn! (a solution)\n\n# A possible solution\n\nset.seed(1)\ny <- sample(10)\nz <- 1:10\n\nx <- cbind(1, z)\n\nfit1 <- lm.fit(x,y)\nstr(fit1)\nfit1$coefficients\n\nfit2 <- lm(y ~ z)\nnames(fit1)\nnames(fit2)\nfit2$coefficients"
   }
 ]

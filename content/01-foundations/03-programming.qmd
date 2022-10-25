@@ -4,13 +4,6 @@ title: Programming in R
 
 ***This page and the slides for this session are still under development***
 
-## TODO
-
-- Update link to slides in new window
-- Update link to slides in iframe
-- Update title of slides in iframe
-- Fill in resources
-
 ## Slides
 
 Here's a link to the [slides](/slides/01-foundations/03-programming/index.qmd){target="_blank"} in a new window. 
