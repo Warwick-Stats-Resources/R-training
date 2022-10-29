@@ -20,6 +20,8 @@ format:
 
 -   What we're covering
 
+- MORE HERE!
+
 ## Intro
 
 Understanding the basics of R programming helps to improve
@@ -204,7 +206,7 @@ set.seed(1)
 y <- sample(10)
 z <- 1:10
 
-x <- cbind(1, z)
+x <- cbind(1, z) # we'll see this trick in a few slides time!
 
 fit1 <- lm.fit(x,y)
 str(fit1)
@@ -216,12 +218,479 @@ names(fit2)
 fit2$coefficients
 ```
 
+## Control Structures
+
+Control structures are the commands that make decisions or execute loops.
+
+Conditional execution: `if`/`else`, `switch`
+
+Loops: `for`, `while`, `repeat`
+
+
+## `if`/`else`
+
+An `if` statement can stand alone or be combined with an `else` statement
+
+```{r}
+x <- 1:3
+if (all(x > 0)) {
+    res <- mean(x)
+} else {
+    res <- mean(abs(x))
+}
+res
+```
+
+The condition must evaluate to logical vector of length one. The 
+functions `all()`, `any()`, `is.na()`, `is.null()` and other `is.`
+functions are useful here.
+
+## Conditioning on equality
+
+Using `==` may not be appropriate as it compares each element; `identical()` will test the whole object
+
+```{r}
+x <- y <- 1:2
+x == y
+identical(x, y)
+```
+
+`all.equal()` will allow for some numerical “fuzz”
+
+```{r}
+z <- sqrt(2)
+identical(z * z, 2)
+all.equal(z * z, 2)
+```
+
+## `switch`
+
+The `switch()` function provides a more readable alternative to nested 
+`if` statements
+```{r}
+#| eval: false
+if (summary == "IQR") { 
+    y <- IQR(x)
+} else {
+    if (summary == "range"){
+        y <- range(x)
+    } else y <- mean(x)
+}
+```
+
+
+```{r}
+x <- 1:5
+switch("range", # can enter an arg name or position
+       IQR = IQR(x),
+       range = range(x),
+       mean(x))
+```
+
+The final unnamed argument is the default.
+
+[Further examples](https://www.datamentor.io/r-programming/switch-function/){target="_blank}
+
+## `for`
+
+A for loop repeats a chunk of code, iterating along the values of a 
+vector or list
+
+```{r}
+x <- c("apple", "pear")
+for (nm in x) print(nm)
+```
+
+Unassigned objects are not automatically printed; hence call to `print()`. 
+This also applies to `ggplot` objects, which only display when printed.
+
+```{r}
+for (i in seq_along(x)) {
+    message("Element ", i, ": ", x[i])
+}
+```
+
+`seq_along()` is used here rather than `1:length(x)` as `length(x)` may 
+be zero. `message` is used to print messages to the console.
+
+## `while` and `repeat`
+
+The `while` loop repeats while a condition is `TRUE`
+```{r}
+#| eval: false
+n_iter <- 1
+while (n_iter < 3) {
+    x <- x * 2
+    n_iter <- n_iter + 1
+}
+```
+
+The `repeat` loop repeats until exited by `break`
+```{r}
+#| eval: false
+repeat {
+    x <- x + 1
+    if (max(x) > 10) break
+}
+```
+
+`break` can be used in `for` or `while` loops too. 
+
+`next` can be used to skip to the next iteration.
+
+## Growing Objects
+
+Adding to an object in a loop, e.g. via `c()` or `cbind()`
+
+```{r}
+#| eval: false
+res <- NULL
+for (i in 1:10000) res <- c(res, 1)
+```
+
+forces a copy to be made at each iteration. **THIS IS BAD!**
+
+It is far better to create an object of the necessary size first
+
+```{r}
+res <- numeric(10000)
+for (i in seq_along(res)) res[i] <- 1
+```
+
+To initialise a list we can use
+```{r}
+res <- vector(mode = "list", length = 100)
+```
+
+## Benchmarking
+
+There will usually be many ways to write code for a given task. To compare
+alternatives, we can benchmark the expression
+
+```{r}
+#| cache: true
+library(rbenchmark)
+benchmark({res <- NULL;
+           for (i in 1:10000) res <- c(res, 1)})$elapsed
+benchmark({res <- numeric(10000)
+           for (i in seq_along(res)) res[i] <- 1})$elapsed
+```
+
+Note the **BIG** difference between growing and initialising a vector.
+
+## Vectorization
+
+Vectorization is operating on vectors (or vector-like objects) rather than individual elements.
+
+Many operations in R are vectorized, e.g.
+
+```{r}
+x <- 1:3
+y <- 3:1
+x == y
+log(x)
+res <- list(a = 1:3, b = 1:6)
+lengths(res)
+```
+
+We do not need to loop through each element!
+
+## Recycling
+
+Vectorized functions will recycle shorter vectors to create vectors of 
+the same length
+```{r}
+1:4 + 0:1 # 1+0, 2+1, 3+0, 4+1
+```
+This is particularly useful for single values
+```{r}
+cbind(1, 3:4)
+```
+and for generating regular patterns
+```{r}
+paste0(rep(1:3, each = 2), c("a", "b"))
+```
+
+## Your turn!
+
+AN EXERCISE!
+
+## Vectorization and Matrices
+
+Vectorizations applies to matices too, not only through matrix algebra
+```{r}
+M <- matrix(1:4, nrow = 2, ncol = 2)
+M + M
+```
+but also vectorized functions
+```{r}
+M <- M + .3
+round(M)
+```
+
+## Matrices and Recycling
+
+Values are recycled down matrix, which is convenient for 
+row-wise operations
+
+```{r}
+M <- matrix(1:6, nrow = 2, ncol = 3)
+M
+M - 1:2
+```
+To do the same for columns we would need to explicitly replicate, 
+which is not so efficient.
+```{r}
+M - rep(1:3, each = 2)
+```
+
+## Vectorization vs For Loop
+
+Operations that can be vectorized will be more efficient than a loop in R
+
+```{r}
+#| cache: true
+M <- matrix(1:100000, nrow = 200, ncol = 500)
+x <- 1:200
+benchmark({for (i in 1:200){
+             for (j in 1:500){
+               M[i, j] <- M[i, j] - x[i]
+             }
+           }})$elapsed
+benchmark({M - x})$elapsed
+```
+
+The latter is nearly 30 times faster!
+
+## Row/Column-wise Operations
+
+Several functions are available implementing efficient row/column-wise
+operations, e.g. `colMeans()`, `rowMeans()`, `colSums()`, `rowSums()`, `sweep()`
+
+```{r}
+M <- matrix(1:4, nrow = 2, ncol = 2)
+rowMeans(M)
+```
+
+These provide an alternative to iterating though rows and columns in R (the 
+iteration happens in C, which is faster).
+
+The **matrixStats** provides further "matricised" methods.
+
+## Iteration Functions
+
+Iteration functions provide a general alternative to for loops. They are 
+not necessarily faster, but can be more compact.
+
+`apply()` applies a function over rows/columns of a matrix.
+
+`lapply()`, `sapply()` and `vapply()` iterate over a list or vector. `vapply()` 
+is recommended for programming as it specifies the type of return value
+```{r}
+vapply(list(a = 1:3, b = 1:6), FUN = mean, FUN.VALUE = numeric(1))
+```
+`mapply()` iterates over two or more lists/vectors in parallel.
+
+The **purrr** packages provides alternatives to these that have a simpler, 
+more consistent interface with fixed type of return value.
+
+## Iteration function examples
+
+## `purrr` examples
+
+## Your turn!
+
+AN EXERCISE
+
+## Functions
+
+Functions are defined by two components:
+
+ - the arguments of the function
+ - the body of the function that computes the result
+ 
+They are created using `function()`
+
+```{r}
+t_statistic <- function(n) {
+    x <- rnorm(n)
+    y <- rnorm(n)
+    t.test(x, y)$statistic
+}
+```
+
+## Specified Arguments
+
+*specified* arguments are those named in the function definition, e.g. 
+in `rnorm()`
+
+```{r}
+args(rnorm)
+```
+the arguments are `n`, `mean` and `sd`.
+
+`mean` and `sd` have been given default values in the function definition, but `n` has not, so the function fails if the user does not pass a value to `n`
+
+```{r, error = TRUE}
+rnorm()
+```
+
+## Name and Order of Arguments
+
+The user can pass objects to these arguments using their names or by supplying unnamed values in the right order
+
+```{r}
+rnorm(5, 1, 10)
+rnorm(5, sd = 10)
+```
+
+So naming and order is important! Some guidelines
+
+- put compulsory arguments first, e.g. data
+- put rarely used arguments last, e.g. tolerance setting
+- use short but meaningful argument names
+- if relevant, use the same argument names as similar functions
+
+## Using Arguments
+
+Arguments are used as objects in the function code.
+
+An new environment is created each time the function is called, separate 
+from the global workspace.
+
+```{r, error = TRUE}
+x <- 1
+y <- 3
+f <- function(x, y){
+    a <- 1
+    x <- x + a
+    x + y
+}
+f(x, y)
+x
+a
+```
+
+## Lexical Scoping
+
+If an object is not defined within the function, or passed in as an argument, R looks for it in the *parent environment* where the function was defined
+
+```{r, error = TRUE}
+x <- 1
+y <- 3
+f <- function(x){
+    x + y
+}
+f(x)
+rm(y)
+f(x)
+```
+
+It is safest (and best practice) to use arguments rather than depend on global variables! 
+
+## Unspecified Arguments
+
+`...` or the *ellipsis* allow unspecified arguments to be passed to the function. 
+
+This device is used by functions that work with arbitrary numbers of objects, e.g. 
+```{r}
+args(sum)
+sum(1, 4, 10, 2)
+```
+
+It can also be used to pass on arguments to another function, e.g.
+```{r}
+t_statistic <- function(x, g, ...) {
+    t.test(x ~ g, ...)$stat
+}
+```
+
+## Using `...`
+
+Arguments passed to `...` can be collected into a
+list for further analysis
+
+```{r}
+means <- function(...){
+    dots <- list(...)
+    vapply(dots, mean, numeric(1), na.rm = TRUE)
+}
+x <- 1
+y <- 2:3
+means(x, y)
+```
+Similarly the objects could be concatenated using `c`
+
+## Return Values (single)
+
+By default, functions return the object created by the last line of code
+```{r}
+f <- function(x) {
+    x <- x + 1
+    log(x)
+}
+```
+
+Alternatively `return()` can be used to terminate the function and return
+a given object
+```{r}
+f <- function(x) {
+    if (all(x > 0)) return(log(x))
+    x[x <= 0] <- 0.1
+    log(x)
+}
+```
+
+## Return values (multiple)
+
+Multiple objects can be returned in a list:
+
+```{r}
+mean_and_sd <- function(x) {
+  res_mean <- mean(x, na.rm = TRUE)
+  res_sd <- sd(x)
+  
+  list(mean = res_mean,
+       sd = res_sd)
+}
+
+x <- 1:3
+mean_and_sd(x)
+```
+
+
+## Naming Functions
+
+As with arguments, function names are important:
+
+- use a name that describes what it returns (e.g. `t_statistic`) or what it does (e.g. `remove_na`)
+- try to use one convention for combining words (e.g. snake case `t_statistic` or camel case `tStatistic`)
+- avoid using the same name as other functions
+
+## Side Effects
+
+A side-effect is a change outside the function that occurs when the
+function is run, e.g.
+
+- plot to the graphics window or other device
+- printing output to the console
+- write data to a file
+
+A function *can* have many side-effects and a return value, but it is 
+best practice to have a separate function for each task, e.g creating a 
+plot or a table.
+
+Writing to file is usually best done outside a function.
 
 # End matter {background-color="#552D62"}
 
 ## Resources
 
-Material inspired by and remixed from:
+Material (very largely) inspired by and remixed from:
+
+- Heather Turner and Erlap Dogu's [R Programming slides](https://www.heatherturner.net/teaching/turkey2018/r_programming/#1){target="_blank"} (with permission)
+
+Additionally:
 
 - 
 
