@@ -571,7 +571,7 @@
     "href": "content/01-foundations/03-programming.html",
     "title": "Programming in R",
     "section": "",
-    "text": "This page and the slides for this session are still under development"
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
   },
   {
     "objectID": "content/01-foundations/03-programming.html#todo",
@@ -592,21 +592,21 @@
     "href": "content/01-foundations/03-programming.html#resources",
     "title": "Programming in R",
     "section": "Resources",
-    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+    "text": "Resources\n\nReading\n\nEfficient Programming, from Efficient R by Colin Gillespie and Robin Lovelace\nhttps://csgillespie.github.io/efficientR/programming.html\nChapters on functions and iteration, from R for Data Science by Hadley Wickham and Garrett Grolemund\nhttps://r4ds.had.co.nz/index.html\nhttps://r4ds.had.co.nz/functions.html\nhttps://r4ds.had.co.nz/iteration.html"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#overview",
     "href": "slides/01-foundations/03-programming/index.html#overview",
     "title": "Programming in R",
     "section": "Overview",
-    "text": "Overview\n\nWhat we’re covering\nMORE HERE!"
+    "text": "Overview\n\nMore on data structures\nControl flow and iteration functions\nEfficient R programming\nWriting functions (basics)"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#resources",
     "href": "slides/01-foundations/03-programming/index.html#resources",
     "title": "Programming in R",
     "section": "Resources",
-    "text": "Resources\nMaterial (very largely) inspired by and remixed from:\n\nHeather Turner and Erlap Dogu’s R Programming slides (with permission)\n\nAdditionally:"
+    "text": "Resources\nMaterial (very largely) inspired by and remixed from:\n\nHeather Turner and Erlap Dogu’s R Programming slides (with permission)\n\nAdditionally:\n\nEfficient R, Chapter 3 by Colin Gillespie and Robin Lovelace\nR for Data Science, by Hadley Wickham and Garrett Grolemund, chapters on iteration and functions"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#license",
@@ -760,21 +760,21 @@
     "href": "slides/01-foundations/03-programming/index.html#benchmarking",
     "title": "Programming in R",
     "section": "Benchmarking",
-    "text": "Benchmarking\nThere will usually be many ways to write code for a given task. To compare alternatives, we can benchmark the expression\n\nlibrary(rbenchmark)\nbenchmark({res <- NULL;\n           for (i in 1:10000) res <- c(res, 1)})$elapsed\n\n[1] 12.156\n\nbenchmark({res <- numeric(10000)\n           for (i in seq_along(res)) res[i] <- 1})$elapsed\n\n[1] 0.077\n\n\nNote the BIG difference between growing and initialising a vector."
+    "text": "Benchmarking\nThere will usually be many ways to write code for a given task. To compare alternatives, we can benchmark the expression\n\nlibrary(rbenchmark)\nbenchmark({res <- NULL;\n           for (i in 1:10000) res <- c(res, 1)})$elapsed\n\n[1] 12.422\n\nbenchmark({res <- numeric(10000)\n           for (i in seq_along(res)) res[i] <- 1})$elapsed\n\n[1] 0.074\n\n\nNote the BIG difference between growing and initialising a vector (the latter around 150 times faster in this case)."
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#your-turn-1",
     "href": "slides/01-foundations/03-programming/index.html#your-turn-1",
     "title": "Programming in R",
     "section": "Your turn!",
-    "text": "Your turn!\nAN EXERCISE!"
+    "text": "Your turn!\n\nWrite a for loop to compute the mean of every column of in mtcars, saving each to a preallocated vector\nUse lapply() with rnorm to generate a list of length 10 where the 1st item contains a vector of 1 sample from an \\(N(0,1)\\) distribution, the 2nd item contains a vector of 2 samples from an \\(N(0,1)\\) distribution up to the 10th item contains a vector of 10 samples from an \\(N(0,1)\\) distibution.\nUse lapply() with rnorm to generate a list of length 10, where the 1st item contains a vector of 5 samples from \\(N(1,1)\\), the 2nd item contains a vector of 5 samples \\(N(2,1)\\) and so on until you get 5 samples from \\(N(10,1)\\)"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#your-turn-a-solution-1",
     "href": "slides/01-foundations/03-programming/index.html#your-turn-a-solution-1",
     "title": "Programming in R",
     "section": "Your turn! (a solution)",
-    "text": "Your turn! (a solution)\n\ny <- mtcars$mpg\nn <- ncol(mtcars) - 1\ndisp <- mtcars$disp\n\nfit <- lm(y ~ disp)"
+    "text": "Your turn! (a solution)\n\nvariance <- function(x) {\n  1/(length(x) - 1) * sum((x - mean(x))^2)\n}"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#vectorization",
@@ -809,7 +809,7 @@
     "href": "slides/01-foundations/03-programming/index.html#vectorization-vs-for-loop",
     "title": "Programming in R",
     "section": "Vectorization vs For Loop",
-    "text": "Vectorization vs For Loop\nOperations that can be vectorized will be more efficient than a loop in R\n\nM <- matrix(1:100000, nrow = 200, ncol = 500)\nx <- 1:200\nbenchmark({for (i in 1:200){\n             for (j in 1:500){\n               M[i, j] <- M[i, j] - x[i]\n             }\n           }})$elapsed\n\n[1] 0.684\n\nbenchmark({M - x})$elapsed\n\n[1] 0.024\n\n\nThe latter is nearly 30 times faster!"
+    "text": "Vectorization vs For Loop\nOperations that can be vectorized will be more efficient than a loop in R\n\nM <- matrix(1:100000, nrow = 200, ncol = 500)\nx <- 1:200\nbenchmark({for (i in 1:200){\n             for (j in 1:500){\n               M[i, j] <- M[i, j] - x[i]\n             }\n           }})$elapsed\n\n[1] 0.657\n\nbenchmark({M - x})$elapsed\n\n[1] 0.024\n\n\nThe latter is nearly 30 times faster!"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#rowcolumn-wise-operations",
@@ -822,8 +822,8 @@
     "objectID": "slides/01-foundations/03-programming/index.html#iteration-functions",
     "href": "slides/01-foundations/03-programming/index.html#iteration-functions",
     "title": "Programming in R",
-    "section": "Iteration Functions",
-    "text": "Iteration Functions\nIteration functions provide a general alternative to for loops. They are not necessarily faster, but can be more compact.\napply() applies a function over rows/columns of a matrix.\nlapply(), sapply() and vapply() iterate over a list or vector. vapply() is recommended for programming as it specifies the type of return value\n\nvapply(list(a = 1:3, b = 1:6), FUN = mean, FUN.VALUE = numeric(1))\n\n  a   b \n2.0 3.5 \n\n\nmapply() iterates over two or more lists/vectors in parallel.\nThe purrr packages provides alternatives to these that have a simpler, more consistent interface with fixed type of return value."
+    "section": "Iteration functions",
+    "text": "Iteration functions\nIteration functions provide a general alternative to for loops. They are not necessarily faster, but can be more compact.\napply() applies a function over rows/columns of a matrix.\nlapply(), sapply() and vapply() iterate over a list or vector. vapply() is recommended for programming as it specifies the type of return value\n\nvapply(list(a = 1:3, b = 1:6), FUN = mean, FUN.VALUE = numeric(1))\n\n  a   b \n2.0 3.5 \n\n\nmapply() iterates over two or more lists/vectors in parallel."
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#iteration-function-examples",
@@ -844,7 +844,7 @@
     "href": "slides/01-foundations/03-programming/index.html#your-turn-2",
     "title": "Programming in R",
     "section": "Your turn!",
-    "text": "Your turn!\nAN EXERCISE"
+    "text": "Your turn!\nWrite your own function, variance, to compute the variance of a numeric vector:\n\\[\nVar(x) = \\frac{1}{n-1}\\sum_{i=1}^n(x_i - \\bar{x})^2\n\\]\nMake use of R’s built in vectorisation.\nTest it and compare your answer with the built-in var() function."
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#functions",
@@ -865,7 +865,7 @@
     "href": "slides/01-foundations/03-programming/index.html#name-and-order-of-arguments",
     "title": "Programming in R",
     "section": "Name and Order of Arguments",
-    "text": "Name and Order of Arguments\nThe user can pass objects to these arguments using their names or by supplying unnamed values in the right order\n\nrnorm(5, 1, 10)\n\n[1] 19.71776682  0.06088448  7.02444562 -6.86645079 -0.89249355\n\nrnorm(5, sd = 10)\n\n[1]  7.9557018 22.5129785  9.2063030  0.9648859  0.8905381\n\n\nSo naming and order is important! Some guidelines\n\nput compulsory arguments first, e.g. data\nput rarely used arguments last, e.g. tolerance setting\nuse short but meaningful argument names\nif relevant, use the same argument names as similar functions"
+    "text": "Name and Order of Arguments\nThe user can pass objects to these arguments using their names or by supplying unnamed values in the right order\n\nrnorm(5, 1, 10)\n\n[1] -2.3045772  8.9011736 -0.6709734 23.3770115 10.6470874\n\nrnorm(5, sd = 10)\n\n[1]  0.1145472 -4.2758142 -9.2673590 -8.0921179 -3.2809195\n\n\nSo naming and order is important! Some guidelines\n\nput compulsory arguments first, e.g. data\nput rarely used arguments last, e.g. tolerance setting\nuse short but meaningful argument names\nif relevant, use the same argument names as similar functions"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#using-arguments",
@@ -893,7 +893,7 @@
     "href": "slides/01-foundations/03-programming/index.html#using-...",
     "title": "Programming in R",
     "section": "Using ...",
-    "text": "Using ...\nArguments passed to ... can be collected into a list for further analysis\n\nmeans <- function(...){\n    dots <- list(...)\n    vapply(dots, mean, numeric(1), na.rm = TRUE)\n}\nx <- 1\ny <- 2:3\nmeans(x, y)\n\n[1] 1.0 2.5\n\n\nSimilarly the objects could be concatenated using c"
+    "text": "Using ...\nArguments passed to ... can be collected into a list for further analysis\n\nmeans <- function(...){\n    dots <- list(...)\n    vapply(dots, mean, numeric(1), na.rm = TRUE)\n}\nx <- 1\ny <- 2:3\nmeans(x, y)\n\n[1] 1.0 2.5\n\n\nSimilarly the objects could be concatenated using c()"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#return-values",
@@ -929,5 +929,110 @@
     "title": "Programming in R",
     "section": "Return values (multiple)",
     "text": "Return values (multiple)\nMultiple objects can be returned in a list:\n\nmean_and_sd <- function(x) {\n  res_mean <- mean(x, na.rm = TRUE)\n  res_sd <- sd(x)\n  \n  list(mean = res_mean,\n       sd = res_sd)\n}\n\nx <- 1:3\nmean_and_sd(x)\n\n$mean\n[1] 2\n\n$sd\n[1] 1"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#iteration-function-resources",
+    "href": "slides/01-foundations/03-programming/index.html#iteration-function-resources",
+    "title": "Programming in R",
+    "section": "Iteration function resources",
+    "text": "Iteration function resources\n\nEfficient R by Colin Gillespie and Robin Lovelace\nThe built-in help pages. You can directly access the examples using the example() function, e.g. to run the apply() examples, use example(\"apply\").\nThis StackOverflow answer. describing when, where and how to use each of the functions.\nThis blog post by Neil Saunders"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#purrr",
+    "href": "slides/01-foundations/03-programming/index.html#purrr",
+    "title": "Programming in R",
+    "section": "purrr",
+    "text": "purrr\nThe purrr package (part of the tidyverse) provides alternatives to the apply family that have a simpler, more consistent interface with fixed type of return value.\n\n# Split a data frame into pieces, \n# fit a model to each piece, summarise and extract R^2\nlibrary(purrr)\n\nmtcars %>%\n  split(.$cyl) %>% # base R\n  map(~ lm(mpg ~ wt, data = .x)) %>% # returns a list\n  map(summary) %>%\n  map_dbl(\"r.squared\") # returns a vector\n\n        4         6         8 \n0.5086326 0.4645102 0.4229655"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#top-tips-for-efficient-programming",
+    "href": "slides/01-foundations/03-programming/index.html#top-tips-for-efficient-programming",
+    "title": "Programming in R",
+    "section": "Top tips for efficient programming",
+    "text": "Top tips for efficient programming\nA golden rule in R programming is to access the underlying C/Fortran routines as quickly as possible; the fewer functions calls required to achieve this, the better.\n\nBe careful never to grow vectors\nVectorise code wherever possible\n\nSee Efficient Programming for more details and examples."
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#your-turn-3",
+    "href": "slides/01-foundations/03-programming/index.html#your-turn-3",
+    "title": "Programming in R",
+    "section": "Your turn!",
+    "text": "Your turn!\nAN EXERCISE"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#more-to-do",
+    "href": "slides/01-foundations/03-programming/index.html#more-to-do",
+    "title": "Programming in R",
+    "section": "MORE TO DO",
+    "text": "MORE TO DO\n\nLink to Efficient R\nAnything else from Efficient R?"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#advantages-of-purrr",
+    "href": "slides/01-foundations/03-programming/index.html#advantages-of-purrr",
+    "title": "Programming in R",
+    "section": "Advantages of purrr",
+    "text": "Advantages of purrr\n\nThe first argument is always the data, so purrr works naturally with the pipe.\nAll purrr functions are type-stable. They always return the advertised output type (map() returns lists; map_dbl() returns double vectors), or they throw an error.\nAll map() functions either accept function, formulas (used for succinctly generating anonymous functions), a character vector (used to extract components by name), or a numeric vector (used to extract by position).\n\nSee the iteration chapter of R for Data Science for further examples and details"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#control-structures-1",
+    "href": "slides/01-foundations/03-programming/index.html#control-structures-1",
+    "title": "Programming in R",
+    "section": "Control Structures",
+    "text": "Control Structures\nControl structures are the commands that make decisions or execute loops.\nConditional execution: if/else, switch\nLoops: for, while, repeat"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#components-of-a-function",
+    "href": "slides/01-foundations/03-programming/index.html#components-of-a-function",
+    "title": "Programming in R",
+    "section": "Components of a function",
+    "text": "Components of a function\nFunctions are defined by three components:\n\nthe name of the function\nthe arguments of the function, inside ( )\nthe body of the function that computes the result, inside { }\n\nThey are created using function()\n\nt_statistic <- function(n) {\n    x <- rnorm(n)\n    y <- rnorm(n)\n    t.test(x, y)$statistic\n}"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#for-loop-tips",
+    "href": "slides/01-foundations/03-programming/index.html#for-loop-tips",
+    "title": "Programming in R",
+    "section": "for loop tips",
+    "text": "for loop tips\nEach loop has three components:\n\nThe output: allocate sufficient space before you start the loop\nThe sequence: this determines what you loop over\nThe body: the code that does the work\n\nSee https://r4ds.had.co.nz/iteration.html#for-loops"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#data-frames",
+    "href": "slides/01-foundations/03-programming/index.html#data-frames",
+    "title": "Programming in R",
+    "section": "Data Frames",
+    "text": "Data Frames\nData frames are lists of variables of the same length and hence can often be treated as a matrix\n\nx <- 1:3\ndat <- data.frame(x = x, id = letters[1:3])\ndat\n\n  x id\n1 1  a\n2 2  b\n3 3  c\n\ndat[1]\n\n  x\n1 1\n2 2\n3 3\n\ndat[[1]]\n\n[1] 1 2 3\n\ndat[1, 2]\n\n[1] \"a\""
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#your-turn-sample-solutions",
+    "href": "slides/01-foundations/03-programming/index.html#your-turn-sample-solutions",
+    "title": "Programming in R",
+    "section": "Your turn! (sample solutions)",
+    "text": "Your turn! (sample solutions)\n\nout <- numeric(ncol(mtcars))\n\nfor (i in seq_len(ncol(mtcars))) {\n  out[i] <- mean(mtcars[[i]])\n}\n\n\nlapply(1:10, rnorm)\n\n\nlapply(1:10, rnorm, n = 5)"
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html",
+    "href": "slides/01-foundations/00-template/index.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "What we’re covering"
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#resources",
+    "href": "slides/01-foundations/00-template/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#license",
+    "href": "slides/01-foundations/00-template/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html#for-loops-revisited",
+    "href": "slides/01-foundations/03-programming/index.html#for-loops-revisited",
+    "title": "Programming in R",
+    "section": "for loops revisited",
+    "text": "for loops revisited\nEach loop has three components:\n\nThe output: allocate sufficient space before you start the loop\nThe sequence: this determines what you loop over\nThe body: the code that does the work\n\nSee https://r4ds.had.co.nz/iteration.html#for-loops"
   }
 ]

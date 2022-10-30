@@ -2,8 +2,6 @@
 title: Programming in R
 ---
 
-***This page and the slides for this session are still under development***
-
 ## Slides
 
 Here's a link to the [slides](/slides/01-foundations/03-programming/index.qmd){target="_blank"} in a new window. 
@@ -17,9 +15,15 @@ Here are the slides embedded:
 
 ### Reading
 
-- TITLE
+- Efficient Programming, from Efficient R by Colin Gillespie and Robin Lovelace
 
-  <LINK>
+  <https://csgillespie.github.io/efficientR/programming.html>
 
+- Chapters on functions and iteration, from R for Data Science by Hadley Wickham and Garrett Grolemund
 
-### Packages
+  <https://r4ds.had.co.nz/index.html>
+  
+  <https://r4ds.had.co.nz/functions.html>
+
+  <https://r4ds.had.co.nz/iteration.html>
+
