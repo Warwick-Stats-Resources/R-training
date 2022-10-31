@@ -423,8 +423,8 @@ Ella Kaye | Department of Statistics | University of Warwick
 <p>Custom functions can be used to provide convenient wrappers to complex code chunks as well as implement novel functionality.</p>
 </section>
 <section>
-<section id="more-of-data-structures" class="title-slide slide level1 center" data-background-color="#552D62">
-<h1>More of Data Structures</h1>
+<section id="more-on-data-structures" class="title-slide slide level1 center" data-background-color="#552D62">
+<h1>More on Data Structures</h1>
 
 </section>
 <section id="data-structures-revisited" class="slide level2">
@@ -816,7 +816,7 @@ A1229 B1230 C1231
 <ul>
 <li><p><a href="https://csgillespie.github.io/efficientR/programming.html#the-apply-family" target="_blank">Efficient R</a> by Colin Gillespie and Robin Lovelace</p></li>
 <li><p>The built-in help pages. You can directly access the examples using the <code>example()</code> function, e.g.&nbsp;to run the <code>apply()</code> examples, use <code>example("apply")</code>.</p></li>
-<li><p>This StackOverflow <a href="https://stackoverflow.com/questions/3505701/grouping-functions-tapply-by-aggregate-and-the-apply-family" target="_blank">answer</a>. describing when, where and how to use each of the functions.</p></li>
+<li><p>This StackOverflow <a href="https://stackoverflow.com/questions/3505701/grouping-functions-tapply-by-aggregate-and-the-apply-family" target="_blank">answer</a>, describing when, where and how to use each of the functions.</p></li>
 <li><p>This blog <a href="https://nsaunders.wordpress.com/2010/08/20/a-brief-introduction-to-apply-in-r/" target="_blank">post</a> by Neil Saunders</p></li>
 </ul>
 </section>
@@ -843,7 +843,7 @@ A1229 B1230 C1231
 <h2>Advantages of <strong>purrr</strong></h2>
 <ul>
 <li><p>The first argument is always the data, so <strong>purrr</strong> works naturally with the pipe.</p></li>
-<li><p>All purrr functions are type-stable. They always return the advertised output type (<code>map()</code> returns lists; <code>map_dbl()</code> returns double vectors), or they throw an error.</p></li>
+<li><p>All purrr functions are type-stable. They always return the advertised output type (e.g.&nbsp;<code>map()</code> returns lists; <code>map_dbl()</code> returns double vectors), or they throw an error.</p></li>
 <li><p>All <code>map()</code> functions either accept function, formulas (used for succinctly generating anonymous functions), a character vector (used to extract components by name), or a numeric vector (used to extract by position).</p></li>
 </ul>
 <p>See the <a href="https://r4ds.had.co.nz/iteration.html" target="_blank">iteration chapter</a> of R for Data Science for further examples and details</p>
@@ -1123,11 +1123,11 @@ NULL</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -2.3045772  8.9011736 -0.6709734 23.3770115 10.6470874</code></pre>
+<pre><code>[1]  -8.063367   3.845973  -8.409537  -1.957449 -25.138085</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  0.1145472 -4.2758142 -9.2673590 -8.0921179 -3.2809195</code></pre>
+<pre><code>[1] 14.5610754 -4.8054195 -0.5875519  4.7357928 20.4064227</code></pre>
 </div>
 </div>
 <p>So naming and order is important! Some guidelines</p>

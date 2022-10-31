@@ -865,7 +865,7 @@
     "href": "slides/01-foundations/03-programming/index.html#name-and-order-of-arguments",
     "title": "Programming in R",
     "section": "Name and Order of Arguments",
-    "text": "Name and Order of Arguments\nThe user can pass objects to these arguments using their names or by supplying unnamed values in the right order\n\nrnorm(5, 1, 10)\n\n[1] -2.3045772  8.9011736 -0.6709734 23.3770115 10.6470874\n\nrnorm(5, sd = 10)\n\n[1]  0.1145472 -4.2758142 -9.2673590 -8.0921179 -3.2809195\n\n\nSo naming and order is important! Some guidelines\n\nput compulsory arguments first, e.g. data\nput rarely used arguments last, e.g. tolerance setting\nuse short but meaningful argument names\nif relevant, use the same argument names as similar functions"
+    "text": "Name and Order of Arguments\nThe user can pass objects to these arguments using their names or by supplying unnamed values in the right order\n\nrnorm(5, 1, 10)\n\n[1]  -8.063367   3.845973  -8.409537  -1.957449 -25.138085\n\nrnorm(5, sd = 10)\n\n[1] 14.5610754 -4.8054195 -0.5875519  4.7357928 20.4064227\n\n\nSo naming and order is important! Some guidelines\n\nput compulsory arguments first, e.g. data\nput rarely used arguments last, e.g. tolerance setting\nuse short but meaningful argument names\nif relevant, use the same argument names as similar functions"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#using-arguments",
@@ -935,7 +935,7 @@
     "href": "slides/01-foundations/03-programming/index.html#iteration-function-resources",
     "title": "Programming in R",
     "section": "Iteration function resources",
-    "text": "Iteration function resources\n\nEfficient R by Colin Gillespie and Robin Lovelace\nThe built-in help pages. You can directly access the examples using the example() function, e.g. to run the apply() examples, use example(\"apply\").\nThis StackOverflow answer. describing when, where and how to use each of the functions.\nThis blog post by Neil Saunders"
+    "text": "Iteration function resources\n\nEfficient R by Colin Gillespie and Robin Lovelace\nThe built-in help pages. You can directly access the examples using the example() function, e.g. to run the apply() examples, use example(\"apply\").\nThis StackOverflow answer, describing when, where and how to use each of the functions.\nThis blog post by Neil Saunders"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#purrr",
@@ -970,7 +970,7 @@
     "href": "slides/01-foundations/03-programming/index.html#advantages-of-purrr",
     "title": "Programming in R",
     "section": "Advantages of purrr",
-    "text": "Advantages of purrr\n\nThe first argument is always the data, so purrr works naturally with the pipe.\nAll purrr functions are type-stable. They always return the advertised output type (map() returns lists; map_dbl() returns double vectors), or they throw an error.\nAll map() functions either accept function, formulas (used for succinctly generating anonymous functions), a character vector (used to extract components by name), or a numeric vector (used to extract by position).\n\nSee the iteration chapter of R for Data Science for further examples and details"
+    "text": "Advantages of purrr\n\nThe first argument is always the data, so purrr works naturally with the pipe.\nAll purrr functions are type-stable. They always return the advertised output type (e.g. map() returns lists; map_dbl() returns double vectors), or they throw an error.\nAll map() functions either accept function, formulas (used for succinctly generating anonymous functions), a character vector (used to extract components by name), or a numeric vector (used to extract by position).\n\nSee the iteration chapter of R for Data Science for further examples and details"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#control-structures-1",

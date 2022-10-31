@@ -41,7 +41,7 @@ Custom functions can be used to provide convenient wrappers to complex
 code chunks as well as implement novel functionality.
 
 
-# More of Data Structures {background-color="#552D62"}
+# More on Data Structures {background-color="#552D62"}
 
 ## Data Structures Revisited
 
@@ -381,7 +381,7 @@ vapply(list(a = 1:3, b = 1:6), FUN = mean, FUN.VALUE = numeric(1))
 
 - The built-in help pages. You can directly access the examples using the `example()` function, e.g. to run the `apply()` examples, use `example("apply")`.
 
-- This StackOverflow [answer](https://stackoverflow.com/questions/3505701/grouping-functions-tapply-by-aggregate-and-the-apply-family){target="_blank"}. describing when, where and how to use each of the functions. 
+- This StackOverflow [answer](https://stackoverflow.com/questions/3505701/grouping-functions-tapply-by-aggregate-and-the-apply-family){target="_blank"}, describing when, where and how to use each of the functions. 
 
 - This blog [post](https://nsaunders.wordpress.com/2010/08/20/a-brief-introduction-to-apply-in-r/){target="_blank"} by Neil Saunders
 
@@ -406,7 +406,7 @@ mtcars %>%
 
 - The first argument is always the data, so **purrr** works naturally with the pipe.
 
-- All purrr functions are type-stable. They always return the advertised output type (`map()` returns lists; `map_dbl()` returns double vectors), or they throw an error.
+- All purrr functions are type-stable. They always return the advertised output type (e.g. `map()` returns lists; `map_dbl()` returns double vectors), or they throw an error.
 
 - All `map()` functions either accept function, formulas (used for succinctly generating anonymous functions), a character vector (used to extract components by name), or a numeric vector (used to extract by position).
 
