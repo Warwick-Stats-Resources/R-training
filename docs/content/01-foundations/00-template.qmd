@@ -9,6 +9,7 @@ title: TITLE
 - Link to this page in schedule
 - Link to this page in _quarto.yml
 - Update TITLE
+- Create folder for slides
 - Update link to slides in new window
 - Update link to slides in iframe
 - Update title of slides in iframe

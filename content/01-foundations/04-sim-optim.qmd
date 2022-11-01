@@ -1,0 +1,25 @@
+---
+title: Simulation and Optimisation
+---
+
+***This page and the slides for this session are still under development***
+
+## Slides
+
+Here's a link to the [slides](/slides/01-foundations/04-sim-optim/index.qmd){target="_blank"} in a new window. 
+
+Here are the slides embedded:
+
+<iframe class="slide-deck ar3x2" src="/slides/01-foundations/04-sim-optim/index.html" title="Simulation and Optimisation slides">
+</iframe>
+
+## Resources
+
+### Reading
+
+- TITLE
+
+  <LINK>
+
+
+### Packages
