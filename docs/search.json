@@ -214,28 +214,28 @@
     "href": "slides/01-foundations/01-intro/index.html#the-r-ecosystem",
     "title": "Introduction to R and RStudio",
     "section": "The R Ecosystem",
-    "text": "The R Ecosystem\nBase R\n\n\nbase\n\nCreate R objects\nSummaries\nMaths functions\n\n\nrecommended\n\nStatistics\nGraphics\nExample data"
+    "text": "The R Ecosystem\n\nBase R\n\n\n\nbase\n\nCreate R objects\nSummaries\nMaths functions\n\n\n\n\nrecommended\n\nStatistics\nGraphics\nExample data"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#the-r-ecosystem-1",
     "href": "slides/01-foundations/01-intro/index.html#the-r-ecosystem-1",
     "title": "Introduction to R and RStudio",
     "section": "The R Ecosystem",
-    "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\nBioconductor\n\nBioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\n\n\nGitHub\n\nPackages in development\nGitHub-only packages"
+    "text": "The R Ecosystem\n\nContributed packages\n\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\n\n\nBioconductor\n\nBioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\n\n\n\n\nGitHub\n\nPackages in development\nGitHub-only packages"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#the-tidyverse",
     "href": "slides/01-foundations/01-intro/index.html#the-tidyverse",
     "title": "Introduction to R and RStudio",
     "section": "The tidyverse",
-    "text": "The tidyverse\nThe tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures.\n\nFrom https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/"
+    "text": "The tidyverse\nThe tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures.\n\n\n\nFrom https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#palmerpenguins",
     "href": "slides/01-foundations/01-intro/index.html#palmerpenguins",
     "title": "Introduction to R and RStudio",
     "section": "palmerpenguins",
-    "text": "palmerpenguins\n\npalmerpenguins is a dataset package, designed to be a great example for data exploration and visualisation.\nIt contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Archipelago, Antarctica.\n\n\nPenguin artwork by Allison Horst https://allisonhorst.github.io/palmerpenguins/articles/art.html"
+    "text": "palmerpenguins\n\npalmerpenguins is a dataset package, designed to be a great example for data exploration and visualisation.\nIt contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Archipelago, Antarctica.\n\n\n\n\nPenguin artwork by Allison Horst https://allisonhorst.github.io/palmerpenguins/articles/art.html"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#the-r-community",
@@ -375,7 +375,7 @@
     "href": "slides/01-foundations/01-intro/index.html#the-data",
     "title": "Introduction to R and RStudio",
     "section": "The data",
-    "text": "The data\n\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\n\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year\n   <fct>   <fct>              <dbl>         <dbl>      <int>   <int> <fct> <int>\n 1 Adelie  Torgersen           39.1          18.7        181    3750 male   2007\n 2 Adelie  Torgersen           39.5          17.4        186    3800 fema…  2007\n 3 Adelie  Torgersen           40.3          18          195    3250 fema…  2007\n 4 Adelie  Torgersen           NA            NA           NA      NA <NA>   2007\n 5 Adelie  Torgersen           36.7          19.3        193    3450 fema…  2007\n 6 Adelie  Torgersen           39.3          20.6        190    3650 male   2007\n 7 Adelie  Torgersen           38.9          17.8        181    3625 fema…  2007\n 8 Adelie  Torgersen           39.2          19.6        195    4675 male   2007\n 9 Adelie  Torgersen           34.1          18.1        193    3475 <NA>   2007\n10 Adelie  Torgersen           42            20.2        190    4250 <NA>   2007\n# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,\n#   ²​body_mass_g"
+    "text": "The data\n\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\n\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year\n   <fct>   <fct>              <dbl>         <dbl>      <int>   <int> <fct> <int>\n 1 Adelie  Torgersen           39.1          18.7        181    3750 male   2007\n 2 Adelie  Torgersen           39.5          17.4        186    3800 fema…  2007\n 3 Adelie  Torgersen           40.3          18          195    3250 fema…  2007\n 4 Adelie  Torgersen           NA            NA           NA      NA <NA>   2007\n 5 Adelie  Torgersen           36.7          19.3        193    3450 fema…  2007\n 6 Adelie  Torgersen           39.3          20.6        190    3650 male   2007\n 7 Adelie  Torgersen           38.9          17.8        181    3625 fema…  2007\n 8 Adelie  Torgersen           39.2          19.6        195    4675 male   2007\n 9 Adelie  Torgersen           34.1          18.1        193    3475 <NA>   2007\n10 Adelie  Torgersen           42            20.2        190    4250 <NA>   2007\n# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,\n#   ²​body_mass_g\n\n\n\n\nHow many of each species?\n\ncount(penguins, species)\n\n# A tibble: 3 × 2\n  species       n\n  <fct>     <int>\n1 Adelie      152\n2 Chinstrap    68\n3 Gentoo      124\n\n\n\n\n\nHow many of each species on each island?\n\ncount(penguins, species, island, .drop = FALSE)\n\n# A tibble: 9 × 3\n  species   island        n\n  <fct>     <fct>     <int>\n1 Adelie    Biscoe       44\n2 Adelie    Dream        56\n3 Adelie    Torgersen    52\n4 Chinstrap Biscoe        0\n5 Chinstrap Dream        68\n6 Chinstrap Torgersen     0\n7 Gentoo    Biscoe      124\n8 Gentoo    Dream         0\n9 Gentoo    Torgersen     0\n\n\n\n\n\nShow me the bill dimensions of the 5 heaviest female Gentoo penguins\n\npenguins |>\n  filter(sex == \"female\",\n         species == \"Gentoo\") |>\n  slice_max(body_mass_g, n = 5) |>\n  select(contains(\"bill\"))\n\n# A tibble: 5 × 2\n  bill_length_mm bill_depth_mm\n           <dbl>         <dbl>\n1           46.5          14.8\n2           45.2          14.8\n3           49.1          14.8\n4           44.9          13.3\n5           45.1          14.5\n\n\n\n|> is a pipe. It passes what comes before into the first argument of what comes after.\nPipes are a powerful tool for clearly expressing a sequence of multiple operations.\n\n\n\n\nWhat’s the mean bill length, by species?\n\npenguins |>\n  group_by(species) |>\n  summarise(mean_bill_length = mean(bill_length_mm, na.rm = TRUE))\n\n# A tibble: 3 × 2\n  species   mean_bill_length\n  <fct>                <dbl>\n1 Adelie                38.8\n2 Chinstrap             48.8\n3 Gentoo                47.5\n\n\n\n\n\nWhat’s the relationship between bill length and depth?\n\npictureplot 1code 1plot 2code 2what?\n\n\n\n\n\nArtwork by Allison Horst https://allisonhorst.github.io/palmerpenguins/articles/art.html\n\n\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"gray50\") +\n  labs(title = \"Penguin bill dimensions\",\n       subtitle = \"Bill length and depth for Penguins at Palmer Station LTER\",\n       x = \"Bill length (mm)\",\n       y = \"Bill depth (mm)\") +\n  theme_minimal() + \n  theme(plot.title.position = \"plot\",\n        text = element_text(size = 20))\n\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", se = FALSE, aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  labs(title = \"Penguin bill dimensions\",\n       subtitle = \"Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER\",\n       x = \"Bill length (mm)\",\n       y = \"Bill depth (mm)\",\n       color = \"Penguin species\",\n       shape = \"Penguin species\") +\n  theme_minimal() +\n  theme(legend.position = c(0.85, 0.15),\n        plot.title.position = \"plot\",\n        text = element_text(size = 20))\n\n\n\nThis is an illustration of Simpson’s Paradox.\n\nSimpson’s paradox is a phenomenon in probability and statistics in which a trend appears in several groups of data but disappears or reverses when the groups are combined.\n\n\n\n\nExample adapted from https://allisonhorst.github.io/palmerpenguins/articles/examples.html"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#notes",
@@ -508,7 +508,7 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#import-dataset-button",
     "title": "Data Types, Structures and Wrangling",
     "section": "Import dataset (button)",
-    "text": "Import dataset (button)\nUsing the Import Dataset dialog in RStudio\n\nwe can import files stored locally or online in the following formats:\n\n.txt/.csv via read_delim/read_csv from readr.\n.xlsx via read_excel from readxl.\n.sav/.por , .sas7bdat and .dta via read_spss, read_sas and read_stata respectively from haven.\n\nMost of these functions also allow files to be compressed, e.g. as .zip."
+    "text": "Import dataset (button)\nUsing the Import Dataset dialog in RStudio\n\n\n\n\n\nwe can import files stored locally or online in the following formats:\n\n.txt/.csv via read_delim/read_csv from readr.\n.xlsx via read_excel from readxl.\n.sav/.por , .sas7bdat and .dta via read_spss, read_sas and read_stata respectively from haven.\n\nMost of these functions also allow files to be compressed, e.g. as .zip."
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#file-names-and-paths-and-project-structure",
@@ -564,7 +564,7 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#a-note-about-pipes-vs",
     "title": "Data Types, Structures and Wrangling",
     "section": "A note about pipes: |> vs %>%",
-    "text": "A note about pipes: |> vs %>%\nPipes pass what comes before into an argument (by default the first) of what comes after.\nPipes are a powerful tool for clearly expressing a sequence of multiple operations.\n\n\n|>\n\nThe ‘native’ pipe, built into base R since v4.1 (May 2021)\nImproved in v4.2 (April 2022)\n\n\n%>%\n\nHas been around in the magrittr package since 2014\nUsed throughout the tidyverse (though that is changing)"
+    "text": "A note about pipes: |> vs %>%\nPipes pass what comes before into an argument (by default the first) of what comes after.\nPipes are a powerful tool for clearly expressing a sequence of multiple operations.\n\n\n\n|>\n\nThe ‘native’ pipe, built into base R since v4.1 (May 2021)\nImproved in v4.2 (April 2022)\n\n\n\n\n%>%\n\nHas been around in the magrittr package since 2014\nUsed throughout the tidyverse (though that is changing)"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#pipes-similarity",
@@ -1181,5 +1181,26 @@
     "title": "Simulation and Optimisation",
     "section": "How to use optim()",
     "text": "How to use optim()\noptim(par, fn, gr=NULL, ..., method=c(\"Nelder-Mead\", \"BFGS\", \"CG\", \"L-BFGS-B\", \"SANN\", \"Brent\"), lower=-Inf, upper=Inf, control=list(), hessian=FALSE)\n\npar: starting values of the parameters fn: function to be optimised (supply as for optimize) gr: function to calculate the"
+  },
+  {
+    "objectID": "slides/01-foundations/01-intro/index.html",
+    "href": "slides/01-foundations/01-intro/index.html",
+    "title": "Introduction to R and RStudio",
+    "section": "",
+    "text": "Why use R?\nUse RStudio to write and run R programmes\nCreate and start an R project\nUse install.packages() to install packages\nHow to get help in R\nSee examples of data wrangling and visualisation"
+  },
+  {
+    "objectID": "slides/01-foundations/02-data-wrangling/index.html",
+    "href": "slides/01-foundations/02-data-wrangling/index.html",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "",
+    "text": "Data types\nData structures\nData import and wrangling"
+  },
+  {
+    "objectID": "slides/01-foundations/03-programming/index.html",
+    "href": "slides/01-foundations/03-programming/index.html",
+    "title": "Programming in R",
+    "section": "",
+    "text": "More on data structures\nControl flow and iteration functions\nEfficient R programming\nWriting functions (basics)"
   }
 ]
