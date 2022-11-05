@@ -1,10 +1,10 @@
 ---
-title: Simulation and Optimisation
+title: TITLE
 subtitle: R Foundations course
 author: Ella Kaye | Department of Statistics | University of Warwick
 title-slide-attributes:
   data-background-color: "#552D62"
-date: 2022-11-07
+date: yyyy-MM-dd
 date-format: long
 format: 
   revealjs:
@@ -17,159 +17,17 @@ format:
 
 ## Overview
 
-- Numerical precision
+-   What we're covering
 
-- Simulation
-
-- Optimisation
-
-# Numerical precision {background-color="#552D62"}
-
-# Simulation {background-color="#552D62"}
-
-## Random numbers
-
-## `set.seed()`
-
-## `sample()`
-
-## Distributions in R
-
-## Random samples from distributions
-
-# Optimisation {background-color="#552D62"}
-
-Slides below from [Ruth Ripley's APTS course](https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf)
-
-## The optimisation problem
-
-- Given a function $f(x)$, what value of $x$ makes $f(x)$ as small or large as possible?
-- In a statistical context, $x$ will usually be the parameters of a model, and $f(x)$ either the model likelihood to be maximised or some measure of discrepancy between data and predictions to be minimised.
-- The optimal set of parameters will give the *best fit*
-- Only need to consider *small* as $-f(x)$ is *large* when $f(x)$ is *small*.
-- We consider here *general-purpose optimisers*
-
-## Local and Global Minima
-
-- The (negative of the) likelihood for the General Linear Model (and that for many other linear models) is well-behaved: it has a single, global minimum.
-- For more complicated models there may be many local minima.
-- Finding a global minimum is difficult, and not always important. Only if local minima are widely separated in parameter space are they likely to invalidate our conclusions.
-- We will concentrate on methods of finding local minima.
-Check for different local minima by altering the initial values, algorithm used, or other parameters of the fitting process.
-
-## Univariate Optimisation
-
-`optimize` (or `optimise`) finds a (possibly local) mimimum of a function in a specified interval with respect to its first argument.
-
-- Function to be minimised is the first argument to `optimize`
-- Can pre-specify the function or include it in the command.
-
-## Univariate Optimisation: example
-
-```{r}
-f <- function(x, a) {
-  (x - a)^2
-}
-
-xmin <- optimize(f, interval = c(0, 1), a = 1/3)
-
-# or
-
-xmin <- optimize(function(x, a) {(x - a)^2}, 
-                 interval = c(0, 1), a = 1/3)
-
-xmin
-```
-Note how the (fixed) parameter `a` is passed into `f`.
-
-## Other `optimize()` arguments
-
-- An interval within which to search must be specified, either by `interval` or by `upper` and `lower`
-
-- To *maximise* set `maximum = TRUE`
-
-- Accuracy can be set using the `tol` argument
-
-- Note the order of arguments: `optimize(f, interval, ..., lower, upper, maximum, tol)
-
-- The `...` can be named or unnamed and will be passed to `f`
-
-- Arguments after the `...` must be specified by names.
-
-- `optimize` returns a list with two items:
-
-  - `minimum`: the value of `x` at which `f(x)` is minimised
-  - `objective`: the value of `f(x)` at `x = minimum` 
-  
-## General Optimisation
-
-- In more than one dimension the problem is harder.
-- R has several different functions: most flexible is `optim()` which includes several different algorithms.
-- Algorithm of choice depends on how easy it is to calculate derivatives for the function. Usually better to supply a function to calculate derivatives, but may be unnecessary extra work.
-- Ensure the problem is scaled so that unit change in any parameter gives approximately unit change in objective.
-
-## `optim()` methods
-
-::: {.panel-tabset}
-## Nelder-Mead
-- The default method
-- Basic idea: for a function with `n` parameters, choose a polygon with `n+1` vertices. At each step, alter vertex with minimum `f(x)` to improve the objective function, by *reflection*, *expansion* or *contraction*
-- Does not use derivative information 
-- Useful for non-differentiable functions 
-- May be rather slow
-
-## BFGS
-- A quasi-Newton method: builds up approximation to Hessian matrix from gradients at start and finish of steps
-- Uses the approximation to choose new search direction 
-- Performs line search in this direction
-- Update term for the Hessian approximation is due to Broyden, Fletcher, Goldfarb and Shanno (proposed separately by all four in 1970)
-- Uses derivative information, calculated either from a user-supplied function or by finite differences
-- If dimension is large, the matrix stored may be very large
-
-## CG method
-- A conjugate gradient method: chooses successive search directions that are analogous to axes of an ellipse
-- Does not store a Hessian matrix
-- Three different formulae for the search directions are implemented: Fletcher-Reeves, Polak-Ribiere or Beale-Sorenson
-- Less robust than BFGS method
-- Uses derivative information, calculated either from a user-supplied function or by finite differences
-
-## L-BFGS-B
-- A limited memory version of BFGS
-- Does not store a Hessian matrix, only a limited number of update steps for it
-- Uses derivative information, calculated either from a user-supplied function or by finite differences
-- Can restrict the solution to lie within a "box", the only method of `optim()` that can do this
-
-## SANN
-- A variant of simulated annealing A stochastic algorithm
-- Accepts changes which increase the objective with positive probability (when minimising!)
-- Does not use derivative information
-- Can be very slow to converge but may find a ‘good’ solution quickly
-
-## Brent
-- An interface to `optimize()`
-- Only for use with one dimensional problems
-- Included for use inside other functions where only method can be specified, not the function to be used.
-:::
-
-## How to use `optim()`
-
-`optim(par, fn, gr=NULL, ..., method=c("Nelder-Mead", "BFGS", "CG", "L-BFGS-B", "SANN", "Brent"), lower=-Inf, upper=Inf, control=list(), hessian=FALSE)`
-
-. . . 
-
-`par`: starting values of the parameters
-`fn`: function to be optimised (supply as for `optimize`)
-`gr`: function to calculate the 
-
-
+# Section {background-color="#552D62"}
 
 # End matter {background-color="#552D62"}
 
 ## Resources
 
-This material is reproduced in large part from the APTS 2013/14 resources by Ruth Ripley:
+Material inspired by and remixed from:
 
-- https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf
+- 
 
 ## License
 
