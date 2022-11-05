@@ -158,14 +158,14 @@
     "href": "slides/01-foundations/00-template/index.html#overview",
     "title": "Simulation and Optimisation",
     "section": "Overview",
-    "text": "Overview\n\nWhat we’re covering"
+    "text": "Overview\n\nNumerical precision\nSimulation\nOptimisation"
   },
   {
     "objectID": "slides/01-foundations/00-template/index.html#resources",
     "href": "slides/01-foundations/00-template/index.html#resources",
     "title": "Simulation and Optimisation",
     "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:"
+    "text": "Resources\nThis material is reproduced in large part from the APTS 2013/14 resources by Ruth Ripley:\n\nhttps://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf"
   },
   {
     "objectID": "slides/01-foundations/00-template/index.html#license",
@@ -999,5 +999,96 @@
     "title": "schedule",
     "section": "",
     "text": "Sessions will be held most Mondays in term time, from 10:00-11:30 in Term 1.\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#random-numbers",
+    "href": "slides/01-foundations/00-template/index.html#random-numbers",
+    "title": "Simulation and Optimisation",
+    "section": "Random numbers",
+    "text": "Random numbers"
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#set.seed",
+    "href": "slides/01-foundations/00-template/index.html#set.seed",
+    "title": "Simulation and Optimisation",
+    "section": "set.seed()",
+    "text": "set.seed()"
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#sample",
+    "href": "slides/01-foundations/00-template/index.html#sample",
+    "title": "Simulation and Optimisation",
+    "section": "sample()",
+    "text": "sample()"
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#distributions-in-r",
+    "href": "slides/01-foundations/00-template/index.html#distributions-in-r",
+    "title": "Simulation and Optimisation",
+    "section": "Distributions in R",
+    "text": "Distributions in R"
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#random-samples-from-distributions",
+    "href": "slides/01-foundations/00-template/index.html#random-samples-from-distributions",
+    "title": "Simulation and Optimisation",
+    "section": "Random samples from distributions",
+    "text": "Random samples from distributions"
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#the-optimisation-problem",
+    "href": "slides/01-foundations/00-template/index.html#the-optimisation-problem",
+    "title": "Simulation and Optimisation",
+    "section": "The optimisation problem",
+    "text": "The optimisation problem\n\nGiven a function \\(f(x)\\), what value of \\(x\\) makes \\(f(x)\\) as small or large as possible?\nIn a statistical context, \\(x\\) will usually be the parameters of a model, and \\(f(x)\\) either the model likelihood to be maximised or some measure of discrepancy between data and predictions to be minimised.\nThe optimal set of parameters will give the best fit\nOnly need to consider small as \\(-f(x)\\) is large when \\(f(x)\\) is small.\nWe consider here general-purpose optimisers"
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#local-and-global-minima",
+    "href": "slides/01-foundations/00-template/index.html#local-and-global-minima",
+    "title": "Simulation and Optimisation",
+    "section": "Local and Global Minima",
+    "text": "Local and Global Minima\n\nThe (negative of the) likelihood for the General Linear Model (and that for many other linear models) is well-behaved: it has a single, global minimum.\nFor more complicated models there may be many local minima.\nFinding a global minimum is difficult, and not always important. Only if local minima are widely separated in parameter space are they likely to invalidate our conclusions.\nWe will concentrate on methods of finding local minima. Check for different local minima by altering the initial values, algorithm used, or other parameters of the fitting process."
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#univariate-optimisation",
+    "href": "slides/01-foundations/00-template/index.html#univariate-optimisation",
+    "title": "Simulation and Optimisation",
+    "section": "Univariate Optimisation",
+    "text": "Univariate Optimisation\noptimize (or optimise) finds a (possibly local) mimimum of a function in a specified interval with respect to its first argument.\n\nFunction to be minimised is the first argument to optimize\nCan pre-specify the function or include it in the command."
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#univariate-optimisation-example",
+    "href": "slides/01-foundations/00-template/index.html#univariate-optimisation-example",
+    "title": "Simulation and Optimisation",
+    "section": "Univariate Optimisation: example",
+    "text": "Univariate Optimisation: example\n\nf <- function(x, a) {\n  (x - a)^2\n}\n\nxmin <- optimize(f, interval = c(0, 1), a = 1/3)\n\n# or\n\nxmin <- optimize(function(x, a) {(x - a)^2}, \n                 interval = c(0, 1), a = 1/3)\n\nxmin\n\n$minimum\n[1] 0.3333333\n\n$objective\n[1] 0\n\n\nNote how the (fixed) parameter a is passed into f."
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#other-optimize-arguments",
+    "href": "slides/01-foundations/00-template/index.html#other-optimize-arguments",
+    "title": "Simulation and Optimisation",
+    "section": "Other optimize() arguments",
+    "text": "Other optimize() arguments\n\nAn interval within which to search must be specified, either by interval or by upper and lower\nTo maximise set maximum = TRUE\nAccuracy can be set using the tol argument\nNote the order of arguments: `optimize(f, interval, …, lower, upper, maximum, tol)\nThe ... can be named or unnamed and will be passed to f\nArguments after the ... must be specified by names.\noptimize returns a list with two items:\n\nminimum: the value of x at which f(x) is minimised\nobjective: the value of f(x) at x = minimum"
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#general-optimisation",
+    "href": "slides/01-foundations/00-template/index.html#general-optimisation",
+    "title": "Simulation and Optimisation",
+    "section": "General Optimisation",
+    "text": "General Optimisation\n\nIn more than one dimension the problem is harder.\nR has several different functions: most flexible is optim() which includes several different algorithms.\nAlgorithm of choice depends on how easy it is to calculate derivatives for the function. Usually better to supply a function to calculate derivatives, but may be unnecessary extra work.\nEnsure the problem is scaled so that unit change in any parameter gives approximately unit change in objective."
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#optim-methods",
+    "href": "slides/01-foundations/00-template/index.html#optim-methods",
+    "title": "Simulation and Optimisation",
+    "section": "optim() methods",
+    "text": "optim() methods\n\nNelder-MeadBFGSCG methodL-BFGS-BSANNBrent\n\n\n\nThe default method\nBasic idea: for a function with n parameters, choose a polygon with n+1 vertices. At each step, alter vertex with minimum f(x) to improve the objective function, by reflection, expansion or contraction\nDoes not use derivative information\nUseful for non-differentiable functions\nMay be rather slow\n\n\n\n\nA quasi-Newton method: builds up approximation to Hessian matrix from gradients at start and finish of steps\nUses the approximation to choose new search direction\nPerforms line search in this direction\nUpdate term for the Hessian approximation is due to Broyden, Fletcher, Goldfarb and Shanno (proposed separately by all four in 1970)\nUses derivative information, calculated either from a user-supplied function or by finite differences\nIf dimension is large, the matrix stored may be very large\n\n\n\n\nA conjugate gradient method: chooses successive search directions that are analogous to axes of an ellipse\nDoes not store a Hessian matrix\nThree different formulae for the search directions are implemented: Fletcher-Reeves, Polak-Ribiere or Beale-Sorenson\nLess robust than BFGS method\nUses derivative information, calculated either from a user-supplied function or by finite differences\n\n\n\n\nA limited memory version of BFGS\nDoes not store a Hessian matrix, only a limited number of update steps for it\nUses derivative information, calculated either from a user-supplied function or by finite differences\nCan restrict the solution to lie within a “box”, the only method of optim() that can do this\n\n\n\n\nA variant of simulated annealing A stochastic algorithm\nAccepts changes which increase the objective with positive probability (when minimising!)\nDoes not use derivative information\nCan be very slow to converge but may find a ‘good’ solution quickly\n\n\n\n\nAn interface to optimize()\nOnly for use with one dimensional problems\nIncluded for use inside other functions where only method can be specified, not the function to be used."
+  },
+  {
+    "objectID": "slides/01-foundations/00-template/index.html#how-to-use-optim",
+    "href": "slides/01-foundations/00-template/index.html#how-to-use-optim",
+    "title": "Simulation and Optimisation",
+    "section": "How to use optim()",
+    "text": "How to use optim()\noptim(par, fn, gr=NULL, ..., method=c(\"Nelder-Mead\", \"BFGS\", \"CG\", \"L-BFGS-B\", \"SANN\", \"Brent\"), lower=-Inf, upper=Inf, control=list(), hessian=FALSE)\n\npar: starting values of the parameters fn: function to be optimised (supply as for optimize) gr: function to calculate the"
   }
 ]
