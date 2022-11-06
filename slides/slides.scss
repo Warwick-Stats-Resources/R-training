@@ -20,6 +20,7 @@ $sky-80: #336695;
 $sky2: #4D79A2; //paler (70)
 $gray: #393A3B;
 $gray2: #747576; //paler
+$gray3: #DDE0E4;
 
 $primary:       $aubergine !default;
 
@@ -115,4 +116,9 @@ kbd {
   font-weight: 600;
   //margin-top: 200px;
   vertical-align: top;
+}
+
+.reveal table th, .reveal table td {
+    border-bottom: 1px solid;
+    border-color: $gray3;
 }

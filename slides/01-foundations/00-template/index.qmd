@@ -21,7 +21,7 @@ format:
 
 # Section {background-color="#552D62"}
 
-# End matter {background-color="#552D62"}
+# End Matter {background-color="#552D62"}
 
 ## Resources
 

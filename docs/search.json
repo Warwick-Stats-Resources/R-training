@@ -46,21 +46,7 @@
     "href": "content/01-foundations/04-sim-optim.html",
     "title": "Simulation and Optimisation",
     "section": "",
-    "text": "This page and the slides for this session are still under development"
-  },
-  {
-    "objectID": "content/01-foundations/04-sim-optim.html#slides",
-    "href": "content/01-foundations/04-sim-optim.html#slides",
-    "title": "Simulation and Optimisation",
-    "section": "Slides",
-    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/01-foundations/04-sim-optim.html#resources",
-    "href": "content/01-foundations/04-sim-optim.html#resources",
-    "title": "Simulation and Optimisation",
-    "section": "Resources",
-    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
   },
   {
     "objectID": "content/01-foundations/00-template.html",
@@ -179,14 +165,196 @@
     "href": "slides/01-foundations/04-sim-optim/index.html#overview",
     "title": "Simulation and Optimisation",
     "section": "Overview",
-    "text": "Overview\n\nNumerical precision\nRandom numbers\nSimulation\nOptimisation"
+    "text": "Overview\n\nNumerical precision\nRandom numbers\nSimulation\nOptimisation\n\nThis material is largely reproduced from Ruth Ripley’s 2013 APTS course"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#how-r-stores-numbers",
+    "href": "slides/01-foundations/04-sim-optim/index.html#how-r-stores-numbers",
+    "title": "Simulation and Optimisation",
+    "section": "How R Stores Numbers",
+    "text": "How R Stores Numbers\nSome basic understanding is needed of how R stores and does arithmetic on numbers to avoid being surprised by the results it gives.\nFrom the R FAQ:\n\nThe only numbers that can be represented exactly in R’s numeric type are integers and fractions whose denominator is a power of 2. Other numbers have to be rounded to (typically) 53 binary digits accuracy. As a result, two floating point numbers will not reliably be equal unless they have been computed by the same algorithm, and not always even then."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#example",
+    "href": "slides/01-foundations/04-sim-optim/index.html#example",
+    "title": "Simulation and Optimisation",
+    "section": "Example",
+    "text": "Example\n\na <- sqrt(2)\na * a == 2\n\n[1] FALSE\n\na * a - 2\n\n[1] 4.440892e-16\n\nall.equal(a * a, 2)\n\n[1] TRUE\n\n\nThe function all.equal() compares two objects using a numeric tolerance of .Machine$double.eps^0.5.1 If you want much greater accuracy than this you will need to consider error propagation carefully.\n.Machine$double.eps is the smallest positive floating-point number x such that 1 + x != 1 on the machine R is running on."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#numerical-consideration-resources",
+    "href": "slides/01-foundations/04-sim-optim/index.html#numerical-consideration-resources",
+    "title": "Simulation and Optimisation",
+    "section": "Numerical Consideration Resources",
+    "text": "Numerical Consideration Resources\nFor more information, see e.g. \n\nDavid Goldberg (1991), “What Every Computer Scientist Should Know About Floating-Point Arithmetic”, ACM Computing Surveys, 23/1, 5–48, also available via https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html.\nRuth Ripley’s numerical considerations notes for APTS 2013."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#uses-of-simulation",
+    "href": "slides/01-foundations/04-sim-optim/index.html#uses-of-simulation",
+    "title": "Simulation and Optimisation",
+    "section": "Uses of Simulation",
+    "text": "Uses of Simulation\n\nStatistical models are often mathematically intractable\nGenerate multiple samples for a model by simulation\nUse these samples to investigate the behaviour of the model\nNeed realisations of random variables with various different distributions, our random numbers\nDetails of how to use the random numbers to create samples will not be considered here"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#random-number-generation",
+    "href": "slides/01-foundations/04-sim-optim/index.html#random-number-generation",
+    "title": "Simulation and Optimisation",
+    "section": "Random Number Generation",
+    "text": "Random Number Generation\n\nRandom numbers caluclated on a computer are not random.\nThey are pseudo-random, following a predicted sequence, but in the short-term (i.e. anything but the very long-term) will appear to be random.\nThis is useful, as two sets of random numbers of the same size from the same generator using the same initial value will be exactly the same. This is crucial for reproducibility.\nR provides functions for generating random samples from standard distibutions."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#random-seeds-in-r",
+    "href": "slides/01-foundations/04-sim-optim/index.html#random-seeds-in-r",
+    "title": "Simulation and Optimisation",
+    "section": "Random Seeds in R",
+    "text": "Random Seeds in R\n\nEach time a random number is required, R will use and update a variable called .Random.seed which is in your workspace.\nAt the first use, if .Random.seed does not exist, one will be created, with a value generated from the time.\nThe function set.seed(n) will set .Random.seed to a value derived from the argument n.\nUse set.seed() to repeat the same sequence of random numbers."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#random-number-generators-in-r",
+    "href": "slides/01-foundations/04-sim-optim/index.html#random-number-generators-in-r",
+    "title": "Simulation and Optimisation",
+    "section": "Random Number Generators in R",
+    "text": "Random Number Generators in R\n\nThere are various different generators available. R will use the one in use at the start of your session unless you alter it, even if you delete .Random.seed. For safety, you can specify the kind on calls to set.seed. Use set.seed(n, kind=\"default\") to ensure you are using R’s default.\nIt is possible to save and restore .Random.seed within your functions, but take care with scope (see next term!).\nNote that random number generation changed in R version 4.0.0, so you might get different outputs even with the same seed when using versions before and after this release."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#set.seed-example",
+    "href": "slides/01-foundations/04-sim-optim/index.html#set.seed-example",
+    "title": "Simulation and Optimisation",
+    "section": "set.seed() Example",
+    "text": "set.seed() Example\n\nsample(10)\n\n [1]  3  6  4  1  9  2 10  8  7  5\n\nset.seed(1)\nsample(10)\n\n [1]  9  4  7  1  2  5  3 10  6  8\n\nsample(10)\n\n [1]  3  1  5  8  2  6 10  9  4  7\n\nset.seed(1)\nsample(10)\n\n [1]  9  4  7  1  2  5  3 10  6  8"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#sample",
+    "href": "slides/01-foundations/04-sim-optim/index.html#sample",
+    "title": "Simulation and Optimisation",
+    "section": "sample()",
+    "text": "sample()\nThe sample() function re-samples from a data vector, with or without replacement.\nsample(x, size, replace = FALSE, prob = NULL)\n\n\n\n\n\n\n\nx\npositive integer or a vector\n\n\nsize\nnon-negative integer, number of items to choose\n\n\nreplace\nlogical - should sampling be with replacement\n\n\nprob\na vector of probability weights for obtaining the elements of the vector being sampled."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#sample-examples",
+    "href": "slides/01-foundations/04-sim-optim/index.html#sample-examples",
+    "title": "Simulation and Optimisation",
+    "section": "sample() Examples",
+    "text": "sample() Examples\n\nsample(n)sample(x)sample(x, replace = TRUE)sample(x, size = n)sample(x, n, replace = TRUE)sample(x, n, replace = TRUE, prob = probs)\n\n\nA random permutation of 1, …, n\n\nset.seed(123)\nsample(10)\n\n [1]  3 10  2  8  6  9  1  7  5  4\n\n\nSee also sample.int():\n\nset.seed(123)\nsample.int(10)\n\n [1]  3 10  2  8  6  9  1  7  5  4\n\n\n\n\nA random permutation of x for length(x) > 1\n\nset.seed(10)\nalph5 <- LETTERS[1:5]\nsample(alph5)\n\n[1] \"C\" \"A\" \"B\" \"E\" \"D\"\n\n\n\n\nA bootstrap sample\n\nset.seed(10)\nsample(alph5, replace = TRUE)\n\n[1] \"C\" \"A\" \"B\" \"D\" \"C\"\n\n\n\n\nSample n items from x without replacement\n\nset.seed(10)\nsample(alph5, 3)\n\n[1] \"C\" \"A\" \"B\"\n\n\n\n\nSample n items from x with replacement\n\nset.seed(1)\nsample(alph5, 3, replace = TRUE)\n\n[1] \"A\" \"D\" \"A\"\n\n\n\n\nProbability sample of n items from x\n\nx <- 1:4\nprobs <- c(1/2, 1/3, 1/12, 1/12)\n\nset.seed(1)\nsamp <- sample(x, 100, replace = TRUE, prob = probs)\ntable(samp)\n\nsamp\n 1  2  3  4 \n52 34 10  4"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#distributions-in-r",
+    "href": "slides/01-foundations/04-sim-optim/index.html#distributions-in-r",
+    "title": "Simulation and Optimisation",
+    "section": "Distributions in R",
+    "text": "Distributions in R\nMany statistical distributions are built into R. Each has a root name, e.g. norm for the normal distribution.\nThere are four functions for each distribution, with different letters prefixing the room name:\n\np for probability, the cumulative distribution function\nq for quantile, the inverse c.d.f.\nd for density, the density function, p.d.f.\nr for random, a random sample from the distribution.\n\nSo, for the normal distribution, we have the functions pnorm, qnorm, dnorm, rnorm."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#distributions-and-parameterisations",
+    "href": "slides/01-foundations/04-sim-optim/index.html#distributions-and-parameterisations",
+    "title": "Simulation and Optimisation",
+    "section": "Distributions and Parameterisations",
+    "text": "Distributions and Parameterisations\n\n\n\n\n\nDistribution\nBase name\nParameters\n\n\n\n\nbeta\nbeta\nshape1, shape2\n\n\nbinomial\nbinom\nsize, prob\n\n\nCauchy\ncauchy\nlocation, scale\n\n\nchi-squared\nchisq\ndf\n\n\nexponential\nexp\nrate\n\n\nF\nf\ndf1, df2\n\n\ngamma\ngamma\nshape, rate\n\n\ngeometric\ngeom\np\n\n\nhypergeometric\nhyper\nm, n, k\n\n\nlog-normal\nlnorm\nmeanlog, sdlog\n\n\nlogistic\nlogis\nlocation, scale\n\n\nnegative binomial\nnbinom\nsize, prob\n\n\nnormal\nnorm\nmean, sd\n\n\nPoisson\npois\nlambda\n\n\nStudent t\nt\ndf\n\n\nuniform\nunif\nmin, max\n\n\nWeibull\nweibull\nshape, scale"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#generating-random-samples-from-a-distibution",
+    "href": "slides/01-foundations/04-sim-optim/index.html#generating-random-samples-from-a-distibution",
+    "title": "Simulation and Optimisation",
+    "section": "Generating Random Samples from a Distibution",
+    "text": "Generating Random Samples from a Distibution\nTo obtain a sample of size n, use the r function for the distribution with the first argument n, and subsequent arguments the parameters for that distribution. The parameters often have default values. E.g.\n\n\n\n\n\n\n\nrunif(n, min=0, max=1)\nUniform\n\n\nrnorm(n, mean=0, sd=1)\nNormal\n\n\nrexp(n, rate=1)\nExponential with mean 1/rate\n\n\nrt(n, df)\nt with df degrees of freedom\n\n\nrbinom(n, size, prob)\nBinomial, success in size trials with probability of success prob\n\n\n\nTable from https://www.johndcook.com/blog/distributions_r_splus/"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#your-turn",
+    "href": "slides/01-foundations/04-sim-optim/index.html#your-turn",
+    "title": "Simulation and Optimisation",
+    "section": "Your Turn!",
+    "text": "Your Turn!\nSometimes sample() can lead to nasty surprises.\nConsider the following code. Which line might cause a problem?\n\nx <- 1:10\nsample(x[x > 8])\nsample(x[x > 9])\nsample(x[x > 10])\n\nRun the code to see what happens.\n\n\n\n\n\n\nWarning\n\n\nYou need to be careful when using sample() programmatically (i.e. in your function or simulation).\n\n\n\nSee ?sample for a safer version and check you understand how the proposed resample() function works."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#the-optimisation-problem",
+    "href": "slides/01-foundations/04-sim-optim/index.html#the-optimisation-problem",
+    "title": "Simulation and Optimisation",
+    "section": "The Optimisation Problem",
+    "text": "The Optimisation Problem\n\nGiven a function \\(f(x)\\), what value of \\(x\\) makes \\(f(x)\\) as small or large as possible?\nIn a statistical context, \\(x\\) will usually be the parameters of a model, and \\(f(x)\\) either the model likelihood to be maximised or some measure of discrepancy between data and predictions to be minimised.\nThe optimal set of parameters will give the best fit\nOnly need to consider small as \\(-f(x)\\) is large when \\(f(x)\\) is small.\nWe consider here general-purpose optimisers"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#local-and-global-minima",
+    "href": "slides/01-foundations/04-sim-optim/index.html#local-and-global-minima",
+    "title": "Simulation and Optimisation",
+    "section": "Local and Global Minima",
+    "text": "Local and Global Minima\n\nThe (negative of the) likelihood for the General Linear Model (and that for many other linear models) is well-behaved: it has a single, global minimum.\nFor more complicated models there may be many local minima.\nFinding a global minimum is difficult, and not always important. Only if local minima are widely separated in parameter space are they likely to invalidate our conclusions.\nWe will concentrate on methods of finding local minima. Check for different local minima by altering the initial values, algorithm used, or other parameters of the fitting process."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#univariate-optimisation",
+    "href": "slides/01-foundations/04-sim-optim/index.html#univariate-optimisation",
+    "title": "Simulation and Optimisation",
+    "section": "Univariate Optimisation",
+    "text": "Univariate Optimisation\noptimize (or optimise) finds a (possibly local) mimimum of a function in a specified interval with respect to its first argument.\n\nFunction to be minimised is the first argument to optimize\nCan pre-specify the function or include it in the command."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#univariate-optimisation-example",
+    "href": "slides/01-foundations/04-sim-optim/index.html#univariate-optimisation-example",
+    "title": "Simulation and Optimisation",
+    "section": "Univariate Optimisation: Example",
+    "text": "Univariate Optimisation: Example\n\nf <- function(x, a) {\n  (x - a)^2\n}\n\nxmin <- optimize(f, interval = c(0, 1), a = 1/3)\n\n# or\n\nxmin <- optimize(function(x, a) {(x - a)^2}, \n                 interval = c(0, 1), a = 1/3)\n\nxmin\n\n$minimum\n[1] 0.3333333\n\n$objective\n[1] 0\n\n\nNote how the (fixed) parameter a is passed into f."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#other-optimize-arguments",
+    "href": "slides/01-foundations/04-sim-optim/index.html#other-optimize-arguments",
+    "title": "Simulation and Optimisation",
+    "section": "Other optimize() Arguments",
+    "text": "Other optimize() Arguments\n\nAn interval within which to search must be specified, either by interval or by upper and lower\nTo maximise set maximum = TRUE\nAccuracy can be set using the tol argument\nNote the order of arguments: `optimize(f, interval, …, lower, upper, maximum, tol)\nThe ... can be named or unnamed and will be passed to f\nArguments after the ... must be specified by names.\noptimize returns a list with two items:\n\nminimum: the value of x at which f(x) is minimised\nobjective: the value of f(x) at x = minimum"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#general-optimisation",
+    "href": "slides/01-foundations/04-sim-optim/index.html#general-optimisation",
+    "title": "Simulation and Optimisation",
+    "section": "General Optimisation",
+    "text": "General Optimisation\n\nIn more than one dimension the problem is harder.\nR has several different functions: most flexible is optim() which includes several different algorithms.\nAlgorithm of choice depends on how easy it is to calculate derivatives for the function. Usually better to supply a function to calculate derivatives, but may be unnecessary extra work.\nEnsure the problem is scaled so that unit change in any parameter gives approximately unit change in objective."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#optim-methods",
+    "href": "slides/01-foundations/04-sim-optim/index.html#optim-methods",
+    "title": "Simulation and Optimisation",
+    "section": "optim() Methods",
+    "text": "optim() Methods\n\nNelder-MeadBFGSCGL-BFGS-BSANNBrent\n\n\n\nThe default method\nBasic idea: for a function with n parameters, choose a polygon with n+1 vertices. At each step, alter vertex with minimum f(x) to improve the objective function, by reflection, expansion or contraction\nDoes not use derivative information\nUseful for non-differentiable functions\nMay be rather slow\n\n\n\n\nA quasi-Newton method: builds up approximation to Hessian matrix from gradients at start and finish of steps\nUses the approximation to choose new search direction\nPerforms line search in this direction\nUpdate term for the Hessian approximation is due to Broyden, Fletcher, Goldfarb and Shanno (proposed separately by all four in 1970)\nUses derivative information, calculated either from a user-supplied function or by finite differences\nIf dimension is large, the matrix stored may be very large\n\n\n\n\nA conjugate gradient method: chooses successive search directions that are analogous to axes of an ellipse\nDoes not store a Hessian matrix\nThree different formulae for the search directions are implemented: Fletcher-Reeves, Polak-Ribiere or Beale-Sorenson\nLess robust than BFGS method\nUses derivative information, calculated either from a user-supplied function or by finite differences\n\n\n\n\nA limited memory version of BFGS\nDoes not store a Hessian matrix, only a limited number of update steps for it\nUses derivative information, calculated either from a user-supplied function or by finite differences\nCan restrict the solution to lie within a “box”, the only method of optim() that can do this\n\n\n\n\nA variant of simulated annealing A stochastic algorithm\nAccepts changes which increase the objective with positive probability (when minimising!)\nDoes not use derivative information\nCan be very slow to converge but may find a ‘good’ solution quickly\n\n\n\n\nAn interface to optimize()\nOnly for use with one dimensional problems\nIncluded for use inside other functions where only method can be specified, not the function to be used."
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#how-to-use-optim",
+    "href": "slides/01-foundations/04-sim-optim/index.html#how-to-use-optim",
+    "title": "Simulation and Optimisation",
+    "section": "How to Use optim()",
+    "text": "How to Use optim()\noptim(par, fn, gr=NULL, ..., method=c(\"Nelder-Mead\", \"BFGS\", \"CG\", \"L-BFGS-B\", \"SANN\", \"Brent\"), lower=-Inf, upper=Inf, control=list(), hessian=FALSE)\n\n\n\n\n\n\n\npar\nstarting values of the parameters\n\n\nfn\nfunction to be optimised (supply as for optimize)\n\n\ngr\nfunction to calculate the derivative, only relevant for methods “BFGS”, “CG” or “L-BFGS-B”\n\n\n…\nother parameters for (both) fn and gr\n\n\nmethod\nalgorithm to use\n\n\nlower, upper\nvector of limits for parameters (only allowed it method=\"L-BFGS-B\"\n\n\ncontrol\ncontrol options (see next slide)\n\n\nhessian\nlogical: whether to return a hessian estimate calculated by finite differences"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#optim-control-options",
+    "href": "slides/01-foundations/04-sim-optim/index.html#optim-control-options",
+    "title": "Simulation and Optimisation",
+    "section": "optim(): Control Options",
+    "text": "optim(): Control Options\nThere are very many. The most important are:\n\n\n\n\n\n\n\ntrace\nA positive integer: higher values give more information\n\n\nfnscale\nAn overall scaling: if negative, maximisation will be performed\n\n\nparscale\nA vector of scalings for the parameters\n\n\nmaxit\nMaximum number of iterations to be performed. May be used to terminate unsuccessful attempts. Also used to perform one or two steps if convergence is unimportant\n\n\ntype\nUsed to select formula for “CG” method"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#optim-components-of-return-value",
+    "href": "slides/01-foundations/04-sim-optim/index.html#optim-components-of-return-value",
+    "title": "Simulation and Optimisation",
+    "section": "optim(): Components of Return Value",
+    "text": "optim(): Components of Return Value\n\n\n\n\n\n\n\npar\nbest set of parameters\n\n\nvalue\nvalue of fn corresponding to par\n\n\ncounts\nnumber of calls to fn and gr: excludes calls for purposes of approximating derivatives or Hessian\n\n\nconvergence\nerror code: 0=success, 1=maxit reached, 10=degeneracy of Nelder-Mead simplex, 51=warning from “L-BFGS-B”, 52=error from “L-BFGS-B”\n\n\nmessage\nfurther information, if any\n\n\nhessian\nif requested, a symmetric matrix estimate of the Hessian at the solution"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#your-turn-q1",
+    "href": "slides/01-foundations/04-sim-optim/index.html#your-turn-q1",
+    "title": "Simulation and Optimisation",
+    "section": "Your Turn! Q1",
+    "text": "Your Turn! Q1\n\nfw <- function (x) {\n    10*sin(0.3*x)*sin(1.3*x^2) + 0.00001*x^4 + 0.2*x+80\n}\n\n\n\nUse optim() to find a global minimum\nUse optim() again to improve locally (aiming for -15.81515)"
+  },
+  {
+    "objectID": "slides/01-foundations/04-sim-optim/index.html#your-turn-q2",
+    "href": "slides/01-foundations/04-sim-optim/index.html#your-turn-q2",
+    "title": "Simulation and Optimisation",
+    "section": "Your Turn! Q2",
+    "text": "Your Turn! Q2\n\nTake a look at the introduction to the Wikipedia page for Rosenbrock’s banana function\nCopy this code for the fn and gr\n\n\nfr <- function(x) {   \n    x1 <- x[1]\n    x2 <- x[2]\n    100 * (x2 - x1 * x1)^2 + (1 - x1)^2\n}\n\ngr <- function(x) { \n    x1 <- x[1]\n    x2 <- x[2]\n    c(-400 * x1 * (x2 - x1 * x1) - 2 * (1 - x1),\n       200 *      (x2 - x1 * x1))\n}\n\n\nExperiment with the optim() function to see which methods converge"
   },
   {
     "objectID": "slides/01-foundations/04-sim-optim/index.html#resources",
     "href": "slides/01-foundations/04-sim-optim/index.html#resources",
     "title": "Simulation and Optimisation",
     "section": "Resources",
-    "text": "Resources\nThis material is reproduced in large part from the APTS 2013/14 resources by Ruth Ripley:\n\nhttps://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf"
+    "text": "Resources\nThis material is reproduced in large part directly from the APTS 2013/14 resources by Ruth Ripley:\n\nhttps://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf"
   },
   {
     "objectID": "slides/01-foundations/04-sim-optim/index.html#license",
@@ -214,28 +382,28 @@
     "href": "slides/01-foundations/01-intro/index.html#the-r-ecosystem",
     "title": "Introduction to R and RStudio",
     "section": "The R Ecosystem",
-    "text": "The R Ecosystem\n\nBase R\n\n\n\nbase\n\nCreate R objects\nSummaries\nMaths functions\n\n\n\n\nrecommended\n\nStatistics\nGraphics\nExample data"
+    "text": "The R Ecosystem\nBase R\n\n\nbase\n\nCreate R objects\nSummaries\nMaths functions\n\n\nrecommended\n\nStatistics\nGraphics\nExample data"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#the-r-ecosystem-1",
     "href": "slides/01-foundations/01-intro/index.html#the-r-ecosystem-1",
     "title": "Introduction to R and RStudio",
     "section": "The R Ecosystem",
-    "text": "The R Ecosystem\n\nContributed packages\n\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\n\n\nBioconductor\n\nBioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\n\n\n\n\nGitHub\n\nPackages in development\nGitHub-only packages"
+    "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 19000 packages\n\n\nBioconductor\n\nBioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\n\n\nGitHub\n\nPackages in development\nGitHub-only packages"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#the-tidyverse",
     "href": "slides/01-foundations/01-intro/index.html#the-tidyverse",
     "title": "Introduction to R and RStudio",
     "section": "The tidyverse",
-    "text": "The tidyverse\nThe tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures.\n\n\n\nFrom https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/"
+    "text": "The tidyverse\nThe tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures.\n\nFrom https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#palmerpenguins",
     "href": "slides/01-foundations/01-intro/index.html#palmerpenguins",
     "title": "Introduction to R and RStudio",
     "section": "palmerpenguins",
-    "text": "palmerpenguins\n\npalmerpenguins is a dataset package, designed to be a great example for data exploration and visualisation.\nIt contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Archipelago, Antarctica.\n\n\n\n\nPenguin artwork by Allison Horst https://allisonhorst.github.io/palmerpenguins/articles/art.html"
+    "text": "palmerpenguins\n\npalmerpenguins is a dataset package, designed to be a great example for data exploration and visualisation.\nIt contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Archipelago, Antarctica.\n\n\nPenguin artwork by Allison Horst https://allisonhorst.github.io/palmerpenguins/articles/art.html"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#the-r-community",
@@ -375,7 +543,7 @@
     "href": "slides/01-foundations/01-intro/index.html#the-data",
     "title": "Introduction to R and RStudio",
     "section": "The data",
-    "text": "The data\n\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\n\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year\n   <fct>   <fct>              <dbl>         <dbl>      <int>   <int> <fct> <int>\n 1 Adelie  Torgersen           39.1          18.7        181    3750 male   2007\n 2 Adelie  Torgersen           39.5          17.4        186    3800 fema…  2007\n 3 Adelie  Torgersen           40.3          18          195    3250 fema…  2007\n 4 Adelie  Torgersen           NA            NA           NA      NA <NA>   2007\n 5 Adelie  Torgersen           36.7          19.3        193    3450 fema…  2007\n 6 Adelie  Torgersen           39.3          20.6        190    3650 male   2007\n 7 Adelie  Torgersen           38.9          17.8        181    3625 fema…  2007\n 8 Adelie  Torgersen           39.2          19.6        195    4675 male   2007\n 9 Adelie  Torgersen           34.1          18.1        193    3475 <NA>   2007\n10 Adelie  Torgersen           42            20.2        190    4250 <NA>   2007\n# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,\n#   ²​body_mass_g\n\n\n\n\nHow many of each species?\n\ncount(penguins, species)\n\n# A tibble: 3 × 2\n  species       n\n  <fct>     <int>\n1 Adelie      152\n2 Chinstrap    68\n3 Gentoo      124\n\n\n\n\n\nHow many of each species on each island?\n\ncount(penguins, species, island, .drop = FALSE)\n\n# A tibble: 9 × 3\n  species   island        n\n  <fct>     <fct>     <int>\n1 Adelie    Biscoe       44\n2 Adelie    Dream        56\n3 Adelie    Torgersen    52\n4 Chinstrap Biscoe        0\n5 Chinstrap Dream        68\n6 Chinstrap Torgersen     0\n7 Gentoo    Biscoe      124\n8 Gentoo    Dream         0\n9 Gentoo    Torgersen     0\n\n\n\n\n\nShow me the bill dimensions of the 5 heaviest female Gentoo penguins\n\npenguins |>\n  filter(sex == \"female\",\n         species == \"Gentoo\") |>\n  slice_max(body_mass_g, n = 5) |>\n  select(contains(\"bill\"))\n\n# A tibble: 5 × 2\n  bill_length_mm bill_depth_mm\n           <dbl>         <dbl>\n1           46.5          14.8\n2           45.2          14.8\n3           49.1          14.8\n4           44.9          13.3\n5           45.1          14.5\n\n\n\n|> is a pipe. It passes what comes before into the first argument of what comes after.\nPipes are a powerful tool for clearly expressing a sequence of multiple operations.\n\n\n\n\nWhat’s the mean bill length, by species?\n\npenguins |>\n  group_by(species) |>\n  summarise(mean_bill_length = mean(bill_length_mm, na.rm = TRUE))\n\n# A tibble: 3 × 2\n  species   mean_bill_length\n  <fct>                <dbl>\n1 Adelie                38.8\n2 Chinstrap             48.8\n3 Gentoo                47.5\n\n\n\n\n\nWhat’s the relationship between bill length and depth?\n\npictureplot 1code 1plot 2code 2what?\n\n\n\n\n\nArtwork by Allison Horst https://allisonhorst.github.io/palmerpenguins/articles/art.html\n\n\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"gray50\") +\n  labs(title = \"Penguin bill dimensions\",\n       subtitle = \"Bill length and depth for Penguins at Palmer Station LTER\",\n       x = \"Bill length (mm)\",\n       y = \"Bill depth (mm)\") +\n  theme_minimal() + \n  theme(plot.title.position = \"plot\",\n        text = element_text(size = 20))\n\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", se = FALSE, aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  labs(title = \"Penguin bill dimensions\",\n       subtitle = \"Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER\",\n       x = \"Bill length (mm)\",\n       y = \"Bill depth (mm)\",\n       color = \"Penguin species\",\n       shape = \"Penguin species\") +\n  theme_minimal() +\n  theme(legend.position = c(0.85, 0.15),\n        plot.title.position = \"plot\",\n        text = element_text(size = 20))\n\n\n\nThis is an illustration of Simpson’s Paradox.\n\nSimpson’s paradox is a phenomenon in probability and statistics in which a trend appears in several groups of data but disappears or reverses when the groups are combined.\n\n\n\n\nExample adapted from https://allisonhorst.github.io/palmerpenguins/articles/examples.html"
+    "text": "The data\n\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\n\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year\n   <fct>   <fct>              <dbl>         <dbl>      <int>   <int> <fct> <int>\n 1 Adelie  Torgersen           39.1          18.7        181    3750 male   2007\n 2 Adelie  Torgersen           39.5          17.4        186    3800 fema…  2007\n 3 Adelie  Torgersen           40.3          18          195    3250 fema…  2007\n 4 Adelie  Torgersen           NA            NA           NA      NA <NA>   2007\n 5 Adelie  Torgersen           36.7          19.3        193    3450 fema…  2007\n 6 Adelie  Torgersen           39.3          20.6        190    3650 male   2007\n 7 Adelie  Torgersen           38.9          17.8        181    3625 fema…  2007\n 8 Adelie  Torgersen           39.2          19.6        195    4675 male   2007\n 9 Adelie  Torgersen           34.1          18.1        193    3475 <NA>   2007\n10 Adelie  Torgersen           42            20.2        190    4250 <NA>   2007\n# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,\n#   ²​body_mass_g"
   },
   {
     "objectID": "slides/01-foundations/01-intro/index.html#notes",
@@ -508,7 +676,7 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#import-dataset-button",
     "title": "Data Types, Structures and Wrangling",
     "section": "Import dataset (button)",
-    "text": "Import dataset (button)\nUsing the Import Dataset dialog in RStudio\n\n\n\n\n\nwe can import files stored locally or online in the following formats:\n\n.txt/.csv via read_delim/read_csv from readr.\n.xlsx via read_excel from readxl.\n.sav/.por , .sas7bdat and .dta via read_spss, read_sas and read_stata respectively from haven.\n\nMost of these functions also allow files to be compressed, e.g. as .zip."
+    "text": "Import dataset (button)\nUsing the Import Dataset dialog in RStudio\n\nwe can import files stored locally or online in the following formats:\n\n.txt/.csv via read_delim/read_csv from readr.\n.xlsx via read_excel from readxl.\n.sav/.por , .sas7bdat and .dta via read_spss, read_sas and read_stata respectively from haven.\n\nMost of these functions also allow files to be compressed, e.g. as .zip."
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#file-names-and-paths-and-project-structure",
@@ -564,7 +732,7 @@
     "href": "slides/01-foundations/02-data-wrangling/index.html#a-note-about-pipes-vs",
     "title": "Data Types, Structures and Wrangling",
     "section": "A note about pipes: |> vs %>%",
-    "text": "A note about pipes: |> vs %>%\nPipes pass what comes before into an argument (by default the first) of what comes after.\nPipes are a powerful tool for clearly expressing a sequence of multiple operations.\n\n\n\n|>\n\nThe ‘native’ pipe, built into base R since v4.1 (May 2021)\nImproved in v4.2 (April 2022)\n\n\n\n\n%>%\n\nHas been around in the magrittr package since 2014\nUsed throughout the tidyverse (though that is changing)"
+    "text": "A note about pipes: |> vs %>%\nPipes pass what comes before into an argument (by default the first) of what comes after.\nPipes are a powerful tool for clearly expressing a sequence of multiple operations.\n\n\n|>\n\nThe ‘native’ pipe, built into base R since v4.1 (May 2021)\nImproved in v4.2 (April 2022)\n\n\n%>%\n\nHas been around in the magrittr package since 2014\nUsed throughout the tidyverse (though that is changing)"
   },
   {
     "objectID": "slides/01-foundations/02-data-wrangling/index.html#pipes-similarity",
@@ -999,257 +1167,5 @@
     "title": "schedule",
     "section": "",
     "text": "Sessions will be held most Mondays in term time, from 10:00-11:30 in Term 1.\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#random-numbers",
-    "href": "slides/01-foundations/00-template/index.html#random-numbers",
-    "title": "Simulation and Optimisation",
-    "section": "Random numbers",
-    "text": "Random numbers"
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#set.seed",
-    "href": "slides/01-foundations/00-template/index.html#set.seed",
-    "title": "Simulation and Optimisation",
-    "section": "set.seed()",
-    "text": "set.seed()"
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#sample",
-    "href": "slides/01-foundations/00-template/index.html#sample",
-    "title": "Simulation and Optimisation",
-    "section": "sample()",
-    "text": "sample()"
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#distributions-in-r",
-    "href": "slides/01-foundations/00-template/index.html#distributions-in-r",
-    "title": "Simulation and Optimisation",
-    "section": "Distributions in R",
-    "text": "Distributions in R"
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#random-samples-from-distributions",
-    "href": "slides/01-foundations/00-template/index.html#random-samples-from-distributions",
-    "title": "Simulation and Optimisation",
-    "section": "Random samples from distributions",
-    "text": "Random samples from distributions"
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#the-optimisation-problem",
-    "href": "slides/01-foundations/00-template/index.html#the-optimisation-problem",
-    "title": "Simulation and Optimisation",
-    "section": "The optimisation problem",
-    "text": "The optimisation problem\n\nGiven a function \\(f(x)\\), what value of \\(x\\) makes \\(f(x)\\) as small or large as possible?\nIn a statistical context, \\(x\\) will usually be the parameters of a model, and \\(f(x)\\) either the model likelihood to be maximised or some measure of discrepancy between data and predictions to be minimised.\nThe optimal set of parameters will give the best fit\nOnly need to consider small as \\(-f(x)\\) is large when \\(f(x)\\) is small.\nWe consider here general-purpose optimisers"
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#local-and-global-minima",
-    "href": "slides/01-foundations/00-template/index.html#local-and-global-minima",
-    "title": "Simulation and Optimisation",
-    "section": "Local and Global Minima",
-    "text": "Local and Global Minima\n\nThe (negative of the) likelihood for the General Linear Model (and that for many other linear models) is well-behaved: it has a single, global minimum.\nFor more complicated models there may be many local minima.\nFinding a global minimum is difficult, and not always important. Only if local minima are widely separated in parameter space are they likely to invalidate our conclusions.\nWe will concentrate on methods of finding local minima. Check for different local minima by altering the initial values, algorithm used, or other parameters of the fitting process."
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#univariate-optimisation",
-    "href": "slides/01-foundations/00-template/index.html#univariate-optimisation",
-    "title": "Simulation and Optimisation",
-    "section": "Univariate Optimisation",
-    "text": "Univariate Optimisation\noptimize (or optimise) finds a (possibly local) mimimum of a function in a specified interval with respect to its first argument.\n\nFunction to be minimised is the first argument to optimize\nCan pre-specify the function or include it in the command."
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#univariate-optimisation-example",
-    "href": "slides/01-foundations/00-template/index.html#univariate-optimisation-example",
-    "title": "Simulation and Optimisation",
-    "section": "Univariate Optimisation: example",
-    "text": "Univariate Optimisation: example\n\nf <- function(x, a) {\n  (x - a)^2\n}\n\nxmin <- optimize(f, interval = c(0, 1), a = 1/3)\n\n# or\n\nxmin <- optimize(function(x, a) {(x - a)^2}, \n                 interval = c(0, 1), a = 1/3)\n\nxmin\n\n$minimum\n[1] 0.3333333\n\n$objective\n[1] 0\n\n\nNote how the (fixed) parameter a is passed into f."
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#other-optimize-arguments",
-    "href": "slides/01-foundations/00-template/index.html#other-optimize-arguments",
-    "title": "Simulation and Optimisation",
-    "section": "Other optimize() arguments",
-    "text": "Other optimize() arguments\n\nAn interval within which to search must be specified, either by interval or by upper and lower\nTo maximise set maximum = TRUE\nAccuracy can be set using the tol argument\nNote the order of arguments: `optimize(f, interval, …, lower, upper, maximum, tol)\nThe ... can be named or unnamed and will be passed to f\nArguments after the ... must be specified by names.\noptimize returns a list with two items:\n\nminimum: the value of x at which f(x) is minimised\nobjective: the value of f(x) at x = minimum"
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#general-optimisation",
-    "href": "slides/01-foundations/00-template/index.html#general-optimisation",
-    "title": "Simulation and Optimisation",
-    "section": "General Optimisation",
-    "text": "General Optimisation\n\nIn more than one dimension the problem is harder.\nR has several different functions: most flexible is optim() which includes several different algorithms.\nAlgorithm of choice depends on how easy it is to calculate derivatives for the function. Usually better to supply a function to calculate derivatives, but may be unnecessary extra work.\nEnsure the problem is scaled so that unit change in any parameter gives approximately unit change in objective."
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#optim-methods",
-    "href": "slides/01-foundations/00-template/index.html#optim-methods",
-    "title": "Simulation and Optimisation",
-    "section": "optim() methods",
-    "text": "optim() methods\n\nNelder-MeadBFGSCG methodL-BFGS-BSANNBrent\n\n\n\nThe default method\nBasic idea: for a function with n parameters, choose a polygon with n+1 vertices. At each step, alter vertex with minimum f(x) to improve the objective function, by reflection, expansion or contraction\nDoes not use derivative information\nUseful for non-differentiable functions\nMay be rather slow\n\n\n\n\nA quasi-Newton method: builds up approximation to Hessian matrix from gradients at start and finish of steps\nUses the approximation to choose new search direction\nPerforms line search in this direction\nUpdate term for the Hessian approximation is due to Broyden, Fletcher, Goldfarb and Shanno (proposed separately by all four in 1970)\nUses derivative information, calculated either from a user-supplied function or by finite differences\nIf dimension is large, the matrix stored may be very large\n\n\n\n\nA conjugate gradient method: chooses successive search directions that are analogous to axes of an ellipse\nDoes not store a Hessian matrix\nThree different formulae for the search directions are implemented: Fletcher-Reeves, Polak-Ribiere or Beale-Sorenson\nLess robust than BFGS method\nUses derivative information, calculated either from a user-supplied function or by finite differences\n\n\n\n\nA limited memory version of BFGS\nDoes not store a Hessian matrix, only a limited number of update steps for it\nUses derivative information, calculated either from a user-supplied function or by finite differences\nCan restrict the solution to lie within a “box”, the only method of optim() that can do this\n\n\n\n\nA variant of simulated annealing A stochastic algorithm\nAccepts changes which increase the objective with positive probability (when minimising!)\nDoes not use derivative information\nCan be very slow to converge but may find a ‘good’ solution quickly\n\n\n\n\nAn interface to optimize()\nOnly for use with one dimensional problems\nIncluded for use inside other functions where only method can be specified, not the function to be used."
-  },
-  {
-    "objectID": "slides/01-foundations/00-template/index.html#how-to-use-optim",
-    "href": "slides/01-foundations/00-template/index.html#how-to-use-optim",
-    "title": "Simulation and Optimisation",
-    "section": "How to use optim()",
-    "text": "How to use optim()\noptim(par, fn, gr=NULL, ..., method=c(\"Nelder-Mead\", \"BFGS\", \"CG\", \"L-BFGS-B\", \"SANN\", \"Brent\"), lower=-Inf, upper=Inf, control=list(), hessian=FALSE)\n\npar: starting values of the parameters fn: function to be optimised (supply as for optimize) gr: function to calculate the"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#random-numbers",
-    "href": "slides/01-foundations/04-sim-optim/index.html#random-numbers",
-    "title": "Simulation and Optimisation",
-    "section": "Random numbers",
-    "text": "Random numbers"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#set.seed",
-    "href": "slides/01-foundations/04-sim-optim/index.html#set.seed",
-    "title": "Simulation and Optimisation",
-    "section": "set.seed()",
-    "text": "set.seed()"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#sample",
-    "href": "slides/01-foundations/04-sim-optim/index.html#sample",
-    "title": "Simulation and Optimisation",
-    "section": "sample()",
-    "text": "sample()\nThe sample() function re-samples from a data vector, with or without replacement.\n\nsample(n)sample(x)sample(x, replace = TRUE)sample(x, n)sample(x, n, replace = TRUE)sample(x, n, replace = TRUE, prob = probs)\n\n\nA random permutation of 1, …, n\n\nset.seed(123)\nsample(10)\n\n [1]  3 10  2  8  6  9  1  7  5  4\n\n\n\n\nA random permutation of x for length(x) > 1\n\nset.seed(10)\nalph10 <- LETTERS[1:10]\nsample(alph10)\n\n [1] \"I\" \"G\" \"H\" \"F\" \"C\" \"B\" \"J\" \"E\" \"D\" \"A\"\n\n\n\n\nA bootstrap sample\n\nset.seed(10)\nsample(alph10, replace = TRUE)\n\n [1] \"I\" \"J\" \"G\" \"H\" \"F\" \"G\" \"C\" \"H\" \"J\" \"G\"\n\n\n\n\nSample n items from x without replacement\n\nset.seed(10)\nsample(alph10, 6)\n\n[1] \"I\" \"G\" \"H\" \"F\" \"C\" \"B\"\n\n\n\n\nSample n items from x with replacement\n\nset.seed(1)\nsample(alph10, 6, replace = TRUE)\n\n[1] \"I\" \"D\" \"G\" \"A\" \"B\" \"G\"\n\n\n\n\nProbability sample of n items from x\n\nx <- 1:4\nprobs <- c(1/2, 1/3, 1/12, 1/12)\n\nset.seed(1)\nsamp <- sample(x, 100, replace = TRUE, prob = probs)\nsamp\n\n  [1] 1 1 2 3 1 3 4 2 2 1 1 1 2 1 2 1 2 4 1 2 4 1 2 1 1 1 1 1 3 1 1 2 1 1 2 2 2\n [38] 1 2 1 2 2 2 2 2 2 1 1 2 2 1 3 1 1 1 1 1 2 2 1 3 1 1 1 2 1 1 2 1 3 1 3 1 1\n [75] 1 3 3 1 2 4 1 2 1 1 2 1 2 1 1 1 1 1 2 3 2 2 1 1 2 2\n\ntable(samp)\n\nsamp\n 1  2  3  4 \n52 34 10  4"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#distributions-in-r",
-    "href": "slides/01-foundations/04-sim-optim/index.html#distributions-in-r",
-    "title": "Simulation and Optimisation",
-    "section": "Distributions in R",
-    "text": "Distributions in R"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#random-samples-from-distributions",
-    "href": "slides/01-foundations/04-sim-optim/index.html#random-samples-from-distributions",
-    "title": "Simulation and Optimisation",
-    "section": "Random samples from distributions",
-    "text": "Random samples from distributions"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#the-optimisation-problem",
-    "href": "slides/01-foundations/04-sim-optim/index.html#the-optimisation-problem",
-    "title": "Simulation and Optimisation",
-    "section": "The optimisation problem",
-    "text": "The optimisation problem\n\nGiven a function \\(f(x)\\), what value of \\(x\\) makes \\(f(x)\\) as small or large as possible?\nIn a statistical context, \\(x\\) will usually be the parameters of a model, and \\(f(x)\\) either the model likelihood to be maximised or some measure of discrepancy between data and predictions to be minimised.\nThe optimal set of parameters will give the best fit\nOnly need to consider small as \\(-f(x)\\) is large when \\(f(x)\\) is small.\nWe consider here general-purpose optimisers"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#local-and-global-minima",
-    "href": "slides/01-foundations/04-sim-optim/index.html#local-and-global-minima",
-    "title": "Simulation and Optimisation",
-    "section": "Local and Global Minima",
-    "text": "Local and Global Minima\n\nThe (negative of the) likelihood for the General Linear Model (and that for many other linear models) is well-behaved: it has a single, global minimum.\nFor more complicated models there may be many local minima.\nFinding a global minimum is difficult, and not always important. Only if local minima are widely separated in parameter space are they likely to invalidate our conclusions.\nWe will concentrate on methods of finding local minima. Check for different local minima by altering the initial values, algorithm used, or other parameters of the fitting process."
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#univariate-optimisation",
-    "href": "slides/01-foundations/04-sim-optim/index.html#univariate-optimisation",
-    "title": "Simulation and Optimisation",
-    "section": "Univariate Optimisation",
-    "text": "Univariate Optimisation\noptimize (or optimise) finds a (possibly local) mimimum of a function in a specified interval with respect to its first argument.\n\nFunction to be minimised is the first argument to optimize\nCan pre-specify the function or include it in the command."
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#univariate-optimisation-example",
-    "href": "slides/01-foundations/04-sim-optim/index.html#univariate-optimisation-example",
-    "title": "Simulation and Optimisation",
-    "section": "Univariate Optimisation: example",
-    "text": "Univariate Optimisation: example\n\nf <- function(x, a) {\n  (x - a)^2\n}\n\nxmin <- optimize(f, interval = c(0, 1), a = 1/3)\n\n# or\n\nxmin <- optimize(function(x, a) {(x - a)^2}, \n                 interval = c(0, 1), a = 1/3)\n\nxmin\n\n$minimum\n[1] 0.3333333\n\n$objective\n[1] 0\n\n\nNote how the (fixed) parameter a is passed into f."
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#other-optimize-arguments",
-    "href": "slides/01-foundations/04-sim-optim/index.html#other-optimize-arguments",
-    "title": "Simulation and Optimisation",
-    "section": "Other optimize() arguments",
-    "text": "Other optimize() arguments\n\nAn interval within which to search must be specified, either by interval or by upper and lower\nTo maximise set maximum = TRUE\nAccuracy can be set using the tol argument\nNote the order of arguments: `optimize(f, interval, …, lower, upper, maximum, tol)\nThe ... can be named or unnamed and will be passed to f\nArguments after the ... must be specified by names.\noptimize returns a list with two items:\n\nminimum: the value of x at which f(x) is minimised\nobjective: the value of f(x) at x = minimum"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#general-optimisation",
-    "href": "slides/01-foundations/04-sim-optim/index.html#general-optimisation",
-    "title": "Simulation and Optimisation",
-    "section": "General Optimisation",
-    "text": "General Optimisation\n\nIn more than one dimension the problem is harder.\nR has several different functions: most flexible is optim() which includes several different algorithms.\nAlgorithm of choice depends on how easy it is to calculate derivatives for the function. Usually better to supply a function to calculate derivatives, but may be unnecessary extra work.\nEnsure the problem is scaled so that unit change in any parameter gives approximately unit change in objective."
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#optim-methods",
-    "href": "slides/01-foundations/04-sim-optim/index.html#optim-methods",
-    "title": "Simulation and Optimisation",
-    "section": "optim() methods",
-    "text": "optim() methods\n\nNelder-MeadBFGSCG methodL-BFGS-BSANNBrent\n\n\n\nThe default method\nBasic idea: for a function with n parameters, choose a polygon with n+1 vertices. At each step, alter vertex with minimum f(x) to improve the objective function, by reflection, expansion or contraction\nDoes not use derivative information\nUseful for non-differentiable functions\nMay be rather slow\n\n\n\n\nA quasi-Newton method: builds up approximation to Hessian matrix from gradients at start and finish of steps\nUses the approximation to choose new search direction\nPerforms line search in this direction\nUpdate term for the Hessian approximation is due to Broyden, Fletcher, Goldfarb and Shanno (proposed separately by all four in 1970)\nUses derivative information, calculated either from a user-supplied function or by finite differences\nIf dimension is large, the matrix stored may be very large\n\n\n\n\nA conjugate gradient method: chooses successive search directions that are analogous to axes of an ellipse\nDoes not store a Hessian matrix\nThree different formulae for the search directions are implemented: Fletcher-Reeves, Polak-Ribiere or Beale-Sorenson\nLess robust than BFGS method\nUses derivative information, calculated either from a user-supplied function or by finite differences\n\n\n\n\nA limited memory version of BFGS\nDoes not store a Hessian matrix, only a limited number of update steps for it\nUses derivative information, calculated either from a user-supplied function or by finite differences\nCan restrict the solution to lie within a “box”, the only method of optim() that can do this\n\n\n\n\nA variant of simulated annealing A stochastic algorithm\nAccepts changes which increase the objective with positive probability (when minimising!)\nDoes not use derivative information\nCan be very slow to converge but may find a ‘good’ solution quickly\n\n\n\n\nAn interface to optimize()\nOnly for use with one dimensional problems\nIncluded for use inside other functions where only method can be specified, not the function to be used."
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#how-to-use-optim",
-    "href": "slides/01-foundations/04-sim-optim/index.html#how-to-use-optim",
-    "title": "Simulation and Optimisation",
-    "section": "How to use optim()",
-    "text": "How to use optim()\noptim(par, fn, gr=NULL, ..., method=c(\"Nelder-Mead\", \"BFGS\", \"CG\", \"L-BFGS-B\", \"SANN\", \"Brent\"), lower=-Inf, upper=Inf, control=list(), hessian=FALSE)\n\n\n\n\n\n\n\n\npar\nstarting values of the parameters\n\n\nfn\nfunction to be optimised (supply as for optimize)\n\n\ngr\nfunction to calculate the derivative, only relevant for methods “BFGS”, “CG” or “L-BFGS-B”\n\n\n…\nother parameters for (both) fn and gr\n\n\nmethod\nalgorithm to use\n\n\nlower, upper\nvector of limits for parameters (only allowed it method=\"L-BFGS-B\"\n\n\ncontrol\ncontrol options (see next slide)\n\n\nhessian\nlogical: whether to return a hessian estimate calculated by finite differences"
-  },
-  {
-    "objectID": "slides/01-foundations/01-intro/index.html",
-    "href": "slides/01-foundations/01-intro/index.html",
-    "title": "Introduction to R and RStudio",
-    "section": "",
-    "text": "Why use R?\nUse RStudio to write and run R programmes\nCreate and start an R project\nUse install.packages() to install packages\nHow to get help in R\nSee examples of data wrangling and visualisation"
-  },
-  {
-    "objectID": "slides/01-foundations/02-data-wrangling/index.html",
-    "href": "slides/01-foundations/02-data-wrangling/index.html",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "",
-    "text": "Data types\nData structures\nData import and wrangling"
-  },
-  {
-    "objectID": "slides/01-foundations/03-programming/index.html",
-    "href": "slides/01-foundations/03-programming/index.html",
-    "title": "Programming in R",
-    "section": "",
-    "text": "More on data structures\nControl flow and iteration functions\nEfficient R programming\nWriting functions (basics)"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#random-number-generation",
-    "href": "slides/01-foundations/04-sim-optim/index.html#random-number-generation",
-    "title": "Simulation and Optimisation",
-    "section": "Random number generation",
-    "text": "Random number generation\n\nRandom numbers caluclated on a computer are not random.\nThey are pseudo-random, following a predicted sequence, but in the short-term (i.e. anything but the very long-term) will appear to be random.\nThis is useful, as two sets of random numbers of the same size from the same generator using the same initial value will be exactly the same. This is crucial for reproducibility.\nR provides functions for generating random samples from standard distibutions."
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#using-random-number-generators-in-r",
-    "href": "slides/01-foundations/04-sim-optim/index.html#using-random-number-generators-in-r",
-    "title": "Simulation and Optimisation",
-    "section": "Using Random Number Generators in R",
-    "text": "Using Random Number Generators in R\n\nEach time a random number is required, R will use and update a variable called .Random.seed which is in your workspace.\nAt the first use, if .Random.seed does not exist, one will be created, with a value generated from the time.\nThe function set.seed(n) will set .Random.seed to a value derived from the argument n.\nUse set.seed() to repeat the same sequence of random numbers.\nThere are various different generators available. R will use the one in use at the start of your session unless you alter it, even if you delete .Random.seed. For safety, you can specify the kind on calls to set.seed. Use set.seed(n, kind=\"default\") to ensure you are using R’s default.\nIt is possible to save and restore .Random.seed within your functions, but take care with scope (see next term!)."
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#set.seed-example",
-    "href": "slides/01-foundations/04-sim-optim/index.html#set.seed-example",
-    "title": "Simulation and Optimisation",
-    "section": "set.seed() example",
-    "text": "set.seed() example\n\nsample(10)\n\n [1]  5  1  9  3  7  6  2  4  8 10\n\nset.seed(1)\nsample(10)\n\n [1]  9  4  7  1  2  5  3 10  6  8\n\nsample(10)\n\n [1]  3  1  5  8  2  6 10  9  4  7\n\nset.seed(1)\nsample(10)\n\n [1]  9  4  7  1  2  5  3 10  6  8"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#uses-of-simulation",
-    "href": "slides/01-foundations/04-sim-optim/index.html#uses-of-simulation",
-    "title": "Simulation and Optimisation",
-    "section": "Uses of Simulation",
-    "text": "Uses of Simulation"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#optim-control-options",
-    "href": "slides/01-foundations/04-sim-optim/index.html#optim-control-options",
-    "title": "Simulation and Optimisation",
-    "section": "optim()`: control options",
-    "text": "optim()`: control options\nThere are very many. The most important are:\nFILL IN TABLE"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#optim-components-of-return-value",
-    "href": "slides/01-foundations/04-sim-optim/index.html#optim-components-of-return-value",
-    "title": "Simulation and Optimisation",
-    "section": "optim(): components of return value",
-    "text": "optim(): components of return value\nFILL IN TABLE"
-  },
-  {
-    "objectID": "slides/01-foundations/04-sim-optim/index.html#constrained-optimisation",
-    "href": "slides/01-foundations/04-sim-optim/index.html#constrained-optimisation",
-    "title": "Simulation and Optimisation",
-    "section": "Constrained Optimisation",
-    "text": "Constrained Optimisation\nINCLUDE THIS? WILL NEED TO LEARN IT!"
   }
 ]

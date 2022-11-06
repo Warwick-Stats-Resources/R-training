@@ -8,7 +8,7 @@
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.247">
+  <meta name="generator" content="quarto-1.2.242">
 
   <meta name="author" content="Ella Kaye | Department of Statistics | University of Warwick">
   <meta name="dcterms.date" content="2022-11-07">
@@ -411,19 +411,65 @@ Ella Kaye | Department of Statistics | University of Warwick
 <li><p>Simulation</p></li>
 <li><p>Optimisation</p></li>
 </ul>
+<p>This material is largely reproduced from <a href="https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf">Ruth Ripley’s 2013 APTS course</a></p>
 </section>
+<section>
 <section id="numerical-precision" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>Numerical precision</h1>
 
 </section>
-
+<section id="how-r-stores-numbers" class="slide level2">
+<h2>How R Stores Numbers</h2>
+<p>Some basic understanding is needed of how R stores and does arithmetic on numbers to avoid being surprised by the results it gives.</p>
+<p>From the R FAQ:</p>
+<blockquote>
+<p>The only numbers that can be represented exactly in R’s numeric type are integers and fractions whose denominator is a power of 2. Other numbers have to be rounded to (typically) 53 binary digits accuracy. As a result, two floating point numbers will not reliably be equal unless they have been computed by the same algorithm, and not always even then.</p>
+</blockquote>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>a <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">2</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>a <span class="sc">*</span> a <span class="sc">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>a <span class="sc">*</span> a <span class="sc">-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.440892e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">all.equal</span>(a <span class="sc">*</span> a, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>The function <code>all.equal()</code> compares two objects using a numeric tolerance of <code>.Machine$double.eps^0.5</code>.<sup>1</sup> If you want much greater accuracy than this you will need to consider error propagation carefully.</p>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><code>.Machine$double.eps</code> is the smallest positive floating-point number <code>x</code> such that <code>1 + x != 1</code> on the machine R is running on.</p></li></ol></aside></section>
+<section id="numerical-consideration-resources" class="slide level2">
+<h2>Numerical Consideration Resources</h2>
+<p>For more information, see e.g.&nbsp;</p>
+<ul>
+<li><p>David Goldberg (1991), “What Every Computer Scientist Should Know About Floating-Point Arithmetic”, <em>ACM Computing Surveys</em>, <strong>23/1</strong>, 5–48, also available via <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html" target="_blank">https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html</a>.</p></li>
+<li><p>Ruth Ripley’s <a href="https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Numerics.pdf" target="&quot;_blank">numerical considerations</a> notes for APTS 2013.</p></li>
+</ul>
+</section></section>
 <section>
-<section id="random-numbers" class="title-slide slide level1 center" data-background-color="#552D62">
-<h1>Random numbers</h1>
+<section id="simulation" class="title-slide slide level1 center" data-background-color="#552D62">
+<h1>Simulation</h1>
 
 </section>
+<section id="uses-of-simulation" class="slide level2">
+<h2>Uses of Simulation</h2>
+<ul>
+<li><p>Statistical models are often mathematically intractable</p></li>
+<li><p>Generate multiple samples for a model by simulation</p></li>
+<li><p>Use these samples to investigate the behaviour of the model</p></li>
+<li><p>Need realisations of random variables with various different distributions, our <em>random numbers</em></p></li>
+<li><p>Details of how to use the random numbers to create samples will not be considered here</p></li>
+</ul>
+</section>
 <section id="random-number-generation" class="slide level2">
-<h2>Random number generation</h2>
+<h2>Random Number Generation</h2>
 <ul>
 <li><p>Random numbers caluclated on a computer are not random.</p></li>
 <li><p>They are <em>pseudo-random</em>, following a predicted sequence, but in the short-term (i.e.&nbsp;anything but the <em>very</em> long-term) will appear to be random.</p></li>
@@ -431,35 +477,41 @@ Ella Kaye | Department of Statistics | University of Warwick
 <li><p>R provides functions for generating random samples from standard distibutions.</p></li>
 </ul>
 </section>
-<section id="using-random-number-generators-in-r" class="slide level2">
-<h2>Using Random Number Generators in R</h2>
+<section id="random-seeds-in-r" class="slide level2">
+<h2>Random Seeds in R</h2>
 <ul>
 <li>Each time a random number is required, R will use and update a variable called <code>.Random.seed</code> which is in your workspace.</li>
 <li>At the first use, if <code>.Random.seed</code> does not exist, one will be created, with a value generated from the time.</li>
 <li>The function <code>set.seed(n)</code> will set <code>.Random.seed</code> to a value derived from the argument <code>n</code>.</li>
 <li>Use <code>set.seed()</code> to repeat the same sequence of random numbers.</li>
+</ul>
+</section>
+<section id="random-number-generators-in-r" class="slide level2">
+<h2>Random Number Generators in R</h2>
+<ul>
 <li>There are various different generators available. R will use the one in use at the start of your session unless you alter it, even if you delete <code>.Random.seed</code>. For safety, you can specify the kind on calls to set.seed. Use <code>set.seed(n, kind="default")</code> to ensure you are using R’s default.</li>
 <li>It is possible to save and restore <code>.Random.seed</code> within your functions, but take care with scope (see next term!).</li>
+<li>Note that random number generation changed in R version 4.0.0, so you might get different outputs even with the same seed when using versions before and after this release.</li>
 </ul>
 </section>
 <section id="set.seed-example" class="slide level2">
-<h2><code>set.seed()</code> example</h2>
+<h2><code>set.seed()</code> Example</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  5  1  9  3  7  6  2  4  8 10</code></pre>
+<pre><code> [1]  3  6  4  1  9  2 10  8  7  5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  9  4  7  1  2  5  3 10  6  8</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  3  1  5  8  2  6 10  9  4  7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  9  4  7  1  2  5  3 10  6  8</code></pre>
 </div>
@@ -468,14 +520,50 @@ Ella Kaye | Department of Statistics | University of Warwick
 <section id="sample" class="slide level2">
 <h2><code>sample()</code></h2>
 <p>The <code>sample()</code> function re-samples from a data vector, with or without replacement.</p>
+<p><code>sample(x, size, replace = FALSE, prob = NULL)</code></p>
+<table>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 80%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>x</code></td>
+<td>positive integer or a vector</td>
+</tr>
+<tr class="even">
+<td><code>size</code></td>
+<td>non-negative integer, number of items to choose</td>
+</tr>
+<tr class="odd">
+<td><code>replace</code></td>
+<td>logical - should sampling be with replacement</td>
+</tr>
+<tr class="even">
+<td><code>prob</code></td>
+<td>a vector of probability weights for obtaining the elements of the vector being sampled.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sample-examples" class="slide level2">
+<h2><code>sample()</code> Examples</h2>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1"><code>sample(n)</code></a></li><li><a href="#tabset-1-2"><code>sample(x)</code></a></li><li><a href="#tabset-1-3">sample(x, replace = TRUE)</a></li><li><a href="#tabset-1-4">sample(x, n)</a></li><li><a href="#tabset-1-5">sample(x, n, replace = TRUE)</a></li><li><a href="#tabset-1-6">sample(x, n, replace = TRUE, prob = probs)</a></li></ul>
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1"><code>sample(n)</code></a></li><li><a href="#tabset-1-2"><code>sample(x)</code></a></li><li><a href="#tabset-1-3"><code>sample(x, replace = TRUE)</code></a></li><li><a href="#tabset-1-4"><code>sample(x, size = n)</code></a></li><li><a href="#tabset-1-5"><code>sample(x, n, replace = TRUE)</code></a></li><li><a href="#tabset-1-6"><code>sample(x, n, replace = TRUE, prob = probs)</code></a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
 <p>A random permutation of 1, …, n</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  3 10  2  8  6  9  1  7  5  4</code></pre>
+</div>
+</div>
+<p>See also <code>sample.int()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">sample.int</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  3 10  2  8  6  9  1  7  5  4</code></pre>
 </div>
@@ -484,59 +572,53 @@ Ella Kaye | Department of Statistics | University of Warwick
 <div id="tabset-1-2">
 <p>A random permutation of <code>x</code> for <code>length(x) &gt; 1</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb11-2"><a href="#cb11-2"></a>alph10 <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">sample</span>(alph10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb19-2"><a href="#cb19-2"></a>alph5 <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="fu">sample</span>(alph5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "I" "G" "H" "F" "C" "B" "J" "E" "D" "A"</code></pre>
+<pre><code>[1] "C" "A" "B" "E" "D"</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-1-3">
 <p>A bootstrap sample</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">sample</span>(alph10, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">sample</span>(alph5, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "I" "J" "G" "H" "F" "G" "C" "H" "J" "G"</code></pre>
+<pre><code>[1] "C" "A" "B" "D" "C"</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-1-4">
 <p>Sample <code>n</code> items from <code>x</code> without replacement</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">sample</span>(alph10, <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">sample</span>(alph5, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "I" "G" "H" "F" "C" "B"</code></pre>
+<pre><code>[1] "C" "A" "B"</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-1-5">
 <p>Sample <code>n</code> items from <code>x</code> with replacement</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">sample</span>(alph10, <span class="dv">6</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">sample</span>(alph5, <span class="dv">3</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "I" "D" "G" "A" "B" "G"</code></pre>
+<pre><code>[1] "A" "D" "A"</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-1-6">
 <p>Probability sample of <code>n</code> items from <code>x</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>probs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">12</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">12</span>)</span>
-<span id="cb19-3"><a href="#cb19-3"></a></span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb19-5"><a href="#cb19-5"></a>samp <span class="ot">&lt;-</span> <span class="fu">sample</span>(x, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> probs)</span>
-<span id="cb19-6"><a href="#cb19-6"></a>samp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] 1 1 2 3 1 3 4 2 2 1 1 1 2 1 2 1 2 4 1 2 4 1 2 1 1 1 1 1 3 1 1 2 1 1 2 2 2
- [38] 1 2 1 2 2 2 2 2 2 1 1 2 2 1 3 1 1 1 1 1 2 2 1 3 1 1 1 2 1 1 2 1 3 1 3 1 1
- [75] 1 3 3 1 2 4 1 2 1 1 2 1 2 1 1 1 1 1 2 3 2 2 1 1 2 2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">table</span>(samp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>probs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">12</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">12</span>)</span>
+<span id="cb27-3"><a href="#cb27-3"></a></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb27-5"><a href="#cb27-5"></a>samp <span class="ot">&lt;-</span> <span class="fu">sample</span>(x, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> probs)</span>
+<span id="cb27-6"><a href="#cb27-6"></a><span class="fu">table</span>(samp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>samp
  1  2  3  4 
@@ -546,28 +628,188 @@ Ella Kaye | Department of Statistics | University of Warwick
 </div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="simulation" class="title-slide slide level1 center" data-background-color="#552D62">
-<h1>Simulation</h1>
-
-</section>
-<section id="uses-of-simulation" class="slide level2">
-<h2>Uses of Simulation</h2>
 </section>
 <section id="distributions-in-r" class="slide level2">
 <h2>Distributions in R</h2>
+<p>Many statistical distributions are built into R. Each has a root name, e.g.&nbsp;<code>norm</code> for the normal distribution.</p>
+<p>There are four functions for each distribution, with different letters prefixing the room name:</p>
+<ul>
+<li><code>p</code> for <em>probability</em>, the cumulative distribution function</li>
+<li><code>q</code> for <em>quantile</em>, the inverse c.d.f.</li>
+<li><code>d</code> for <em>density</em>, the density function, p.d.f.</li>
+<li><code>r</code> for <em>random</em>, a random sample from the distribution.</li>
+</ul>
+<p>So, for the normal distribution, we have the functions <code>pnorm</code>, <code>qnorm</code>, <code>dnorm</code>, <code>rnorm</code>.</p>
 </section>
-<section id="random-samples-from-distributions" class="slide level2">
-<h2>Random samples from distributions</h2>
+<section id="distributions-and-parameterisations" class="slide level2 smaller60">
+<h2>Distributions and Parameterisations</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Distribution</th>
+<th style="text-align: left;">Base name</th>
+<th style="text-align: left;">Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">beta</td>
+<td style="text-align: left;"><code>beta</code></td>
+<td style="text-align: left;"><code>shape1</code>, <code>shape2</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">binomial</td>
+<td style="text-align: left;"><code>binom</code></td>
+<td style="text-align: left;"><code>size</code>, <code>prob</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cauchy</td>
+<td style="text-align: left;"><code>cauchy</code></td>
+<td style="text-align: left;"><code>location</code>, <code>scale</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chi-squared</td>
+<td style="text-align: left;"><code>chisq</code></td>
+<td style="text-align: left;"><code>df</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">exponential</td>
+<td style="text-align: left;"><code>exp</code></td>
+<td style="text-align: left;"><code>rate</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;"><code>f</code></td>
+<td style="text-align: left;"><code>df1</code>, <code>df2</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gamma</td>
+<td style="text-align: left;"><code>gamma</code></td>
+<td style="text-align: left;"><code>shape</code>, <code>rate</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">geometric</td>
+<td style="text-align: left;"><code>geom</code></td>
+<td style="text-align: left;"><code>p</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">hypergeometric</td>
+<td style="text-align: left;"><code>hyper</code></td>
+<td style="text-align: left;"><code>m</code>, <code>n</code>, <code>k</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">log-normal</td>
+<td style="text-align: left;"><code>lnorm</code></td>
+<td style="text-align: left;"><code>meanlog</code>, <code>sdlog</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">logistic</td>
+<td style="text-align: left;"><code>logis</code></td>
+<td style="text-align: left;"><code>location</code>, <code>scale</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">negative binomial</td>
+<td style="text-align: left;"><code>nbinom</code></td>
+<td style="text-align: left;"><code>size</code>, <code>prob</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">normal</td>
+<td style="text-align: left;"><code>norm</code></td>
+<td style="text-align: left;"><code>mean</code>, <code>sd</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Poisson</td>
+<td style="text-align: left;"><code>pois</code></td>
+<td style="text-align: left;"><code>lambda</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Student t</td>
+<td style="text-align: left;"><code>t</code></td>
+<td style="text-align: left;"><code>df</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">uniform</td>
+<td style="text-align: left;"><code>unif</code></td>
+<td style="text-align: left;"><code>min</code>, <code>max</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Weibull</td>
+<td style="text-align: left;"><code>weibull</code></td>
+<td style="text-align: left;"><code>shape</code>, <code>scale</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="generating-random-samples-from-a-distibution" class="slide level2">
+<h2>Generating Random Samples from a Distibution</h2>
+<p>To obtain a sample of size <code>n</code>, use the <code>r</code> function for the distribution with the first argument <code>n</code>, and subsequent arguments the parameters for that distribution. The parameters often have default values. E.g.</p>
+<table>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>runif(n, min=0, max=1)</code></td>
+<td>Uniform</td>
+</tr>
+<tr class="even">
+<td><code>rnorm(n, mean=0, sd=1)</code></td>
+<td>Normal</td>
+</tr>
+<tr class="odd">
+<td><code>rexp(n, rate=1)</code></td>
+<td>Exponential with mean 1/rate</td>
+</tr>
+<tr class="even">
+<td><code>rt(n, df)</code></td>
+<td>t with df degrees of freedom</td>
+</tr>
+<tr class="odd">
+<td><code>rbinom(n, size, prob)</code></td>
+<td>Binomial, success in <code>size</code> trials with probability of success <code>prob</code></td>
+</tr>
+</tbody>
+</table>
+<p><span class="smaller60">Table from <a href="https://www.johndcook.com/blog/distributions_r_splus/" class="uri">https://www.johndcook.com/blog/distributions_r_splus/</a></span></p>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your Turn!</h2>
+<p>Sometimes <code>sample()</code> can lead to nasty surprises.</p>
+<p>Consider the following code. Which line might cause a problem?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">sample</span>(x[x <span class="sc">&gt;</span> <span class="dv">8</span>])</span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="fu">sample</span>(x[x <span class="sc">&gt;</span> <span class="dv">9</span>])</span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="fu">sample</span>(x[x <span class="sc">&gt;</span> <span class="dv">10</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Run the code to see what happens.</p>
+<div class="callout callout-warning callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>You need to be careful when using <code>sample()</code> programmatically (i.e.&nbsp;in your function or simulation).</p>
+</div>
+</div>
+</div>
+<p>See <code>?sample</code> for a safer version and check you understand how the proposed <code>resample()</code> function works.</p>
 </section></section>
 <section>
 <section id="optimisation" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>Optimisation</h1>
-<p>Slides below from <a href="https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf">Ruth Ripley’s APTS course</a></p>
+
 </section>
 <section id="the-optimisation-problem" class="slide level2">
-<h2>The optimisation problem</h2>
+<h2>The Optimisation Problem</h2>
 <ul>
 <li>Given a function <span class="math inline">\(f(x)\)</span>, what value of <span class="math inline">\(x\)</span> makes <span class="math inline">\(f(x)\)</span> as small or large as possible?</li>
 <li>In a statistical context, <span class="math inline">\(x\)</span> will usually be the parameters of a model, and <span class="math inline">\(f(x)\)</span> either the model likelihood to be maximised or some measure of discrepancy between data and predictions to be minimised.</li>
@@ -594,20 +836,20 @@ Ella Kaye | Department of Statistics | University of Warwick
 </ul>
 </section>
 <section id="univariate-optimisation-example" class="slide level2">
-<h2>Univariate Optimisation: example</h2>
+<h2>Univariate Optimisation: Example</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x, a) {</span>
-<span id="cb23-2"><a href="#cb23-2"></a>  (x <span class="sc">-</span> a)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a>}</span>
-<span id="cb23-4"><a href="#cb23-4"></a></span>
-<span id="cb23-5"><a href="#cb23-5"></a>xmin <span class="ot">&lt;-</span> <span class="fu">optimize</span>(f, <span class="at">interval =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">a =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span>
-<span id="cb23-6"><a href="#cb23-6"></a></span>
-<span id="cb23-7"><a href="#cb23-7"></a><span class="co"># or</span></span>
-<span id="cb23-8"><a href="#cb23-8"></a></span>
-<span id="cb23-9"><a href="#cb23-9"></a>xmin <span class="ot">&lt;-</span> <span class="fu">optimize</span>(<span class="cf">function</span>(x, a) {(x <span class="sc">-</span> a)<span class="sc">^</span><span class="dv">2</span>}, </span>
-<span id="cb23-10"><a href="#cb23-10"></a>                 <span class="at">interval =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">a =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span>
-<span id="cb23-11"><a href="#cb23-11"></a></span>
-<span id="cb23-12"><a href="#cb23-12"></a>xmin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x, a) {</span>
+<span id="cb30-2"><a href="#cb30-2"></a>  (x <span class="sc">-</span> a)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>}</span>
+<span id="cb30-4"><a href="#cb30-4"></a></span>
+<span id="cb30-5"><a href="#cb30-5"></a>xmin <span class="ot">&lt;-</span> <span class="fu">optimize</span>(f, <span class="at">interval =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">a =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb30-6"><a href="#cb30-6"></a></span>
+<span id="cb30-7"><a href="#cb30-7"></a><span class="co"># or</span></span>
+<span id="cb30-8"><a href="#cb30-8"></a></span>
+<span id="cb30-9"><a href="#cb30-9"></a>xmin <span class="ot">&lt;-</span> <span class="fu">optimize</span>(<span class="cf">function</span>(x, a) {(x <span class="sc">-</span> a)<span class="sc">^</span><span class="dv">2</span>}, </span>
+<span id="cb30-10"><a href="#cb30-10"></a>                 <span class="at">interval =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">a =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb30-11"><a href="#cb30-11"></a></span>
+<span id="cb30-12"><a href="#cb30-12"></a>xmin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$minimum
 [1] 0.3333333
@@ -619,7 +861,7 @@ $objective
 <p>Note how the (fixed) parameter <code>a</code> is passed into <code>f</code>.</p>
 </section>
 <section id="other-optimize-arguments" class="slide level2">
-<h2>Other <code>optimize()</code> arguments</h2>
+<h2>Other <code>optimize()</code> Arguments</h2>
 <ul>
 <li><p>An interval within which to search must be specified, either by <code>interval</code> or by <code>upper</code> and <code>lower</code></p></li>
 <li><p>To <em>maximise</em> set <code>maximum = TRUE</code></p></li>
@@ -644,9 +886,9 @@ $objective
 </ul>
 </section>
 <section id="optim-methods" class="slide level2">
-<h2><code>optim()</code> methods</h2>
+<h2><code>optim()</code> Methods</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Nelder-Mead</a></li><li><a href="#tabset-2-2">BFGS</a></li><li><a href="#tabset-2-3">CG method</a></li><li><a href="#tabset-2-4">L-BFGS-B</a></li><li><a href="#tabset-2-5">SANN</a></li><li><a href="#tabset-2-6">Brent</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Nelder-Mead</a></li><li><a href="#tabset-2-2">BFGS</a></li><li><a href="#tabset-2-3">CG</a></li><li><a href="#tabset-2-4">L-BFGS-B</a></li><li><a href="#tabset-2-5">SANN</a></li><li><a href="#tabset-2-6">Brent</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
 <ul>
@@ -702,14 +944,13 @@ $objective
 </div>
 </div>
 </section>
-<section id="how-to-use-optim" class="slide level2">
-<h2>How to use <code>optim()</code></h2>
+<section id="how-to-use-optim" class="slide level2 smaller75">
+<h2>How to Use <code>optim()</code></h2>
 <p><code>optim(par, fn, gr=NULL, ..., method=c("Nelder-Mead", "BFGS", "CG", "L-BFGS-B", "SANN", "Brent"), lower=-Inf, upper=Inf, control=list(), hessian=FALSE)</code></p>
-<div class="fragment">
 <table>
 <colgroup>
-<col style="width: 99%">
-<col style="width: 0%">
+<col style="width: 20%">
+<col style="width: 80%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -746,31 +987,121 @@ $objective
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="optim-control-options" class="slide level2">
-<h2><code>optim</code>()`: control options</h2>
+<h2><code>optim()</code>: Control Options</h2>
 <p>There are very many. The most important are:</p>
-<p>FILL IN TABLE</p>
+<table>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>trace</code></td>
+<td>A positive integer: higher values give more information</td>
+</tr>
+<tr class="even">
+<td><code>fnscale</code></td>
+<td>An overall scaling: if negative, maximisation will be performed</td>
+</tr>
+<tr class="odd">
+<td><code>parscale</code></td>
+<td>A vector of scalings for the parameters</td>
+</tr>
+<tr class="even">
+<td><code>maxit</code></td>
+<td>Maximum number of iterations to be performed. May be used to terminate unsuccessful attempts. Also used to perform one or two steps if convergence is unimportant</td>
+</tr>
+<tr class="odd">
+<td><code>type</code></td>
+<td>Used to select formula for “CG” method</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="optim-components-of-return-value" class="slide level2">
-<h2><code>optim()</code>: components of return value</h2>
-<p>FILL IN TABLE</p>
+<h2><code>optim()</code>: Components of Return Value</h2>
+<table>
+<colgroup>
+<col style="width: 19%">
+<col style="width: 80%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>par</code></td>
+<td>best set of parameters</td>
+</tr>
+<tr class="even">
+<td><code>value</code></td>
+<td>value of <code>fn</code> corresponding to <code>par</code></td>
+</tr>
+<tr class="odd">
+<td><code>counts</code></td>
+<td>number of calls to <code>fn</code> and <code>gr</code>: excludes calls for purposes of approximating derivatives or Hessian</td>
+</tr>
+<tr class="even">
+<td><code>convergence</code></td>
+<td>error code: 0=success, 1=<code>maxit</code> reached, 10=degeneracy of Nelder-Mead simplex, 51=warning from “L-BFGS-B”, 52=error from “L-BFGS-B”</td>
+</tr>
+<tr class="odd">
+<td><code>message</code></td>
+<td>further information, if any</td>
+</tr>
+<tr class="even">
+<td><code>hessian</code></td>
+<td>if requested, a symmetric matrix estimate of the Hessian at the solution</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="constrained-optimisation" class="slide level2">
-<h2>Constrained Optimisation</h2>
-<p>INCLUDE THIS? WILL NEED TO LEARN IT!</p>
+<section id="your-turn-q1" class="slide level2">
+<h2>Your Turn! Q1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>fw <span class="ot">&lt;-</span> <span class="cf">function</span> (x) {</span>
+<span id="cb32-2"><a href="#cb32-2"></a>    <span class="dv">10</span><span class="sc">*</span><span class="fu">sin</span>(<span class="fl">0.3</span><span class="sc">*</span>x)<span class="sc">*</span><span class="fu">sin</span>(<span class="fl">1.3</span><span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.00001</span><span class="sc">*</span>x<span class="sc">^</span><span class="dv">4</span> <span class="sc">+</span> <span class="fl">0.2</span><span class="sc">*</span>x<span class="sc">+</span><span class="dv">80</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch quarto-figure-center"><ul>
+<li><p>Use <code>optim()</code> to find a global minimum</p></li>
+<li><p>Use <code>optim()</code> again to improve locally (aiming for -15.81515)</p></li>
+</ul>
+</section>
+<section id="your-turn-q2" class="slide level2">
+<h2>Your Turn! Q2</h2>
+<ul>
+<li><p>Take a look at the introduction to the Wikipedia page for <a href="https://en.wikipedia.org/wiki/Rosenbrock_function" target="_blank">Rosenbrock’s banana function</a></p></li>
+<li><p>Copy this code for the <code>fn</code> and <code>gr</code></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>fr <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {   </span>
+<span id="cb33-2"><a href="#cb33-2"></a>    x1 <span class="ot">&lt;-</span> x[<span class="dv">1</span>]</span>
+<span id="cb33-3"><a href="#cb33-3"></a>    x2 <span class="ot">&lt;-</span> x[<span class="dv">2</span>]</span>
+<span id="cb33-4"><a href="#cb33-4"></a>    <span class="dv">100</span> <span class="sc">*</span> (x2 <span class="sc">-</span> x1 <span class="sc">*</span> x1)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> x1)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>}</span>
+<span id="cb33-6"><a href="#cb33-6"></a></span>
+<span id="cb33-7"><a href="#cb33-7"></a>gr <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { </span>
+<span id="cb33-8"><a href="#cb33-8"></a>    x1 <span class="ot">&lt;-</span> x[<span class="dv">1</span>]</span>
+<span id="cb33-9"><a href="#cb33-9"></a>    x2 <span class="ot">&lt;-</span> x[<span class="dv">2</span>]</span>
+<span id="cb33-10"><a href="#cb33-10"></a>    <span class="fu">c</span>(<span class="sc">-</span><span class="dv">400</span> <span class="sc">*</span> x1 <span class="sc">*</span> (x2 <span class="sc">-</span> x1 <span class="sc">*</span> x1) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> x1),</span>
+<span id="cb33-11"><a href="#cb33-11"></a>       <span class="dv">200</span> <span class="sc">*</span>      (x2 <span class="sc">-</span> x1 <span class="sc">*</span> x1))</span>
+<span id="cb33-12"><a href="#cb33-12"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Experiment with the <code>optim()</code> function to see which methods converge</li>
+</ul>
 </section></section>
 <section>
 <section id="end-matter" class="title-slide slide level1 center" data-background-color="#552D62">
-<h1>End matter</h1>
+<h1>End Matter</h1>
 
 </section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
-<p>This material is reproduced in large part from the APTS 2013/14 resources by Ruth Ripley:</p>
+<p>This material is reproduced in large part directly from the APTS 2013/14 resources by Ruth Ripley:</p>
 <ul>
-<li>https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf</li>
+<li><a href="https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf" class="uri">https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf</a></li>
 </ul>
 </section>
 <section id="license" class="slide level2">
@@ -781,6 +1112,7 @@ $objective
 
 </div>
 </section></section>
+
     </div>
   </div>
 

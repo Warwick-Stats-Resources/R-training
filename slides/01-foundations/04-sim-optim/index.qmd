@@ -25,30 +25,77 @@ format:
 
 -   Optimisation
 
+
+This material is largely reproduced from [Ruth Ripley's 2013 APTS course](https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf)
+
 # Numerical precision {background-color="#552D62"}
 
-# Random numbers {background-color="#552D62"}
+## How R Stores Numbers
 
-## Random number generation
+Some basic understanding is needed of how R stores and does arithmetic on numbers to avoid being surprised by the results it gives. 
 
-- Random numbers caluclated on a computer are not random.
+From the R FAQ:
 
-- They are *pseudo-random*, following a predicted sequence, but in the short-term (i.e. anything but the *very* long-term) will appear to be random.
+> The only numbers that can be represented exactly in R’s numeric type are integers and fractions whose denominator is a power of 2. Other numbers have to be rounded to (typically) 53 binary digits accuracy. As a result, two floating point numbers will not reliably be equal unless they have been computed by the same algorithm, and not always even then. 
 
-- This is useful, as two sets of random numbers of the same size from the same generator using the same initial value will be exactly the same. **This is crucial for reproducibility.**
+## Example
 
-- R provides functions for generating random samples from standard distibutions.
+```{r}
+a <- sqrt(2)
+a * a == 2
+a * a - 2
+all.equal(a * a, 2)
+```
 
-## Using Random Number Generators in R
+The function `all.equal()` compares two objects using a numeric tolerance of `.Machine$double.eps^0.5`.[^1] If you want much greater accuracy than this you will need to consider error propagation carefully.
 
-- Each time a random number is required, R will use and update a variable called `.Random.seed` which is in your workspace.
-- At the first use, if `.Random.seed` does not exist, one will be created, with a value generated from the time.
-- The function `set.seed(n)` will set `.Random.seed` to a value derived from the argument `n`. 
-- Use `set.seed()` to repeat the same sequence of random numbers.
-- There are various different generators available. R will use the one in use at the start of your session unless you alter it, even if you delete `.Random.seed`. For safety, you can specify the kind on calls to set.seed. Use `set.seed(n, kind="default")` to ensure you are using R’s default.
-- It is possible to save and restore `.Random.seed` within your functions, but take care with scope (see next term!).
+[^1]: `.Machine$double.eps` is the smallest positive floating-point number `x` such that `1 + x != 1` on the machine R is running on.
 
-## `set.seed()` example
+## Numerical Consideration Resources
+
+For more information, see e.g. 
+
+- David Goldberg (1991), “What Every Computer Scientist Should Know About Floating-Point Arithmetic”, *ACM Computing Surveys*, **23/1**, 5–48, also available via <https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>{target="_blank"}.
+
+- Ruth Ripley's [numerical considerations](https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Numerics.pdf){target="_blank} notes for APTS 2013.
+
+# Simulation {background-color="#552D62"}
+
+## Uses of Simulation
+
+-   Statistical models are often mathematically intractable
+
+-   Generate multiple samples for a model by simulation
+
+-   Use these samples to investigate the behaviour of the model
+
+-   Need realisations of random variables with various different distributions, our *random numbers*
+
+- Details of how to use the random numbers to create samples will not be considered here
+
+## Random Number Generation
+
+-   Random numbers caluclated on a computer are not random.
+
+-   They are *pseudo-random*, following a predicted sequence, but in the short-term (i.e. anything but the *very* long-term) will appear to be random.
+
+-   This is useful, as two sets of random numbers of the same size from the same generator using the same initial value will be exactly the same. **This is crucial for reproducibility.**
+
+-   R provides functions for generating random samples from standard distibutions.
+
+## Random Seeds in R
+
+-   Each time a random number is required, R will use and update a variable called `.Random.seed` which is in your workspace.
+-   At the first use, if `.Random.seed` does not exist, one will be created, with a value generated from the time.
+-   The function `set.seed(n)` will set `.Random.seed` to a value derived from the argument `n`.
+-   Use `set.seed()` to repeat the same sequence of random numbers.
+
+## Random Number Generators in R
+-   There are various different generators available. R will use the one in use at the start of your session unless you alter it, even if you delete `.Random.seed`. For safety, you can specify the kind on calls to set.seed. Use `set.seed(n, kind="default")` to ensure you are using R's default.
+-   It is possible to save and restore `.Random.seed` within your functions, but take care with scope (see next term!).
+- Note that random number generation changed in R version 4.0.0, so you might get different outputs even with the same seed when using versions before and after this release.
+
+## `set.seed()` Example
 
 ```{r}
 sample(10)
@@ -59,12 +106,24 @@ set.seed(1)
 sample(10)
 ```
 
-
 ## `sample()`
 
 The `sample()` function re-samples from a data vector, with or without replacement.
 
-::: {.panel-tabset}
+`sample(x, size, replace = FALSE, prob = NULL)`
+
+|           |                                                                                         |
+|-----------------|-------------------------------------------------------|
+| `x`       | positive integer or a vector                                                            |
+| `size`    | non-negative integer, number of items to choose                                         |
+| `replace` | logical - should sampling be with replacement                                           |
+| `prob`    | a vector of probability weights for obtaining the elements of the vector being sampled. |
+
+: {tbl-colwidths="\[20, 80\]"}
+
+## `sample()` Examples
+
+::: panel-tabset
 ## `sample(n)`
 
 A random permutation of 1, ..., n
@@ -74,6 +133,13 @@ set.seed(123)
 sample(10)
 ```
 
+See also `sample.int()`:
+
+```{r}
+set.seed(123)
+sample.int(10)
+```
+
 
 ## `sample(x)`
 
@@ -81,38 +147,38 @@ A random permutation of `x` for `length(x) > 1`
 
 ```{r}
 set.seed(10)
-alph10 <- LETTERS[1:10]
-sample(alph10)
+alph5 <- LETTERS[1:5]
+sample(alph5)
 ```
 
-## sample(x, replace = TRUE)
+## `sample(x, replace = TRUE)`
 
 A bootstrap sample
 
 ```{r}
 set.seed(10)
-sample(alph10, replace = TRUE)
+sample(alph5, replace = TRUE)
 ```
 
-## sample(x, n)
+## `sample(x, size = n)`
 
 Sample `n` items from `x` without replacement
 
 ```{r}
 set.seed(10)
-sample(alph10, 6)
+sample(alph5, 3)
 ```
 
-## sample(x, n, replace = TRUE)
+## `sample(x, n, replace = TRUE)`
 
 Sample `n` items from `x` with replacement
 
 ```{r}
 set.seed(1)
-sample(alph10, 6, replace = TRUE)
+sample(alph5, 3, replace = TRUE)
 ```
 
-## sample(x, n, replace = TRUE, prob = probs)
+## `sample(x, n, replace = TRUE, prob = probs)`
 
 Probability sample of `n` items from `x`
 
@@ -122,28 +188,86 @@ probs <- c(1/2, 1/3, 1/12, 1/12)
 
 set.seed(1)
 samp <- sample(x, 100, replace = TRUE, prob = probs)
-samp
 table(samp)
 ```
-
-
 :::
-
-
-
-# Simulation {background-color="#552D62"}
-
-## Uses of Simulation
 
 ## Distributions in R
 
-## Random samples from distributions
+Many statistical distributions are built into R. Each has a root name, e.g. `norm` for the normal distribution.
+
+There are four functions for each distribution, with different letters prefixing the room name:
+
+-   `p` for *probability*, the cumulative distribution function
+-   `q` for *quantile*, the inverse c.d.f.
+-   `d` for *density*, the density function, p.d.f.
+-   `r` for *random*, a random sample from the distribution.
+
+So, for the normal distribution, we have the functions `pnorm`, `qnorm`, `dnorm`, `rnorm`.
+
+## Distributions and Parameterisations {.smaller60}
+
+```{r}
+#| echo: false
+distributions <- tibble::tibble(
+      Distribution = c("beta","binomial","Cauchy",
+                       "chi-squared","exponential","F","gamma","geometric",
+                       "hypergeometric","log-normal","logistic",
+                       "negative binomial","normal","Poisson","Student t","uniform",
+                       "Weibull"),
+         `Base name` = c("`beta`","`binom`","`cauchy`",
+                       "`chisq`","`exp`","`f`","`gamma`","`geom`","`hyper`","`lnorm`",
+                       "`logis`","`nbinom`","`norm`","`pois`","`t`","`unif`","`weibull`"),
+        Parameters = c("`shape1`, `shape2`","`size`, `prob`",
+                       "`location`, `scale`","`df`","`rate`","`df1`, `df2`",
+                       "`shape`, `rate`","`p`","`m`, `n`, `k`","`meanlog`, `sdlog`","`location`, `scale`",
+                       "`size`, `prob`","`mean`, `sd`","`lambda`","`df`","`min`, `max`",
+                       "`shape`, `scale`")
+)
+distributions |> knitr::kable()
+```
+
+## Generating Random Samples from a Distibution
+
+To obtain a sample of size `n`, use the `r` function for the distribution with the first argument `n`, and subsequent arguments the parameters for that distribution. The parameters often have default values. E.g.
+
+|                          |                                                                       |
+|--------------------------|-----------------------------------------------------------------------|
+| `runif(n, min=0, max=1)` | Uniform                                                               |
+| `rnorm(n, mean=0, sd=1)` | Normal                                                                |
+| `rexp(n, rate=1)`        | Exponential with mean 1/rate                                          |
+| `rt(n, df)`              | t with df degrees of freedom                                          |
+| `rbinom(n, size, prob)`  | Binomial, success in `size` trials with probability of success `prob` |
+
+: {tbl-colwidths="\[50, 50\]"}
+
+[Table from <https://www.johndcook.com/blog/distributions_r_splus/>]{.smaller60}
+
+## Your Turn!
+
+Sometimes `sample()` can lead to nasty surprises.
+
+Consider the following code. Which line might cause a problem?
+
+```{r}
+#| eval: false
+x <- 1:10
+sample(x[x > 8])
+sample(x[x > 9])
+sample(x[x > 10])
+```
+
+Run the code to see what happens.
+
+:::{.callout-warning}
+You need to be careful when using `sample()` programmatically (i.e. in your function or simulation).
+:::
+
+See `?sample` for a safer version and check you understand how the proposed `resample()` function works.
 
 # Optimisation {background-color="#552D62"}
 
-Slides below from [Ruth Ripley's APTS course](https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf)
-
-## The optimisation problem
+## The Optimisation Problem
 
 -   Given a function $f(x)$, what value of $x$ makes $f(x)$ as small or large as possible?
 -   In a statistical context, $x$ will usually be the parameters of a model, and $f(x)$ either the model likelihood to be maximised or some measure of discrepancy between data and predictions to be minimised.
@@ -165,7 +289,7 @@ Slides below from [Ruth Ripley's APTS course](https://portal.stats.ox.ac.uk/user
 -   Function to be minimised is the first argument to `optimize`
 -   Can pre-specify the function or include it in the command.
 
-## Univariate Optimisation: example
+## Univariate Optimisation: Example
 
 ```{r}
 f <- function(x, a) {
@@ -184,7 +308,7 @@ xmin
 
 Note how the (fixed) parameter `a` is passed into `f`.
 
-## Other `optimize()` arguments
+## Other `optimize()` Arguments
 
 -   An interval within which to search must be specified, either by `interval` or by `upper` and `lower`
 
@@ -210,7 +334,7 @@ Note how the (fixed) parameter `a` is passed into `f`.
 -   Algorithm of choice depends on how easy it is to calculate derivatives for the function. Usually better to supply a function to calculate derivatives, but may be unnecessary extra work.
 -   Ensure the problem is scaled so that unit change in any parameter gives approximately unit change in objective.
 
-## `optim()` methods
+## `optim()` Methods
 
 ::: panel-tabset
 ## Nelder-Mead
@@ -230,7 +354,7 @@ Note how the (fixed) parameter `a` is passed into `f`.
 -   Uses derivative information, calculated either from a user-supplied function or by finite differences
 -   If dimension is large, the matrix stored may be very large
 
-## CG method
+## CG
 
 -   A conjugate gradient method: chooses successive search directions that are analogous to axes of an ellipse
 -   Does not store a Hessian matrix
@@ -259,14 +383,12 @@ Note how the (fixed) parameter `a` is passed into `f`.
 -   Included for use inside other functions where only method can be specified, not the function to be used.
 :::
 
-## How to use `optim()`
+## How to Use `optim()` {.smaller75}
 
 `optim(par, fn, gr=NULL, ..., method=c("Nelder-Mead", "BFGS", "CG", "L-BFGS-B", "SANN", "Brent"), lower=-Inf, upper=Inf, control=list(), hessian=FALSE)`
 
-. . .
-
 |                  |                                                                                            |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
+|-------------------------------------------------------|-----------------|
 | `par`            | starting values of the parameters                                                          |
 | `fn`             | function to be optimised (supply as for `optimize`)                                        |
 | `gr`             | function to calculate the derivative, only relevant for methods "BFGS", "CG" or "L-BFGS-B" |
@@ -276,27 +398,91 @@ Note how the (fixed) parameter `a` is passed into `f`.
 | `control`        | control options (see next slide)                                                           |
 | `hessian`        | logical: whether to return a hessian estimate calculated by finite differences             |
 
-## `optim`()`: control options
+: {tbl-colwidths="\[20, 80\]"}
+
+## `optim()`: Control Options
 
 There are very many. The most important are:
 
-FILL IN TABLE
+|            |                                                                                                                                                                   |
+|------------|-----------------------------------------------------------|
+| `trace`    | A positive integer: higher values give more information                                                                                                           |
+| `fnscale`  | An overall scaling: if negative, maximisation will be performed                                                                                                   |
+| `parscale` | A vector of scalings for the parameters                                                                                                                           |
+| `maxit`    | Maximum number of iterations to be performed. May be used to terminate unsuccessful attempts. Also used to perform one or two steps if convergence is unimportant |
+| `type`     | Used to select formula for "CG" method                                                                                                                            |
 
-## `optim()`: components of return value
+## `optim()`: Components of Return Value
 
-FILL IN TABLE
+|               |                                                                                                                                      |
+|--------------|----------------------------------------------------------|
+| `par`         | best set of parameters                                                                                                               |
+| `value`       | value of `fn` corresponding to `par`                                                                                                 |
+| `counts`      | number of calls to `fn` and `gr`: excludes calls for purposes of approximating derivatives or Hessian                                |
+| `convergence` | error code: 0=success, 1=`maxit` reached, 10=degeneracy of Nelder-Mead simplex, 51=warning from "L-BFGS-B", 52=error from "L-BFGS-B" |
+| `message`     | further information, if any                                                                                                          |
+| `hessian`     | if requested, a symmetric matrix estimate of the Hessian at the solution    
 
-## Constrained Optimisation
+|
 
-INCLUDE THIS? WILL NEED TO LEARN IT!
+## Your Turn! Q1
 
-# End matter {background-color="#552D62"}
+```{r}
+fw <- function (x) {
+    10*sin(0.3*x)*sin(1.3*x^2) + 0.00001*x^4 + 0.2*x+80
+}
+```
+
+```{r}
+#| echo: false
+#| fig-align: center
+
+library(ggplot2)
+ggplot() +
+  xlim(-50, 50) +
+  geom_function(fun = fw, n = 500) +
+  ylab(NULL) +  
+  theme_minimal() +
+  theme(text = element_text(size = 24))
+
+
+```
+
+- Use `optim()` to find a global minimum
+
+- Use `optim()` again to improve locally (aiming for -15.81515)
+
+
+## Your Turn! Q2
+
+- Take a look at the introduction to the Wikipedia page for [Rosenbrock's banana function](https://en.wikipedia.org/wiki/Rosenbrock_function){target="_blank"}
+
+- Copy this code for the `fn` and `gr`
+
+```{r}
+fr <- function(x) {   
+    x1 <- x[1]
+    x2 <- x[2]
+    100 * (x2 - x1 * x1)^2 + (1 - x1)^2
+}
+
+gr <- function(x) { 
+    x1 <- x[1]
+    x2 <- x[2]
+    c(-400 * x1 * (x2 - x1 * x1) - 2 * (1 - x1),
+       200 *      (x2 - x1 * x1))
+}
+```
+
+- Experiment with the `optim()` function to see which methods converge
+
+# End Matter {background-color="#552D62"}
 
 ## Resources
 
-This material is reproduced in large part from the APTS 2013/14 resources by Ruth Ripley:
+This material is reproduced in large part directly from the APTS 2013/14 resources by Ruth Ripley:
 
--   https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf
+-   <https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse5.pdf>
 
 ## License
 
