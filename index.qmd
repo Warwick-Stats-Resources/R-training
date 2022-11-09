@@ -1,5 +1,5 @@
 ---
-title: "R training"
+title: "R Training"
 ---
 
 Welcome to the {{< fa brands r-project >}} training course! 

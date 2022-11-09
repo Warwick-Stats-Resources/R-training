@@ -16,7 +16,7 @@
   {
     "objectID": "content.html",
     "href": "content.html",
-    "title": "content",
+    "title": "Content",
     "section": "",
     "text": "Please use the links in the sidebar to navigate to the page for each session."
   },
@@ -107,35 +107,35 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "R training",
+    "title": "R Training",
     "section": "",
     "text": "Welcome to the  training course!\nThis course is aimed at first year PhD students in the Department of Statistics at the University of Warwick, alongside 4th year undergraduates and MSc students."
   },
   {
     "objectID": "index.html#syllabus-overview",
     "href": "index.html#syllabus-overview",
-    "title": "R training",
+    "title": "R Training",
     "section": "Syllabus overview",
     "text": "Syllabus overview\n\nTerm 1: R Foundations, to cover the information and skills necessary to enable successful completion of the APTS programme and equip you to use R for standard analysis and reporting.\nTerm 2: Advanced R, to develop your R programming skills and equip you to write custom code for simulations, new statistical methods, etc.\nTerm 3: R package development, to equip you to share code with others, following good research software engineering practices.\n\nAll slides and further resources can be accessed from the content page and also via the schedule. Material will be added as the year progresses. There is one page per session."
   },
   {
     "objectID": "index.html#session-details",
     "href": "index.html#session-details",
-    "title": "R training",
+    "title": "R Training",
     "section": "Session details",
     "text": "Session details\n   Most Mondays in term time\n   10:00-11:30\n   Microsoft Teams (invitations will be sent to eligible participants)\n   See the full schedule."
   },
   {
     "objectID": "index.html#instructor-details",
     "href": "index.html#instructor-details",
-    "title": "R training",
+    "title": "R Training",
     "section": "Instructor details",
     "text": "Instructor details\n   Ella Kaye\n   Ella.M.Kaye@warwick.ac.uk"
   },
   {
     "objectID": "index.html#prerequistes",
     "href": "index.html#prerequistes",
-    "title": "R training",
+    "title": "R Training",
     "section": "Prerequistes",
     "text": "Prerequistes\nPlease see the prerequisites page for details on getting set up in advance of the first session."
   },
@@ -1164,7 +1164,7 @@
   {
     "objectID": "schedule.html",
     "href": "schedule.html",
-    "title": "schedule",
+    "title": "Schedule",
     "section": "",
     "text": "Sessions will be held most Mondays in term time, from 10:00-11:30 in Term 1.\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
   }

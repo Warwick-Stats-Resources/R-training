@@ -10,16 +10,16 @@ execute:
   freeze: auto  # Re-render only when source changes
 
 website:
-  title: "R training"
+  title: "R Training"
   favicon: images/warwick-university.png
   navbar:
     search: true
     right:
-      - text: "prerequisites"
+      - text: "Prerequisites"
         file: prerequisites.qmd
-      - text: "schedule"
+      - text: "Schedule"
         file: schedule.qmd
-      - text: "content"
+      - text: "Content"
         file: content.qmd
       - icon: github
         href: "https://github.com/Warwick-Stats-Resources/r-training"

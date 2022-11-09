@@ -1,5 +1,5 @@
 ---
-title: "schedule"
+title: "Schedule"
 ---
 
 Sessions will be held most **Mondays** in term time, from **10:00-11:30** in Term 1.
