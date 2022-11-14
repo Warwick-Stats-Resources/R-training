@@ -1,0 +1,29 @@
+---
+title: Graphics
+---
+
+***This page and the slides for this session are still under development***
+
+## Slides
+
+Here's a link to the [slides](/slides/01-foundations/05-graphics/index.qmd){target="_blank"} in a new window. 
+
+Here are the slides embedded:
+
+<iframe class="slide-deck ar3x2" src="/slides/01-foundations/05-graphics/index.html" title="Graphics slides">
+</iframe>
+
+## Resources
+
+### Reading
+
+- ggplot2: Elegant Graphics for Data Analysis
+
+  <https://ggplot2-book.org>
+
+
+### Packages
+
+- ggplot2
+
+  <https://ggplot2.tidyverse.org>

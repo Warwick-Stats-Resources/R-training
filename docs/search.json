@@ -1167,5 +1167,103 @@
     "title": "Schedule",
     "section": "",
     "text": "Sessions will be held most Mondays in term time, from 10:00-11:30 in Term 1.\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "content/01-foundations/05-graphics.html",
+    "href": "content/01-foundations/05-graphics.html",
+    "title": "Graphics",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/01-foundations/05-graphics.html#todo",
+    "href": "content/01-foundations/05-graphics.html#todo",
+    "title": "Graphics",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/01-foundations/05-graphics.html#slides",
+    "href": "content/01-foundations/05-graphics.html#slides",
+    "title": "Graphics",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/01-foundations/05-graphics.html#resources",
+    "href": "content/01-foundations/05-graphics.html#resources",
+    "title": "Graphics",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#overview",
+    "href": "slides/01-foundations/05-graphics/index.html#overview",
+    "title": "Graphics",
+    "section": "Overview",
+    "text": "Overview\n\nPlots in base R\nggplot2\nTables"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#plots-in-rstudio",
+    "href": "slides/01-foundations/05-graphics/index.html#plots-in-rstudio",
+    "title": "Graphics",
+    "section": "Plots in RStudio",
+    "text": "Plots in RStudio\nIn RStudio, graphs are displayed in the Plots window. The plot is sized to fit the window and will be rescaled if the size of the window is changed.\nBack and forward arrows allow you to navigate through graphs that have been plotted.\nGraphs can be saved in various formats using the Export drop down menu, which also has an option to copy to the clipboard.\nFirst we consider “no-frills” plots, for quick exploratory plots."
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#palmerpenguins",
+    "href": "slides/01-foundations/05-graphics/index.html#palmerpenguins",
+    "title": "Graphics",
+    "section": "palmerpenguins",
+    "text": "palmerpenguins\n\nlibrary(palmerpenguins)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#boxplots",
+    "href": "slides/01-foundations/05-graphics/index.html#boxplots",
+    "title": "Graphics",
+    "section": "Boxplots",
+    "text": "Boxplots\n\nExample 1Example 2\n\n\n\nboxplot(penguins$body_mass_g)\n\n\n\n\n\n\n\nwith(penguins, boxplot(body_mass_g ~ species))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#resources",
+    "href": "slides/01-foundations/05-graphics/index.html#resources",
+    "title": "Graphics",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#license",
+    "href": "slides/01-foundations/05-graphics/index.html#license",
+    "title": "Graphics",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#histogramdensity",
+    "href": "slides/01-foundations/05-graphics/index.html#histogramdensity",
+    "title": "Graphics",
+    "section": "Histogram/Density",
+    "text": "Histogram/Density\n\nHistogramDensity\n\n\n\nhist(penguins$body_mass_g)\n\n\n\n\n\n\n\nplot(density(penguins$body_mass_g, na.rm = TRUE))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#scatterplots",
+    "href": "slides/01-foundations/05-graphics/index.html#scatterplots",
+    "title": "Graphics",
+    "section": "Scatterplots",
+    "text": "Scatterplots\n\nVectorsData frame\n\n\n\nplot(1:10, 1:10)\n\n\n\n\n\n\n\nplot(bill_length_mm ~ bill_depth_mm, \n     data = subset(penguins, species == \"Gentoo\"))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#linear-model-diagnostic-fits",
+    "href": "slides/01-foundations/05-graphics/index.html#linear-model-diagnostic-fits",
+    "title": "Graphics",
+    "section": "Linear model diagnostic fits",
+    "text": "Linear model diagnostic fits\n\nfit <- lm(bill_length_mm ~ bill_depth_mm, \n          data = penguins, subset = species == \"Gentoo\")\n\npar(mfrow=c(2,2)) # see all four plots together\nplot(fit)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#intro-to-ggplot2",
+    "href": "slides/01-foundations/05-graphics/index.html#intro-to-ggplot2",
+    "title": "Graphics",
+    "section": "Intro to ggplot2",
+    "text": "Intro to ggplot2\n\nlibrary(ggplot2)\n\n\nggplot(data = NULL, aes(x = 1:10, y = 1:10)) +\n  geom_point()"
   }
 ]

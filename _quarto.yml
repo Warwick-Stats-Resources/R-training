@@ -38,6 +38,7 @@ website:
               - content/01-foundations/02-data-wrangling.qmd
               - content/01-foundations/03-programming.qmd
               - content/01-foundations/04-sim-optim.qmd
+              - content/01-foundations/05-graphics.qmd
           
     - title: "schedule"
       style: "docked"

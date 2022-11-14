@@ -1,0 +1,126 @@
+---
+title: Graphics
+subtitle: R Foundations course
+author: Ella Kaye | Department of Statistics | University of Warwick
+title-slide-attributes:
+  data-background-color: "#552D62"
+date: 2022-11-21
+date-format: long
+format: 
+  revealjs:
+    theme: [default, ../../slides.scss]
+    slide-number: true
+    execute:
+      echo: true
+      code-overflow: wrap
+---
+
+## Overview
+
+-   Plots in base R
+
+-   ggplot2
+
+-   Tables
+
+# Plots in base R {background-color="#552D62"}
+
+## Plots in RStudio
+
+In RStudio, graphs are displayed in the Plots window. The plot is sized to fit the window and will be rescaled if the size of the window is changed.
+
+Back and forward arrows allow you to navigate through graphs that have been plotted.
+
+Graphs can be saved in various formats using the Export drop down menu, which also has an option to copy to the clipboard.
+
+First we consider "no-frills" plots, for quick exploratory plots.
+
+## palmerpenguins
+
+```{r}
+library(palmerpenguins)
+```
+
+## Boxplots
+
+::: {.panel-tabset}
+## Example 1
+
+```{r}
+boxplot(penguins$body_mass_g)
+```
+
+
+## Example 2
+```{r}
+with(penguins, boxplot(body_mass_g ~ species))
+```
+:::
+
+## Histogram/Density
+
+::: {.panel-tabset}
+## Histogram
+
+```{r}
+hist(penguins$body_mass_g)
+```
+
+## Density
+```{r}
+plot(density(penguins$body_mass_g, na.rm = TRUE))
+```
+:::
+
+## Scatterplots
+
+::: {.panel-tabset}
+## Vectors
+```{r}
+plot(1:10, 1:10)
+```
+
+
+## Data frame
+```{r}
+plot(bill_length_mm ~ bill_depth_mm, 
+     data = subset(penguins, species == "Gentoo"))
+```
+:::
+
+## Linear model diagnostic fits
+
+```{r}
+fit <- lm(bill_length_mm ~ bill_depth_mm, 
+          data = penguins, subset = species == "Gentoo")
+
+par(mfrow=c(2,2)) # see all four plots together
+plot(fit)
+```
+
+# ggplot2 {background-color="#552D62"}
+
+## Intro to ggplot2
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+ggplot(data = NULL, aes(x = 1:10, y = 1:10)) +
+  geom_point()
+```
+
+# Tables {background-color="#552D62"}
+
+# End Matter {background-color="#552D62"}
+
+## Resources
+
+Material inspired by and remixed from:
+
+- 
+
+## License
+
+Licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){target="_blank"}).
