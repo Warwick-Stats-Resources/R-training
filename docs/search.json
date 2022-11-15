@@ -1194,7 +1194,7 @@
     "href": "content/01-foundations/05-graphics.html#resources",
     "title": "Graphics",
     "section": "Resources",
-    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+    "text": "Resources\n\nReading\n\nggplot2: Elegant Graphics for Data Analysis\nhttps://ggplot2-book.org\n\n\n\nPackages\n\nggplot2\nhttps://ggplot2.tidyverse.org"
   },
   {
     "objectID": "slides/01-foundations/05-graphics/index.html#overview",
@@ -1229,7 +1229,7 @@
     "href": "slides/01-foundations/05-graphics/index.html#resources",
     "title": "Graphics",
     "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:"
+    "text": "Resources\nFor ggplot2: see earlier ‘ggplot2 resources’ slide"
   },
   {
     "objectID": "slides/01-foundations/05-graphics/index.html#license",
@@ -1250,7 +1250,7 @@
     "href": "slides/01-foundations/05-graphics/index.html#scatterplots",
     "title": "Graphics",
     "section": "Scatterplots",
-    "text": "Scatterplots\n\nVectorsData frame\n\n\n\nplot(1:10, 1:10)\n\n\n\n\n\n\n\nplot(bill_length_mm ~ bill_depth_mm, \n     data = subset(penguins, species == \"Gentoo\"))"
+    "text": "Scatterplots\n\nVectorsData frame\n\n\n\nplot(1:10, 1:10)\n\n\n\n\n\n\n\nplot(bill_length_mm ~ bill_depth_mm, \n     data = penguins)"
   },
   {
     "objectID": "slides/01-foundations/05-graphics/index.html#linear-model-diagnostic-fits",
@@ -1264,6 +1264,447 @@
     "href": "slides/01-foundations/05-graphics/index.html#intro-to-ggplot2",
     "title": "Graphics",
     "section": "Intro to ggplot2",
-    "text": "Intro to ggplot2\n\nlibrary(ggplot2)\n\n\nggplot(data = NULL, aes(x = 1:10, y = 1:10)) +\n  geom_point()"
+    "text": "Intro to ggplot2\nFrom https://ggplot2.tidyverse.org:\n\nR has several systems for making graphs, but ggplot2 is one of the most elegant and most versatile. ggplot2 implements the grammar of graphics, a coherent system for describing and building graphs. With ggplot2, you can do more faster by learning one system and applying it in many places.\n\nFrom https://r4ds.had.co.nz/data-visualisation.html:\n\nYou provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details."
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#extensions",
+    "href": "slides/01-foundations/05-graphics/index.html#extensions",
+    "title": "Graphics",
+    "section": "Extensions",
+    "text": "Extensions\nSee extensions at https://exts.ggplot2.tidyverse.org/gallery/"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#section",
+    "href": "slides/01-foundations/05-graphics/index.html#section",
+    "title": "Graphics",
+    "section": "",
+    "text": "library(ggplot2)\n\n\nggplot(data = NULL, aes(x = 1:10, y = 1:10)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#ggplot2-usage",
+    "href": "slides/01-foundations/05-graphics/index.html#ggplot2-usage",
+    "title": "Graphics",
+    "section": "ggplot2 usage",
+    "text": "ggplot2 usage\n\nggplot2 is part of the tidyverse.\nIt has been around for over 10 years and is used by hundreds of thousands of people.\nIt can take some getting used to, but is worth the investment to learn properly"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#ggplot2-cake-data-menu-titleggplot2-as-a-cake",
+    "href": "slides/01-foundations/05-graphics/index.html#ggplot2-cake-data-menu-titleggplot2-as-a-cake",
+    "title": "Graphics",
+    "section": "{#ggplot2-cake data-menu-title=“ggplot2 as a cake”",
+    "text": "{#ggplot2-cake data-menu-title=“ggplot2 as a cake”\n\nImage credit: Tanya Shapiro"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#ggplot2-cake",
+    "href": "slides/01-foundations/05-graphics/index.html#ggplot2-cake",
+    "title": "Graphics",
+    "section": "",
+    "text": "## First example\n\nlibrary(ggplot2)\nlibrary(palmerpenguins)\n\n\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#ggplot2-key-components",
+    "href": "slides/01-foundations/05-graphics/index.html#ggplot2-key-components",
+    "title": "Graphics",
+    "section": "ggplot2 key components",
+    "text": "ggplot2 key components\nEvery ggplot2 plot has three key components:\n\nData (typically in a data frame),\nA set of aesthetic mappings between variables in the data and visual properties, and\nAt least one layer which describes how to render each observation. Layers are usually created with a geom function."
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#can-be-more-typing-that-base-plot",
+    "href": "slides/01-foundations/05-graphics/index.html#can-be-more-typing-that-base-plot",
+    "title": "Graphics",
+    "section": "Can be more typing that base plot",
+    "text": "Can be more typing that base plot\n\nggplot(data = NULL, aes(x = 1:10, y = 1:10)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#like-a-cake",
+    "href": "slides/01-foundations/05-graphics/index.html#like-a-cake",
+    "title": "Graphics",
+    "section": "Like a cake",
+    "text": "Like a cake\n ## First example\n\nlibrary(ggplot2)\nlibrary(palmerpenguins)\n\n\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#first-example",
+    "href": "slides/01-foundations/05-graphics/index.html#first-example",
+    "title": "Graphics",
+    "section": "First example",
+    "text": "First example\n\n\n\n\ndata and aesadd points!\n\n\n\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm))\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#cake",
+    "href": "slides/01-foundations/05-graphics/index.html#cake",
+    "title": "Graphics",
+    "section": "Cake!",
+    "text": "Cake!\n\nImage credit: Tanya Shapiro"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#first-example-data-and-aes",
+    "href": "slides/01-foundations/05-graphics/index.html#first-example-data-and-aes",
+    "title": "Graphics",
+    "section": "First example: data and aes",
+    "text": "First example: data and aes\n\n\n\n\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#first-example-add-points",
+    "href": "slides/01-foundations/05-graphics/index.html#first-example-add-points",
+    "title": "Graphics",
+    "section": "First example: add points",
+    "text": "First example: add points\n\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#first-example-add-aes",
+    "href": "slides/01-foundations/05-graphics/index.html#first-example-add-aes",
+    "title": "Graphics",
+    "section": "First example: add aes",
+    "text": "First example: add aes\n\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#first-example-initiate-with-data",
+    "href": "slides/01-foundations/05-graphics/index.html#first-example-initiate-with-data",
+    "title": "Graphics",
+    "section": "First example: initiate with data",
+    "text": "First example: initiate with data\n\nggplot(penguins)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#first-example-add-theme-elements",
+    "href": "slides/01-foundations/05-graphics/index.html#first-example-add-theme-elements",
+    "title": "Graphics",
+    "section": "First example: add theme elements",
+    "text": "First example: add theme elements\n\nplotcode\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  labs(title = \"Penguin bill dimensions\",\n       x = \"bill length (mm)\",\n       y = \"bill depth (mm)\") +\n  theme_minimal() + \n  theme(plot.title.position = \"plot\",\n        text = element_text(size = 20))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#libraries",
+    "href": "slides/01-foundations/05-graphics/index.html#libraries",
+    "title": "Graphics",
+    "section": "libraries",
+    "text": "libraries\n\nlibrary(ggplot2) # for later in the session\nlibrary(palmerpenguins)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#plot-methods",
+    "href": "slides/01-foundations/05-graphics/index.html#plot-methods",
+    "title": "Graphics",
+    "section": "Plot methods",
+    "text": "Plot methods\nMany different objects in R have defined plot methods:\n\nmethods(plot)\n\n [1] plot,ANY-method     plot,color-method   plot.acf*          \n [4] plot.data.frame*    plot.decomposed.ts* plot.default       \n [7] plot.dendrogram*    plot.density*       plot.ecdf          \n[10] plot.factor*        plot.formula*       plot.function      \n[13] plot.ggplot*        plot.gtable*        plot.hcl_palettes* \n[16] plot.hclust*        plot.histogram*     plot.HoltWinters*  \n[19] plot.isoreg*        plot.lm*            plot.medpolish*    \n[22] plot.mlm*           plot.ppr*           plot.prcomp*       \n[25] plot.princomp*      plot.profile.nls*   plot.R6*           \n[28] plot.raster*        plot.spec*          plot.stepfun       \n[31] plot.stl*           plot.table*         plot.trans*        \n[34] plot.ts             plot.tskernel*      plot.TukeyHSD*     \nsee '?methods' for accessing help and source code\n\n\ne.g. if you call plot on an object of type lm, it will call plot.lm"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#things-to-watch-out-for",
+    "href": "slides/01-foundations/05-graphics/index.html#things-to-watch-out-for",
+    "title": "Graphics",
+    "section": "Things to watch out for",
+    "text": "Things to watch out for\n\nPackage is ggplot2 but function is ggplot()\nLayers are added with + (not %>% or |>)\nCommon mistake: making a mapping to the data that should be a fixed value"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#careful-what-goes-in-aes",
+    "href": "slides/01-foundations/05-graphics/index.html#careful-what-goes-in-aes",
+    "title": "Graphics",
+    "section": "Careful what goes in aes()",
+    "text": "Careful what goes in aes()\n\n\n\nggplot(penguins, \n       aes(x = bill_length_mm, \n           y = bill_depth_mm)) +\n  geom_point(aes(color = \"blue\"))\n\n\n\n\n\n\nggplot(penguins, \n       aes(x = bill_length_mm, \n           y = bill_depth_mm)) +\n  geom_point(color = \"blue\")"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#correct",
+    "href": "slides/01-foundations/05-graphics/index.html#correct",
+    "title": "Graphics",
+    "section": "Correct",
+    "text": "Correct\n\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +\n  geom_point(colour = \"blue\")"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#what-you-do-want-to-map-a-colour-to-data",
+    "href": "slides/01-foundations/05-graphics/index.html#what-you-do-want-to-map-a-colour-to-data",
+    "title": "Graphics",
+    "section": "What you do want to map a colour to data",
+    "text": "What you do want to map a colour to data\n\nplotcode\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#building-layers",
+    "href": "slides/01-foundations/05-graphics/index.html#building-layers",
+    "title": "Graphics",
+    "section": "Building layers",
+    "text": "Building layers"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#when-you-do-want-to-map-a-colour-to-data",
+    "href": "slides/01-foundations/05-graphics/index.html#when-you-do-want-to-map-a-colour-to-data",
+    "title": "Graphics",
+    "section": "When you do want to map a colour to data",
+    "text": "When you do want to map a colour to data\n\nplotcode\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8)\n\nNote that color and shape are inside aes() but size and alpha are outside."
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#add-additional-geoms",
+    "href": "slides/01-foundations/05-graphics/index.html#add-additional-geoms",
+    "title": "Graphics",
+    "section": "Add additional geoms",
+    "text": "Add additional geoms\n\nplotcode\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#add-scales",
+    "href": "slides/01-foundations/05-graphics/index.html#add-scales",
+    "title": "Graphics",
+    "section": "Add scales",
+    "text": "Add scales\n\nplotcode\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\"))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#scales-in-ggplot2",
+    "href": "slides/01-foundations/05-graphics/index.html#scales-in-ggplot2",
+    "title": "Graphics",
+    "section": "Scales in ggplot2",
+    "text": "Scales in ggplot2\n\nScales in ggplot2 control the mapping from data to aesthetics. They take your data and turn it into something that you can see, like size, colour, position or shape. They also provide the tools that let you interpret the plot: the axes and legends.\n\nThree groups of scales:\n\nposition scales and axes\ncolour scales and legends\nscales for other aesthetics"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#add-a-colour-scale",
+    "href": "slides/01-foundations/05-graphics/index.html#add-a-colour-scale",
+    "title": "Graphics",
+    "section": "Add a colour scale",
+    "text": "Add a colour scale\n\nplotcode\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\"))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#facets",
+    "href": "slides/01-foundations/05-graphics/index.html#facets",
+    "title": "Graphics",
+    "section": "Facets",
+    "text": "Facets\n\nplot 1code 1plot 2code 2\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  facet_wrap(~species)\n\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  facet_wrap(~species, scales = \"free_x\")"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#initiate-with-data",
+    "href": "slides/01-foundations/05-graphics/index.html#initiate-with-data",
+    "title": "Graphics",
+    "section": "Initiate with data",
+    "text": "Initiate with data\nPackage is ggplot2 but function is ggplot()\n\nggplot(penguins)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#add-aesthetics",
+    "href": "slides/01-foundations/05-graphics/index.html#add-aesthetics",
+    "title": "Graphics",
+    "section": "Add aesthetics",
+    "text": "Add aesthetics\n\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#add-points",
+    "href": "slides/01-foundations/05-graphics/index.html#add-points",
+    "title": "Graphics",
+    "section": "Add points",
+    "text": "Add points\nLayers are added with + (not %>% or |>)\n\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#other-geoms-boxplot",
+    "href": "slides/01-foundations/05-graphics/index.html#other-geoms-boxplot",
+    "title": "Graphics",
+    "section": "Other geoms: boxplot",
+    "text": "Other geoms: boxplot\n\nggplot(penguins) +\n  geom_boxplot(aes(species, body_mass_g))\n\n\nNotes\n\naes() can be defined for the whole plot or in the geom\nfirst arguments to aes() are x and y (don’t need to name them)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#boxplots-1",
+    "href": "slides/01-foundations/05-graphics/index.html#boxplots-1",
+    "title": "Graphics",
+    "section": "Boxplots",
+    "text": "Boxplots\n\nExample 1Example 2Example 3\n\n\n\nggplot(penguins) +\n  geom_boxplot(aes(body_mass_g))\n\n\n\n\n\n\n\nggplot(penguins) +\n  geom_boxplot(aes(y = body_mass_g))\n\n\n\n\n\n\n\nggplot(penguins) +\n  geom_boxplot(aes(species, body_mass_g))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#boxplot",
+    "href": "slides/01-foundations/05-graphics/index.html#boxplot",
+    "title": "Graphics",
+    "section": "Boxplot",
+    "text": "Boxplot\n\nggplot(penguins) +\n  geom_boxplot(aes(species, body_mass_g))\n\n\nNotes\n\naes() can be defined for the whole plot or in the geom\nfirst arguments to aes() are x and y (don’t need to name them)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#histogram-1",
+    "href": "slides/01-foundations/05-graphics/index.html#histogram-1",
+    "title": "Graphics",
+    "section": "Histogram",
+    "text": "Histogram\n\nggplot(penguins) +\n  geom_histogram(aes(body_mass_g), \n                 binwidth = 500)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#density-1",
+    "href": "slides/01-foundations/05-graphics/index.html#density-1",
+    "title": "Graphics",
+    "section": "Density",
+    "text": "Density\n\nggplot(penguins) +\n  geom_density(aes(body_mass_g))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#scatterplot-with-vectors",
+    "href": "slides/01-foundations/05-graphics/index.html#scatterplot-with-vectors",
+    "title": "Graphics",
+    "section": "Scatterplot with vectors",
+    "text": "Scatterplot with vectors\n\nggplot(data = NULL, aes(x = 1:10, y = 1:10)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#inspiration",
+    "href": "slides/01-foundations/05-graphics/index.html#inspiration",
+    "title": "Graphics",
+    "section": "Inspiration",
+    "text": "Inspiration\nR can be used to make incredible data visualisations.\nCheck out the galleries of these data viz practitioners working with ggplot2:\n\nCedric Scherer\nGeorgios Karamanis\nNicole Rennie\n\nAlso, #TidyTuesday on Twitter or Mastodon is a great source for further inspiration"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#learning-more",
+    "href": "slides/01-foundations/05-graphics/index.html#learning-more",
+    "title": "Graphics",
+    "section": "Learning more",
+    "text": "Learning more\n\nR for Data Science book: Chapters 3: Data Visualisation and 28: Graphics for Communication, to get up and running quickly\nggplot2 book, for an in-depth understanding\nPlotting anything with ggplot2 webinar with Thomas Lin Pederson (one of the main ggplot2 authors)\nR graphics cookbook, a practical guide that provides more than 150 recipes to help you generate high-quality graphs quickly\nCedric Scherer’s tutorial\nCedric Scherer’s Graphic Design with ggplot2 workshop\nggplot2 reference"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#no-frills",
+    "href": "slides/01-foundations/05-graphics/index.html#no-frills",
+    "title": "Graphics",
+    "section": "No frills",
+    "text": "No frills\nBase R graphics are useful for quick, exploratory “no-frills” plots.\n(For anything better looking or more complex or where you want more control, use ggplot2)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#ggplot2-resources",
+    "href": "slides/01-foundations/05-graphics/index.html#ggplot2-resources",
+    "title": "Graphics",
+    "section": "ggplot2 resources",
+    "text": "ggplot2 resources\n\nR for Data Science book: Chapters 3: Data Visualisation and 28: Graphics for Communication, to get up and running quickly\nggplot2 book, for an in-depth understanding\nPlotting anything with ggplot2 webinar with Thomas Lin Pederson (one of the main ggplot2 authors)\nR graphics cookbook, a practical guide that provides more than 150 recipes to help you generate high-quality graphs quickly\nCedric Scherer’s tutorial\nCedric Scherer’s ‘Graphic Design with ggplot2’ workshop\nggplot2 reference"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#viewing-and-saving-plots-in-rstudio",
+    "href": "slides/01-foundations/05-graphics/index.html#viewing-and-saving-plots-in-rstudio",
+    "title": "Graphics",
+    "section": "Viewing and saving plots in RStudio",
+    "text": "Viewing and saving plots in RStudio\nIn RStudio, graphs are displayed in the Plots window. The plot is sized to fit the window and will be rescaled if the size of the window is changed.\nBack and forward arrows allow you to navigate through graphs that have been plotted.\nPlots can be saved in various formats using the Export drop down menu, which also has an option to copy to the clipboard.\nDEMO"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#packages-for-working-with-tables",
+    "href": "slides/01-foundations/05-graphics/index.html#packages-for-working-with-tables",
+    "title": "Graphics",
+    "section": "Packages for working with tables",
+    "text": "Packages for working with tables\nWe’re just going to scratch the surface of this today! This section is mostly to point you in the direction of further resources.\nThere are LOTS of packages for making tables in R\n\ngt (and gtextras)\ngtsummary\nkable and kableExtra\nformattable\nDT\nreactable\nreactablefmtr\nflextable\n\nHere’s a good overview of these different packages"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#getting-started-with-tables",
+    "href": "slides/01-foundations/05-graphics/index.html#getting-started-with-tables",
+    "title": "Graphics",
+    "section": "Getting started with tables",
+    "text": "Getting started with tables\nWe’re just going to scratch the surface of this today.\nWe’ll be using the gt and gtsummary packages, but there are many of other.\nHere’s a good overview of many different packages."
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#gt",
+    "href": "slides/01-foundations/05-graphics/index.html#gt",
+    "title": "Graphics",
+    "section": "gt",
+    "text": "gt\ngt is an R package to create tables. It provides a grammar of tables.\n\nThe gt philosophy: we can construct a wide variety of useful tables with a cohesive set of table parts. It all begins with table data (be it a tibble or a data frame). You then decide how to compose your gt table with the elements and formatting you need for the task at hand. Finally, the table is rendered by printing it at the console, including it in an R Markdown document, or exporting to a file using gtsave()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#parts-of-a-gt-table",
+    "href": "slides/01-foundations/05-graphics/index.html#parts-of-a-gt-table",
+    "title": "Graphics",
+    "section": "Parts of a gt table",
+    "text": "Parts of a gt table\n\nFrom https://gt.rstudio.com"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#guidelines-for-better-tables",
+    "href": "slides/01-foundations/05-graphics/index.html#guidelines-for-better-tables",
+    "title": "Graphics",
+    "section": "Guidelines for better tables",
+    "text": "Guidelines for better tables\nHaving the technical know-how to code tables is one thing, making them look good and such that the reader can easily read the data is another!\nHighly recommend this Tom Mock guide, based on Jon Schwabish’s original. It covers guidelines for making better tables, and shows how to implement them in gt. It demonstrates even more of what gt can do than the article on the previous slide."
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#gtsummary",
+    "href": "slides/01-foundations/05-graphics/index.html#gtsummary",
+    "title": "Graphics",
+    "section": "gtsummary",
+    "text": "gtsummary\ngtsummary extends the gt package and is used for summarising tables and working with statistical model summaries."
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#an-example",
+    "href": "slides/01-foundations/05-graphics/index.html#an-example",
+    "title": "Graphics",
+    "section": "An example",
+    "text": "An example\nSee the article Case Study: gtcars for a thorough example of gt’s capabilities."
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#an-example-code",
+    "href": "slides/01-foundations/05-graphics/index.html#an-example-code",
+    "title": "Graphics",
+    "section": "An example: code",
+    "text": "An example: code\n\nlibrary(gt)\nlibrary(tidyverse)\nlibrary(glue)\n\n# Define the start and end dates for the data range\nstart_date <- \"2010-06-07\"\nend_date <- \"2010-06-14\"\n\n# Create a gt table based on preprocessed\n# `sp500` table data\nsp500 %>%\n  filter(date >= start_date & date <= end_date) %>%\n  select(-adj_close) %>%\n  gt() %>%\n  tab_header(\n    title = \"S&P 500\",\n    subtitle = glue(\"{start_date} to {end_date}\")\n  ) %>%\n  fmt_date(\n    columns = date,\n    date_style = 3\n  ) %>%\n  fmt_currency(\n    columns = c(open, high, low, close),\n    currency = \"USD\"\n  ) %>%\n  fmt_number(\n    columns = volume,\n    suffixing = TRUE\n  ) %>%\n  gtsave(\"sp500-table.png\")"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#an-example-plot",
+    "href": "slides/01-foundations/05-graphics/index.html#an-example-plot",
+    "title": "Graphics",
+    "section": "An example: plot",
+    "text": "An example: plot"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#gtsummary-example",
+    "href": "slides/01-foundations/05-graphics/index.html#gtsummary-example",
+    "title": "Graphics",
+    "section": "gtsummary example",
+    "text": "gtsummary example\n\ncodetable\n\n\n\nlibrary(gtsummary)\n# make dataset with a few variables to summarize\ntrial2 <- trial %>% select(age, grade, response, trt)\n\n# summarize the data with our package\ntable1 <- tbl_summary(trial2)\n\n\n\n\n\n\n\n\n\n  \n  \n    \n      Characteristic\n      N = 2001\n    \n  \n  \n    Age\n47 (38, 57)\n        Unknown\n11\n    Grade\n\n        I\n68 (34%)\n        II\n68 (34%)\n        III\n64 (32%)\n    Tumor Response\n61 (32%)\n        Unknown\n7\n    Chemotherapy Treatment\n\n        Drug A\n98 (49%)\n        Drug B\n102 (51%)\n  \n  \n  \n    \n      1 Median (IQR); n (%)\n    \n  \n\n\n\n\n\n\n\n\ntable2 <- \n  tbl_summary(\n    trial2,\n    by = trt, # split table by group\n    missing = \"no\" # don't list missing data separately\n  ) %>%\n  add_n() %>% # add column with total number of non-missing observations\n  add_p() %>% # test for a difference between groups\n  modify_header(label = \"**Variable**\") %>% # update the column header\n  bold_labels()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#output",
+    "href": "slides/01-foundations/05-graphics/index.html#output",
+    "title": "Graphics",
+    "section": "Output",
+    "text": "Output\n\ntable\n\n\n\n\n\n  \n  \n    \n      Variable\n      N\n      Drug A, N = 981\n      Drug B, N = 1021\n      p-value2\n    \n  \n  \n    Age\n189\n46 (37, 59)\n48 (39, 56)\n0.7\n    Grade\n200\n\n\n0.9\n        I\n\n35 (36%)\n33 (32%)\n\n        II\n\n32 (33%)\n36 (35%)\n\n        III\n\n31 (32%)\n33 (32%)\n\n    Tumor Response\n193\n28 (29%)\n33 (34%)\n0.5\n  \n  \n  \n    \n      1 Median (IQR); n (%)\n    \n    \n      2 Wilcoxon rank sum test; Pearson's Chi-squared test"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#gtsummary-example-code",
+    "href": "slides/01-foundations/05-graphics/index.html#gtsummary-example-code",
+    "title": "Graphics",
+    "section": "gtsummary example: code",
+    "text": "gtsummary example: code"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#code-4",
+    "href": "slides/01-foundations/05-graphics/index.html#code-4",
+    "title": "Graphics",
+    "section": "code",
+    "text": "code\n\nlibrary(gtsummary)\n# make dataset with a few variables to summarize\ntrial2 <- trial %>% select(age, grade, response, trt)\n\n# summarize and augment the data with our package\ntable <- \n  tbl_summary(\n    trial2,\n    by = trt, # split table by group\n    missing = \"no\" # don't list missing data separately\n  ) %>%\n  add_n() %>% # add column with total number of non-missing observations\n  add_p() %>% # test for a difference between groups\n  modify_header(label = \"**Variable**\") %>% # update the column header\n  bold_labels()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#gtsummary-example-1-code",
+    "href": "slides/01-foundations/05-graphics/index.html#gtsummary-example-1-code",
+    "title": "Graphics",
+    "section": "gtsummary example 1: code",
+    "text": "gtsummary example 1: code\n\n# summarize and augment the data with our package\nsummary_table <- \n  tbl_summary(\n    trial2,\n    by = trt, # split table by group\n    missing = \"no\" # don't list missing data separately\n  ) %>%\n  add_n() %>% # add column with total number of non-missing observations\n  add_p() %>% # test for a difference between groups\n  modify_header(label = \"**Variable**\") %>% # update the column header\n  bold_labels()"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#gtsummary-example-1-output",
+    "href": "slides/01-foundations/05-graphics/index.html#gtsummary-example-1-output",
+    "title": "Graphics",
+    "section": "gtsummary example 1: output",
+    "text": "gtsummary example 1: output\n\n\n\n\n\n\n  \n  \n    \n      Variable\n      N\n      Drug A, N = 981\n      Drug B, N = 1021\n      p-value2\n    \n  \n  \n    Age\n189\n46 (37, 59)\n48 (39, 56)\n0.7\n    Grade\n200\n\n\n0.9\n        I\n\n35 (36%)\n33 (32%)\n\n        II\n\n32 (33%)\n36 (35%)\n\n        III\n\n31 (32%)\n33 (32%)\n\n    Tumor Response\n193\n28 (29%)\n33 (34%)\n0.5\n  \n  \n  \n    \n      1 Median (IQR); n (%)\n    \n    \n      2 Wilcoxon rank sum test; Pearson's Chi-squared test"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#gtsummary-example-2-code",
+    "href": "slides/01-foundations/05-graphics/index.html#gtsummary-example-2-code",
+    "title": "Graphics",
+    "section": "gtsummary example 2: code",
+    "text": "gtsummary example 2: code\n\nmod1 <- glm(response ~ trt + age + grade, trial, family = binomial)\n\nregression_tab <- tbl_regression(mod1, exponentiate = TRUE)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#gtsummary-example-2-output",
+    "href": "slides/01-foundations/05-graphics/index.html#gtsummary-example-2-output",
+    "title": "Graphics",
+    "section": "gtsummary example 2: output",
+    "text": "gtsummary example 2: output\n\n\n\n\n\n\n  \n  \n    \n      Characteristic\n      OR1\n      95% CI1\n      p-value\n    \n  \n  \n    Chemotherapy Treatment\n\n\n\n        Drug A\n—\n—\n\n        Drug B\n1.13\n0.60, 2.13\n0.7\n    Age\n1.02\n1.00, 1.04\n0.10\n    Grade\n\n\n\n        I\n—\n—\n\n        II\n0.85\n0.39, 1.85\n0.7\n        III\n1.01\n0.47, 2.15\n>0.9\n  \n  \n  \n    \n      1 OR = Odds Ratio, CI = Confidence Interval"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#gtsummary-example-1-data",
+    "href": "slides/01-foundations/05-graphics/index.html#gtsummary-example-1-data",
+    "title": "Graphics",
+    "section": "gtsummary example 1: data",
+    "text": "gtsummary example 1: data\n\nlibrary(gtsummary)\n# make dataset with a few variables to summarize\ntrial2 <- trial %>% select(age, grade, response, trt)\n\nhead(trial2)\n\n# A tibble: 6 × 4\n    age grade response trt   \n  <dbl> <fct>    <int> <chr> \n1    23 II           0 Drug A\n2     9 I            1 Drug B\n3    31 II           0 Drug A\n4    NA III          1 Drug A\n5    51 III          1 Drug A\n6    39 I            0 Drug B"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#data-visualisation-resources",
+    "href": "slides/01-foundations/05-graphics/index.html#data-visualisation-resources",
+    "title": "Graphics",
+    "section": "Data visualisation resources",
+    "text": "Data visualisation resources\nBooks about greating good data viz:\n\nData Visualisation: A practical Introduction by Kieran Healey\nFundamental’s of Data Visualisation by Claus Wilke"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#your-turn",
+    "href": "slides/01-foundations/05-graphics/index.html#your-turn",
+    "title": "Graphics",
+    "section": "Your turn!",
+    "text": "Your turn!"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#your-turn-1",
+    "href": "slides/01-foundations/05-graphics/index.html#your-turn-1",
+    "title": "Graphics",
+    "section": "Your turn!",
+    "text": "Your turn!"
   }
 ]

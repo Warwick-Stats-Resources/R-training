@@ -411,23 +411,22 @@ Ella Kaye | Department of Statistics | University of Warwick
 <li><p>Tables</p></li>
 </ul>
 </section>
+<section id="libraries" class="slide level2">
+<h2>libraries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># for later in the session</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section>
 <section id="plots-in-base-r" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>Plots in base R</h1>
 
 </section>
-<section id="plots-in-rstudio" class="slide level2">
-<h2>Plots in RStudio</h2>
-<p>In RStudio, graphs are displayed in the Plots window. The plot is sized to fit the window and will be rescaled if the size of the window is changed.</p>
-<p>Back and forward arrows allow you to navigate through graphs that have been plotted.</p>
-<p>Graphs can be saved in various formats using the Export drop down menu, which also has an option to copy to the clipboard.</p>
-<p>First we consider “no-frills” plots, for quick exploratory plots.</p>
-</section>
-<section id="palmerpenguins" class="slide level2">
-<h2>palmerpenguins</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="no-frills" class="slide level2">
+<h2>No frills</h2>
+<p>Base R graphics are useful for quick, exploratory “no-frills” plots.</p>
+<p>(For anything better looking or more complex or where you want more control, use ggplot2)</p>
 </section>
 <section id="boxplots" class="slide level2">
 <h2>Boxplots</h2>
@@ -493,7 +492,7 @@ Ella Kaye | Department of Statistics | University of Warwick
 <div id="tabset-3-2">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">plot</span>(bill_length_mm <span class="sc">~</span> bill_depth_mm, </span>
-<span id="cb7-2"><a href="#cb7-2"></a>     <span class="at">data =</span> <span class="fu">subset</span>(penguins, species <span class="sc">==</span> <span class="st">"Gentoo"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2"></a>     <span class="at">data =</span> penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
 </div>
@@ -502,17 +501,43 @@ Ella Kaye | Department of Statistics | University of Warwick
 </div>
 </div>
 </section>
+<section id="plot-methods" class="slide level2">
+<h2>Plot methods</h2>
+<p>Many different objects in R have defined <code>plot</code> methods:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">methods</span>(plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] plot,ANY-method     plot,color-method   plot.acf*          
+ [4] plot.data.frame*    plot.decomposed.ts* plot.default       
+ [7] plot.dendrogram*    plot.density*       plot.ecdf          
+[10] plot.factor*        plot.formula*       plot.function      
+[13] plot.ggplot*        plot.gtable*        plot.hcl_palettes* 
+[16] plot.hclust*        plot.histogram*     plot.HoltWinters*  
+[19] plot.isoreg*        plot.lm*            plot.medpolish*    
+[22] plot.mlm*           plot.ppr*           plot.prcomp*       
+[25] plot.princomp*      plot.profile.nls*   plot.R6*           
+[28] plot.raster*        plot.spec*          plot.stepfun       
+[31] plot.stl*           plot.table*         plot.trans*        
+[34] plot.ts             plot.tskernel*      plot.TukeyHSD*     
+see '?methods' for accessing help and source code</code></pre>
+</div>
+</div>
+<p>e.g.&nbsp;if you call <code>plot</code> on an object of type <code>lm</code>, it will call <code>plot.lm</code></p>
+</section>
 <section id="linear-model-diagnostic-fits" class="slide level2">
 <h2>Linear model diagnostic fits</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(bill_length_mm <span class="sc">~</span> bill_depth_mm, </span>
-<span id="cb8-2"><a href="#cb8-2"></a>          <span class="at">data =</span> penguins, <span class="at">subset =</span> species <span class="sc">==</span> <span class="st">"Gentoo"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># see all four plots together</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="fu">plot</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(bill_length_mm <span class="sc">~</span> bill_depth_mm, </span>
+<span id="cb10-2"><a href="#cb10-2"></a>          <span class="at">data =</span> penguins, <span class="at">subset =</span> species <span class="sc">==</span> <span class="st">"Gentoo"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># see all four plots together</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="fu">plot</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section></section>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
+<section id="your-turn" class="slide level2">
+<h2>Your turn!</h2>
+</section></section>
 <section>
 <section id="ggplot2" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>ggplot2</h1>
@@ -520,31 +545,1350 @@ Ella Kaye | Department of Statistics | University of Warwick
 </section>
 <section id="intro-to-ggplot2" class="slide level2">
 <h2>Intro to ggplot2</h2>
+<p>From <a href="https://ggplot2.tidyverse.org" class="uri">https://ggplot2.tidyverse.org</a>:</p>
+<blockquote>
+<p>R has several systems for making graphs, but ggplot2 is one of the most elegant and most versatile. ggplot2 implements the <strong>grammar of graphics</strong>, a coherent system for describing and building graphs. With ggplot2, you can do more faster by learning one system and applying it in many places.</p>
+</blockquote>
+<p>From <a href="https://r4ds.had.co.nz/data-visualisation.html" class="uri">https://r4ds.had.co.nz/data-visualisation.html</a>:</p>
+<blockquote>
+<p>You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</p>
+</blockquote>
+</section>
+<section id="ggplot2-usage" class="slide level2">
+<h2>ggplot2 usage</h2>
+<ul>
+<li><p>ggplot2 is part of the tidyverse.</p></li>
+<li><p>It has been around for over 10 years and is used by hundreds of thousands of people.</p></li>
+<li><p>It can take some getting used to, but is worth the investment to learn properly</p></li>
+</ul>
+</section>
+<section id="ggplot2-key-components" class="slide level2">
+<h2>ggplot2 key components</h2>
+<p>Every ggplot2 plot has three key components:</p>
+<ul>
+<li><p>Data (typically in a data frame),</p></li>
+<li><p>A set of aesthetic mappings between variables in the data and visual properties, and</p></li>
+<li><p>At least one layer which describes how to render each observation. Layers are usually created with a geom function.</p></li>
+</ul>
+</section>
+<section id="cake" class="slide level2">
+<h2>Cake!</h2>
+
+<img data-src="images/ggplot-cake.png" class="r-stretch quarto-figure-center"><p class="caption">Image credit: Tanya Shapiro</p></section>
+<section id="initiate-with-data" class="slide level2">
+<h2>Initiate with data</h2>
+<p>Package is <strong>ggplot2</strong> but <em>function</em> is <code>ggplot()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="cn">NULL</span>, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section></section>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<section id="add-aesthetics" class="slide level2">
+<h2>Add aesthetics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
+<section id="add-points" class="slide level2">
+<h2>Add points</h2>
+<p>Layers are added with <code>+</code> (not <code>%&gt;%</code> or <code>|&gt;</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
+<section id="careful-what-goes-in-aes" class="slide level2">
+<h2>Careful what goes in <code>aes()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(penguins, </span>
+<span id="cb14-2"><a href="#cb14-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, </span>
+<span id="cb14-3"><a href="#cb14-3"></a>           <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(penguins, </span>
+<span id="cb15-2"><a href="#cb15-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, </span>
+<span id="cb15-3"><a href="#cb15-3"></a>           <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="when-you-do-want-to-map-a-colour-to-data" class="slide level2">
+<h2>When you <em>do</em> want to map a colour to data</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">plot</a></li><li><a href="#tabset-4-2">code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<p><img data-src="index_files/figure-revealjs/bill-species-1.png" style="width:80.0%"></p>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb16-2"><a href="#cb16-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb16-3"><a href="#cb16-3"></a>           <span class="at">y =</span> bill_depth_mm,</span>
+<span id="cb16-4"><a href="#cb16-4"></a>           <span class="at">group =</span> species)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, </span>
+<span id="cb16-6"><a href="#cb16-6"></a>                 <span class="at">shape =</span> species),</span>
+<span id="cb16-7"><a href="#cb16-7"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb16-8"><a href="#cb16-8"></a>             <span class="at">alpha =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that <code>color</code> and <code>shape</code> are <em>inside</em> <code>aes()</code> but <code>size</code> and <code>alpha</code> are <em>outside</em>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="add-additional-geoms" class="slide level2">
+<h2>Add additional geoms</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">plot</a></li><li><a href="#tabset-5-2">code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<p><img data-src="index_files/figure-revealjs/bill-species-smooth-1.png" style="width:80.0%"></p>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb17-2"><a href="#cb17-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb17-3"><a href="#cb17-3"></a>           <span class="at">y =</span> bill_depth_mm,</span>
+<span id="cb17-4"><a href="#cb17-4"></a>           <span class="at">group =</span> species)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, </span>
+<span id="cb17-6"><a href="#cb17-6"></a>                 <span class="at">shape =</span> species),</span>
+<span id="cb17-7"><a href="#cb17-7"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb17-8"><a href="#cb17-8"></a>             <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="fu">aes</span>(<span class="at">color =</span> species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scales-in-ggplot2" class="slide level2">
+<h2>Scales in ggplot2</h2>
+<blockquote>
+<p>Scales in ggplot2 control the mapping from data to aesthetics. They take your data and turn it into something that you can see, like size, colour, position or shape. They also provide the tools that let you interpret the plot: the axes and legends.</p>
+</blockquote>
+<p>Three groups of scales:</p>
+<ul>
+<li>position scales and axes</li>
+<li>colour scales and legends</li>
+<li>scales for other aesthetics</li>
+</ul>
+</section>
+<section id="add-a-colour-scale" class="slide level2">
+<h2>Add a colour scale</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">plot</a></li><li><a href="#tabset-6-2">code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<p><img data-src="index_files/figure-revealjs/bill-species-colour-1.png" style="width:80.0%"></p>
+</div>
+<div id="tabset-6-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb18-2"><a href="#cb18-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb18-3"><a href="#cb18-3"></a>           <span class="at">y =</span> bill_depth_mm,</span>
+<span id="cb18-4"><a href="#cb18-4"></a>           <span class="at">group =</span> species)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, </span>
+<span id="cb18-6"><a href="#cb18-6"></a>                 <span class="at">shape =</span> species),</span>
+<span id="cb18-7"><a href="#cb18-7"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb18-8"><a href="#cb18-8"></a>             <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="facets" class="slide level2">
+<h2>Facets</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">plot 1</a></li><li><a href="#tabset-7-2">code 1</a></li><li><a href="#tabset-7-3">plot 2</a></li><li><a href="#tabset-7-4">code 2</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<p><img data-src="index_files/figure-revealjs/bill-species-facet-1.png" style="width:80.0%"></p>
+</div>
+<div id="tabset-7-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb19-2"><a href="#cb19-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb19-3"><a href="#cb19-3"></a>           <span class="at">y =</span> bill_depth_mm,</span>
+<span id="cb19-4"><a href="#cb19-4"></a>           <span class="at">group =</span> species)) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, </span>
+<span id="cb19-6"><a href="#cb19-6"></a>                 <span class="at">shape =</span> species),</span>
+<span id="cb19-7"><a href="#cb19-7"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb19-8"><a href="#cb19-8"></a>             <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-7-3">
+<p><img data-src="index_files/figure-revealjs/bill-species-facet-free-x-1.png" style="width:80.0%"></p>
+</div>
+<div id="tabset-7-4">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb20-2"><a href="#cb20-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb20-3"><a href="#cb20-3"></a>           <span class="at">y =</span> bill_depth_mm,</span>
+<span id="cb20-4"><a href="#cb20-4"></a>           <span class="at">group =</span> species)) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, </span>
+<span id="cb20-6"><a href="#cb20-6"></a>                 <span class="at">shape =</span> species),</span>
+<span id="cb20-7"><a href="#cb20-7"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb20-8"><a href="#cb20-8"></a>             <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
+<span id="cb20-11"><a href="#cb20-11"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species, <span class="at">scales =</span> <span class="st">"free_x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="first-example-add-theme-elements" class="slide level2">
+<h2>First example: add theme elements</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">plot</a></li><li><a href="#tabset-8-2">code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<p><img data-src="index_files/figure-revealjs/bill-species-theme-1.png" style="width:80.0%"></p>
+</div>
+<div id="tabset-8-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb21-2"><a href="#cb21-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb21-3"><a href="#cb21-3"></a>           <span class="at">y =</span> bill_depth_mm,</span>
+<span id="cb21-4"><a href="#cb21-4"></a>           <span class="at">group =</span> species)) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, </span>
+<span id="cb21-6"><a href="#cb21-6"></a>                 <span class="at">shape =</span> species),</span>
+<span id="cb21-7"><a href="#cb21-7"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb21-8"><a href="#cb21-8"></a>             <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb21-9"><a href="#cb21-9"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb21-10"><a href="#cb21-10"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
+<span id="cb21-11"><a href="#cb21-11"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin bill dimensions"</span>,</span>
+<span id="cb21-12"><a href="#cb21-12"></a>       <span class="at">x =</span> <span class="st">"bill length (mm)"</span>,</span>
+<span id="cb21-13"><a href="#cb21-13"></a>       <span class="at">y =</span> <span class="st">"bill depth (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb21-14"><a href="#cb21-14"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb21-15"><a href="#cb21-15"></a>  <span class="fu">theme</span>(<span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb21-16"><a href="#cb21-16"></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="boxplot" class="slide level2">
+<h2>Boxplot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(species, body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"><p>Notes</p>
+<ul>
+<li><code>aes()</code> can be defined for the whole plot or in the geom</li>
+<li>first arguments to <code>aes()</code> are <code>x</code> and <code>y</code> (don’t need to name them)</li>
+</ul>
+</section>
+<section id="histogram-1" class="slide level2">
+<h2>Histogram</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(body_mass_g), </span>
+<span id="cb23-3"><a href="#cb23-3"></a>                 <span class="at">binwidth =</span> <span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
+<section id="density-1" class="slide level2">
+<h2>Density</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
+<section id="scatterplot-with-vectors" class="slide level2">
+<h2>Scatterplot with vectors</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="cn">NULL</span>, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
+<section id="your-turn-1" class="slide level2">
+<h2>Your turn!</h2>
+</section>
+<section id="extensions" class="slide level2">
+<h2>Extensions</h2>
+<p>See extensions at <a href="https://exts.ggplot2.tidyverse.org/gallery/" class="uri">https://exts.ggplot2.tidyverse.org/gallery/</a></p>
+</section>
+<section id="inspiration" class="slide level2">
+<h2>Inspiration</h2>
+<p>R can be used to make incredible data visualisations.</p>
+<p>Check out the galleries of these data viz practitioners working with <code>ggplot2</code>:</p>
+<ul>
+<li><p><a href="https://www.cedricscherer.com/" target="_blank">Cedric Scherer</a></p></li>
+<li><p><a href="https://karaman.is" target="_blank">Georgios Karamanis</a></p></li>
+<li><p><a href="https://nrennie.rbind.io" target="_blank">Nicole Rennie</a></p></li>
+</ul>
+<p>Also, #TidyTuesday on Twitter or Mastodon is a great source for further inspiration</p>
+</section>
+<section id="ggplot2-resources" class="slide level2">
+<h2>ggplot2 resources</h2>
+<ul>
+<li><p><a href="https://r4ds.had.co.nz/index.html">R for Data Science book</a>: Chapters <a href="https://r4ds.had.co.nz/data-visualisation.html">3: Data Visualisation</a> and <a href="https://r4ds.had.co.nz/graphics-for-communication.html">28: Graphics for Communication</a>, to get up and running quickly</p></li>
+<li><p><a href="https://ggplot2-book.org/index.html">ggplot2 book</a>, for an in-depth understanding</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=h29g21z0a68">Plotting anything with ggplot2 webinar</a> with Thomas Lin Pederson (one of the main ggplot2 authors)</p></li>
+<li><p><a href="https://r-graphics.org">R graphics cookbook</a>, a practical guide that provides more than 150 recipes to help you generate high-quality graphs quickly</p></li>
+<li><p><a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">Cedric Scherer’s tutorial</a></p></li>
+<li><p><a href="https://rstudio-conf-2022.github.io/ggplot2-graphic-design/">Cedric Scherer’s ‘Graphic Design with ggplot2’ workshop</a></p></li>
+<li><p><a href="https://ggplot2.tidyverse.org">ggplot2 reference</a></p></li>
+</ul>
+</section>
+<section id="data-visualisation-resources" class="slide level2">
+<h2>Data visualisation resources</h2>
+<p>Books about greating good data viz:</p>
+<ul>
+<li><p><a href="https://socviz.co">Data Visualisation: A practical Introduction by Kieran Healey</a></p></li>
+<li><p><a href="https://clauswilke.com/dataviz/">Fundamental’s of Data Visualisation by Claus Wilke</a></p></li>
+</ul>
+</section></section>
+<section>
+<section id="plots-in-rstudio" class="title-slide slide level1 center" data-background-color="#552D62">
+<h1>Plots in RStudio</h1>
+
+</section>
+<section id="viewing-and-saving-plots-in-rstudio" class="slide level2">
+<h2>Viewing and saving plots in RStudio</h2>
+<p>In RStudio, graphs are displayed in the Plots window. The plot is sized to fit the window and will be rescaled if the size of the window is changed.</p>
+<p>Back and forward arrows allow you to navigate through graphs that have been plotted.</p>
+<p>Plots can be saved in various formats using the Export drop down menu, which also has an option to copy to the clipboard.</p>
+<p>DEMO</p>
+</section></section>
+<section>
 <section id="tables" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>Tables</h1>
 
 </section>
+<section id="getting-started-with-tables" class="slide level2">
+<h2>Getting started with tables</h2>
+<p>We’re just going to scratch the surface of this today.</p>
+<p>We’ll be using the <strong>gt</strong> and <strong>gtsummary</strong> packages, but there are many of other.</p>
+<p>Here’s a good <a href="https://rfortherestofus.com/2019/11/how-to-make-beautiful-tables-in-r/">overview</a> of many different packages.</p>
+</section>
+<section id="gt" class="slide level2">
+<h2>gt</h2>
+<p><a href="https://gt.rstudio.com">gt</a> is an R package to create tables. It provides a <strong>g</strong>rammar of <strong>t</strong>ables.</p>
+<blockquote>
+<p>The gt philosophy: we can construct a wide variety of useful tables with a cohesive set of table parts. It all begins with table data (be it a tibble or a data frame). You then decide how to compose your gt table with the elements and formatting you need for the task at hand. Finally, the table is rendered by printing it at the console, including it in an R Markdown document, or exporting to a file using gtsave()</p>
+</blockquote>
+</section>
+<section id="parts-of-a-gt-table" class="slide level2">
+<h2>Parts of a gt table</h2>
 
+<img data-src="images/gt_parts_of_a_table.svg" class="r-stretch quarto-figure-center"><p class="caption">From <a href="https://gt.rstudio.com" class="uri">https://gt.rstudio.com</a></p></section>
+<section id="an-example" class="slide level2">
+<h2>An example</h2>
+<p>See the article <a href="https://gt.rstudio.com/articles/case-study-gtcars.html">Case Study: gtcars</a> for a thorough example of gt’s capabilities.</p>
+</section>
+<section id="guidelines-for-better-tables" class="slide level2">
+<h2>Guidelines for better tables</h2>
+<p>Having the technical know-how to code tables is one thing, making them look good and such that the reader can easily read the data is another!</p>
+<p><em>Highly</em> recommend this <a href="https://themockup.blog/posts/2020-09-04-10-table-rules-in-r/">Tom Mock guide</a>, based on Jon Schwabish’s original. It covers guidelines for making better tables, and shows how to implement them in gt. It demonstrates even more of what gt can do than the article on the previous slide.</p>
+</section>
+<section id="gtsummary" class="slide level2">
+<h2>gtsummary</h2>
+<p><a href="http://www.danieldsjoberg.com/gtsummary/">gtsummary</a> extends the gt package and is used for summarising tables and working with statistical model summaries.</p>
+</section>
+<section id="gtsummary-example-1-data" class="slide level2">
+<h2>gtsummary example 1: data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="co"># make dataset with a few variables to summarize</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>trial2 <span class="ot">&lt;-</span> trial <span class="sc">%&gt;%</span> <span class="fu">select</span>(age, grade, response, trt)</span>
+<span id="cb26-4"><a href="#cb26-4"></a></span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="fu">head</span>(trial2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+    age grade response trt   
+  &lt;dbl&gt; &lt;fct&gt;    &lt;int&gt; &lt;chr&gt; 
+1    23 II           0 Drug A
+2     9 I            1 Drug B
+3    31 II           0 Drug A
+4    NA III          1 Drug A
+5    51 III          1 Drug A
+6    39 I            0 Drug B</code></pre>
+</div>
+</div>
+</section>
+<section id="gtsummary-example-1-code" class="slide level2">
+<h2>gtsummary example 1: code</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># summarize and augment the data with our package</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>summary_table <span class="ot">&lt;-</span> </span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">tbl_summary</span>(</span>
+<span id="cb28-4"><a href="#cb28-4"></a>    trial2,</span>
+<span id="cb28-5"><a href="#cb28-5"></a>    <span class="at">by =</span> trt, <span class="co"># split table by group</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a>    <span class="at">missing =</span> <span class="st">"no"</span> <span class="co"># don't list missing data separately</span></span>
+<span id="cb28-7"><a href="#cb28-7"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb28-8"><a href="#cb28-8"></a>  <span class="fu">add_n</span>() <span class="sc">%&gt;%</span> <span class="co"># add column with total number of non-missing observations</span></span>
+<span id="cb28-9"><a href="#cb28-9"></a>  <span class="fu">add_p</span>() <span class="sc">%&gt;%</span> <span class="co"># test for a difference between groups</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">"**Variable**"</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
+<span id="cb28-11"><a href="#cb28-11"></a>  <span class="fu">bold_labels</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="gtsummary-example-1-output" class="slide level2">
+<h2>gtsummary example 1: output</h2>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="trineqdelk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#trineqdelk) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#trineqdelk) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#trineqdelk) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#trineqdelk) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#trineqdelk) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#trineqdelk) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#trineqdelk) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#trineqdelk) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#trineqdelk) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#trineqdelk) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#trineqdelk) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#trineqdelk) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#trineqdelk) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#trineqdelk) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#trineqdelk) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#trineqdelk) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#trineqdelk) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#trineqdelk) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#trineqdelk) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#trineqdelk) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#trineqdelk) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#trineqdelk) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#trineqdelk) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#trineqdelk) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#trineqdelk) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#trineqdelk) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#trineqdelk) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#trineqdelk) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#trineqdelk) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#trineqdelk) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#trineqdelk) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#trineqdelk) .gt_left {
+  text-align: left;
+}
+
+:where(#trineqdelk) .gt_center {
+  text-align: center;
+}
+
+:where(#trineqdelk) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#trineqdelk) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#trineqdelk) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#trineqdelk) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#trineqdelk) .gt_super {
+  font-size: 65%;
+}
+
+:where(#trineqdelk) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#trineqdelk) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#trineqdelk) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#trineqdelk) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#trineqdelk) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#trineqdelk) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#trineqdelk) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col"><strong>Variable</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>N</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>Drug A</strong>, N = 98<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>Drug B</strong>, N = 102<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>p-value</strong><sup class="gt_footnote_marks">2</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left" style="font-weight: bold;">Age</td>
+<td class="gt_row gt_center">189</td>
+<td class="gt_row gt_center">46 (37, 59)</td>
+<td class="gt_row gt_center">48 (39, 56)</td>
+<td class="gt_row gt_center">0.7</td></tr>
+    <tr><td class="gt_row gt_left" style="font-weight: bold;">Grade</td>
+<td class="gt_row gt_center">200</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center">0.9</td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;I</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center">35 (36%)</td>
+<td class="gt_row gt_center">33 (32%)</td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;II</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center">32 (33%)</td>
+<td class="gt_row gt_center">36 (35%)</td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;III</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center">31 (32%)</td>
+<td class="gt_row gt_center">33 (32%)</td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left" style="font-weight: bold;">Tumor Response</td>
+<td class="gt_row gt_center">193</td>
+<td class="gt_row gt_center">28 (29%)</td>
+<td class="gt_row gt_center">33 (34%)</td>
+<td class="gt_row gt_center">0.5</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="5"><sup class="gt_footnote_marks">1</sup> Median (IQR); n (%)</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="5"><sup class="gt_footnote_marks">2</sup> Wilcoxon rank sum test; Pearson's Chi-squared test</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="gtsummary-example-2-code" class="slide level2">
+<h2>gtsummary example 2: code</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(response <span class="sc">~</span> trt <span class="sc">+</span> age <span class="sc">+</span> grade, trial, <span class="at">family =</span> binomial)</span>
+<span id="cb29-2"><a href="#cb29-2"></a></span>
+<span id="cb29-3"><a href="#cb29-3"></a>regression_tab <span class="ot">&lt;-</span> <span class="fu">tbl_regression</span>(mod1, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="gtsummary-example-2-output" class="slide level2">
+<h2>gtsummary example 2: output</h2>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="pkrvckrolr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#pkrvckrolr) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#pkrvckrolr) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#pkrvckrolr) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#pkrvckrolr) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#pkrvckrolr) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#pkrvckrolr) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#pkrvckrolr) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#pkrvckrolr) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#pkrvckrolr) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#pkrvckrolr) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#pkrvckrolr) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#pkrvckrolr) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#pkrvckrolr) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#pkrvckrolr) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#pkrvckrolr) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#pkrvckrolr) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#pkrvckrolr) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#pkrvckrolr) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#pkrvckrolr) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#pkrvckrolr) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#pkrvckrolr) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#pkrvckrolr) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#pkrvckrolr) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#pkrvckrolr) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#pkrvckrolr) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#pkrvckrolr) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#pkrvckrolr) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#pkrvckrolr) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#pkrvckrolr) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#pkrvckrolr) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#pkrvckrolr) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#pkrvckrolr) .gt_left {
+  text-align: left;
+}
+
+:where(#pkrvckrolr) .gt_center {
+  text-align: center;
+}
+
+:where(#pkrvckrolr) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#pkrvckrolr) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#pkrvckrolr) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#pkrvckrolr) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#pkrvckrolr) .gt_super {
+  font-size: 65%;
+}
+
+:where(#pkrvckrolr) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#pkrvckrolr) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#pkrvckrolr) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#pkrvckrolr) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#pkrvckrolr) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#pkrvckrolr) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#pkrvckrolr) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>OR</strong><sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>95% CI</strong><sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>p-value</strong></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Chemotherapy Treatment</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;Drug A</td>
+<td class="gt_row gt_center">—</td>
+<td class="gt_row gt_center">—</td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;Drug B</td>
+<td class="gt_row gt_center">1.13</td>
+<td class="gt_row gt_center">0.60, 2.13</td>
+<td class="gt_row gt_center">0.7</td></tr>
+    <tr><td class="gt_row gt_left">Age</td>
+<td class="gt_row gt_center">1.02</td>
+<td class="gt_row gt_center">1.00, 1.04</td>
+<td class="gt_row gt_center">0.10</td></tr>
+    <tr><td class="gt_row gt_left">Grade</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;I</td>
+<td class="gt_row gt_center">—</td>
+<td class="gt_row gt_center">—</td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;II</td>
+<td class="gt_row gt_center">0.85</td>
+<td class="gt_row gt_center">0.39, 1.85</td>
+<td class="gt_row gt_center">0.7</td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;III</td>
+<td class="gt_row gt_center">1.01</td>
+<td class="gt_row gt_center">0.47, 2.15</td>
+<td class="gt_row gt_center">&gt;0.9</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="4"><sup class="gt_footnote_marks">1</sup> OR = Odds Ratio, CI = Confidence Interval</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+</div>
+</section></section>
 <section>
 <section id="end-matter" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>End Matter</h1>
 
-</section>
-<section id="resources" class="slide level2">
-<h2>Resources</h2>
-<p>Material inspired by and remixed from:</p>
-<ul>
-<li></li>
-</ul>
 </section>
 <section id="license" class="slide level2">
 <h2>License</h2>
