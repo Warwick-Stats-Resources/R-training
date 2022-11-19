@@ -566,6 +566,16 @@ regression_tab <- tbl_regression(mod1, exponentiate = TRUE)
 regression_tab
 ```
 
+## Table inspiration
+
+The winners of the RStudio Table Contest
+
+- [2021](https://posit.co/blog/winners-of-the-2021-table-contest/)
+
+- [2020](https://www.rstudio.com/blog/winners-of-the-2020-rstudio-table-contest/), also has links to tutorials
+
+The 2022 contest is open! [Application guidelines](https://www.rstudio.com/blog/rstudio-table-contest-2022/)
+
 # End Matter {background-color="#552D62"}
 
 ## License

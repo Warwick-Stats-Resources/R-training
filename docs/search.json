@@ -1720,5 +1720,12 @@
     "title": "Graphics",
     "section": "Boxplot 2",
     "text": "Boxplot 2\n\nggplot(penguins) +\n  geom_boxplot(aes(species, body_mass_g))"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#table-inspiration",
+    "href": "slides/01-foundations/05-graphics/index.html#table-inspiration",
+    "title": "Graphics",
+    "section": "Table inspiration",
+    "text": "Table inspiration\nThe winners of the RStudio Table Contest\n\n2021\n2020, also has links to tutorials\n\nThe 2022 contest is open! Application guidelines"
   }
 ]
