@@ -109,6 +109,12 @@ plot(fit)
 
 ## Your turn!
 
+From the starting point of `plot(1:10, 1:10)`, experiment with the arguments `type` and `pch`. See `?plot` 
+
+Can you create a plot with triangular points linked by lines?
+
+Can you do the same with the `lines()` function? What are the similarities and differences?
+
 # ggplot2 {background-color="#552D62"}
 
 ## Intro to ggplot2
@@ -351,17 +357,33 @@ ggplot(data = penguins,
 ```
 :::
 
-## Boxplot
+## Your turn!
+
+Recreate the base R plots from the first part of this session in ggplot2.
+
+You may find the list of available geoms (and there help pages) useful:
+
+<https://ggplot2.tidyverse.org/reference/index.html#layers>
+
+## Boxplot 1
+
+```{r}
+ggplot(penguins) +
+  geom_boxplot(aes(y = body_mass_g))
+```
+
+Notes
+
+-   `aes()` can be defined for the whole plot or in the geom
+-   first arguments to `aes()` are `x` and `y` (don't need to name them if using them in that order)
+
+## Boxplot 2
 
 ```{r}
 ggplot(penguins) +
   geom_boxplot(aes(species, body_mass_g))
 ```
 
-Notes
-
--   `aes()` can be defined for the whole plot or in the geom
--   first arguments to `aes()` are `x` and `y` (don't need to name them)
 
 ## Histogram
 
@@ -384,8 +406,6 @@ ggplot(penguins) +
 ggplot(data = NULL, aes(x = 1:10, y = 1:10)) +
   geom_point()
 ```
-
-## Your turn!
 
 
 ## Extensions
@@ -470,7 +490,20 @@ knitr::include_graphics("images/gt_parts_of_a_table.svg")
 
 ## An example
 
+```{r}
+#| label: gt-penguins
+#| echo: false
+#| fig-cap: "From Albert Rapp's [gt book](https://gt.albert-rapp.de)"
+
+knitr::include_graphics("images/gt-penguins.png")
+```
+
+
+## Resources
+
 See the article [Case Study: gtcars](https://gt.rstudio.com/articles/case-study-gtcars.html) for a thorough example of gt's capabilities.
+
+See also Albert Rapp's [book on gt](https://gt.albert-rapp.de).
 
 
 ## Guidelines for better tables

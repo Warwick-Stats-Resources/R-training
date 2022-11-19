@@ -1229,7 +1229,7 @@
     "href": "slides/01-foundations/05-graphics/index.html#resources",
     "title": "Graphics",
     "section": "Resources",
-    "text": "Resources\nFor ggplot2: see earlier ‘ggplot2 resources’ slide"
+    "text": "Resources\nSee the article Case Study: gtcars for a thorough example of gt’s capabilities.\nSee also Albert Rapp’s book on gt."
   },
   {
     "objectID": "slides/01-foundations/05-graphics/index.html#license",
@@ -1607,7 +1607,7 @@
     "href": "slides/01-foundations/05-graphics/index.html#an-example",
     "title": "Graphics",
     "section": "An example",
-    "text": "An example\nSee the article Case Study: gtcars for a thorough example of gt’s capabilities."
+    "text": "An example\n\nFrom Albert Rapp’s gt book"
   },
   {
     "objectID": "slides/01-foundations/05-graphics/index.html#an-example-code",
@@ -1698,13 +1698,27 @@
     "href": "slides/01-foundations/05-graphics/index.html#your-turn",
     "title": "Graphics",
     "section": "Your turn!",
-    "text": "Your turn!"
+    "text": "Your turn!\nFrom the starting point of plot(1:10, 1:10), experiment with the arguments type and pch. See ?plot\nCan you create a plot with triangular points linked by lines?\nCan you do the same with the lines() function? What are the similarities and differences?"
   },
   {
     "objectID": "slides/01-foundations/05-graphics/index.html#your-turn-1",
     "href": "slides/01-foundations/05-graphics/index.html#your-turn-1",
     "title": "Graphics",
     "section": "Your turn!",
-    "text": "Your turn!"
+    "text": "Your turn!\nRecreate the base R plots from the first part of this session in ggplot2.\nYou may find the list of available geoms (and there help pages) useful:\nhttps://ggplot2.tidyverse.org/reference/index.html#layers"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#boxplot-1",
+    "href": "slides/01-foundations/05-graphics/index.html#boxplot-1",
+    "title": "Graphics",
+    "section": "Boxplot 1",
+    "text": "Boxplot 1\n\nggplot(penguins) +\n  geom_boxplot(aes(y = body_mass_g))\n\n\nNotes\n\naes() can be defined for the whole plot or in the geom\nfirst arguments to aes() are x and y (don’t need to name them if using them in that order)"
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#boxplot-2",
+    "href": "slides/01-foundations/05-graphics/index.html#boxplot-2",
+    "title": "Graphics",
+    "section": "Boxplot 2",
+    "text": "Boxplot 2\n\nggplot(penguins) +\n  geom_boxplot(aes(species, body_mass_g))"
   }
 ]

@@ -8,7 +8,7 @@
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.242">
+  <meta name="generator" content="quarto-1.2.247">
 
   <meta name="author" content="Ella Kaye | Department of Statistics | University of Warwick">
   <meta name="dcterms.date" content="2022-11-21">
@@ -537,6 +537,9 @@ see '?methods' for accessing help and source code</code></pre>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
 <section id="your-turn" class="slide level2">
 <h2>Your turn!</h2>
+<p>From the starting point of <code>plot(1:10, 1:10)</code>, experiment with the arguments <code>type</code> and <code>pch</code>. See <code>?plot</code></p>
+<p>Can you create a plot with triangular points linked by lines?</p>
+<p>Can you do the same with the <code>lines()</code> function? What are the similarities and differences?</p>
 </section></section>
 <section>
 <section id="ggplot2" class="title-slide slide level1 center" data-background-color="#552D62">
@@ -785,47 +788,58 @@ see '?methods' for accessing help and source code</code></pre>
 </div>
 </div>
 </section>
-<section id="boxplot" class="slide level2">
-<h2>Boxplot</h2>
+<section id="your-turn-1" class="slide level2">
+<h2>Your turn!</h2>
+<p>Recreate the base R plots from the first part of this session in ggplot2.</p>
+<p>You may find the list of available geoms (and there help pages) useful:</p>
+<p><a href="https://ggplot2.tidyverse.org/reference/index.html#layers" class="uri">https://ggplot2.tidyverse.org/reference/index.html#layers</a></p>
+</section>
+<section id="boxplot-1" class="slide level2">
+<h2>Boxplot 1</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(species, body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"><p>Notes</p>
 <ul>
 <li><code>aes()</code> can be defined for the whole plot or in the geom</li>
-<li>first arguments to <code>aes()</code> are <code>x</code> and <code>y</code> (don’t need to name them)</li>
+<li>first arguments to <code>aes()</code> are <code>x</code> and <code>y</code> (don’t need to name them if using them in that order)</li>
 </ul>
 </section>
-<section id="histogram-1" class="slide level2">
-<h2>Histogram</h2>
+<section id="boxplot-2" class="slide level2">
+<h2>Boxplot 2</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(body_mass_g), </span>
-<span id="cb23-3"><a href="#cb23-3"></a>                 <span class="at">binwidth =</span> <span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(species, body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
-<section id="density-1" class="slide level2">
-<h2>Density</h2>
+<section id="histogram-1" class="slide level2">
+<h2>Histogram</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(body_mass_g), </span>
+<span id="cb24-3"><a href="#cb24-3"></a>                 <span class="at">binwidth =</span> <span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
-<section id="scatterplot-with-vectors" class="slide level2">
-<h2>Scatterplot with vectors</h2>
+<section id="density-1" class="slide level2">
+<h2>Density</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="cn">NULL</span>, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)) <span class="sc">+</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
-<section id="your-turn-1" class="slide level2">
-<h2>Your turn!</h2>
-</section>
+<section id="scatterplot-with-vectors" class="slide level2">
+<h2>Scatterplot with vectors</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="cn">NULL</span>, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
 <section id="extensions" class="slide level2">
 <h2>Extensions</h2>
 <p>See extensions at <a href="https://exts.ggplot2.tidyverse.org/gallery/" class="uri">https://exts.ggplot2.tidyverse.org/gallery/</a></p>
@@ -897,7 +911,12 @@ see '?methods' for accessing help and source code</code></pre>
 <img data-src="images/gt_parts_of_a_table.svg" class="r-stretch quarto-figure-center"><p class="caption">From <a href="https://gt.rstudio.com" class="uri">https://gt.rstudio.com</a></p></section>
 <section id="an-example" class="slide level2">
 <h2>An example</h2>
+
+<img data-src="images/gt-penguins.png" width="411" class="r-stretch quarto-figure-center"><p class="caption">From Albert Rapp’s <a href="https://gt.albert-rapp.de">gt book</a></p></section>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
 <p>See the article <a href="https://gt.rstudio.com/articles/case-study-gtcars.html">Case Study: gtcars</a> for a thorough example of gt’s capabilities.</p>
+<p>See also Albert Rapp’s <a href="https://gt.albert-rapp.de">book on gt</a>.</p>
 </section>
 <section id="guidelines-for-better-tables" class="slide level2">
 <h2>Guidelines for better tables</h2>
@@ -911,11 +930,11 @@ see '?methods' for accessing help and source code</code></pre>
 <section id="gtsummary-example-1-data" class="slide level2">
 <h2>gtsummary example 1: data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="co"># make dataset with a few variables to summarize</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a>trial2 <span class="ot">&lt;-</span> trial <span class="sc">%&gt;%</span> <span class="fu">select</span>(age, grade, response, trt)</span>
-<span id="cb26-4"><a href="#cb26-4"></a></span>
-<span id="cb26-5"><a href="#cb26-5"></a><span class="fu">head</span>(trial2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="co"># make dataset with a few variables to summarize</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>trial2 <span class="ot">&lt;-</span> trial <span class="sc">%&gt;%</span> <span class="fu">select</span>(age, grade, response, trt)</span>
+<span id="cb27-4"><a href="#cb27-4"></a></span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="fu">head</span>(trial2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
     age grade response trt   
@@ -932,17 +951,17 @@ see '?methods' for accessing help and source code</code></pre>
 <section id="gtsummary-example-1-code" class="slide level2">
 <h2>gtsummary example 1: code</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># summarize and augment the data with our package</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>summary_table <span class="ot">&lt;-</span> </span>
-<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">tbl_summary</span>(</span>
-<span id="cb28-4"><a href="#cb28-4"></a>    trial2,</span>
-<span id="cb28-5"><a href="#cb28-5"></a>    <span class="at">by =</span> trt, <span class="co"># split table by group</span></span>
-<span id="cb28-6"><a href="#cb28-6"></a>    <span class="at">missing =</span> <span class="st">"no"</span> <span class="co"># don't list missing data separately</span></span>
-<span id="cb28-7"><a href="#cb28-7"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb28-8"><a href="#cb28-8"></a>  <span class="fu">add_n</span>() <span class="sc">%&gt;%</span> <span class="co"># add column with total number of non-missing observations</span></span>
-<span id="cb28-9"><a href="#cb28-9"></a>  <span class="fu">add_p</span>() <span class="sc">%&gt;%</span> <span class="co"># test for a difference between groups</span></span>
-<span id="cb28-10"><a href="#cb28-10"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">"**Variable**"</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
-<span id="cb28-11"><a href="#cb28-11"></a>  <span class="fu">bold_labels</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># summarize and augment the data with our package</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>summary_table <span class="ot">&lt;-</span> </span>
+<span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">tbl_summary</span>(</span>
+<span id="cb29-4"><a href="#cb29-4"></a>    trial2,</span>
+<span id="cb29-5"><a href="#cb29-5"></a>    <span class="at">by =</span> trt, <span class="co"># split table by group</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a>    <span class="at">missing =</span> <span class="st">"no"</span> <span class="co"># don't list missing data separately</span></span>
+<span id="cb29-7"><a href="#cb29-7"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a>  <span class="fu">add_n</span>() <span class="sc">%&gt;%</span> <span class="co"># add column with total number of non-missing observations</span></span>
+<span id="cb29-9"><a href="#cb29-9"></a>  <span class="fu">add_p</span>() <span class="sc">%&gt;%</span> <span class="co"># test for a difference between groups</span></span>
+<span id="cb29-10"><a href="#cb29-10"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">"**Variable**"</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
+<span id="cb29-11"><a href="#cb29-11"></a>  <span class="fu">bold_labels</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="gtsummary-example-1-output" class="slide level2">
@@ -950,12 +969,12 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="trineqdelk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="foyewovupy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#trineqdelk) .gt_table {
+:where(#foyewovupy) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -980,7 +999,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#trineqdelk) .gt_heading {
+:where(#foyewovupy) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -992,7 +1011,12 @@ see '?methods' for accessing help and source code</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#trineqdelk) .gt_title {
+:where(#foyewovupy) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#foyewovupy) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1004,7 +1028,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#trineqdelk) .gt_subtitle {
+:where(#foyewovupy) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1016,13 +1040,13 @@ see '?methods' for accessing help and source code</code></pre>
   border-top-width: 0;
 }
 
-:where(#trineqdelk) .gt_bottom_border {
+:where(#foyewovupy) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#trineqdelk) .gt_col_headings {
+:where(#foyewovupy) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1037,7 +1061,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#trineqdelk) .gt_col_heading {
+:where(#foyewovupy) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1057,7 +1081,7 @@ see '?methods' for accessing help and source code</code></pre>
   overflow-x: hidden;
 }
 
-:where(#trineqdelk) .gt_column_spanner_outer {
+:where(#foyewovupy) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1069,15 +1093,15 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 4px;
 }
 
-:where(#trineqdelk) .gt_column_spanner_outer:first-child {
+:where(#foyewovupy) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#trineqdelk) .gt_column_spanner_outer:last-child {
+:where(#foyewovupy) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#trineqdelk) .gt_column_spanner {
+:where(#foyewovupy) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1089,7 +1113,7 @@ see '?methods' for accessing help and source code</code></pre>
   width: 100%;
 }
 
-:where(#trineqdelk) .gt_group_heading {
+:where(#foyewovupy) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1112,9 +1136,10 @@ see '?methods' for accessing help and source code</code></pre>
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-:where(#trineqdelk) .gt_empty_group_heading {
+:where(#foyewovupy) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1129,15 +1154,15 @@ see '?methods' for accessing help and source code</code></pre>
   vertical-align: middle;
 }
 
-:where(#trineqdelk) .gt_from_md > :first-child {
+:where(#foyewovupy) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#trineqdelk) .gt_from_md > :last-child {
+:where(#foyewovupy) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#trineqdelk) .gt_row {
+:where(#foyewovupy) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1156,7 +1181,7 @@ see '?methods' for accessing help and source code</code></pre>
   overflow-x: hidden;
 }
 
-:where(#trineqdelk) .gt_stub {
+:where(#foyewovupy) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1169,7 +1194,7 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 5px;
 }
 
-:where(#trineqdelk) .gt_stub_row_group {
+:where(#foyewovupy) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1183,11 +1208,11 @@ see '?methods' for accessing help and source code</code></pre>
   vertical-align: top;
 }
 
-:where(#trineqdelk) .gt_row_group_first td {
+:where(#foyewovupy) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#trineqdelk) .gt_summary_row {
+:where(#foyewovupy) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1197,16 +1222,16 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 5px;
 }
 
-:where(#trineqdelk) .gt_first_summary_row {
+:where(#foyewovupy) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#trineqdelk) .gt_first_summary_row.thick {
+:where(#foyewovupy) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#trineqdelk) .gt_last_summary_row {
+:where(#foyewovupy) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1216,7 +1241,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#trineqdelk) .gt_grand_summary_row {
+:where(#foyewovupy) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1226,7 +1251,7 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 5px;
 }
 
-:where(#trineqdelk) .gt_first_grand_summary_row {
+:where(#foyewovupy) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1236,11 +1261,11 @@ see '?methods' for accessing help and source code</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#trineqdelk) .gt_striped {
+:where(#foyewovupy) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#trineqdelk) .gt_table_body {
+:where(#foyewovupy) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1249,7 +1274,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#trineqdelk) .gt_footnotes {
+:where(#foyewovupy) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1263,7 +1288,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#trineqdelk) .gt_footnote {
+:where(#foyewovupy) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1272,7 +1297,7 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 5px;
 }
 
-:where(#trineqdelk) .gt_sourcenotes {
+:where(#foyewovupy) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1286,7 +1311,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#trineqdelk) .gt_sourcenote {
+:where(#foyewovupy) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1294,64 +1319,64 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 5px;
 }
 
-:where(#trineqdelk) .gt_left {
+:where(#foyewovupy) .gt_left {
   text-align: left;
 }
 
-:where(#trineqdelk) .gt_center {
+:where(#foyewovupy) .gt_center {
   text-align: center;
 }
 
-:where(#trineqdelk) .gt_right {
+:where(#foyewovupy) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#trineqdelk) .gt_font_normal {
+:where(#foyewovupy) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#trineqdelk) .gt_font_bold {
+:where(#foyewovupy) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#trineqdelk) .gt_font_italic {
+:where(#foyewovupy) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#trineqdelk) .gt_super {
+:where(#foyewovupy) .gt_super {
   font-size: 65%;
 }
 
-:where(#trineqdelk) .gt_footnote_marks {
+:where(#foyewovupy) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#trineqdelk) .gt_asterisk {
+:where(#foyewovupy) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#trineqdelk) .gt_indent_1 {
+:where(#foyewovupy) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#trineqdelk) .gt_indent_2 {
+:where(#foyewovupy) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#trineqdelk) .gt_indent_3 {
+:where(#foyewovupy) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#trineqdelk) .gt_indent_4 {
+:where(#foyewovupy) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#trineqdelk) .gt_indent_5 {
+:where(#foyewovupy) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1359,44 +1384,44 @@ see '?methods' for accessing help and source code</code></pre>
   
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col"><strong>Variable</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>N</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>Drug A</strong>, N = 98<sup class="gt_footnote_marks">1</sup></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>Drug B</strong>, N = 102<sup class="gt_footnote_marks">1</sup></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>p-value</strong><sup class="gt_footnote_marks">2</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="<strong>Variable</strong>"><strong>Variable</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>N</strong>"><strong>N</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Drug A</strong>, N = 98<sup class=&quot;gt_footnote_marks&quot;>1</sup>"><strong>Drug A</strong>, N = 98<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Drug B</strong>, N = 102<sup class=&quot;gt_footnote_marks&quot;>1</sup>"><strong>Drug B</strong>, N = 102<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong><sup class=&quot;gt_footnote_marks&quot;>2</sup>"><strong>p-value</strong><sup class="gt_footnote_marks">2</sup></th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left" style="font-weight: bold;">Age</td>
-<td class="gt_row gt_center">189</td>
-<td class="gt_row gt_center">46 (37, 59)</td>
-<td class="gt_row gt_center">48 (39, 56)</td>
-<td class="gt_row gt_center">0.7</td></tr>
-    <tr><td class="gt_row gt_left" style="font-weight: bold;">Grade</td>
-<td class="gt_row gt_center">200</td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center">0.9</td></tr>
-    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;I</td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center">35 (36%)</td>
-<td class="gt_row gt_center">33 (32%)</td>
-<td class="gt_row gt_center"></td></tr>
-    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;II</td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center">32 (33%)</td>
-<td class="gt_row gt_center">36 (35%)</td>
-<td class="gt_row gt_center"></td></tr>
-    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;III</td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center">31 (32%)</td>
-<td class="gt_row gt_center">33 (32%)</td>
-<td class="gt_row gt_center"></td></tr>
-    <tr><td class="gt_row gt_left" style="font-weight: bold;">Tumor Response</td>
-<td class="gt_row gt_center">193</td>
-<td class="gt_row gt_center">28 (29%)</td>
-<td class="gt_row gt_center">33 (34%)</td>
-<td class="gt_row gt_center">0.5</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Age</td>
+<td headers="n" class="gt_row gt_center">189</td>
+<td headers="stat_1" class="gt_row gt_center">46 (37, 59)</td>
+<td headers="stat_2" class="gt_row gt_center">48 (39, 56)</td>
+<td headers="p.value" class="gt_row gt_center">0.7</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Grade</td>
+<td headers="n" class="gt_row gt_center">200</td>
+<td headers="stat_1" class="gt_row gt_center"></td>
+<td headers="stat_2" class="gt_row gt_center"></td>
+<td headers="p.value" class="gt_row gt_center">0.9</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;I</td>
+<td headers="n" class="gt_row gt_center"></td>
+<td headers="stat_1" class="gt_row gt_center">35 (36%)</td>
+<td headers="stat_2" class="gt_row gt_center">33 (32%)</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;II</td>
+<td headers="n" class="gt_row gt_center"></td>
+<td headers="stat_1" class="gt_row gt_center">32 (33%)</td>
+<td headers="stat_2" class="gt_row gt_center">36 (35%)</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;III</td>
+<td headers="n" class="gt_row gt_center"></td>
+<td headers="stat_1" class="gt_row gt_center">31 (32%)</td>
+<td headers="stat_2" class="gt_row gt_center">33 (32%)</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Tumor Response</td>
+<td headers="n" class="gt_row gt_center">193</td>
+<td headers="stat_1" class="gt_row gt_center">28 (29%)</td>
+<td headers="stat_2" class="gt_row gt_center">33 (34%)</td>
+<td headers="p.value" class="gt_row gt_center">0.5</td></tr>
   </tbody>
   
   <tfoot class="gt_footnotes">
@@ -1415,9 +1440,9 @@ see '?methods' for accessing help and source code</code></pre>
 <section id="gtsummary-example-2-code" class="slide level2">
 <h2>gtsummary example 2: code</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(response <span class="sc">~</span> trt <span class="sc">+</span> age <span class="sc">+</span> grade, trial, <span class="at">family =</span> binomial)</span>
-<span id="cb29-2"><a href="#cb29-2"></a></span>
-<span id="cb29-3"><a href="#cb29-3"></a>regression_tab <span class="ot">&lt;-</span> <span class="fu">tbl_regression</span>(mod1, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(response <span class="sc">~</span> trt <span class="sc">+</span> age <span class="sc">+</span> grade, trial, <span class="at">family =</span> binomial)</span>
+<span id="cb30-2"><a href="#cb30-2"></a></span>
+<span id="cb30-3"><a href="#cb30-3"></a>regression_tab <span class="ot">&lt;-</span> <span class="fu">tbl_regression</span>(mod1, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="gtsummary-example-2-output" class="slide level2">
@@ -1425,12 +1450,12 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="pkrvckrolr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="bgmepbwmnl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#pkrvckrolr) .gt_table {
+:where(#bgmepbwmnl) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1455,7 +1480,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#pkrvckrolr) .gt_heading {
+:where(#bgmepbwmnl) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1467,7 +1492,12 @@ see '?methods' for accessing help and source code</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pkrvckrolr) .gt_title {
+:where(#bgmepbwmnl) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#bgmepbwmnl) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1479,7 +1509,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#pkrvckrolr) .gt_subtitle {
+:where(#bgmepbwmnl) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1491,13 +1521,13 @@ see '?methods' for accessing help and source code</code></pre>
   border-top-width: 0;
 }
 
-:where(#pkrvckrolr) .gt_bottom_border {
+:where(#bgmepbwmnl) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pkrvckrolr) .gt_col_headings {
+:where(#bgmepbwmnl) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1512,7 +1542,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pkrvckrolr) .gt_col_heading {
+:where(#bgmepbwmnl) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1532,7 +1562,7 @@ see '?methods' for accessing help and source code</code></pre>
   overflow-x: hidden;
 }
 
-:where(#pkrvckrolr) .gt_column_spanner_outer {
+:where(#bgmepbwmnl) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1544,15 +1574,15 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 4px;
 }
 
-:where(#pkrvckrolr) .gt_column_spanner_outer:first-child {
+:where(#bgmepbwmnl) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#pkrvckrolr) .gt_column_spanner_outer:last-child {
+:where(#bgmepbwmnl) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#pkrvckrolr) .gt_column_spanner {
+:where(#bgmepbwmnl) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1564,7 +1594,7 @@ see '?methods' for accessing help and source code</code></pre>
   width: 100%;
 }
 
-:where(#pkrvckrolr) .gt_group_heading {
+:where(#bgmepbwmnl) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1587,9 +1617,10 @@ see '?methods' for accessing help and source code</code></pre>
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-:where(#pkrvckrolr) .gt_empty_group_heading {
+:where(#bgmepbwmnl) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1604,15 +1635,15 @@ see '?methods' for accessing help and source code</code></pre>
   vertical-align: middle;
 }
 
-:where(#pkrvckrolr) .gt_from_md > :first-child {
+:where(#bgmepbwmnl) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#pkrvckrolr) .gt_from_md > :last-child {
+:where(#bgmepbwmnl) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#pkrvckrolr) .gt_row {
+:where(#bgmepbwmnl) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1631,7 +1662,7 @@ see '?methods' for accessing help and source code</code></pre>
   overflow-x: hidden;
 }
 
-:where(#pkrvckrolr) .gt_stub {
+:where(#bgmepbwmnl) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1644,7 +1675,7 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 5px;
 }
 
-:where(#pkrvckrolr) .gt_stub_row_group {
+:where(#bgmepbwmnl) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1658,11 +1689,11 @@ see '?methods' for accessing help and source code</code></pre>
   vertical-align: top;
 }
 
-:where(#pkrvckrolr) .gt_row_group_first td {
+:where(#bgmepbwmnl) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#pkrvckrolr) .gt_summary_row {
+:where(#bgmepbwmnl) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1672,16 +1703,16 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 5px;
 }
 
-:where(#pkrvckrolr) .gt_first_summary_row {
+:where(#bgmepbwmnl) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#pkrvckrolr) .gt_first_summary_row.thick {
+:where(#bgmepbwmnl) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#pkrvckrolr) .gt_last_summary_row {
+:where(#bgmepbwmnl) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1691,7 +1722,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pkrvckrolr) .gt_grand_summary_row {
+:where(#bgmepbwmnl) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1701,7 +1732,7 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 5px;
 }
 
-:where(#pkrvckrolr) .gt_first_grand_summary_row {
+:where(#bgmepbwmnl) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1711,11 +1742,11 @@ see '?methods' for accessing help and source code</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#pkrvckrolr) .gt_striped {
+:where(#bgmepbwmnl) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#pkrvckrolr) .gt_table_body {
+:where(#bgmepbwmnl) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1724,7 +1755,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pkrvckrolr) .gt_footnotes {
+:where(#bgmepbwmnl) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1738,7 +1769,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pkrvckrolr) .gt_footnote {
+:where(#bgmepbwmnl) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1747,7 +1778,7 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 5px;
 }
 
-:where(#pkrvckrolr) .gt_sourcenotes {
+:where(#bgmepbwmnl) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1761,7 +1792,7 @@ see '?methods' for accessing help and source code</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pkrvckrolr) .gt_sourcenote {
+:where(#bgmepbwmnl) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1769,64 +1800,64 @@ see '?methods' for accessing help and source code</code></pre>
   padding-right: 5px;
 }
 
-:where(#pkrvckrolr) .gt_left {
+:where(#bgmepbwmnl) .gt_left {
   text-align: left;
 }
 
-:where(#pkrvckrolr) .gt_center {
+:where(#bgmepbwmnl) .gt_center {
   text-align: center;
 }
 
-:where(#pkrvckrolr) .gt_right {
+:where(#bgmepbwmnl) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#pkrvckrolr) .gt_font_normal {
+:where(#bgmepbwmnl) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#pkrvckrolr) .gt_font_bold {
+:where(#bgmepbwmnl) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#pkrvckrolr) .gt_font_italic {
+:where(#bgmepbwmnl) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#pkrvckrolr) .gt_super {
+:where(#bgmepbwmnl) .gt_super {
   font-size: 65%;
 }
 
-:where(#pkrvckrolr) .gt_footnote_marks {
+:where(#bgmepbwmnl) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#pkrvckrolr) .gt_asterisk {
+:where(#bgmepbwmnl) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#pkrvckrolr) .gt_indent_1 {
+:where(#bgmepbwmnl) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#pkrvckrolr) .gt_indent_2 {
+:where(#bgmepbwmnl) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#pkrvckrolr) .gt_indent_3 {
+:where(#bgmepbwmnl) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#pkrvckrolr) .gt_indent_4 {
+:where(#bgmepbwmnl) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#pkrvckrolr) .gt_indent_5 {
+:where(#bgmepbwmnl) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1834,45 +1865,45 @@ see '?methods' for accessing help and source code</code></pre>
   
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>OR</strong><sup class="gt_footnote_marks">1</sup></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>95% CI</strong><sup class="gt_footnote_marks">1</sup></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>p-value</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="<strong>Characteristic</strong>"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>OR</strong><sup class=&quot;gt_footnote_marks&quot;>1</sup>"><strong>OR</strong><sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>95% CI</strong><sup class=&quot;gt_footnote_marks&quot;>1</sup>"><strong>95% CI</strong><sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong>"><strong>p-value</strong></th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">Chemotherapy Treatment</td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center"></td></tr>
-    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;Drug A</td>
-<td class="gt_row gt_center">—</td>
-<td class="gt_row gt_center">—</td>
-<td class="gt_row gt_center"></td></tr>
-    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;Drug B</td>
-<td class="gt_row gt_center">1.13</td>
-<td class="gt_row gt_center">0.60, 2.13</td>
-<td class="gt_row gt_center">0.7</td></tr>
-    <tr><td class="gt_row gt_left">Age</td>
-<td class="gt_row gt_center">1.02</td>
-<td class="gt_row gt_center">1.00, 1.04</td>
-<td class="gt_row gt_center">0.10</td></tr>
-    <tr><td class="gt_row gt_left">Grade</td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center"></td></tr>
-    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;I</td>
-<td class="gt_row gt_center">—</td>
-<td class="gt_row gt_center">—</td>
-<td class="gt_row gt_center"></td></tr>
-    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;II</td>
-<td class="gt_row gt_center">0.85</td>
-<td class="gt_row gt_center">0.39, 1.85</td>
-<td class="gt_row gt_center">0.7</td></tr>
-    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;III</td>
-<td class="gt_row gt_center">1.01</td>
-<td class="gt_row gt_center">0.47, 2.15</td>
-<td class="gt_row gt_center">&gt;0.9</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Chemotherapy Treatment</td>
+<td headers="estimate" class="gt_row gt_center"></td>
+<td headers="ci" class="gt_row gt_center"></td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;Drug A</td>
+<td headers="estimate" class="gt_row gt_center">—</td>
+<td headers="ci" class="gt_row gt_center">—</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;Drug B</td>
+<td headers="estimate" class="gt_row gt_center">1.13</td>
+<td headers="ci" class="gt_row gt_center">0.60, 2.13</td>
+<td headers="p.value" class="gt_row gt_center">0.7</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Age</td>
+<td headers="estimate" class="gt_row gt_center">1.02</td>
+<td headers="ci" class="gt_row gt_center">1.00, 1.04</td>
+<td headers="p.value" class="gt_row gt_center">0.10</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Grade</td>
+<td headers="estimate" class="gt_row gt_center"></td>
+<td headers="ci" class="gt_row gt_center"></td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;I</td>
+<td headers="estimate" class="gt_row gt_center">—</td>
+<td headers="ci" class="gt_row gt_center">—</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;II</td>
+<td headers="estimate" class="gt_row gt_center">0.85</td>
+<td headers="ci" class="gt_row gt_center">0.39, 1.85</td>
+<td headers="p.value" class="gt_row gt_center">0.7</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;III</td>
+<td headers="estimate" class="gt_row gt_center">1.01</td>
+<td headers="ci" class="gt_row gt_center">0.47, 2.15</td>
+<td headers="p.value" class="gt_row gt_center">&gt;0.9</td></tr>
   </tbody>
   
   <tfoot class="gt_footnotes">
