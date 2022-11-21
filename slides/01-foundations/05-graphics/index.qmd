@@ -326,7 +326,7 @@ ggplot(data = penguins,
 ```
 :::
 
-## First example: add theme elements
+## Add theme elements
 
 ::: panel-tabset
 ### plot

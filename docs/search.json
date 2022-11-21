@@ -1524,5 +1524,12 @@
     "title": "Schedule",
     "section": "",
     "text": "Sessions will be held most Mondays in term time, from 10:00-11:30 in Term 1.\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "slides/01-foundations/05-graphics/index.html#add-theme-elements",
+    "href": "slides/01-foundations/05-graphics/index.html#add-theme-elements",
+    "title": "Graphics",
+    "section": "Add theme elements",
+    "text": "Add theme elements\n\nplotcode\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  labs(title = \"Penguin bill dimensions\",\n       x = \"bill length (mm)\",\n       y = \"bill depth (mm)\") +\n  theme_minimal() + \n  theme(plot.title.position = \"plot\",\n        text = element_text(size = 20))"
   }
 ]
