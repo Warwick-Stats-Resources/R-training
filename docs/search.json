@@ -28,6 +28,27 @@
     "text": "Please ensure that you have the latest versions of R and RStudio installed prior to the first session. Currently, that’s R-4.2.1 and RStudio-2022.07.2.\nWe also strongly recommend you install the development tools to avoid potential issues installing packages.\n\nInstalling R\nDownload the pre-compiled binary for your OS from https://cloud.r-project.org/ and install. More specifically:\nFor Windows\nClick “Download R for Windows”, then “base”, then “Download R-4.2.1 for Windows”. This will download an .exe file; once downloaded, open to start the installation.\nFor Mac\nClick “Download R for macOS”, then “R-4.2.1.pkg” (the first option) to download the installer for Macs with Intel chips or “R-4.2.1-arm64.pkg” (the second option) to download the installer for Macs with Apple Silicon chips. Run the installer to complete installation.\nFor Linux\nClick “Download R for Linux”. Instructions on installing are given for Debian, Fedora, Redhat, Suse and Ubuntu distributions. Where there is a choice, install both r-base and r-base-dev.\n\n\nInstalling R Studio Desktop (Open Source Edition)\nDownloads are available from https://www.rstudio.com/products/rstudio/download/#download\nFor Windows with no admin rights\nDownload the .zip source archive under “Zip/Tarballs”. Extract the files to a folder where you have write access, e.g. C:\\Users\\username\\RStudio. In this folder, open the bin directory and find the RStudio program: it is named rstudio.exe, but the file extension will typically be hidden, so look for rstudio. Right-click this executable to create a desktop shortcut. Double-click the executable or use the shortcut to open.\nFor all other operating systems\nDownload the relevant installer for your OS listed under “Installers for Supported Platforms”. Run the installer to complete installation.\n\n\nDevelopment Tools\nSome additional tools may be required to compile R packages from source.\nFor Windows with no admin rights\nDownload the latest (recommended) Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer keeping the default settings.\nFor Windows with admin rights\nDownload the latest Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer making the following selections: keep the default settings for the installation location and components to install; check the box to add rtools to the system PATH.\nFor Mac\nInstall XCode. Either:\n\nDownload and install XCode from the Mac AppStore: http://itunes.apple.com/us/app/xcode/id497799835?mt=12\nWithin XCode go to Preferences : Downloads and install the Command Line Tools\n\nOr for a smaller download size:\n\nRegister as an Apple Developer (free) here: https://developer.apple.com/programs/register/\nDownload the Command Line Tools for XCode appropriate for the version of OS X you are running from here: https://developer.apple.com/downloads/\n\nFor Linux\nIf you installed r-base-dev, when installing R, you should have all you need to build packages from source. Otherwise return to the instructions for installing R for your distribution and follow the instructions there to install the additional tools.\n\n\nTerms 2 and 3\nThis page will be updated with prerequisites for terms 2 and 3 in due course."
   },
   {
+    "objectID": "content/01-foundations/06-quarto.html",
+    "href": "content/01-foundations/06-quarto.html",
+    "title": "Quarto",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/01-foundations/06-quarto.html#slides",
+    "href": "content/01-foundations/06-quarto.html#slides",
+    "title": "Quarto",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/01-foundations/06-quarto.html#resources",
+    "href": "content/01-foundations/06-quarto.html#resources",
+    "title": "Quarto",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
     "objectID": "content/01-foundations/01-intro.html",
     "href": "content/01-foundations/01-intro.html",
     "title": "Introduction to R and RStudio",
@@ -96,13 +117,6 @@
     "title": "Graphics",
     "section": "",
     "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/01-foundations/05-graphics.html#slides",
-    "href": "content/01-foundations/05-graphics.html#slides",
-    "title": "Graphics",
-    "section": "Slides",
-    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
   },
   {
     "objectID": "content/01-foundations/05-graphics.html#resources",
@@ -336,11 +350,11 @@
     "text": "Facets\n\nplot 1code 1plot 2code 2\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  facet_wrap(~species)\n\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  facet_wrap(~species, scales = \"free_x\")"
   },
   {
-    "objectID": "slides/01-foundations/05-graphics/index.html#first-example-add-theme-elements",
-    "href": "slides/01-foundations/05-graphics/index.html#first-example-add-theme-elements",
+    "objectID": "slides/01-foundations/05-graphics/index.html#add-theme-elements",
+    "href": "slides/01-foundations/05-graphics/index.html#add-theme-elements",
     "title": "Graphics",
-    "section": "First example: add theme elements",
-    "text": "First example: add theme elements\n\nplotcode\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  labs(title = \"Penguin bill dimensions\",\n       x = \"bill length (mm)\",\n       y = \"bill depth (mm)\") +\n  theme_minimal() + \n  theme(plot.title.position = \"plot\",\n        text = element_text(size = 20))"
+    "section": "Add theme elements",
+    "text": "Add theme elements\n\nplotcode\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  labs(title = \"Penguin bill dimensions\",\n       x = \"bill length (mm)\",\n       y = \"bill depth (mm)\") +\n  theme_minimal() + \n  theme(plot.title.position = \"plot\",\n        text = element_text(size = 20))"
   },
   {
     "objectID": "slides/01-foundations/05-graphics/index.html#your-turn-1",
@@ -514,6 +528,230 @@
     "objectID": "slides/01-foundations/05-graphics/index.html#license",
     "href": "slides/01-foundations/05-graphics/index.html#license",
     "title": "Graphics",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#dsiclaimer",
+    "href": "slides/01-foundations/06-quarto/index.html#dsiclaimer",
+    "title": "Quarto",
+    "section": "Dsiclaimer",
+    "text": "Dsiclaimer\nThese slides are almost entirely copied from Tom Mock’s ‘Getting Started with Quarto’ workshop at rstudio::conf(2022).\n\nWorkshop website\nWorkshop repo"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#overview",
+    "href": "slides/01-foundations/06-quarto/index.html#overview",
+    "title": "Quarto",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#hello-quarto",
+    "href": "slides/01-foundations/06-quarto/index.html#hello-quarto",
+    "title": "Quarto",
+    "section": "Hello Quarto",
+    "text": "Hello Quarto\n\nQuarto® is an open-source scientific and technical publishing system built on Pandoc\n\n\n\nYou can weave together narrative text and code to produce elegantly formatted output as documents, web pages, blog posts, books and more."
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#what-about-rmarkdown",
+    "href": "slides/01-foundations/06-quarto/index.html#what-about-rmarkdown",
+    "title": "Quarto",
+    "section": "What about RMarkdown?",
+    "text": "What about RMarkdown?"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#so-what-is-quarto",
+    "href": "slides/01-foundations/06-quarto/index.html#so-what-is-quarto",
+    "title": "Quarto",
+    "section": "So what is Quarto?",
+    "text": "So what is Quarto?\n\nQuarto is the next generation of R Markdown. For everyone.\n\n\nQuarto is a command line interface (CLI) that renders plain text formats (.qmd, .rmd, .md) OR mixed formats (.ipynb/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#quarto-more-than-just-knitr",
+    "href": "slides/01-foundations/06-quarto/index.html#quarto-more-than-just-knitr",
+    "title": "Quarto",
+    "section": "Quarto, more than just knitr",
+    "text": "Quarto, more than just knitr\nWe learned from 10 years of literate programming with knitr + rmarkdown"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#for-everyone",
+    "href": "slides/01-foundations/06-quarto/index.html#for-everyone",
+    "title": "Quarto",
+    "section": "For everyone",
+    "text": "For everyone\n\nWorks with R, Python, Julia, Observable JS\nknitr and jupyter engines\nWorks in RStudio, Jupyter Notebooks, VS Code\n\n\nFor the R Training course, we’ll focus on R and RStudio"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#so-what-is-quarto-1",
+    "href": "slides/01-foundations/06-quarto/index.html#so-what-is-quarto-1",
+    "title": "Quarto",
+    "section": "So what is Quarto?",
+    "text": "So what is Quarto?\n\nA Quarto document i.e. a .qmd is a plain text file, like a .rmd, that can be rendered to many different formats"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#one-install-batteries-included",
+    "href": "slides/01-foundations/06-quarto/index.html#one-install-batteries-included",
+    "title": "Quarto",
+    "section": "One install, “Batteries included”",
+    "text": "One install, “Batteries included”\n\nRMarkdown grew into a large ecosystem, with varying syntax.\n\n\nQuarto comes “batteries included” straight out of the box\n\nHTML reports and websites\nPDF reports\nMS Office (Word, Powerpoint)\nPresentations (Powerpoint, Beamer, revealjs)\nBooks\n\n\n\n\nAny language, exact same approach and syntax"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#quarto-for-rmarkdown-users",
+    "href": "slides/01-foundations/06-quarto/index.html#quarto-for-rmarkdown-users",
+    "title": "Quarto",
+    "section": "Quarto for RMarkdown users",
+    "text": "Quarto for RMarkdown users\nSee FAQs, including a conversion from RMarkdown formats to Quarto equivalents."
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document",
+    "href": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document",
+    "title": "Quarto",
+    "section": "Anatomy of a Quarto document",
+    "text": "Anatomy of a Quarto document\n\nMetadata (YAML)\n\n---\nformat: html\n---"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document-1",
+    "href": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document-1",
+    "title": "Quarto",
+    "section": "Anatomy of a Quarto document",
+    "text": "Anatomy of a Quarto document\n\nCode\n\n\n```{r}\n#| eval: true\nlibrary(dplyr)\nmtcars %>% \n  group_by(cyl) %>%\n  summarize(mean = mean(mpg), .groups = \"drop\")\n```\n\n# A tibble: 3 × 2\n    cyl  mean\n  <dbl> <dbl>\n1     4  26.7\n2     6  19.7\n3     8  15.1"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document-2",
+    "href": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document-2",
+    "title": "Quarto",
+    "section": "Anatomy of a Quarto document",
+    "text": "Anatomy of a Quarto document\n\nText\n\n# Heading 1\nThis is a sentence with some **bold text** and some *italic text* \nThis is an [image](image.png)."
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#metadata-yaml",
+    "href": "slides/01-foundations/06-quarto/index.html#metadata-yaml",
+    "title": "Quarto",
+    "section": "Metadata: YAML",
+    "text": "Metadata: YAML\nThe YAML metadata or header is:\n\nprocessed in many stages of the rendering process and can influence the final document in many different ways. It is placed at the very beginning of the document and is read by each of Pandoc, Quarto and knitr. Along the way, the information that it contains can affect the code, content, and the rendering process."
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#yaml",
+    "href": "slides/01-foundations/06-quarto/index.html#yaml",
+    "title": "Quarto",
+    "section": "YAML",
+    "text": "YAML\n---\ntitle: \"My Document\"\nformat: \n  html:\n    toc: true\n    code-fold: true\n---"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#markdown",
+    "href": "slides/01-foundations/06-quarto/index.html#markdown",
+    "title": "Quarto",
+    "section": "Markdown",
+    "text": "Markdown\n\nQuarto is based on Pandoc and uses its variation of markdown as its underlying document syntax. Pandoc markdown is an extended and slightly revised version of John Gruber’s Markdown syntax.\n\n\n\nMarkdown is a plain text format that is designed to be easy to write, and, even more importantly, easy to read"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#text-formatting",
+    "href": "slides/01-foundations/06-quarto/index.html#text-formatting",
+    "title": "Quarto",
+    "section": "Text Formatting",
+    "text": "Text Formatting\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\n*italics* and **bold**\nitalics and bold\n\n\nsuperscript^2^ / subscript~2~\nsuperscript2 / subscript2\n\n\n~~strikethrough~~\nstrikethrough\n\n\n`verbatim code`\nverbatim code"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#headings",
+    "href": "slides/01-foundations/06-quarto/index.html#headings",
+    "title": "Quarto",
+    "section": "Headings",
+    "text": "Headings\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\n# Header 1\nHeader 1\n\n\n## Header 2\nHeader 2\n\n\n### Header 3\nHeader 3\n\n\n#### Header 4\nHeader 4\n\n\n##### Header 5\nHeader 5\n\n\n###### Header 6\nHeader 6"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#links",
+    "href": "slides/01-foundations/06-quarto/index.html#links",
+    "title": "Quarto",
+    "section": "Links",
+    "text": "Links\n\nThere are several types of “links” or hyperlinks.\n\n\nMarkdownOutput\n\n\nYou can embed [named hyperlinks](https://quarto.org/),\ndirect urls like <https://quarto.org/>, and links to \n[other places](#quarto-anatomy) in \nthe document. The syntax is similar for embedding an\ninline image: ![Penguins](images/lter_penguins.png).\n\n\nYou can embed named hyperlinks, direct urls like https://quarto.org/, and links to other places in the document. The syntax is similar for embedding an inline image:"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#code",
+    "href": "slides/01-foundations/06-quarto/index.html#code",
+    "title": "Quarto",
+    "section": "Code",
+    "text": "Code\n\n\n```{r}\n#| output-location: column\n#| label: fig-airquality\n#| fig-cap: Temperature and ozone level.\n#| warning: false\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n```\n\n\n\n\n\nFigure 1: Temperature and ozone level."
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#literate-programming",
+    "href": "slides/01-foundations/06-quarto/index.html#literate-programming",
+    "title": "Quarto",
+    "section": "Literate programming",
+    "text": "Literate programming\nLiterate programming is writing out the program logic in a human language with included (separated by a primitive markup) code snippets and macros. - Wikipedia\n---\ntitle: \"ggplot2 demo\"\ndate: \"5/22/2021\"\nformat: html\n---\n\n## Air Quality\n\nThere is a relationship between temperature and the ozone level.\n\n```{r}\n#| label: fig-airquality\nlibrary(ggplot2)\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\"\n)\n```"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#metadata-yaml-1",
+    "href": "slides/01-foundations/06-quarto/index.html#metadata-yaml-1",
+    "title": "Quarto",
+    "section": "Metadata: YAML",
+    "text": "Metadata: YAML\n“Yet Another Markup Language” or “YAML Ain’t Markup Language”\n---\nkey: value\n---"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#output-options",
+    "href": "slides/01-foundations/06-quarto/index.html#output-options",
+    "title": "Quarto",
+    "section": "Output Options",
+    "text": "Output Options\n---\nformat: something\n---\n\n---\nformat: html\n---\n---\nformat: pdf\n---\n---\nformat: revealjs\n---"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#options-on-options",
+    "href": "slides/01-foundations/06-quarto/index.html#options-on-options",
+    "title": "Quarto",
+    "section": "Options on options",
+    "text": "Options on options\nThen add option arguments!\n---\nformat: \n  html:\n    toc: true\n    code-fold: true\n---\n\nSub-options should be below the main format output and spacing matters!\n---\nformat: \n  html:\n    option1: text\n    option2: logical\n---"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#yaml-for-format-html",
+    "href": "slides/01-foundations/06-quarto/index.html#yaml-for-format-html",
+    "title": "Quarto",
+    "section": "YAML for format: html",
+    "text": "YAML for format: html"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#yaml-is-sensitive",
+    "href": "slides/01-foundations/06-quarto/index.html#yaml-is-sensitive",
+    "title": "Quarto",
+    "section": "YAML is sensitive",
+    "text": "YAML is sensitive\n---\nformat:html # invalid, no space between\n---\n\n---\nformat: # invalid, read as missing\nhtml\n---\n\n---\nformat: \n  html: # valid but needs next object\n---"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-code-chunk",
+    "href": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-code-chunk",
+    "title": "Quarto",
+    "section": "Anatomy of a code chunk",
+    "text": "Anatomy of a code chunk\n```{r}\n#| label: car-stuff\n#| echo: false\nmtcars %>% \n  distinct(cyl)\n```\n\n\nHas 3x backticks on each end ```\n\nIndicate engine (r) between curly braces {r}\n\nPlace options underneath, behind the #| (hashpipe):\n\n#| option1: value"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#quarto-presentations",
+    "href": "slides/01-foundations/06-quarto/index.html#quarto-presentations",
+    "title": "Quarto",
+    "section": "Quarto presentations",
+    "text": "Quarto presentations\n---\nformat: revealjs\n---\n---\nformat: \n  revealjs:\n    slide-number: true\n---"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#this-quarto-presentation",
+    "href": "slides/01-foundations/06-quarto/index.html#this-quarto-presentation",
+    "title": "Quarto",
+    "section": "This Quarto presentation",
+    "text": "This Quarto presentation\n---\ntitle: Quarto\nsubtitle: R Foundations course\nauthor: Ella Kaye | Department of Statistics | University of Warwick\ntitle-slide-attributes:\n  data-background-color: \"#552D62\"\ndate: 2022-11-28\ndate-format: long\nformat: \n  revealjs:\n    theme: [default, ../../slides.scss]\n    slide-number: true\n    execute:\n      echo: true\n---"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#more-on-quarto-presentations",
+    "href": "slides/01-foundations/06-quarto/index.html#more-on-quarto-presentations",
+    "title": "Quarto",
+    "section": "More on Quarto presentations",
+    "text": "More on Quarto presentations\n\nOfficial guide\nSlidecraft 101 by Emil Hvitfeldt\n\nColours and Fonts\nCode and Output"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#resources",
+    "href": "slides/01-foundations/06-quarto/index.html#resources",
+    "title": "Quarto",
+    "section": "Resources",
+    "text": "Resources\n\nhttps://quarto.org\nAwesome Quarto\nBeautiful Reports and Persentations with Quarto\nGetting Started with Quarto workshop website"
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#license",
+    "href": "slides/01-foundations/06-quarto/index.html#license",
+    "title": "Quarto",
     "section": "License",
     "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   },
@@ -1524,292 +1762,5 @@
     "title": "Schedule",
     "section": "",
     "text": "Sessions will be held most Mondays in term time, from 10:00-11:30 in Term 1.\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
-  },
-  {
-    "objectID": "slides/01-foundations/05-graphics/index.html#add-theme-elements",
-    "href": "slides/01-foundations/05-graphics/index.html#add-theme-elements",
-    "title": "Graphics",
-    "section": "Add theme elements",
-    "text": "Add theme elements\n\nplotcode\n\n\n\n\n\n\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species, \n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  geom_smooth(method = \"lm\", aes(color = species)) +\n  scale_color_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  labs(title = \"Penguin bill dimensions\",\n       x = \"bill length (mm)\",\n       y = \"bill depth (mm)\") +\n  theme_minimal() + \n  theme(plot.title.position = \"plot\",\n        text = element_text(size = 20))"
-  },
-  {
-    "objectID": "content/01-foundations/06-quarto.html",
-    "href": "content/01-foundations/06-quarto.html",
-    "title": "Quarto",
-    "section": "",
-    "text": "This page and the slides for this session are still under development"
-  },
-  {
-    "objectID": "content/01-foundations/06-quarto.html#todo",
-    "href": "content/01-foundations/06-quarto.html#todo",
-    "title": "Quarto",
-    "section": "TODO",
-    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
-  },
-  {
-    "objectID": "content/01-foundations/06-quarto.html#slides",
-    "href": "content/01-foundations/06-quarto.html#slides",
-    "title": "Quarto",
-    "section": "Slides",
-    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/01-foundations/06-quarto.html#resources",
-    "href": "content/01-foundations/06-quarto.html#resources",
-    "title": "Quarto",
-    "section": "Resources",
-    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html",
-    "href": "slides/01-foundations/06-quarto/index.html",
-    "title": "TITLE",
-    "section": "",
-    "text": "What we’re covering"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#resources",
-    "href": "slides/01-foundations/06-quarto/index.html#resources",
-    "title": "Quarto",
-    "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#license",
-    "href": "slides/01-foundations/06-quarto/index.html#license",
-    "title": "Quarto",
-    "section": "License",
-    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#overview",
-    "href": "slides/01-foundations/06-quarto/index.html#overview",
-    "title": "Quarto",
-    "section": "Overview",
-    "text": "Overview\n\nWhat we’re covering"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#dsiclaimer",
-    "href": "slides/01-foundations/06-quarto/index.html#dsiclaimer",
-    "title": "Quarto",
-    "section": "Dsiclaimer",
-    "text": "Dsiclaimer\nThese slides are almost entirely copied from Tom Mock’s ‘Getting Started with Quarto’ workshop at rstudio::conf(2022).\n\nWorkshop website\nWorkshop repo"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#hello-quarto",
-    "href": "slides/01-foundations/06-quarto/index.html#hello-quarto",
-    "title": "Quarto",
-    "section": "Hello Quarto",
-    "text": "Hello Quarto\n\nQuarto® is an open-source scientific and technical publishing system built on Pandoc\n\n\n\nYou can weave together narrative text and code to produce elegantly formatted output as documents, web pages, blog posts, books and more."
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#what-about-rmarkdown",
-    "href": "slides/01-foundations/06-quarto/index.html#what-about-rmarkdown",
-    "title": "Quarto",
-    "section": "What about RMarkdown?",
-    "text": "What about RMarkdown?"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#so-what-is-quarto",
-    "href": "slides/01-foundations/06-quarto/index.html#so-what-is-quarto",
-    "title": "Quarto",
-    "section": "So what is Quarto?",
-    "text": "So what is Quarto?\n\nQuarto is the next generation of R Markdown. For everyone.\n\n\nQuarto is a command line interface (CLI) that renders plain text formats (.qmd, .rmd, .md) OR mixed formats (.ipynb/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#so-what-is-quarto-1",
-    "href": "slides/01-foundations/06-quarto/index.html#so-what-is-quarto-1",
-    "title": "Quarto",
-    "section": "So what is Quarto?",
-    "text": "So what is Quarto?\n\nA Quarto document i.e. a .qmd is a plain text file, like a .rmd, that can be rendered to many different formats"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#quarto-more-than-just-knitr",
-    "href": "slides/01-foundations/06-quarto/index.html#quarto-more-than-just-knitr",
-    "title": "Quarto",
-    "section": "Quarto, more than just knitr",
-    "text": "Quarto, more than just knitr\nWe learned from 10 years of literate programming with knitr + rmarkdown"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#for-everyone",
-    "href": "slides/01-foundations/06-quarto/index.html#for-everyone",
-    "title": "Quarto",
-    "section": "For everyone",
-    "text": "For everyone\n\nWorks with R, Python, Julia, Observable JS\nknitr and jupyter engines\nWorks in RStudio, Jupyter Notebooks, VS Code\n\n\nFor the R Training course, we’ll focus on R and RStudio"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#so-what-is-quarto-2",
-    "href": "slides/01-foundations/06-quarto/index.html#so-what-is-quarto-2",
-    "title": "Quarto",
-    "section": "So what is Quarto?",
-    "text": "So what is Quarto?\n\nA Quarto document i.e. a .qmd is a plain text file, like a .rmd, that can be rendered to many different formats"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#one-install-batteries-included",
-    "href": "slides/01-foundations/06-quarto/index.html#one-install-batteries-included",
-    "title": "Quarto",
-    "section": "One install, “Batteries included”",
-    "text": "One install, “Batteries included”\n\nRMarkdown grew into a large ecosystem, with varying syntax.\n\n\nQuarto comes “batteries included” straight out of the box\n\nHTML reports and websites\nPDF reports\nMS Office (Word, Powerpoint)\nPresentations (Powerpoint, Beamer, revealjs)\nBooks\n\n\n\n\nAny language, exact same approach and syntax"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#many-quarto-formats",
-    "href": "slides/01-foundations/06-quarto/index.html#many-quarto-formats",
-    "title": "Quarto",
-    "section": "Many Quarto formats",
-    "text": "Many Quarto formats\n\n\n\nFeature\nR Markdown\nQuarto\n\n\n\n\nBasic Formats\n\nhtml_document\npdf_document\nword_document\n\n\nhtml\npdf\ndocx\n\n\n\nBeamer\n\nbeamer_presentation\n\n\nbeamer\n\n\n\nPowerPoint\n\npowerpoint_presentation\n\n\npptx\n\n\n\nHTML Slides\n\nxaringan\nioslides\nrevealjs\n\n\nrevealjs\n\n\n\nAdvanced Layout\n\ntufte\ndistill\n\n\nQuarto Article Layout"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#many-quarto-formats-1",
-    "href": "slides/01-foundations/06-quarto/index.html#many-quarto-formats-1",
-    "title": "Quarto",
-    "section": "Many Quarto formats",
-    "text": "Many Quarto formats\n\n\n\nFeature\nR Markdown\nQuarto\n\n\n\n\nCross References\n\nhtml_document2\npdf_document2\nword_document2\n\n\nQuarto Crossrefs\n\n\n\nWebsites & Blogs\n\nblogdown\ndistill\n\n\nQuarto Websites\nQuarto Blogs\n\n\n\nBooks\n\nbookdown\n\n\nQuarto Books\n\n\n\nInteractivity\nShiny Documents\nQuarto Interactive Documents\n\n\nPaged HTML\npagedown\nSummer 2022\n\n\nJournal Articles\nrticles\nSummer 2022\n\n\nDashboards\nflexdashboard\nFall 2022"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#quarto-for-rmarkdown-users",
-    "href": "slides/01-foundations/06-quarto/index.html#quarto-for-rmarkdown-users",
-    "title": "Quarto",
-    "section": "Quarto for RMarkdown users",
-    "text": "Quarto for RMarkdown users\nSee FAQs, including a conversion from RMarkdown formats to Quarto equivalents."
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document",
-    "href": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document",
-    "title": "Quarto",
-    "section": "Anatomy of a Quarto document",
-    "text": "Anatomy of a Quarto document\n\nMetadata (YAML)\n\n---\nformat: html\n---"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#metadata-yaml",
-    "href": "slides/01-foundations/06-quarto/index.html#metadata-yaml",
-    "title": "Quarto",
-    "section": "Metadata: YAML",
-    "text": "Metadata: YAML\nThe YAML metadata or header is:\n\nprocessed in many stages of the rendering process and can influence the final document in many different ways. It is placed at the very beginning of the document and is read by each of Pandoc, Quarto and knitr. Along the way, the information that it contains can affect the code, content, and the rendering process."
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#yaml",
-    "href": "slides/01-foundations/06-quarto/index.html#yaml",
-    "title": "Quarto",
-    "section": "YAML",
-    "text": "YAML\n---\ntitle: \"My Document\"\nformat: \n  html:\n    toc: true\n    code-fold: true\n---"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#markdown",
-    "href": "slides/01-foundations/06-quarto/index.html#markdown",
-    "title": "Quarto",
-    "section": "Markdown",
-    "text": "Markdown\n\nQuarto is based on Pandoc and uses its variation of markdown as its underlying document syntax. Pandoc markdown is an extended and slightly revised version of John Gruber’s Markdown syntax.\n\n\n\nMarkdown is a plain text format that is designed to be easy to write, and, even more importantly, easy to read"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#text-formatting",
-    "href": "slides/01-foundations/06-quarto/index.html#text-formatting",
-    "title": "Quarto",
-    "section": "Text Formatting",
-    "text": "Text Formatting\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\n*italics* and **bold**\nitalics and bold\n\n\nsuperscript^2^ / subscript~2~\nsuperscript2 / subscript2\n\n\n~~strikethrough~~\nstrikethrough\n\n\n`verbatim code`\nverbatim code"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#headings",
-    "href": "slides/01-foundations/06-quarto/index.html#headings",
-    "title": "Quarto",
-    "section": "Headings",
-    "text": "Headings\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\n# Header 1\nHeader 1\n\n\n## Header 2\nHeader 2\n\n\n### Header 3\nHeader 3\n\n\n#### Header 4\nHeader 4\n\n\n##### Header 5\nHeader 5\n\n\n###### Header 6\nHeader 6"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#code",
-    "href": "slides/01-foundations/06-quarto/index.html#code",
-    "title": "Quarto",
-    "section": "Code",
-    "text": "Code\n\n\n```{r}\n#| output-location: column\n#| label: fig-airquality\n#| fig-cap: Temperature and ozone level.\n#| warning: false\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n```\n\n\n\n\n\nFigure 1: Temperature and ozone level."
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document-1",
-    "href": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document-1",
-    "title": "Quarto",
-    "section": "Anatomy of a Quarto document",
-    "text": "Anatomy of a Quarto document\n\nCode\n\n\n```{r}\n#| eval: true\nlibrary(dplyr)\nmtcars %>% \n  group_by(cyl) %>%\n  summarize(mean = mean(mpg), .groups = \"drop\")\n```\n\n# A tibble: 3 × 2\n    cyl  mean\n  <dbl> <dbl>\n1     4  26.7\n2     6  19.7\n3     8  15.1"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document-2",
-    "href": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-quarto-document-2",
-    "title": "Quarto",
-    "section": "Anatomy of a Quarto document",
-    "text": "Anatomy of a Quarto document\n\nText\n\n# Heading 1\nThis is a sentence with some **bold text** and some *italic text* \nThis is an [image](image.png)."
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#quarto-anatomy",
-    "href": "slides/01-foundations/06-quarto/index.html#quarto-anatomy",
-    "title": "Quarto",
-    "section": "Quarto, anatomy",
-    "text": "Quarto, anatomy\n\nMetadata: YAML\nText: Markdown\nCode: knitr or jupyter\n\n\nAdd it all together, and you have beautiful, powerful, and useful outputs!"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#literate-programming",
-    "href": "slides/01-foundations/06-quarto/index.html#literate-programming",
-    "title": "Quarto",
-    "section": "Literate programming",
-    "text": "Literate programming\nLiterate programming is writing out the program logic in a human language with included (separated by a primitive markup) code snippets and macros. - Wikipedia\n---\ntitle: \"ggplot2 demo\"\ndate: \"5/22/2021\"\nformat: html\n---\n\n## Air Quality\n\nThere is a relationship between temperature and the ozone level.\n\n```{r}\n#| label: fig-airquality\nlibrary(ggplot2)\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\"\n)\n```"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#links",
-    "href": "slides/01-foundations/06-quarto/index.html#links",
-    "title": "Quarto",
-    "section": "Links",
-    "text": "Links\n\nThere are several types of “links” or hyperlinks.\n\n\nMarkdownOutput\n\n\nYou can embed [named hyperlinks](https://quarto.org/),\ndirect urls like <https://quarto.org/>, and links to \n[other places](#quarto-anatomy) in \nthe document. The syntax is similar for embedding an\ninline image: ![Penguins](images/lter_penguins.png).\n\n\nYou can embed named hyperlinks, direct urls like https://quarto.org/, and links to other places in the document. The syntax is similar for embedding an inline image:"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#metadata-yaml-1",
-    "href": "slides/01-foundations/06-quarto/index.html#metadata-yaml-1",
-    "title": "Quarto",
-    "section": "Metadata: YAML",
-    "text": "Metadata: YAML\n“Yet Another Markup Language” or “YAML Ain’t Markup Language”\n---\nkey: value\n---"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#output-options",
-    "href": "slides/01-foundations/06-quarto/index.html#output-options",
-    "title": "Quarto",
-    "section": "Output Options",
-    "text": "Output Options\n---\nformat: something\n---\n\n---\nformat: html\n---\n---\nformat: pdf\n---\n---\nformat: revealjs\n---"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#yaml-for-format-html",
-    "href": "slides/01-foundations/06-quarto/index.html#yaml-for-format-html",
-    "title": "Quarto",
-    "section": "YAML for format: html",
-    "text": "YAML for format: html"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#yaml-is-sensitive",
-    "href": "slides/01-foundations/06-quarto/index.html#yaml-is-sensitive",
-    "title": "Quarto",
-    "section": "YAML is sensitive",
-    "text": "YAML is sensitive\n---\nformat:html # invalid, no space between\n---\n\n---\nformat: # invalid, read as missing\nhtml\n---\n\n---\nformat: \n  html: # valid but needs next object\n---"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#text-and-markdown",
-    "href": "slides/01-foundations/06-quarto/index.html#text-and-markdown",
-    "title": "Quarto",
-    "section": "Text and Markdown",
-    "text": "Text and Markdown\n\nSee above and RStudio Demo (Visual Mode)"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-code-chunk",
-    "href": "slides/01-foundations/06-quarto/index.html#anatomy-of-a-code-chunk",
-    "title": "Quarto",
-    "section": "Anatomy of a code chunk",
-    "text": "Anatomy of a code chunk\n```{r}\n#| label: car-stuff\n#| echo: false\nmtcars %>% \n  distinct(cyl)\n```\n\n\nHas 3x backticks on each end ```\n\nIndicate engine (r) between curly braces {r}\n\nPlace options underneath, behind the #| (hashpipe):\n\n#| option1: value"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#options-on-options",
-    "href": "slides/01-foundations/06-quarto/index.html#options-on-options",
-    "title": "Quarto",
-    "section": "Options on options",
-    "text": "Options on options\nThen add option arguments!\n---\nformat: \n  html:\n    toc: true\n    code-fold: true\n---\n\nSub-options should be below the main format output and spacing matters!\n---\nformat: \n  html:\n    option1: text\n    option2: logical\n---"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#resources-1",
-    "href": "slides/01-foundations/06-quarto/index.html#resources-1",
-    "title": "Quarto",
-    "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:"
   }
 ]

@@ -353,10 +353,54 @@ mtcars %>%
 - Place options underneath, behind the `#|` (hashpipe): 
   - `#| option1: value`  
 
+## Quarto presentations
 
-# Demo
+``` yaml
+---
+format: revealjs
+---
+```
 
-# Resources
+``` yaml
+---
+format: 
+  revealjs:
+    slide-number: true
+---
+```
+
+## This Quarto presentation
+
+``` yaml
+---
+title: Quarto
+subtitle: R Foundations course
+author: Ella Kaye | Department of Statistics | University of Warwick
+title-slide-attributes:
+  data-background-color: "#552D62"
+date: 2022-11-28
+date-format: long
+format: 
+  revealjs:
+    theme: [default, ../../slides.scss]
+    slide-number: true
+    execute:
+      echo: true
+---
+```
+
+## More on Quarto presentations
+
+- [Official guide](https://quarto.org/docs/presentations/)
+
+- [Slidecraft 101](https://www.emilhvitfeldt.com/categories/slidecraft-101/) by Emil Hvitfeldt
+
+  - Colours and Fonts
+  - Code and Output
+
+# Demo {background-color="#552D62"}
+
+## Resources
 
 - <https://quarto.org>
 
