@@ -39,7 +39,8 @@ website:
               - content/01-foundations/03-programming.qmd
               - content/01-foundations/04-sim-optim.qmd
               - content/01-foundations/05-graphics.qmd
-          
+              - content/01-foundations/06-quarto.qmd
+               
     - title: "schedule"
       style: "docked"
       background: light

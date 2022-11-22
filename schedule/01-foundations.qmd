@@ -15,5 +15,5 @@ Click on the topic to be taken to the page with its slides and resources (will b
 | Week 6  | November 7th  | [Simulation and Optimisation](/content/01-foundations/04-sim-optim.qmd)|
 | Week 7  | November 14th | Break/online clinic                                             |
 | Week 8  | November 21st | [Graphics](/content/01-foundations/05-graphics.qmd)            |
-| Week 9  | November 28th | Quarto reporting and presentations                              |
+| Week 9  | November 28th | [Quarto reporting and presentations](/content/01-foundations/06-quarto.qmd)                              |
 | Week 10 | December 5th  | Break/online clinic                                             |
