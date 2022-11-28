@@ -15,16 +15,14 @@ format:
       code-overflow: wrap
 ---
 
-## Dsiclaimer
+## Disclaimer
 
 These slides are almost entirely copied from Tom Mock's 'Getting Started with Quarto' workshop at rstudio::conf(2022).
 
 - [Workshop website](https://rstudio-conf-2022.github.io/get-started-quarto/)
 - [Workshop repo](https://github.com/rstudio-conf-2022/get-started-quarto)
 
-## Overview
-
--   What we're covering
+Shared under Creative Commons 4.0 License. 
 
 # Intro to Quarto {background-color="#552D62"}
 

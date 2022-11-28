@@ -1762,5 +1762,12 @@
     "title": "Schedule",
     "section": "",
     "text": "Sessions will be held most Mondays in term time, from 10:00-11:30 in Term 1.\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "slides/01-foundations/06-quarto/index.html#disclaimer",
+    "href": "slides/01-foundations/06-quarto/index.html#disclaimer",
+    "title": "Quarto",
+    "section": "Disclaimer",
+    "text": "Disclaimer\nThese slides are almost entirely copied from Tom Mock’s ‘Getting Started with Quarto’ workshop at rstudio::conf(2022).\n\nWorkshop website\nWorkshop repo\n\nShared under Creative Commons 4.0 License."
   }
 ]
