@@ -1,10 +1,10 @@
 ---
-title: TITLE
+title: Classes and Methods
 subtitle: Advanced R Course
 author: Ella Kaye | Department of Statistics | University of Warwick
 title-slide-attributes:
   data-background-color: "#552D62"
-date: yyyy-MM-dd
+date: 2023-03-06
 date-format: long
 format: 
   revealjs:

@@ -1,27 +1,16 @@
 ---
-title: TITLE
+title: Functions
 ---
 
 ***This page and the slides for this session are still under development***
 
-## TODO
-
-- Link to this page in schedule
-- Link to this page in _quarto.yml
-- Update TITLE
-- Create folder for slides
-- Update link to slides in new window
-- Update link to slides in iframe
-- Update title of slides in iframe
-- Fill in resources
-
 ## Slides
 
-Here's a link to the [slides](/slides/02-advanced/UPDATE/index.qmd){target="_blank"} in a new window. 
+Here's a link to the [slides](/slides/02-advanced/02-functions/index.qmd){target="_blank"} in a new window. 
 
 Here are the slides embedded:
 
-<iframe class="slide-deck ar3x2" src="/slides/02-advanced/UPDATE/index.html" title="UPDATE slides">
+<iframe class="slide-deck ar3x2" src="/slides/02-advanced/02-functions/index.html" title="Functions slides">
 </iframe>
 
 ## Resources

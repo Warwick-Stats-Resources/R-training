@@ -1,27 +1,16 @@
 ---
-title: TITLE
+title: Function Documentation and Dependencies 
 ---
 
 ***This page and the slides for this session are still under development***
 
-## TODO
-
-- Link to this page in schedule
-- Link to this page in _quarto.yml
-- Update TITLE
-- Create folder for slides
-- Update link to slides in new window
-- Update link to slides in iframe
-- Update title of slides in iframe
-- Fill in resources
-
 ## Slides
 
-Here's a link to the [slides](/slides/03-packages/UPDATE/index.qmd){target="_blank"} in a new window. 
+Here's a link to the [slides](/slides/03-packages/02-function-docs/index.qmd){target="_blank"} in a new window. 
 
 Here are the slides embedded:
 
-<iframe class="slide-deck ar3x2" src="/slides/03-packages/UPDATE/index.html" title="UPDATE slides">
+<iframe class="slide-deck ar3x2" src="/slides/03-packages/02-function-docs/index.html" title="Function Documentation and Dependencies slides">
 </iframe>
 
 ## Resources

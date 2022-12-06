@@ -1,5 +1,5 @@
 ---
-title: TITLE
+title: Function Documentation and Dependencies 
 subtitle: R Packages Course
 author: Ella Kaye | Department of Statistics | University of Warwick
 title-slide-attributes:
