@@ -40,7 +40,22 @@ website:
               - content/01-foundations/04-sim-optim.qmd
               - content/01-foundations/05-graphics.qmd
               - content/01-foundations/06-quarto.qmd
-               
+          - section: "Term 2: Advanced R"
+            contents: 
+              - content/02-advanced/01-git.qmd
+              - content/02-advanced/02-functions.qmd
+              - content/02-advanced/03-memory-parallel.qmd
+              - content/02-advanced/04-profiling.qmd
+              - content/02-advanced/05-C++.qmd
+              - content/02-advanced/06-classes-methods.qmd          
+          - section: "Term 3: R Packages"
+            contents: 
+              - content/03-packages/01-simple-package.qmd
+              - content/03-packages/02-function-docs.qmd
+              - content/03-packages/03-package-docs.qmd
+              - content/03-packages/04-testing.qmd
+              - content/03-packages/05-C++.qmd
+              - content/03-packages/06-publication.qmd
     - title: "schedule"
       style: "docked"
       background: light
@@ -51,6 +66,8 @@ website:
           href: schedule/01-foundations.qmd
         - text: "Term 2: Advanced R"
           href: schedule/02-advanced.qmd
+        - text: "Term 3: R Packages"
+          href: schedule/03-packages.qmd
   page-footer: "All material is shared under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){target='_blank'} license."
 
 format:

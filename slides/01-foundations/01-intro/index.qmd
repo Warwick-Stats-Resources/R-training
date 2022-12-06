@@ -1,6 +1,6 @@
 ---
 title: Introduction to R and RStudio
-subtitle: R Foundations course
+subtitle: R Foundations Course
 author: Ella Kaye | Department of Statistics | University of Warwick
 title-slide-attributes:
   data-background-color: "#552D62"

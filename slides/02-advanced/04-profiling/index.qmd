@@ -1,0 +1,34 @@
+---
+title: TITLE
+subtitle: Advanced R Course
+author: Ella Kaye | Department of Statistics | University of Warwick
+title-slide-attributes:
+  data-background-color: "#552D62"
+date: yyyy-MM-dd
+date-format: long
+format: 
+  revealjs:
+    theme: [default, ../../slides.scss]
+    slide-number: true
+    execute:
+      echo: true
+      code-overflow: wrap
+---
+
+## Overview
+
+-   What we're covering
+
+# Section {background-color="#552D62"}
+
+# End Matter {background-color="#552D62"}
+
+## Resources
+
+Material inspired by and remixed from:
+
+- 
+
+## License
+
+Licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){target="_blank"}).

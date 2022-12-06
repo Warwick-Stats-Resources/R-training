@@ -1,17 +1,24 @@
 [
   {
+    "objectID": "schedule/03-packages.html",
+    "href": "schedule/03-packages.html",
+    "title": "R Packages Course",
+    "section": "",
+    "text": "Schedule for Term 3 (likely to change because of the three bank holidays).\nClick on the topic to be taken to the page with its slides and resources (will be updated throughout the term).\n\n\n\nWeek\nDate (2023)\nTopic\n\n\n\n\nWeek 2\nMay 1st\nCreating a simple package\n\n\nWeek 3\nMay 8th\nFunction documentation and dependencies\n\n\nWeek 4\nMay 15th\nBreak/online clinic\n\n\nWeek 5\nMay 22nd\nPackage-level documentation and check\n\n\nWeek 6\nMay 29th\nData and unit testing\n\n\nWeek 7\nJune 5th\nBreak/online clinic\n\n\nWeek 8\nJune 12th\nC++\n\n\nWeek 9\nJune 19th\nPublication and maintenance\n\n\nWeek 10\nJune 26th\nBreak/online clinic"
+  },
+  {
     "objectID": "schedule/01-foundations.html",
     "href": "schedule/01-foundations.html",
-    "title": "R foundations",
+    "title": "R Foundations Course",
     "section": "",
     "text": "Schedule for Term 1 (subject to change).\nClick on the topic to be taken to the page with its slides and resources (will be updated throughout the term).\n\n\n\nWeek\nDate (2022)\nTopic\n\n\n\n\nWeek 2\nOctober 10th\nIntro to R and RStudio\n\n\nWeek 3\nOctober 17th\nData Wrangling\n\n\nWeek 4\nOctober 24th\nBreak/online clinic\n\n\nWeek 5\nOctober 31st\nProgramming in R\n\n\nWeek 6\nNovember 7th\nSimulation and Optimisation\n\n\nWeek 7\nNovember 14th\nBreak/online clinic\n\n\nWeek 8\nNovember 21st\nGraphics\n\n\nWeek 9\nNovember 28th\nQuarto reporting and presentations\n\n\nWeek 10\nDecember 5th\nBreak/online clinic"
   },
   {
     "objectID": "schedule/02-advanced.html",
     "href": "schedule/02-advanced.html",
-    "title": "Advanced R",
+    "title": "Advanced R Course",
     "section": "",
-    "text": "Schedule for Term 2 (subject to change).\nClick on the topic to be taken to the page with its slides and resources (will be updated throughout the term).\n\n\n\nWeek\nDate (2023)\nTopic\n\n\n\n\nWeek 2\nJanuary 16th\nGitHub\n\n\nWeek 3\nJanuary 23rd\nFunctions\n\n\nWeek 4\nJanuary 30th\nBreak/online clinic\n\n\nWeek 5\nFebruary 6th\nMemory/parallel\n\n\nWeek 6\nFebruary 13th\nProfiling\n\n\nWeek 7\nFebruary 20th\nBreak/online clinic\n\n\nWeek 8\nFebruary 27th\nC++ and Rcpp\n\n\nWeek 9\nMarch 6th\nClasses and Methods\n\n\nWeek 10\nMarch 13th\nBreak/online clinic"
+    "text": "Schedule for Term 2 (subject to change).\nClick on the topic to be taken to the page with its slides and resources (will be updated throughout the term).\n\n\n\nWeek\nDate (2023)\nTopic\n\n\n\n\nWeek 2\nJanuary 16th\ngit and GitHub\n\n\nWeek 3\nJanuary 23rd\nFunctions\n\n\nWeek 4\nJanuary 30th\nBreak/online clinic\n\n\nWeek 5\nFebruary 6th\nMemory/parallel\n\n\nWeek 6\nFebruary 13th\nProfiling\n\n\nWeek 7\nFebruary 20th\nBreak/online clinic\n\n\nWeek 8\nFebruary 27th\nC++ and Rcpp\n\n\nWeek 9\nMarch 6th\nClasses and methods\n\n\nWeek 10\nMarch 13th\nBreak/online clinic"
   },
   {
     "objectID": "content.html",
@@ -26,6 +33,202 @@
     "title": "Getting set up",
     "section": "",
     "text": "Please ensure that you have the latest versions of R and RStudio installed prior to the first session. Currently, that’s R-4.2.1 and RStudio-2022.07.2.\nWe also strongly recommend you install the development tools to avoid potential issues installing packages.\n\nInstalling R\nDownload the pre-compiled binary for your OS from https://cloud.r-project.org/ and install. More specifically:\nFor Windows\nClick “Download R for Windows”, then “base”, then “Download R-4.2.1 for Windows”. This will download an .exe file; once downloaded, open to start the installation.\nFor Mac\nClick “Download R for macOS”, then “R-4.2.1.pkg” (the first option) to download the installer for Macs with Intel chips or “R-4.2.1-arm64.pkg” (the second option) to download the installer for Macs with Apple Silicon chips. Run the installer to complete installation.\nFor Linux\nClick “Download R for Linux”. Instructions on installing are given for Debian, Fedora, Redhat, Suse and Ubuntu distributions. Where there is a choice, install both r-base and r-base-dev.\n\n\nInstalling R Studio Desktop (Open Source Edition)\nDownloads are available from https://www.rstudio.com/products/rstudio/download/#download\nFor Windows with no admin rights\nDownload the .zip source archive under “Zip/Tarballs”. Extract the files to a folder where you have write access, e.g. C:\\Users\\username\\RStudio. In this folder, open the bin directory and find the RStudio program: it is named rstudio.exe, but the file extension will typically be hidden, so look for rstudio. Right-click this executable to create a desktop shortcut. Double-click the executable or use the shortcut to open.\nFor all other operating systems\nDownload the relevant installer for your OS listed under “Installers for Supported Platforms”. Run the installer to complete installation.\n\n\nDevelopment Tools\nSome additional tools may be required to compile R packages from source.\nFor Windows with no admin rights\nDownload the latest (recommended) Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer keeping the default settings.\nFor Windows with admin rights\nDownload the latest Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer making the following selections: keep the default settings for the installation location and components to install; check the box to add rtools to the system PATH.\nFor Mac\nInstall XCode. Either:\n\nDownload and install XCode from the Mac AppStore: http://itunes.apple.com/us/app/xcode/id497799835?mt=12\nWithin XCode go to Preferences : Downloads and install the Command Line Tools\n\nOr for a smaller download size:\n\nRegister as an Apple Developer (free) here: https://developer.apple.com/programs/register/\nDownload the Command Line Tools for XCode appropriate for the version of OS X you are running from here: https://developer.apple.com/downloads/\n\nFor Linux\nIf you installed r-base-dev, when installing R, you should have all you need to build packages from source. Otherwise return to the instructions for installing R for your distribution and follow the instructions there to install the additional tools.\n\n\nTerms 2 and 3\nThis page will be updated with prerequisites for terms 2 and 3 in due course."
+  },
+  {
+    "objectID": "content/03-packages/01-simple-package.html",
+    "href": "content/03-packages/01-simple-package.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/03-packages/01-simple-package.html#todo",
+    "href": "content/03-packages/01-simple-package.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/03-packages/01-simple-package.html#slides",
+    "href": "content/03-packages/01-simple-package.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/03-packages/01-simple-package.html#resources",
+    "href": "content/03-packages/01-simple-package.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/03-packages/03-package-docs.html",
+    "href": "content/03-packages/03-package-docs.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/03-packages/03-package-docs.html#todo",
+    "href": "content/03-packages/03-package-docs.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/03-packages/03-package-docs.html#slides",
+    "href": "content/03-packages/03-package-docs.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/03-packages/03-package-docs.html#resources",
+    "href": "content/03-packages/03-package-docs.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/03-packages/05-C++.html",
+    "href": "content/03-packages/05-C++.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/03-packages/05-C++.html#todo",
+    "href": "content/03-packages/05-C++.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/03-packages/05-C++.html#slides",
+    "href": "content/03-packages/05-C++.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/03-packages/05-C++.html#resources",
+    "href": "content/03-packages/05-C++.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/03-packages/00-template.html",
+    "href": "content/03-packages/00-template.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/03-packages/00-template.html#todo",
+    "href": "content/03-packages/00-template.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/03-packages/00-template.html#slides",
+    "href": "content/03-packages/00-template.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/03-packages/00-template.html#resources",
+    "href": "content/03-packages/00-template.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/03-packages/06-publication.html",
+    "href": "content/03-packages/06-publication.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/03-packages/06-publication.html#todo",
+    "href": "content/03-packages/06-publication.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/03-packages/06-publication.html#slides",
+    "href": "content/03-packages/06-publication.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/03-packages/06-publication.html#resources",
+    "href": "content/03-packages/06-publication.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/03-packages/02-function-docs.html",
+    "href": "content/03-packages/02-function-docs.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/03-packages/02-function-docs.html#todo",
+    "href": "content/03-packages/02-function-docs.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/03-packages/02-function-docs.html#slides",
+    "href": "content/03-packages/02-function-docs.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/03-packages/02-function-docs.html#resources",
+    "href": "content/03-packages/02-function-docs.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/03-packages/04-testing.html",
+    "href": "content/03-packages/04-testing.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/03-packages/04-testing.html#todo",
+    "href": "content/03-packages/04-testing.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/03-packages/04-testing.html#slides",
+    "href": "content/03-packages/04-testing.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/03-packages/04-testing.html#resources",
+    "href": "content/03-packages/04-testing.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
   },
   {
     "objectID": "content/01-foundations/06-quarto.html",
@@ -140,6 +343,202 @@
     "text": "Resources\n\nReading\n\nEfficient Programming, from Efficient R by Colin Gillespie and Robin Lovelace\nhttps://csgillespie.github.io/efficientR/programming.html\nChapters on functions and iteration, from R for Data Science by Hadley Wickham and Garrett Grolemund\nhttps://r4ds.had.co.nz/index.html\nhttps://r4ds.had.co.nz/functions.html\nhttps://r4ds.had.co.nz/iteration.html"
   },
   {
+    "objectID": "content/02-advanced/06-classes-methods.html",
+    "href": "content/02-advanced/06-classes-methods.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/02-advanced/06-classes-methods.html#todo",
+    "href": "content/02-advanced/06-classes-methods.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/02-advanced/06-classes-methods.html#slides",
+    "href": "content/02-advanced/06-classes-methods.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/02-advanced/06-classes-methods.html#resources",
+    "href": "content/02-advanced/06-classes-methods.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/02-advanced/02-functions.html",
+    "href": "content/02-advanced/02-functions.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/02-advanced/02-functions.html#todo",
+    "href": "content/02-advanced/02-functions.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/02-advanced/02-functions.html#slides",
+    "href": "content/02-advanced/02-functions.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/02-advanced/02-functions.html#resources",
+    "href": "content/02-advanced/02-functions.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/02-advanced/01-git.html",
+    "href": "content/02-advanced/01-git.html",
+    "title": "Git and GitHub",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/02-advanced/01-git.html#todo",
+    "href": "content/02-advanced/01-git.html#todo",
+    "title": "Git and GitHub",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/02-advanced/01-git.html#slides",
+    "href": "content/02-advanced/01-git.html#slides",
+    "title": "Git and GitHub",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/02-advanced/01-git.html#resources",
+    "href": "content/02-advanced/01-git.html#resources",
+    "title": "Git and GitHub",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/02-advanced/05-C++.html",
+    "href": "content/02-advanced/05-C++.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/02-advanced/05-C++.html#todo",
+    "href": "content/02-advanced/05-C++.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/02-advanced/05-C++.html#slides",
+    "href": "content/02-advanced/05-C++.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/02-advanced/05-C++.html#resources",
+    "href": "content/02-advanced/05-C++.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/02-advanced/00-template.html",
+    "href": "content/02-advanced/00-template.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/02-advanced/00-template.html#todo",
+    "href": "content/02-advanced/00-template.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/02-advanced/00-template.html#slides",
+    "href": "content/02-advanced/00-template.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/02-advanced/00-template.html#resources",
+    "href": "content/02-advanced/00-template.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/02-advanced/03-memory-parallel.html",
+    "href": "content/02-advanced/03-memory-parallel.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/02-advanced/03-memory-parallel.html#todo",
+    "href": "content/02-advanced/03-memory-parallel.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/02-advanced/03-memory-parallel.html#slides",
+    "href": "content/02-advanced/03-memory-parallel.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/02-advanced/03-memory-parallel.html#resources",
+    "href": "content/02-advanced/03-memory-parallel.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
+    "objectID": "content/02-advanced/04-profiling.html",
+    "href": "content/02-advanced/04-profiling.html",
+    "title": "TITLE",
+    "section": "",
+    "text": "This page and the slides for this session are still under development"
+  },
+  {
+    "objectID": "content/02-advanced/04-profiling.html#todo",
+    "href": "content/02-advanced/04-profiling.html#todo",
+    "title": "TITLE",
+    "section": "TODO",
+    "text": "TODO\n\nLink to this page in schedule\nLink to this page in _quarto.yml\nUpdate TITLE\nCreate folder for slides\nUpdate link to slides in new window\nUpdate link to slides in iframe\nUpdate title of slides in iframe\nFill in resources"
+  },
+  {
+    "objectID": "content/02-advanced/04-profiling.html#slides",
+    "href": "content/02-advanced/04-profiling.html#slides",
+    "title": "TITLE",
+    "section": "Slides",
+    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/02-advanced/04-profiling.html#resources",
+    "href": "content/02-advanced/04-profiling.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "R Training",
@@ -173,6 +572,153 @@
     "title": "R Training",
     "section": "Prerequistes",
     "text": "Prerequistes\nPlease see the prerequisites page for details on getting set up in advance of the first session."
+  },
+  {
+    "objectID": "slides/03-packages/00-template/index.html#overview",
+    "href": "slides/03-packages/00-template/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/03-packages/00-template/index.html#resources",
+    "href": "slides/03-packages/00-template/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/03-packages/00-template/index.html#license",
+    "href": "slides/03-packages/00-template/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/03-packages/06-publication/index.html#overview",
+    "href": "slides/03-packages/06-publication/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/03-packages/06-publication/index.html#resources",
+    "href": "slides/03-packages/06-publication/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/03-packages/06-publication/index.html#license",
+    "href": "slides/03-packages/06-publication/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/03-packages/04-testing/index.html#overview",
+    "href": "slides/03-packages/04-testing/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/03-packages/04-testing/index.html#resources",
+    "href": "slides/03-packages/04-testing/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/03-packages/04-testing/index.html#license",
+    "href": "slides/03-packages/04-testing/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/03-packages/03-package-docs/index.html#overview",
+    "href": "slides/03-packages/03-package-docs/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/03-packages/03-package-docs/index.html#resources",
+    "href": "slides/03-packages/03-package-docs/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/03-packages/03-package-docs/index.html#license",
+    "href": "slides/03-packages/03-package-docs/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/03-packages/02-function-docs/index.html#overview",
+    "href": "slides/03-packages/02-function-docs/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/03-packages/02-function-docs/index.html#resources",
+    "href": "slides/03-packages/02-function-docs/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/03-packages/02-function-docs/index.html#license",
+    "href": "slides/03-packages/02-function-docs/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/03-packages/01-simple-package/index.html#overview",
+    "href": "slides/03-packages/01-simple-package/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/03-packages/01-simple-package/index.html#resources",
+    "href": "slides/03-packages/01-simple-package/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/03-packages/01-simple-package/index.html#license",
+    "href": "slides/03-packages/01-simple-package/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/03-packages/05-C++/index.html#overview",
+    "href": "slides/03-packages/05-C++/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/03-packages/05-C++/index.html#resources",
+    "href": "slides/03-packages/05-C++/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/03-packages/05-C++/index.html#license",
+    "href": "slides/03-packages/05-C++/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   },
   {
     "objectID": "slides/01-foundations/00-template/index.html#overview",
@@ -532,18 +1078,11 @@
     "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   },
   {
-    "objectID": "slides/01-foundations/06-quarto/index.html#dsiclaimer",
-    "href": "slides/01-foundations/06-quarto/index.html#dsiclaimer",
+    "objectID": "slides/01-foundations/06-quarto/index.html#disclaimer",
+    "href": "slides/01-foundations/06-quarto/index.html#disclaimer",
     "title": "Quarto",
-    "section": "Dsiclaimer",
-    "text": "Dsiclaimer\nThese slides are almost entirely copied from Tom Mock’s ‘Getting Started with Quarto’ workshop at rstudio::conf(2022).\n\nWorkshop website\nWorkshop repo"
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#overview",
-    "href": "slides/01-foundations/06-quarto/index.html#overview",
-    "title": "Quarto",
-    "section": "Overview",
-    "text": "Overview\n\nWhat we’re covering"
+    "section": "Disclaimer",
+    "text": "Disclaimer\nThese slides are almost entirely copied from Tom Mock’s ‘Getting Started with Quarto’ workshop at rstudio::conf(2022).\n\nWorkshop website\nWorkshop repo\n\nShared under Creative Commons 4.0 License."
   },
   {
     "objectID": "slides/01-foundations/06-quarto/index.html#hello-quarto",
@@ -816,7 +1355,7 @@
     "href": "slides/01-foundations/04-sim-optim/index.html#set.seed-example",
     "title": "Simulation and Optimisation",
     "section": "set.seed() Example",
-    "text": "set.seed() Example\n\nsample(10)\n\n [1]  3  6  4  1  9  2 10  8  7  5\n\nset.seed(1)\nsample(10)\n\n [1]  9  4  7  1  2  5  3 10  6  8\n\nsample(10)\n\n [1]  3  1  5  8  2  6 10  9  4  7\n\nset.seed(1)\nsample(10)\n\n [1]  9  4  7  1  2  5  3 10  6  8"
+    "text": "set.seed() Example\n\nsample(10)\n\n [1]  6  2  4  1  7  3  9 10  5  8\n\nset.seed(1)\nsample(10)\n\n [1]  9  4  7  1  2  5  3 10  6  8\n\nsample(10)\n\n [1]  3  1  5  8  2  6 10  9  4  7\n\nset.seed(1)\nsample(10)\n\n [1]  9  4  7  1  2  5  3 10  6  8"
   },
   {
     "objectID": "slides/01-foundations/04-sim-optim/index.html#sample",
@@ -1677,7 +2216,7 @@
     "href": "slides/01-foundations/03-programming/index.html#name-and-order-of-arguments",
     "title": "Programming in R",
     "section": "Name and Order of Arguments",
-    "text": "Name and Order of Arguments\nThe user can pass objects to these arguments using their names or by supplying unnamed values in the right order\n\nrnorm(5, 1, 10)\n\n[1]  -8.063367   3.845973  -8.409537  -1.957449 -25.138085\n\nrnorm(5, sd = 10)\n\n[1] 14.5610754 -4.8054195 -0.5875519  4.7357928 20.4064227\n\n\nSo naming and order is important! Some guidelines\n\nput compulsory arguments first, e.g. data\nput rarely used arguments last, e.g. tolerance setting\nuse short but meaningful argument names\nif relevant, use the same argument names as similar functions"
+    "text": "Name and Order of Arguments\nThe user can pass objects to these arguments using their names or by supplying unnamed values in the right order\n\nrnorm(5, 1, 10)\n\n[1]   5.612356  -1.171092  21.085566 -20.008246  -4.985594\n\nrnorm(5, sd = 10)\n\n[1]  -0.2803568 -10.7413311  12.7091410  -4.0280981   7.8755869\n\n\nSo naming and order is important! Some guidelines\n\nput compulsory arguments first, e.g. data\nput rarely used arguments last, e.g. tolerance setting\nuse short but meaningful argument names\nif relevant, use the same argument names as similar functions"
   },
   {
     "objectID": "slides/01-foundations/03-programming/index.html#using-arguments",
@@ -1757,17 +2296,157 @@
     "text": "Side Effects\nA side-effect is a change outside the function that occurs when the function is run, e.g.\n\nplot to the graphics window or other device\nprinting output to the console\nwrite data to a file\n\nA function can have many side-effects and a return value, but it is best practice to have a separate function for each task, e.g creating a plot or a table.\nWriting to file is usually best done outside a function."
   },
   {
+    "objectID": "slides/02-advanced/04-profiling/index.html#overview",
+    "href": "slides/02-advanced/04-profiling/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/02-advanced/04-profiling/index.html#resources",
+    "href": "slides/02-advanced/04-profiling/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/02-advanced/04-profiling/index.html#license",
+    "href": "slides/02-advanced/04-profiling/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/02-advanced/00-template/index.html#overview",
+    "href": "slides/02-advanced/00-template/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/02-advanced/00-template/index.html#resources",
+    "href": "slides/02-advanced/00-template/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/02-advanced/00-template/index.html#license",
+    "href": "slides/02-advanced/00-template/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#overview",
+    "href": "slides/02-advanced/01-git/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#resources",
+    "href": "slides/02-advanced/01-git/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#license",
+    "href": "slides/02-advanced/01-git/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/02-advanced/06-classes-methods/index.html#overview",
+    "href": "slides/02-advanced/06-classes-methods/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/02-advanced/06-classes-methods/index.html#resources",
+    "href": "slides/02-advanced/06-classes-methods/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/02-advanced/06-classes-methods/index.html#license",
+    "href": "slides/02-advanced/06-classes-methods/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#overview",
+    "href": "slides/02-advanced/02-functions/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#resources",
+    "href": "slides/02-advanced/02-functions/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#license",
+    "href": "slides/02-advanced/02-functions/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/02-advanced/03-memory-parallel/index.html#overview",
+    "href": "slides/02-advanced/03-memory-parallel/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/02-advanced/03-memory-parallel/index.html#resources",
+    "href": "slides/02-advanced/03-memory-parallel/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/02-advanced/03-memory-parallel/index.html#license",
+    "href": "slides/02-advanced/03-memory-parallel/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/02-advanced/05-C++/index.html#overview",
+    "href": "slides/02-advanced/05-C++/index.html#overview",
+    "title": "TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/02-advanced/05-C++/index.html#resources",
+    "href": "slides/02-advanced/05-C++/index.html#resources",
+    "title": "TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/02-advanced/05-C++/index.html#license",
+    "href": "slides/02-advanced/05-C++/index.html#license",
+    "title": "TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
     "objectID": "schedule.html",
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
     "text": "Sessions will be held most Mondays in term time, from 10:00-11:30 in Term 1.\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
-  },
-  {
-    "objectID": "slides/01-foundations/06-quarto/index.html#disclaimer",
-    "href": "slides/01-foundations/06-quarto/index.html#disclaimer",
-    "title": "Quarto",
-    "section": "Disclaimer",
-    "text": "Disclaimer\nThese slides are almost entirely copied from Tom Mock’s ‘Getting Started with Quarto’ workshop at rstudio::conf(2022).\n\nWorkshop website\nWorkshop repo\n\nShared under Creative Commons 4.0 License."
   }
 ]

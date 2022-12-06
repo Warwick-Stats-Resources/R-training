@@ -1,5 +1,5 @@
 ---
-title: R foundations
+title: R Foundations Course
 ---
 
 Schedule for Term 1 (subject to change).

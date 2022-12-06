@@ -1,5 +1,5 @@
 ---
-title: Advanced R
+title: Advanced R Course
 ---
 
 Schedule for Term 2 (subject to change).
@@ -8,12 +8,12 @@ Click on the topic to be taken to the page with its slides and resources (will b
 
 | Week    | Date (2023)   | Topic               |
 |---------|---------------|---------------------|
-| Week 2  | January 16th  | GitHub              |
-| Week 3  | January 23rd  | Functions           |
+| Week 2  | January 16th  | [git and GitHub](/content/02-advanced/01-git.qmd)      |
+| Week 3  | January 23rd  | [Functions](/content/02-advanced/02-functions.qmd)           |
 | Week 4  | January 30th  | Break/online clinic |
-| Week 5  | February 6th  | Memory/parallel     |
-| Week 6  | February 13th | Profiling           |
+| Week 5  | February 6th  | [Memory/parallel](/content/02-advanced/03-memory-parallel.qmd)     |
+| Week 6  | February 13th | [Profiling](/content/02-advanced/04-profiling.qmd)           |
 | Week 7  | February 20th | Break/online clinic |
-| Week 8  | February 27th | C++ and Rcpp        |
-| Week 9  | March 6th     | Classes and Methods |
+| Week 8  | February 27th | [C++ and Rcpp](/content/02-advanced/05-C++.qmd)        |
+| Week 9  | March 6th     | [Classes and methods](/content/02-advanced/06-classes-methods.qmd) |
 | Week 10 | March 13th    | Break/online clinic |
