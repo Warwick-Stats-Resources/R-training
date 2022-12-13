@@ -1,0 +1,30 @@
+---
+title: "Join the class"
+---
+
+For Term 2, the Advanced R Course will take place on Microsoft Teams most Mondays from 9:30-11am. Please see the [schedule](schedule/02-advanced.qmd) for the week-by-week outline.
+
+Please note that you must be a member of the University of Warwick to attend these classes, so you must be signed into Teams with your university account to join.
+
+<a href="Advanced-R-Course.ics" download>Add the Advanced R Course to your calendar</a> (this link does *not* work in Safari, Internet Explorer, or Opera Mini)
+
+## Microsoft Teams meeting 
+
+**Join on your computer, mobile app or room device** 
+
+[Click here to join the meeting](https://teams.microsoft.com/l/meetup-join/19%3ameeting_MjIyZDA1ODgtMDk2NC00MTMxLTgxMDMtN2Y2YjRkMzMzYWUz%40thread.v2/0?context=%7b%22Tid%22%3a%2209bacfbd-47ef-4465-9265-3546f2eaf6bc%22%2c%22Oid%22%3a%2290b587b1-2acd-4d82-9e6d-a8a7045913f9%22%7d)  
+
+[Join on the web](https://www.microsoft.com/microsoft-teams/join-a-meeting)
+
+Meeting ID: 343 657 378 859
+
+Passcode: zdDgPe 
+
+**Or call in (audio only)** 
+
++44 20 3443 8791,,396666912#   United Kingdom, London 
+Phone Conference ID: 396 666 912# 
+
+
+
+

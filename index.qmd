@@ -4,15 +4,17 @@ title: "R Training"
 
 Welcome to the {{< fa brands r-project >}} training course! 
 
-This course is aimed at first year PhD students in the Department of Statistics at the University of Warwick, alongside 4th year undergraduates and MSc students. 
+This course is aimed primarily at PhD students and early career researchers in the Department of Statistics at the University of Warwick. Other members of the Department of Statistics are also welcome.
+
+Please see the [join](join.qmd) page for more details on how to attend the course.
 
 ## Syllabus overview
 
--   Term 1: **R Foundations**, to cover the information and skills necessary to enable successful completion of the [APTS programme](https://warwick.ac.uk/fac/sci/statistics/apts/) and equip you to use R for standard analysis and reporting.
+-   Term 1: [**R Foundations**](schedule/01-foundations.qmd), to cover the information and skills necessary to enable successful completion of the [APTS programme](https://warwick.ac.uk/fac/sci/statistics/apts/) and equip you to use R for standard analysis and reporting.
 
--   Term 2: **Advanced R**, to develop your R programming skills and equip you to write custom code for simulations, new statistical methods, etc.
+-   Term 2: [**Advanced R**](schedule/02-advanced.qmd), to develop your R programming skills and equip you to write custom code for simulations, new statistical methods, etc.
 
--   Term 3: **R package development**, to equip you to share code with others, following good research software engineering practices.
+-   Term 3: [**R package development**](schedule/03-packages.qmd), to equip you to share code with others, following good research software engineering practices.
 
 All slides and further resources can be accessed from the [content](content.qmd) page and also via the [schedule](schedule.qmd). Material will be added as the year progresses. There is one page per session.
 
@@ -20,9 +22,9 @@ All slides and further resources can be accessed from the [content](content.qmd)
 
 {{< fa calendar >}} &nbsp; Most Mondays in term time
 
-{{< fa clock >}} &nbsp; 10:00-11:30
+{{< fa clock >}} &nbsp; 9:30-11:00 (Term 2)
 
-{{< fa brands microsoft >}} &nbsp; Microsoft Teams (invitations will be sent to eligible participants)
+{{< fa brands microsoft >}} &nbsp; Microsoft Teams (invitations will be sent to the primarily intended participants, but see also the [join](join.qmd) if you're a member of the Department of Statistics at the University of Warwick and you wish to attend).
 
 {{< fa calendar-alt >}} &nbsp; See the full [schedule](schedule.qmd).
 

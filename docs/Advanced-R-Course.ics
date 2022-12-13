@@ -1,0 +1,96 @@
+BEGIN:VCALENDAR
+METHOD:PUBLISH
+PRODID:Microsoft Exchange Server 2010
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:tzone://Microsoft/Utc
+BEGIN:STANDARD
+DTSTART:16010101T000000
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010101T000000
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ORGANIZER;CN="Kaye, Ella":mailto:Ella.M.Kaye@warwick.ac.uk
+DESCRIPTION:This (optional) course is primarily for PhD and early career re
+ searchers\, but all members of the Department of Statistics at the Univers
+ ity of Warwick are able to attend.\n\nFor further details\, see the course
+  website: https://warwick-stats-resources.github.io/R-training/\n\nThe sch
+ edule for the term is:\n\nWeek 2\nJanuary 16th\ngit and GitHub<https://war
+ wick-stats-resources.github.io/R-training/content/02-advanced/01-git.html>
+ \nWeek 3\nJanuary 23rd\nFunctions<https://warwick-stats-resources.github.i
+ o/R-training/content/02-advanced/02-functions.html>\nWeek 4\nJanuary 30th\
+ nBreak/office hours\nWeek 5\nFebruary 6th\nMemory and Parallelisation<http
+ s://warwick-stats-resources.github.io/R-training/content/02-advanced/03-me
+ mory-parallel.html>\nWeek 6\nFebruary 13th\nProfiling<https://warwick-stat
+ s-resources.github.io/R-training/content/02-advanced/04-profiling.html>\nW
+ eek 7\nFebruary 20th\nBreak/office hours\nWeek 8\nFebruary 27th\nC++ and R
+ cpp<https://warwick-stats-resources.github.io/R-training/content/02-advanc
+ ed/05-C++.html>\nWeek 9\nMarch 6th\nClasses and Methods<https://warwick-st
+ ats-resources.github.io/R-training/content/02-advanced/06-classes-methods.
+ html>\nWeek 10\nMarch 13th\nBreak/office hours\n\n\n______________________
+ __________________________________________________________\nMicrosoft Team
+ s meeting\nJoin on your computer\, mobile app or room device\nClick here t
+ o join the meeting<https://teams.microsoft.com/l/meetup-join/19%3ameeting_
+ MjIyZDA1ODgtMDk2NC00MTMxLTgxMDMtN2Y2YjRkMzMzYWUz%40thread.v2/0?context=%7b
+ %22Tid%22%3a%2209bacfbd-47ef-4465-9265-3546f2eaf6bc%22%2c%22Oid%22%3a%2290
+ b587b1-2acd-4d82-9e6d-a8a7045913f9%22%7d>\nMeeting ID: 343 657 378 859\nPa
+ sscode: zdDgPe\nDownload Teams<https://www.microsoft.com/en-us/microsoft-t
+ eams/download-app> | Join on the web<https://www.microsoft.com/microsoft-t
+ eams/join-a-meeting>\nOr call in (audio only)\n+44 20 3443 8791\,\,3966669
+ 12#<tel:+442034438791\,\,396666912#>   United Kingdom\, London\nPhone Conf
+ erence ID: 396 666 912#\nFind a local number<https://dialin.teams.microsof
+ t.com/b2af5c8a-8487-4fd2-b81b-66d13b09732e?id=396666912> | Reset PIN<https
+ ://dialin.teams.microsoft.com/usp/pstnconferencing>\nLearn more<https://ak
+ a.ms/JoinTeamsMeeting> | Meeting options<https://teams.microsoft.com/meeti
+ ngOptions/?organizerId=90b587b1-2acd-4d82-9e6d-a8a7045913f9&tenantId=09bac
+ fbd-47ef-4465-9265-3546f2eaf6bc&threadId=19_meeting_MjIyZDA1ODgtMDk2NC00MT
+ MxLTgxMDMtN2Y2YjRkMzMzYWUz@thread.v2&messageId=0&language=en-GB>\n________
+ ________________________________________________________________________\n
+RRULE:FREQ=WEEKLY;UNTIL=20230313T000000Z;INTERVAL=1;BYDAY=MO;WKST=MO
+UID:040000008200E00074C5B7101A82E008000000005479EE0AF10ED901000000000000000
+ 010000000128F291DBF028B43BCA10AF6EF30605F
+SUMMARY:Advanced R Course
+DTSTART:20230116T093000Z
+DTEND:20230116T110000Z
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20221213T124722Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+LOCATION:
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:1
+X-MICROSOFT-SKYPETEAMSMEETINGURL:https://teams.microsoft.com/l/meetup-join/
+ 19%3ameeting_MjIyZDA1ODgtMDk2NC00MTMxLTgxMDMtN2Y2YjRkMzMzYWUz%40thread.v2/
+ 0?context=%7b%22Tid%22%3a%2209bacfbd-47ef-4465-9265-3546f2eaf6bc%22%2c%22O
+ id%22%3a%2290b587b1-2acd-4d82-9e6d-a8a7045913f9%22%7d
+X-MICROSOFT-SKYPETEAMSPROPERTIES:{"cid":"19:meeting_MjIyZDA1ODgtMDk2NC00MTM
+ xLTgxMDMtN2Y2YjRkMzMzYWUz@thread.v2"\,"rid":0\,"mid":0\,"uid":null\,"priva
+ te":true\,"type":0}
+X-MICROSOFT-ONLINEMEETINGEXTERNALLINK:
+X-MICROSOFT-ONLINEMEETINGCONFLINK:conf:sip:u2175871@live.warwick.ac.uk\;gru
+ u\;opaque=app:conf:focus:id:teams:2:0!19:meeting_MjIyZDA1ODgtMDk2NC00MTMxL
+ TgxMDMtN2Y2YjRkMzMzYWUz-thread.v2!90b587b12acd4d829e6da8a7045913f9!09bacfb
+ d47ef446592653546f2eaf6bc
+X-MICROSOFT-ONLINEMEETINGTOLLNUMBER:+44 20 3443 8791
+X-MICROSOFT-ONLINEMEETINGCONFERENCEID:396666912
+X-MICROSOFT-ONLINEMEETINGINFORMATION:{"OnlineMeetingChannelId":null\,"Onlin
+ eMeetingProvider":3}
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+BEGIN:VALARM
+DESCRIPTION:REMINDER
+TRIGGER;RELATED=START:-PT15M
+ACTION:DISPLAY
+END:VALARM
+END:VEVENT
+END:VCALENDAR

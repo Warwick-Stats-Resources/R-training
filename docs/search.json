@@ -18,7 +18,7 @@
     "href": "schedule/02-advanced.html",
     "title": "Advanced R Course",
     "section": "",
-    "text": "Schedule for Term 2 (subject to change).\nClick on the topic to be taken to the page with its slides and resources (will be updated throughout the term).\n\n\n\nWeek\nDate (2023)\nTopic\n\n\n\n\nWeek 2\nJanuary 16th\ngit and GitHub\n\n\nWeek 3\nJanuary 23rd\nFunctions\n\n\nWeek 4\nJanuary 30th\nBreak/online clinic\n\n\nWeek 5\nFebruary 6th\nMemory and Parallelisation\n\n\nWeek 6\nFebruary 13th\nProfiling\n\n\nWeek 7\nFebruary 20th\nBreak/online clinic\n\n\nWeek 8\nFebruary 27th\nC++ and Rcpp\n\n\nWeek 9\nMarch 6th\nClasses and Methods\n\n\nWeek 10\nMarch 13th\nBreak/online clinic"
+    "text": "Schedule for Term 2.\nClick on the topic to be taken to the page with its slides and resources (will be updated throughout the term).\nAdd the Advanced R Course to your calendar (this link does not work in Safari, Internet Explorer, or Opera Mini)\n\n\n\nWeek\nDate (2023)\nTopic\n\n\n\n\nWeek 2\nJanuary 16th\ngit and GitHub\n\n\nWeek 3\nJanuary 23rd\nFunctions\n\n\nWeek 4\nJanuary 30th\nBreak/online clinic\n\n\nWeek 5\nFebruary 6th\nMemory and Parallelisation\n\n\nWeek 6\nFebruary 13th\nProfiling\n\n\nWeek 7\nFebruary 20th\nBreak/online clinic\n\n\nWeek 8\nFebruary 27th\nC++ and Rcpp\n\n\nWeek 9\nMarch 6th\nClasses and Methods\n\n\nWeek 10\nMarch 13th\nBreak/online clinic"
   },
   {
     "objectID": "content.html",
@@ -26,6 +26,20 @@
     "title": "Content",
     "section": "",
     "text": "Please use the links in the sidebar to navigate to the page for each session."
+  },
+  {
+    "objectID": "join.html",
+    "href": "join.html",
+    "title": "Join the class",
+    "section": "",
+    "text": "For Term 2, the Advanced R Course will take place on Microsoft Teams most Mondays from 9:30-11am. Please see the schedule for the week-by-week outline.\nPlease note that you must be a member of the University of Warwick to attend these classes, so you must be signed into Teams with your university account to join.\nAdd the Advanced R Course to your calendar (this link does not work in Safari, Internet Explorer, or Opera Mini)"
+  },
+  {
+    "objectID": "join.html#microsoft-teams-meeting",
+    "href": "join.html#microsoft-teams-meeting",
+    "title": "Join the class",
+    "section": "Microsoft Teams meeting",
+    "text": "Microsoft Teams meeting\nJoin on your computer, mobile app or room device\nClick here to join the meeting\nJoin on the web\nMeeting ID: 343 657 378 859\nPasscode: zdDgPe\nOr call in (audio only)\n+44 20 3443 8791,,396666912# United Kingdom, London Phone Conference ID: 396 666 912#"
   },
   {
     "objectID": "prerequisites.html",
@@ -452,7 +466,7 @@
     "href": "index.html",
     "title": "R Training",
     "section": "",
-    "text": "Welcome to the  training course!\nThis course is aimed at first year PhD students in the Department of Statistics at the University of Warwick, alongside 4th year undergraduates and MSc students."
+    "text": "Welcome to the  training course!\nThis course is aimed primarily at PhD students and early career researchers in the Department of Statistics at the University of Warwick. Other members of the Department of Statistics are also welcome.\nPlease see the join page for more details on how to attend the course."
   },
   {
     "objectID": "index.html#syllabus-overview",
@@ -466,7 +480,7 @@
     "href": "index.html#session-details",
     "title": "R Training",
     "section": "Session details",
-    "text": "Session details\n   Most Mondays in term time\n   10:00-11:30\n   Microsoft Teams (invitations will be sent to eligible participants)\n   See the full schedule."
+    "text": "Session details\n   Most Mondays in term time\n   9:30-11:00 (Term 2)\n   Microsoft Teams (invitations will be sent to the primarily intended participants, but see also the join if you’re a member of the Department of Statistics at the University of Warwick and you wish to attend).\n   See the full schedule."
   },
   {
     "objectID": "index.html#instructor-details",
@@ -2356,6 +2370,6 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Sessions will be held most Mondays in term time, from 10:00-11:30 in Term 1.\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+    "text": "Sessions will be held most Mondays in term time, from 9:30-11:00 in Term 2 for the Advanced R Course.\nAdd the Advanced R Course to your calendar (this link does not work in Safari, Internet Explorer, or Opera Mini)\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
   }
 ]

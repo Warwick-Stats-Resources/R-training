@@ -81,6 +81,10 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
+    <a class="nav-link" href="./join.html">
+ <span class="menu-text">Join</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./prerequisites.html">
  <span class="menu-text">Prerequisites</span></a>
   </li>  
@@ -164,7 +168,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Sessions will be held most <strong>Mondays</strong> in term time, from <strong>10:00-11:30</strong> in Term 1.</p>
+<p>Sessions will be held most <strong>Mondays</strong> in term time, from <strong>9:30-11:00</strong> in Term 2 for the Advanced R Course.</p>
+<p><a href="Advanced-R-Course.ics" download="">Add the Advanced R Course to your calendar</a> (this link does <em>not</em> work in Safari, Internet Explorer, or Opera Mini)</p>
 <p>Please use the links in the sidebar to navigate to the full schedule for each term.</p>
 <p>Note that these are all subject to change.</p>
 
@@ -302,6 +307,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->

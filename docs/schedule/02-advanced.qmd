@@ -2,9 +2,11 @@
 title: Advanced R Course
 ---
 
-Schedule for Term 2 (subject to change).
+Schedule for Term 2.
 
 Click on the topic to be taken to the page with its slides and resources (will be updated throughout the term).
+
+<a href="Advanced-R-Course.ics" download>Add the Advanced R Course to your calendar</a> (this link does *not* work in Safari, Internet Explorer, or Opera Mini)
 
 | Week    | Date (2023)   | Topic               |
 |---------|---------------|---------------------|

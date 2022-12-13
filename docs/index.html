@@ -83,6 +83,10 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
+    <a class="nav-link" href="./join.html">
+ <span class="menu-text">Join</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./prerequisites.html">
  <span class="menu-text">Prerequisites</span></a>
   </li>  
@@ -142,21 +146,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>Welcome to the <i class="fa-brands fa-r-project" aria-hidden="true"></i> training course!</p>
-<p>This course is aimed at first year PhD students in the Department of Statistics at the University of Warwick, alongside 4th year undergraduates and MSc students.</p>
+<p>This course is aimed primarily at PhD students and early career researchers in the Department of Statistics at the University of Warwick. Other members of the Department of Statistics are also welcome.</p>
+<p>Please see the <a href="./join.html">join</a> page for more details on how to attend the course.</p>
 <section id="syllabus-overview" class="level2">
 <h2 class="anchored" data-anchor-id="syllabus-overview">Syllabus overview</h2>
 <ul>
-<li><p>Term 1: <strong>R Foundations</strong>, to cover the information and skills necessary to enable successful completion of the <a href="https://warwick.ac.uk/fac/sci/statistics/apts/">APTS programme</a> and equip you to use R for standard analysis and reporting.</p></li>
-<li><p>Term 2: <strong>Advanced R</strong>, to develop your R programming skills and equip you to write custom code for simulations, new statistical methods, etc.</p></li>
-<li><p>Term 3: <strong>R package development</strong>, to equip you to share code with others, following good research software engineering practices.</p></li>
+<li><p>Term 1: <a href="./schedule/01-foundations.html"><strong>R Foundations</strong></a>, to cover the information and skills necessary to enable successful completion of the <a href="https://warwick.ac.uk/fac/sci/statistics/apts/">APTS programme</a> and equip you to use R for standard analysis and reporting.</p></li>
+<li><p>Term 2: <a href="./schedule/02-advanced.html"><strong>Advanced R</strong></a>, to develop your R programming skills and equip you to write custom code for simulations, new statistical methods, etc.</p></li>
+<li><p>Term 3: <a href="./schedule/03-packages.html"><strong>R package development</strong></a>, to equip you to share code with others, following good research software engineering practices.</p></li>
 </ul>
 <p>All slides and further resources can be accessed from the <a href="./content.html">content</a> page and also via the <a href="./schedule.html">schedule</a>. Material will be added as the year progresses. There is one page per session.</p>
 </section>
 <section id="session-details" class="level2">
 <h2 class="anchored" data-anchor-id="session-details">Session details</h2>
 <p><i class="fa-solid fa-calendar" aria-hidden="true"></i> &nbsp; Most Mondays in term time</p>
-<p><i class="fa-solid fa-clock" aria-hidden="true"></i> &nbsp; 10:00-11:30</p>
-<p><i class="fa-brands fa-microsoft" aria-hidden="true"></i> &nbsp; Microsoft Teams (invitations will be sent to eligible participants)</p>
+<p><i class="fa-solid fa-clock" aria-hidden="true"></i> &nbsp; 9:30-11:00 (Term 2)</p>
+<p><i class="fa-brands fa-microsoft" aria-hidden="true"></i> &nbsp; Microsoft Teams (invitations will be sent to the primarily intended participants, but see also the <a href="./join.html">join</a> if you’re a member of the Department of Statistics at the University of Warwick and you wish to attend).</p>
 <p><i class="fa-solid fa-calendar-alt" aria-hidden="true"></i> &nbsp; See the full <a href="./schedule.html">schedule</a>.</p>
 </section>
 <section id="instructor-details" class="level2">
@@ -303,6 +308,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->
