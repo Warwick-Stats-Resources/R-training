@@ -2263,21 +2263,21 @@
   {
     "objectID": "slides/02-advanced/01-git/index.html#overview",
     "href": "slides/02-advanced/01-git/index.html#overview",
-    "title": "git and GitHub",
+    "title": "Open code, git and GitHub",
     "section": "Overview",
-    "text": "Overview\n\nWhat we’re covering"
+    "text": "Overview\n\nOpen code and software\ngit\nGitHub\ngit and GitHub with RStudio"
   },
   {
     "objectID": "slides/02-advanced/01-git/index.html#resources",
     "href": "slides/02-advanced/01-git/index.html#resources",
-    "title": "git and GitHub",
+    "title": "Open code, git and GitHub",
     "section": "Resources",
     "text": "Resources\nMaterial inspired by and remixed from:"
   },
   {
     "objectID": "slides/02-advanced/01-git/index.html#license",
     "href": "slides/02-advanced/01-git/index.html#license",
-    "title": "git and GitHub",
+    "title": "Open code, git and GitHub",
     "section": "License",
     "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   },
@@ -2371,5 +2371,61 @@
     "title": "Schedule",
     "section": "",
     "text": "Sessions will be held most Mondays in term time, from 9:30-11:00 in Term 2 for the Advanced R Course.\nAdd the Advanced R Course to your calendar (this link does not work in Safari, Internet Explorer, or Opera Mini)\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#open-practices",
+    "href": "slides/02-advanced/01-git/index.html#open-practices",
+    "title": "Open code, git and GitHub",
+    "section": "Open practices",
+    "text": "Open practices\n\n\nRecognised as integral to healthy research culture\nWorking openly means that our work is\n\nAccessible, for free\nOpen to scrutiny (verifiable)\nReproducible\n\n\n (source: analogicus from Pexels)"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#open-teaching",
+    "href": "slides/02-advanced/01-git/index.html#open-teaching",
+    "title": "Open code, git and GitHub",
+    "section": "Open teaching",
+    "text": "Open teaching\nThis course!\nWebsite\nGitHub materials\nRange of licenses e.g. CC BY, CC BY-SA, CC BY-NC, CC BY NC-ND, No license."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#more-on-open-code-and-software",
+    "href": "slides/02-advanced/01-git/index.html#more-on-open-code-and-software",
+    "title": "Open code, git and GitHub",
+    "section": "More on open code and software",
+    "text": "More on open code and software\nSee https://www.heatherturner.net/talks/gregynog2022/#1"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#code-and-software",
+    "href": "slides/02-advanced/01-git/index.html#code-and-software",
+    "title": "Open code, git and GitHub",
+    "section": "Code and Software",
+    "text": "Code and Software\n\n\nScripts: e.g analysis/simulation\n\nCustomised\nReproducible workflow\n\nread data\nanalyse\nsummarise\nreport\n\n\n\nSoftware: Package, tool, dashboard\n\nOptimized\nReusable\nSharable"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#why-share-code-and-software",
+    "href": "slides/02-advanced/01-git/index.html#why-share-code-and-software",
+    "title": "Open code, git and GitHub",
+    "section": "Why share code and software?",
+    "text": "Why share code and software?\nBeyond general benefits of open practices\n\nIncreased impact and reputation\nFaster translation into practice\nAdditional, citable, outputs\n\nBenefits of coding in the open\n\nEncourages good practices\nFacilitates collaboration\nCan give access to software engineering tools"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#sharing-code-in-an-online-repository",
+    "href": "slides/02-advanced/01-git/index.html#sharing-code-in-an-online-repository",
+    "title": "Open code, git and GitHub",
+    "section": "Sharing code in an online repository",
+    "text": "Sharing code in an online repository\n\n\nPros\n\nVersion control (commit history + releases)\nREADME.md for quick documentation\nFacilitates contribution (bug reports, patches)\nCan use CITATION.cff file for clear citation [GitHub]\nLinks to Zenodo for publishing releases\n\nCons\n\nLearning curve to take full advantage"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#further-benefits-of-github",
+    "href": "slides/02-advanced/01-git/index.html#further-benefits-of-github",
+    "title": "Open code, git and GitHub",
+    "section": "Further benefits of GitHub",
+    "text": "Further benefits of GitHub\nResearch compendia\nPotential to use Binder to so that people can run your code in the browser - For short analysis (<10 min) on small data (< 10MB) - Zero to Binder tutorial [Julia, Python, R]\nSoftware packages\n\nUsers can install Julia/Python/R packages from GitHub\nCan deploy package websites using GitHub pages\nCan benefit from GitHub Actions, e.g. automatically running tests"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#summary",
+    "href": "slides/02-advanced/01-git/index.html#summary",
+    "title": "Open code, git and GitHub",
+    "section": "Summary",
+    "text": "Summary\n\nWorking openly encourages good practices\nYour code/software is an asset!\nWe can make steps to improve our own practice"
   }
 ]

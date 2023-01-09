@@ -1,5 +1,5 @@
 ---
-title: git and GitHub
+title: Open code, git and GitHub
 subtitle: Advanced R Course
 author: Ella Kaye | Department of Statistics | University of Warwick
 title-slide-attributes:
@@ -17,9 +17,146 @@ format:
 
 ## Overview
 
--   What we're covering
+- Open code and software
 
-# Section {background-color="#552D62"}
+- git
+
+- GitHub
+
+- git and GitHub with RStudio
+
+# Open code and software {background-color="#552D62"}
+
+## Open practices
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Recognised as integral to healthy research culture
+
+Working openly means that our work is 
+
+ - Accessible, for free
+ - Open to scrutiny (verifiable)
+ - Reproducible
+:::
+
+::: {.column width="50%"}
+<img src="../images/open-pexels-analogicus-5395777.jpg" alt="A rustic wooden 'Open' sign on a green wooden door" style="height:400px">
+<small>(source: [analogicus from Pexels](https://www.pexels.com/photo/wooden-welcome-signage-on-green-wooden-door-5395777/))</small>
+:::
+
+::::
+
+## Open teaching 
+
+This course!
+
+[Website](https://warwick-stats-resources.github.io/R-training)
+
+[GitHub materials](https://github.com/Warwick-Stats-Resources/r-training)
+
+Range of licenses e.g. CC BY, CC BY-SA, CC BY-NC, CC BY NC-ND, No license.
+
+## Code and Software
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Scripts: e.g analysis/simulation
+
+- Customised
+- Reproducible workflow
+    - read data
+    - analyse
+    - summarise
+    - report
+:::
+
+::: {.column width="50%"}
+Software: Package, tool, dashboard
+
+- Optimized
+- Reusable
+- Sharable
+:::
+
+::::
+
+## Why share code and software?
+
+Beyond general benefits of open practices
+
+- Increased impact and reputation
+- Faster translation into practice
+- Additional, citable, outputs
+
+Benefits of coding in the open
+
+- Encourages good practices
+- Facilitates collaboration
+- Can give access to software engineering tools
+
+## Sharing code in an online repository
+
+:::: {.columns}
+
+::: {.column width="66%"}
+### Pros
+
+- Version control (commit history + releases)
+- README.md for quick documentation
+- Facilitates contribution (bug reports, patches)
+- Can use CITATION.cff file for clear citation [GitHub]
+- Links to Zenodo for publishing releases
+
+### Cons
+
+- Learning curve to take full advantage
+:::
+
+::: {.column width="33%"}
+<br>
+<center>
+<a href = https://github.com/>
+<img src="../images/GitHub_Logo.png" alt="Logo for GitHub" style="height:90px">
+</a>
+<br>
+<a href = https://github.com/>
+<img src="../images/gitlab-logo.png" alt="Logo for GitLab" style="height:180px"> <br>
+</a>
+</center>
+:::
+
+::::
+
+## Further benefits of GitHub
+
+### Research compendia
+
+Potential to use Binder to so that people can run your code in the browser
+ - For short analysis (<10 min) on small data (< 10MB)
+ - [Zero to Binder](https://the-turing-way.netlify.app/communication/binder/zero-to-binder.html) tutorial [Julia, Python, R]
+ 
+#### Software packages
+
+- Users can install Julia/Python/R packages from GitHub
+- Can deploy package websites using GitHub pages
+- Can benefit from GitHub Actions, e.g. automatically running tests
+
+## More on open code and software
+
+See <https://www.heatherturner.net/talks/gregynog2022/#1>
+
+
+# git {background-color="#552D62"}
+
+
+## Summary
+
+- Working openly encourages good practices
+- Your code/software is an asset!
+- We can make steps to improve our own practice
 
 # End Matter {background-color="#552D62"}
 

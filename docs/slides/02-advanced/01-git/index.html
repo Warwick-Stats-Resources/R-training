@@ -8,11 +8,11 @@
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.242">
+  <meta name="generator" content="quarto-1.2.280">
 
   <meta name="author" content="Ella Kaye | Department of Statistics | University of Warwick">
   <meta name="dcterms.date" content="2023-01-16">
-  <title>R Training - git and GitHub</title>
+  <title>R Training - Open code, git and GitHub</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -326,7 +326,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-color="#552D62" class="quarto-title-block center">
-  <h1 class="title">git and GitHub</h1>
+  <h1 class="title">Open code, git and GitHub</h1>
   <p class="subtitle">Advanced R Course</p>
 
 <div class="quarto-title-authors">
@@ -342,14 +342,132 @@ Ella Kaye | Department of Statistics | University of Warwick
 <section id="overview" class="slide level2">
 <h2>Overview</h2>
 <ul>
-<li>What we’re covering</li>
+<li><p>Open code and software</p></li>
+<li><p>git</p></li>
+<li><p>GitHub</p></li>
+<li><p>git and GitHub with RStudio</p></li>
 </ul>
 </section>
-<section id="section" class="title-slide slide level1 center" data-background-color="#552D62">
-<h1>Section</h1>
+<section>
+<section id="open-code-and-software" class="title-slide slide level1 center" data-background-color="#552D62">
+<h1>Open code and software</h1>
 
 </section>
+<section id="open-practices" class="slide level2">
+<h2>Open practices</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Recognised as integral to healthy research culture</p>
+<p>Working openly means that our work is</p>
+<ul>
+<li>Accessible, for free</li>
+<li>Open to scrutiny (verifiable)</li>
+<li>Reproducible</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img src="../images/open-pexels-analogicus-5395777.jpg" alt="A rustic wooden 'Open' sign on a green wooden door" style="height:400px"> <small>(source: <a href="https://www.pexels.com/photo/wooden-welcome-signage-on-green-wooden-door-5395777/">analogicus from Pexels</a>)</small></p>
+</div>
+</div>
+</section>
+<section id="open-teaching" class="slide level2">
+<h2>Open teaching</h2>
+<p>This course!</p>
+<p><a href="https://warwick-stats-resources.github.io/R-training">Website</a></p>
+<p><a href="https://github.com/Warwick-Stats-Resources/r-training">GitHub materials</a></p>
+<p>Range of licenses e.g.&nbsp;CC BY, CC BY-SA, CC BY-NC, CC BY NC-ND, No license.</p>
+</section>
+<section id="code-and-software" class="slide level2">
+<h2>Code and Software</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Scripts: e.g analysis/simulation</p>
+<ul>
+<li>Customised</li>
+<li>Reproducible workflow
+<ul>
+<li>read data</li>
+<li>analyse</li>
+<li>summarise</li>
+<li>report</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Software: Package, tool, dashboard</p>
+<ul>
+<li>Optimized</li>
+<li>Reusable</li>
+<li>Sharable</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="why-share-code-and-software" class="slide level2">
+<h2>Why share code and software?</h2>
+<p>Beyond general benefits of open practices</p>
+<ul>
+<li>Increased impact and reputation</li>
+<li>Faster translation into practice</li>
+<li>Additional, citable, outputs</li>
+</ul>
+<p>Benefits of coding in the open</p>
+<ul>
+<li>Encourages good practices</li>
+<li>Facilitates collaboration</li>
+<li>Can give access to software engineering tools</li>
+</ul>
+</section>
+<section id="sharing-code-in-an-online-repository" class="slide level2">
+<h2>Sharing code in an online repository</h2>
+<div class="columns">
+<div class="column" style="width:66%;">
+<h3 id="pros">Pros</h3>
+<ul>
+<li>Version control (commit history + releases)</li>
+<li>README.md for quick documentation</li>
+<li>Facilitates contribution (bug reports, patches)</li>
+<li>Can use CITATION.cff file for clear citation [GitHub]</li>
+<li>Links to Zenodo for publishing releases</li>
+</ul>
+<h3 id="cons">Cons</h3>
+<ul>
+<li>Learning curve to take full advantage</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<br>
+<center>
+<a href="https://github.com/"> <img src="../images/GitHub_Logo.png" alt="Logo for GitHub" style="height:90px"> </a> <br> <a href="https://github.com/"> <img src="../images/gitlab-logo.png" alt="Logo for GitLab" style="height:180px"> <br> </a>
+</center>
+</div>
+</div>
+</section>
+<section id="further-benefits-of-github" class="slide level2">
+<h2>Further benefits of GitHub</h2>
+<h3 id="research-compendia">Research compendia</h3>
+<p>Potential to use Binder to so that people can run your code in the browser - For short analysis (&lt;10 min) on small data (&lt; 10MB) - <a href="https://the-turing-way.netlify.app/communication/binder/zero-to-binder.html">Zero to Binder</a> tutorial [Julia, Python, R]</p>
+<h4 id="software-packages">Software packages</h4>
+<ul>
+<li>Users can install Julia/Python/R packages from GitHub</li>
+<li>Can deploy package websites using GitHub pages</li>
+<li>Can benefit from GitHub Actions, e.g.&nbsp;automatically running tests</li>
+</ul>
+</section>
+<section id="more-on-open-code-and-software" class="slide level2">
+<h2>More on open code and software</h2>
+<p>See <a href="https://www.heatherturner.net/talks/gregynog2022/#1" class="uri">https://www.heatherturner.net/talks/gregynog2022/#1</a></p>
+</section></section>
+<section>
+<section id="git" class="title-slide slide level1 center" data-background-color="#552D62">
+<h1>git</h1>
 
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li>Working openly encourages good practices</li>
+<li>Your code/software is an asset!</li>
+<li>We can make steps to improve our own practice</li>
+</ul>
+</section></section>
 <section>
 <section id="end-matter" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>End Matter</h1>
