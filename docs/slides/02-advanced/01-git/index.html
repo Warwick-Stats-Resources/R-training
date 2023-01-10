@@ -30,6 +30,70 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -369,13 +433,6 @@ Ella Kaye | Department of Statistics | University of Warwick
 </div>
 </div>
 </section>
-<section id="open-teaching" class="slide level2">
-<h2>Open teaching</h2>
-<p>This course!</p>
-<p><a href="https://warwick-stats-resources.github.io/R-training">Website</a></p>
-<p><a href="https://github.com/Warwick-Stats-Resources/r-training">GitHub materials</a></p>
-<p>Range of licenses e.g.&nbsp;CC BY, CC BY-SA, CC BY-NC, CC BY NC-ND, No license.</p>
-</section>
 <section id="code-and-software" class="slide level2">
 <h2>Code and Software</h2>
 <div class="columns">
@@ -425,7 +482,7 @@ Ella Kaye | Department of Statistics | University of Warwick
 <li>Version control (commit history + releases)</li>
 <li>README.md for quick documentation</li>
 <li>Facilitates contribution (bug reports, patches)</li>
-<li>Can use CITATION.cff file for clear citation [GitHub]</li>
+<li>Can use CITATION.cff file for clear citation <a href="#/github-1">GitHub</a></li>
 <li>Links to Zenodo for publishing releases</li>
 </ul>
 <h3 id="cons">Cons</h3>
@@ -444,7 +501,7 @@ Ella Kaye | Department of Statistics | University of Warwick
 <h2>Further benefits of GitHub</h2>
 <h3 id="research-compendia">Research compendia</h3>
 <p>Potential to use Binder to so that people can run your code in the browser - For short analysis (&lt;10 min) on small data (&lt; 10MB) - <a href="https://the-turing-way.netlify.app/communication/binder/zero-to-binder.html">Zero to Binder</a> tutorial [Julia, Python, R]</p>
-<h4 id="software-packages">Software packages</h4>
+<h3 id="software-packages">Software packages</h3>
 <ul>
 <li>Users can install Julia/Python/R packages from GitHub</li>
 <li>Can deploy package websites using GitHub pages</li>
@@ -459,6 +516,330 @@ Ella Kaye | Department of Statistics | University of Warwick
 <section id="git" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>git</h1>
 
+</section>
+<section id="version-control" class="slide level2">
+<h2>Version Control</h2>
+<p>When developing code, we often want to keep old versions.</p>
+<p>We might save with different files names</p>
+<pre><code>code                               
+  ¦--simulations.R                  
+  ¦--simulations_correct_sd.R       
+  ¦--simulations_return_parameters.R</code></pre>
+<p>or comment on changes (especially when collaborating with others)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="do">## EK 2023-01-10 use geom_bar instead of geom_histogram</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="do">## p &lt;- p + geom_histogram(stat = "identity")</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="do">## HT 2023-01-09 remove legend from plot</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Either way it can get messy and hard to track/revert changes!</p>
+</section>
+<section id="git-1" class="slide level2">
+<h2>git</h2>
+<p>git is a version control system that allows us to record changes made to files in a <em>repository</em> or <em>repo</em>.</p>
+<p>Each version has a unique ID and metadata:</p>
+<ul>
+<li>Who created the new version</li>
+<li>A short description of changes made</li>
+<li>When the version was made</li>
+</ul>
+<p>Versions can be compared, restored and merged.</p>
+</section>
+<section id="git-repository" class="slide level2">
+<h2>git repository</h2>
+<p>To get started, a repository must be created locally (within a working directory on your computer) or on a remote hosting platform (we’ll use GitHub).</p>
+<p>git can then track when files/folders are</p>
+<ul>
+<li>Added</li>
+<li>Modified</li>
+<li>Deleted</li>
+</ul>
+<p>Repositories can have multiple <em>branches</em> of development. We will work on a single branch, with the default name of <code>main</code>.</p>
+</section>
+<section id="staging-and-committing" class="slide level2">
+<h2>Staging and committing</h2>
+<p>Versions are created in a <em>commit</em>.</p>
+<p>We prepare the commit by <em>staging</em> changes we want to record:</p>
+<ul>
+<li><em>Untracked</em> files (git treats the whole content as new)</li>
+<li><em>Tracked</em> files that have been modified or deleted since the last commit</li>
+</ul>
+<p>Think of it like taking photographs: we stage the scene by adding/removing people, or changing people’s outfits, when we have a scene we want to save we take a photograph.</p>
+</section></section>
+<section>
+<section id="github" class="title-slide slide level1 center" data-background-color="#552D62">
+<h1>GitHub</h1>
+
+</section>
+<section id="git-github" class="slide level2">
+<h2>git + Github</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>The full power comes by connecting a local repo to GitHub.</p>
+<ul>
+<li>You can make changes locally and <em>push</em> them to GitHub</li>
+<li>You can make changes via the GitHub website and later <em>pull</em> them into your local copy.</li>
+<li>Collaborators can also push/pull changes to the repo.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/how_github_works.png" style="width:100.0%" alt="Diagram showing arrows to and from your repo and a central remote repo (GitHub). There are more arrows to and from GitHub and the web UI. There are also arrows to and from GitHub and &quot;their repo&quot; representing another person."></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="github-1" class="slide level2">
+<h2>GitHub</h2>
+<p>Warwick GitHub Enterprise: <a href="https://github.warwick.ac.uk/" class="uri">https://github.warwick.ac.uk/</a></p>
+<ul>
+<li>Use for Warwick-specific, private projects</li>
+<li>Username will be ITS username</li>
+</ul>
+<p>GitHub: <a href="https://github.com/" class="uri">https://github.com/</a></p>
+<ul>
+<li>Free version allows private/public projects</li>
+<li>Can share/collaborate with people outside Warwick</li>
+<li>Develop your personal portfolio</li>
+</ul>
+</section>
+<section id="features" class="slide level2">
+<h2>Features</h2>
+<p>GitHub repositories have some nice features:</p>
+<ul>
+<li><code>README.md</code> displayed as HTML</li>
+<li>Browsable commit history</li>
+<li><em>Issues</em> where you/others can note bug reports/TODO/feature requests</li>
+<li><em>Pull requests</em> (advanced) where you/others can propose changes to the code to be reviewed</li>
+<li><em>Actions</em> (advanced) automated actions when you commit to the repo</li>
+<li><em>Projects</em> (advanced) to organize issues (To Do/In Progress/Done)</li>
+<li><em>Wiki</em> for project documentation</li>
+<li>Deploy websites with <em>pages</em> :::</li>
+</ul>
+</section>
+<section id="your-turn-explore-some-github-repositories" class="slide level2">
+<h2>Your turn! Explore some GitHub repositories</h2>
+<ul>
+<li><a href="https://github.com/Warwick-Stats-Resources/r-training">This course website and slides</a></li>
+<li><a href="https://github.com/allisonhorst/palmerpenguins">{palmerpenguins}</a></li>
+<li><a href="https://github.com/r-devel/rdevguide">R development guide</a></li>
+</ul>
+</section>
+<section id="your-turn-create-a-github-repository" class="slide level2">
+<h2>Your turn! Create a GitHub repository</h2>
+<ul>
+<li><p>Login or sign up for a free account at <a href="https://www.github.com" class="uri">https://www.github.com</a>.</p>
+<ul>
+<li><p>Recommend to use personal email</p></li>
+<li><p>Username recommendations:</p>
+<ul>
+<li>Incorporate your actual name</li>
+<li>Reuse your username from other contexts.</li>
+<li>Use a name you can share in professional contexts.</li>
+<li>Use all lower case letters.</li>
+</ul></li>
+</ul></li>
+<li><p>Click on <code>+</code> in the top right to create a new, public, repository called <code>github-intro</code>.</p>
+<ul>
+<li>Choose to initialize the repository with a README file</li>
+</ul></li>
+</ul>
+</section>
+<section id="your-turn-edit-on-github" class="slide level2">
+<h2>Your turn! Edit on GitHub</h2>
+<div class="smaller75">
+<ul>
+<li><p>Click the pencil icon on the <code>README.md</code> file to edit.</p>
+<ul>
+<li>Update the title</li>
+<li>Add some example content using markdown syntax</li>
+<li>Use the “Preview changes” tab to check your edits</li>
+</ul></li>
+<li><p>Scroll down to the <strong>Commit changes</strong> section</p>
+<ul>
+<li><p>Add a short description of your changes in the first dialog box, e.g.&nbsp;<code>add basic information to README</code></p></li>
+<li><p>Click the green <code>Commit changes</code> button</p></li>
+<li><p>This will stage and commit the file in one go.</p></li>
+</ul></li>
+<li><p>View the commit history (look for clock icon with anti-clockwise arrow) and look at the diff for your commit.</p></li>
+</ul>
+<p>See <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Basic writing and formatting syntax</a> for more on editing markdown.</p>
+</div>
+</section>
+<section id="your-turn-continue-experimenting" class="slide level2">
+<h2>Your turn! Continue experimenting</h2>
+<p>Further exercises to do while other people set up authentication.</p>
+<ul>
+<li><p>Try uploading a picture from <a href="https://unsplash.com/">Unsplash</a>. Go to Add file &gt; Upload files. Edit your README to add the image.</p></li>
+<li><p>Go to Add file &gt; Create new file. Type <code>subfolder/</code> in the “Name your file box” to create a subfolder. Now type <code>README.md</code> in the “Name your file box”. Add some content to the README and commit - try some new markdown syntax, e.g.&nbsp;emoji or a table.</p></li>
+<li><p><a href="https://towardsdatascience.com/build-a-stunning-readme-for-your-github-profile-9b80434fe5d7">Build a stunning README for your GitHub profile</a></p></li>
+</ul>
+</section></section>
+<section>
+<section id="configuring-git-and-github" class="title-slide slide level1 center" data-background-color="#552D62">
+<h1>Configuring git and GitHub</h1>
+
+</section>
+<section id="using-git-locally" class="slide level2">
+<h2>Using git locally</h2>
+<p>Check if you already have git by running the following command in a terminal (e.g.&nbsp;Terminal tab on RStudio).</p>
+<p>On MacOS/Linux (or Windows with Rtools)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">which</span> git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>On Windows</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">where</span> git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>MacOS: If asked to install the Xcode command line tools, say yes - this will install git.</p>
+</section>
+<section id="installing-git" class="slide level2">
+<h2>Installing git</h2>
+<p>Windows:</p>
+<ul>
+<li><p>Use the installer from https://git-scm.com/downloads</p></li>
+<li><p>Check RStudio can find the git executable</p>
+<ul>
+<li>Go to Tools &gt; Global Options &gt; Git/SVN to check</li>
+<li>Restart RStudio before trying to use git</li>
+</ul></li>
+</ul>
+<p>Linux:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">sudo</span> apt-get install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>or</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">sudo</span> yum install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="configure-git-globally" class="slide level2">
+<h2>Configure git (globally)</h2>
+<p>Set the default name and email to associate with your git commits:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">use_git_config</span>(</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="at">user.name =</span> <span class="st">"Ada Lovelace"</span>,     <span class="co"># your full name</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="at">user.email =</span> <span class="st">"ada@example.com"</span>  <span class="co"># email associated with GitHub account</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To keep your email private:</p>
+<ul>
+<li>Go to <a href="https://github.com/settings/emails" class="uri">https://github.com/settings/emails</a>, select “Keep my email address private” and “Block command line pushes that expose my email” options</li>
+<li>Configure git to use the address provided of the form <a href="mailto:ID+username@users.noreply.github.com" class="email">ID+username@users.noreply.github.com</a></li>
+</ul>
+</section>
+<section id="authentication" class="slide level2">
+<h2>Authentication</h2>
+<p>GitHub requires authentication with a Personal Access Token or SSH key.</p>
+<table>
+<thead>
+<tr class="header">
+<th>SSH keys</th>
+<th>PAT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>More setup (on Windows)</td>
+<td><strong>usethis</strong> helpers</td>
+</tr>
+<tr class="even">
+<td>Once per computer+host</td>
+<td>Renew every 30 days (recommended)</td>
+</tr>
+<tr class="odd">
+<td>Need for HPC</td>
+<td>Need for <strong>usethis</strong>/other R packages</td>
+</tr>
+</tbody>
+</table>
+<p>Recommend: PAT now (easier), SSH later if needed</p>
+</section>
+<section id="main-recommendations" class="slide level2">
+<h2>Main recommendations</h2>
+<p>From {usethis} vignette <a href="https://usethis.r-lib.org/articles/git-credentials.html">Managing Git(Hub) Credentials</a></p>
+<p>Our main recommendations are:</p>
+<ul>
+<li>Adopt HTTPS as your Git transport protocol.</li>
+<li>Turn on two-factor authentication for your GitHub account.</li>
+<li>Use a personal access token (PAT) for all Git remote operations from the command line or from R.</li>
+<li>Allow tools to store and retrieve your credentials from the Git credential store. If you have previously set your GitHub PAT in .Renviron, stop doing that.</li>
+</ul>
+<p><em>Highly recommend reading this entire vignette and following all guidance</em></p>
+</section>
+<section id="sitrep-and-vaccinate" class="slide level2">
+<h2>sitrep and vaccinate</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(usethis) <span class="co"># make sure &gt; v2.0.0</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">git_sitrep</span>() <span class="co"># current situation report</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">git_vaccinate</span>() <span class="co"># add files to global .gitignore (best practice)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="get-a-personal-access-token-pat" class="slide level2">
+<h2>Get a personal access token (PAT)</h2>
+<p>First, make sure you’re signed into GitHub</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Add Note describing use-case (e.g.&nbsp;personal-macbook-pro-2021, project-xyz)</li>
+<li>Select expiration (recommend default 30 days)</li>
+<li>Check scope</li>
+<li>Click ‘Generate Token’</li>
+<li><strong>Important!</strong> Copy token to clipboard, do not close window until stored!</li>
+<li>You may want to store token in a secure vault, like 1Passward</li>
+</ul>
+</section>
+<section id="put-your-pat-into-the-local-git-credential-store" class="slide level2">
+<h2>Put your PAT into the local Git credential store</h2>
+<p>Assume token is on your clipboard</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>If you don’t have a PAT stored, will prompt you to enter: paste!</li>
+<li>If you do, you will be given a choice to keep/replace/see the password
+<ul>
+<li>choose as appropriate</li>
+<li>if replacing, paste!</li>
+</ul></li>
+</ul>
+</section>
+<section id="pat-maintenance" class="slide level2">
+<h2>PAT maintenance</h2>
+<ul>
+<li>By default token will expire after 30 days.</li>
+<li>Return to ,https://github.com/settings/tokens. and click on its <em>Note</em>
+<ul>
+<li>or else click on link in e-mail telling you token is about to expire!</li>
+</ul></li>
+<li>Regenerate token</li>
+<li>rerun <code>gitcreds::gitcreds_set()</code></li>
+</ul>
+<p>A bit of a pain to do this every month, but only takes a couple of minutes.</p>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your turn!</h2>
+<p>If you need to, generate and store a PAT, as described over last few slides and in the <a href="https://usethis.r-lib.org/articles/git-credentials.html">vignette</a>.</p>
+<p>If you already have a PAT set, read the vignette and follow through on other best pracice recommendations.</p>
+</section>
+<section id="create-an-rstudio-project-from-a-github-repo" class="slide level2">
+<h2>Create an RStudio project from a GitHub repo</h2>
+<p>Now you can clone your GitHub repo locally.</p>
+<ul>
+<li><p>Go to your repo homepage on GitHub. Click the green “Code” button, copy the HTTPS address (of the form <code>https://github.com/USERNAME/REPO.git</code>).</p></li>
+<li><p>In RStudio, go to File &gt; New Project… &gt; Version Control &gt; Git.</p>
+<ul>
+<li>Enter the repo URL you just copied. The project directory name will be filled automatically.</li>
+<li>Browse to a location you want the project directory to be created.</li>
+<li>Click <code>Create Project</code>.</li>
+</ul></li>
+</ul>
 </section>
 <section id="summary" class="slide level2">
 <h2>Summary</h2>
@@ -699,6 +1080,44 @@ Ella Kaye | Department of Statistics | University of Warwick
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

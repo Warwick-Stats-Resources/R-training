@@ -2268,6 +2268,209 @@
     "text": "Overview\n\nOpen code and software\ngit\nGitHub\ngit and GitHub with RStudio"
   },
   {
+    "objectID": "slides/02-advanced/01-git/index.html#open-practices",
+    "href": "slides/02-advanced/01-git/index.html#open-practices",
+    "title": "Open code, git and GitHub",
+    "section": "Open practices",
+    "text": "Open practices\n\n\nRecognised as integral to healthy research culture\nWorking openly means that our work is\n\nAccessible, for free\nOpen to scrutiny (verifiable)\nReproducible\n\n\n (source: analogicus from Pexels)"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#code-and-software",
+    "href": "slides/02-advanced/01-git/index.html#code-and-software",
+    "title": "Open code, git and GitHub",
+    "section": "Code and Software",
+    "text": "Code and Software\n\n\nScripts: e.g analysis/simulation\n\nCustomised\nReproducible workflow\n\nread data\nanalyse\nsummarise\nreport\n\n\n\nSoftware: Package, tool, dashboard\n\nOptimized\nReusable\nSharable"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#why-share-code-and-software",
+    "href": "slides/02-advanced/01-git/index.html#why-share-code-and-software",
+    "title": "Open code, git and GitHub",
+    "section": "Why share code and software?",
+    "text": "Why share code and software?\nBeyond general benefits of open practices\n\nIncreased impact and reputation\nFaster translation into practice\nAdditional, citable, outputs\n\nBenefits of coding in the open\n\nEncourages good practices\nFacilitates collaboration\nCan give access to software engineering tools"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#sharing-code-in-an-online-repository",
+    "href": "slides/02-advanced/01-git/index.html#sharing-code-in-an-online-repository",
+    "title": "Open code, git and GitHub",
+    "section": "Sharing code in an online repository",
+    "text": "Sharing code in an online repository\n\n\nPros\n\nVersion control (commit history + releases)\nREADME.md for quick documentation\nFacilitates contribution (bug reports, patches)\nCan use CITATION.cff file for clear citation GitHub\nLinks to Zenodo for publishing releases\n\nCons\n\nLearning curve to take full advantage"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#further-benefits-of-github",
+    "href": "slides/02-advanced/01-git/index.html#further-benefits-of-github",
+    "title": "Open code, git and GitHub",
+    "section": "Further benefits of GitHub",
+    "text": "Further benefits of GitHub\nResearch compendia\nPotential to use Binder to so that people can run your code in the browser - For short analysis (<10 min) on small data (< 10MB) - Zero to Binder tutorial [Julia, Python, R]\nSoftware packages\n\nUsers can install Julia/Python/R packages from GitHub\nCan deploy package websites using GitHub pages\nCan benefit from GitHub Actions, e.g. automatically running tests"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#more-on-open-code-and-software",
+    "href": "slides/02-advanced/01-git/index.html#more-on-open-code-and-software",
+    "title": "Open code, git and GitHub",
+    "section": "More on open code and software",
+    "text": "More on open code and software\nSee https://www.heatherturner.net/talks/gregynog2022/#1"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#version-control",
+    "href": "slides/02-advanced/01-git/index.html#version-control",
+    "title": "Open code, git and GitHub",
+    "section": "Version Control",
+    "text": "Version Control\nWhen developing code, we often want to keep old versions.\nWe might save with different files names\ncode                               \n  ¦--simulations.R                  \n  ¦--simulations_correct_sd.R       \n  ¦--simulations_return_parameters.R\nor comment on changes (especially when collaborating with others)\n\n## EK 2023-01-10 use geom_bar instead of geom_histogram\n## p <- p + geom_histogram(stat = \"identity\")\np <- p + geom_bar(stat = \"identity\")\n## HT 2023-01-09 remove legend from plot\np <- p + theme(legend.position = \"none\")\n\nEither way it can get messy and hard to track/revert changes!"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#git-1",
+    "href": "slides/02-advanced/01-git/index.html#git-1",
+    "title": "Open code, git and GitHub",
+    "section": "git",
+    "text": "git\ngit is a version control system that allows us to record changes made to files in a repository or repo.\nEach version has a unique ID and metadata:\n\nWho created the new version\nA short description of changes made\nWhen the version was made\n\nVersions can be compared, restored and merged."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#git-repository",
+    "href": "slides/02-advanced/01-git/index.html#git-repository",
+    "title": "Open code, git and GitHub",
+    "section": "git repository",
+    "text": "git repository\nTo get started, a repository must be created locally (within a working directory on your computer) or on a remote hosting platform (we’ll use GitHub).\ngit can then track when files/folders are\n\nAdded\nModified\nDeleted\n\nRepositories can have multiple branches of development. We will work on a single branch, with the default name of main."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#staging-and-committing",
+    "href": "slides/02-advanced/01-git/index.html#staging-and-committing",
+    "title": "Open code, git and GitHub",
+    "section": "Staging and committing",
+    "text": "Staging and committing\nVersions are created in a commit.\nWe prepare the commit by staging changes we want to record:\n\nUntracked files (git treats the whole content as new)\nTracked files that have been modified or deleted since the last commit\n\nThink of it like taking photographs: we stage the scene by adding/removing people, or changing people’s outfits, when we have a scene we want to save we take a photograph."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#git-github",
+    "href": "slides/02-advanced/01-git/index.html#git-github",
+    "title": "Open code, git and GitHub",
+    "section": "git + Github",
+    "text": "git + Github\n\n\nThe full power comes by connecting a local repo to GitHub.\n\nYou can make changes locally and push them to GitHub\nYou can make changes via the GitHub website and later pull them into your local copy.\nCollaborators can also push/pull changes to the repo."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#github-1",
+    "href": "slides/02-advanced/01-git/index.html#github-1",
+    "title": "Open code, git and GitHub",
+    "section": "GitHub",
+    "text": "GitHub\nWarwick GitHub Enterprise: https://github.warwick.ac.uk/\n\nUse for Warwick-specific, private projects\nUsername will be ITS username\n\nGitHub: https://github.com/\n\nFree version allows private/public projects\nCan share/collaborate with people outside Warwick\nDevelop your personal portfolio"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#features",
+    "href": "slides/02-advanced/01-git/index.html#features",
+    "title": "Open code, git and GitHub",
+    "section": "Features",
+    "text": "Features\nGitHub repositories have some nice features:\n\nREADME.md displayed as HTML\nBrowsable commit history\nIssues where you/others can note bug reports/TODO/feature requests\nPull requests (advanced) where you/others can propose changes to the code to be reviewed\nActions (advanced) automated actions when you commit to the repo\nProjects (advanced) to organize issues (To Do/In Progress/Done)\nWiki for project documentation\nDeploy websites with pages :::"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#your-turn-explore-some-github-repositories",
+    "href": "slides/02-advanced/01-git/index.html#your-turn-explore-some-github-repositories",
+    "title": "Open code, git and GitHub",
+    "section": "Your turn! Explore some GitHub repositories",
+    "text": "Your turn! Explore some GitHub repositories\n\nThis course website and slides\n{palmerpenguins}\nR development guide"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#your-turn-create-a-github-repository",
+    "href": "slides/02-advanced/01-git/index.html#your-turn-create-a-github-repository",
+    "title": "Open code, git and GitHub",
+    "section": "Your turn! Create a GitHub repository",
+    "text": "Your turn! Create a GitHub repository\n\nLogin or sign up for a free account at https://www.github.com.\n\nRecommend to use personal email\nUsername recommendations:\n\nIncorporate your actual name\nReuse your username from other contexts.\nUse a name you can share in professional contexts.\nUse all lower case letters.\n\n\nClick on + in the top right to create a new, public, repository called github-intro.\n\nChoose to initialize the repository with a README file"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#your-turn-edit-on-github",
+    "href": "slides/02-advanced/01-git/index.html#your-turn-edit-on-github",
+    "title": "Open code, git and GitHub",
+    "section": "Your turn! Edit on GitHub",
+    "text": "Your turn! Edit on GitHub\n\n\nClick the pencil icon on the README.md file to edit.\n\nUpdate the title\nAdd some example content using markdown syntax\nUse the “Preview changes” tab to check your edits\n\nScroll down to the Commit changes section\n\nAdd a short description of your changes in the first dialog box, e.g. add basic information to README\nClick the green Commit changes button\nThis will stage and commit the file in one go.\n\nView the commit history (look for clock icon with anti-clockwise arrow) and look at the diff for your commit.\n\nSee Basic writing and formatting syntax for more on editing markdown."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#your-turn-continue-experimenting",
+    "href": "slides/02-advanced/01-git/index.html#your-turn-continue-experimenting",
+    "title": "Open code, git and GitHub",
+    "section": "Your turn! Continue experimenting",
+    "text": "Your turn! Continue experimenting\nFurther exercises to do while other people set up authentication.\n\nTry uploading a picture from Unsplash. Go to Add file > Upload files. Edit your README to add the image.\nGo to Add file > Create new file. Type subfolder/ in the “Name your file box” to create a subfolder. Now type README.md in the “Name your file box”. Add some content to the README and commit - try some new markdown syntax, e.g. emoji or a table.\nBuild a stunning README for your GitHub profile"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#using-git-locally",
+    "href": "slides/02-advanced/01-git/index.html#using-git-locally",
+    "title": "Open code, git and GitHub",
+    "section": "Using git locally",
+    "text": "Using git locally\nCheck if you already have git by running the following command in a terminal (e.g. Terminal tab on RStudio).\nOn MacOS/Linux (or Windows with Rtools)\n\nwhich git\n\nOn Windows\n\nwhere git\n\nMacOS: If asked to install the Xcode command line tools, say yes - this will install git."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#installing-git",
+    "href": "slides/02-advanced/01-git/index.html#installing-git",
+    "title": "Open code, git and GitHub",
+    "section": "Installing git",
+    "text": "Installing git\nWindows:\n\nUse the installer from https://git-scm.com/downloads\nCheck RStudio can find the git executable\n\nGo to Tools > Global Options > Git/SVN to check\nRestart RStudio before trying to use git\n\n\nLinux:\n\nsudo apt-get install git\n\nor\n\nsudo yum install git"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#configure-git-globally",
+    "href": "slides/02-advanced/01-git/index.html#configure-git-globally",
+    "title": "Open code, git and GitHub",
+    "section": "Configure git (globally)",
+    "text": "Configure git (globally)\nSet the default name and email to associate with your git commits:\nlibrary(usethis)\nuse_git_config(\n  user.name = \"Ada Lovelace\",     # your full name\n  user.email = \"ada@example.com\"  # email associated with GitHub account\n  )\nTo keep your email private:\n\nGo to https://github.com/settings/emails, select “Keep my email address private” and “Block command line pushes that expose my email” options\nConfigure git to use the address provided of the form ID+username@users.noreply.github.com"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#authentication",
+    "href": "slides/02-advanced/01-git/index.html#authentication",
+    "title": "Open code, git and GitHub",
+    "section": "Authentication",
+    "text": "Authentication\nGitHub requires authentication with a Personal Access Token or SSH key.\n\n\n\nSSH keys\nPAT\n\n\n\n\nMore setup (on Windows)\nusethis helpers\n\n\nOnce per computer+host\nRenew every 30 days (recommended)\n\n\nNeed for HPC\nNeed for usethis/other R packages\n\n\n\nRecommend: PAT now (easier), SSH later if needed"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#main-recommendations",
+    "href": "slides/02-advanced/01-git/index.html#main-recommendations",
+    "title": "Open code, git and GitHub",
+    "section": "Main recommendations",
+    "text": "Main recommendations\nFrom {usethis} vignette Managing Git(Hub) Credentials\nOur main recommendations are:\n\nAdopt HTTPS as your Git transport protocol.\nTurn on two-factor authentication for your GitHub account.\nUse a personal access token (PAT) for all Git remote operations from the command line or from R.\nAllow tools to store and retrieve your credentials from the Git credential store. If you have previously set your GitHub PAT in .Renviron, stop doing that.\n\nHighly recommend reading this entire vignette and following all guidance"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#sitrep-and-vaccinate",
+    "href": "slides/02-advanced/01-git/index.html#sitrep-and-vaccinate",
+    "title": "Open code, git and GitHub",
+    "section": "sitrep and vaccinate",
+    "text": "sitrep and vaccinate\n\nlibrary(usethis) # make sure > v2.0.0\ngit_sitrep() # current situation report\ngit_vaccinate() # add files to global .gitignore (best practice)"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#get-a-personal-access-token-pat",
+    "href": "slides/02-advanced/01-git/index.html#get-a-personal-access-token-pat",
+    "title": "Open code, git and GitHub",
+    "section": "Get a personal access token (PAT)",
+    "text": "Get a personal access token (PAT)\nFirst, make sure you’re signed into GitHub\n\ncreate_github_token()\n\n\nAdd Note describing use-case (e.g. personal-macbook-pro-2021, project-xyz)\nSelect expiration (recommend default 30 days)\nCheck scope\nClick ‘Generate Token’\nImportant! Copy token to clipboard, do not close window until stored!\nYou may want to store token in a secure vault, like 1Passward"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#put-your-pat-into-the-local-git-credential-store",
+    "href": "slides/02-advanced/01-git/index.html#put-your-pat-into-the-local-git-credential-store",
+    "title": "Open code, git and GitHub",
+    "section": "Put your PAT into the local Git credential store",
+    "text": "Put your PAT into the local Git credential store\nAssume token is on your clipboard\n\ngitcreds::gitcreds_set()\n\n\nIf you don’t have a PAT stored, will prompt you to enter: paste!\nIf you do, you will be given a choice to keep/replace/see the password\n\nchoose as appropriate\nif replacing, paste!"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#pat-maintenance",
+    "href": "slides/02-advanced/01-git/index.html#pat-maintenance",
+    "title": "Open code, git and GitHub",
+    "section": "PAT maintenance",
+    "text": "PAT maintenance\n\nBy default token will expire after 30 days.\nReturn to ,https://github.com/settings/tokens. and click on its Note\n\nor else click on link in e-mail telling you token is about to expire!\n\nRegenerate token\nrerun gitcreds::gitcreds_set()\n\nA bit of a pain to do this every month, but only takes a couple of minutes."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#your-turn",
+    "href": "slides/02-advanced/01-git/index.html#your-turn",
+    "title": "Open code, git and GitHub",
+    "section": "Your turn!",
+    "text": "Your turn!\nIf you need to, generate and store a PAT, as described over last few slides and in the vignette.\nIf you already have a PAT set, read the vignette and follow through on other best pracice recommendations."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#create-an-rstudio-project-from-a-github-repo",
+    "href": "slides/02-advanced/01-git/index.html#create-an-rstudio-project-from-a-github-repo",
+    "title": "Open code, git and GitHub",
+    "section": "Create an RStudio project from a GitHub repo",
+    "text": "Create an RStudio project from a GitHub repo\nNow you can clone your GitHub repo locally.\n\nGo to your repo homepage on GitHub. Click the green “Code” button, copy the HTTPS address (of the form https://github.com/USERNAME/REPO.git).\nIn RStudio, go to File > New Project… > Version Control > Git.\n\nEnter the repo URL you just copied. The project directory name will be filled automatically.\nBrowse to a location you want the project directory to be created.\nClick Create Project."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#summary",
+    "href": "slides/02-advanced/01-git/index.html#summary",
+    "title": "Open code, git and GitHub",
+    "section": "Summary",
+    "text": "Summary\n\nWorking openly encourages good practices\nYour code/software is an asset!\nWe can make steps to improve our own practice"
+  },
+  {
     "objectID": "slides/02-advanced/01-git/index.html#resources",
     "href": "slides/02-advanced/01-git/index.html#resources",
     "title": "Open code, git and GitHub",
@@ -2371,61 +2574,5 @@
     "title": "Schedule",
     "section": "",
     "text": "Sessions will be held most Mondays in term time, from 9:30-11:00 in Term 2 for the Advanced R Course.\nAdd the Advanced R Course to your calendar (this link does not work in Safari, Internet Explorer, or Opera Mini)\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
-  },
-  {
-    "objectID": "slides/02-advanced/01-git/index.html#open-practices",
-    "href": "slides/02-advanced/01-git/index.html#open-practices",
-    "title": "Open code, git and GitHub",
-    "section": "Open practices",
-    "text": "Open practices\n\n\nRecognised as integral to healthy research culture\nWorking openly means that our work is\n\nAccessible, for free\nOpen to scrutiny (verifiable)\nReproducible\n\n\n (source: analogicus from Pexels)"
-  },
-  {
-    "objectID": "slides/02-advanced/01-git/index.html#open-teaching",
-    "href": "slides/02-advanced/01-git/index.html#open-teaching",
-    "title": "Open code, git and GitHub",
-    "section": "Open teaching",
-    "text": "Open teaching\nThis course!\nWebsite\nGitHub materials\nRange of licenses e.g. CC BY, CC BY-SA, CC BY-NC, CC BY NC-ND, No license."
-  },
-  {
-    "objectID": "slides/02-advanced/01-git/index.html#more-on-open-code-and-software",
-    "href": "slides/02-advanced/01-git/index.html#more-on-open-code-and-software",
-    "title": "Open code, git and GitHub",
-    "section": "More on open code and software",
-    "text": "More on open code and software\nSee https://www.heatherturner.net/talks/gregynog2022/#1"
-  },
-  {
-    "objectID": "slides/02-advanced/01-git/index.html#code-and-software",
-    "href": "slides/02-advanced/01-git/index.html#code-and-software",
-    "title": "Open code, git and GitHub",
-    "section": "Code and Software",
-    "text": "Code and Software\n\n\nScripts: e.g analysis/simulation\n\nCustomised\nReproducible workflow\n\nread data\nanalyse\nsummarise\nreport\n\n\n\nSoftware: Package, tool, dashboard\n\nOptimized\nReusable\nSharable"
-  },
-  {
-    "objectID": "slides/02-advanced/01-git/index.html#why-share-code-and-software",
-    "href": "slides/02-advanced/01-git/index.html#why-share-code-and-software",
-    "title": "Open code, git and GitHub",
-    "section": "Why share code and software?",
-    "text": "Why share code and software?\nBeyond general benefits of open practices\n\nIncreased impact and reputation\nFaster translation into practice\nAdditional, citable, outputs\n\nBenefits of coding in the open\n\nEncourages good practices\nFacilitates collaboration\nCan give access to software engineering tools"
-  },
-  {
-    "objectID": "slides/02-advanced/01-git/index.html#sharing-code-in-an-online-repository",
-    "href": "slides/02-advanced/01-git/index.html#sharing-code-in-an-online-repository",
-    "title": "Open code, git and GitHub",
-    "section": "Sharing code in an online repository",
-    "text": "Sharing code in an online repository\n\n\nPros\n\nVersion control (commit history + releases)\nREADME.md for quick documentation\nFacilitates contribution (bug reports, patches)\nCan use CITATION.cff file for clear citation [GitHub]\nLinks to Zenodo for publishing releases\n\nCons\n\nLearning curve to take full advantage"
-  },
-  {
-    "objectID": "slides/02-advanced/01-git/index.html#further-benefits-of-github",
-    "href": "slides/02-advanced/01-git/index.html#further-benefits-of-github",
-    "title": "Open code, git and GitHub",
-    "section": "Further benefits of GitHub",
-    "text": "Further benefits of GitHub\nResearch compendia\nPotential to use Binder to so that people can run your code in the browser - For short analysis (<10 min) on small data (< 10MB) - Zero to Binder tutorial [Julia, Python, R]\nSoftware packages\n\nUsers can install Julia/Python/R packages from GitHub\nCan deploy package websites using GitHub pages\nCan benefit from GitHub Actions, e.g. automatically running tests"
-  },
-  {
-    "objectID": "slides/02-advanced/01-git/index.html#summary",
-    "href": "slides/02-advanced/01-git/index.html#summary",
-    "title": "Open code, git and GitHub",
-    "section": "Summary",
-    "text": "Summary\n\nWorking openly encourages good practices\nYour code/software is an asset!\nWe can make steps to improve our own practice"
   }
 ]

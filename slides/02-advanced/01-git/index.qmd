@@ -48,16 +48,6 @@ Working openly means that our work is
 
 ::::
 
-## Open teaching 
-
-This course!
-
-[Website](https://warwick-stats-resources.github.io/R-training)
-
-[GitHub materials](https://github.com/Warwick-Stats-Resources/r-training)
-
-Range of licenses e.g. CC BY, CC BY-SA, CC BY-NC, CC BY NC-ND, No license.
-
 ## Code and Software
 
 :::: {.columns}
@@ -138,7 +128,7 @@ Potential to use Binder to so that people can run your code in the browser
  - For short analysis (<10 min) on small data (< 10MB)
  - [Zero to Binder](https://the-turing-way.netlify.app/communication/binder/zero-to-binder.html) tutorial [Julia, Python, R]
  
-#### Software packages
+### Software packages
 
 - Users can install Julia/Python/R packages from GitHub
 - Can deploy package websites using GitHub pages
@@ -151,6 +141,313 @@ See <https://www.heatherturner.net/talks/gregynog2022/#1>
 
 # git {background-color="#552D62"}
 
+## Version Control
+
+When developing code, we often want to keep old versions.
+
+We might save with different files names
+```
+code                               
+  ¦--simulations.R                  
+  ¦--simulations_correct_sd.R       
+  ¦--simulations_return_parameters.R
+```  
+or comment on changes (especially when collaborating with others)
+```{r, eval = FALSE}
+## EK 2023-01-10 use geom_bar instead of geom_histogram
+## p <- p + geom_histogram(stat = "identity")
+p <- p + geom_bar(stat = "identity")
+## HT 2023-01-09 remove legend from plot
+p <- p + theme(legend.position = "none")
+```
+Either way it can get messy and hard to track/revert changes!
+
+
+## git
+
+git is a version control system that allows us to record changes made to files in a _repository_ or _repo_.
+
+Each version has a unique ID and metadata:
+
+ - Who created the new version
+ - A short description of changes made
+ - When the version was made
+ 
+Versions can be compared, restored and merged.
+
+## git repository
+
+To get started, a repository must be created locally (within a working directory on your computer) or on a remote hosting platform (we'll use GitHub).
+
+git can then track when files/folders are 
+
+   - Added
+   - Modified
+   - Deleted
+   
+Repositories can have multiple _branches_ of development. We will work on a single branch, with the default name of `main`.  
+
+## Staging and committing
+
+Versions are created in a _commit_.
+
+We prepare the commit by _staging_ changes we want to record:
+
+ * _Untracked_ files (git treats the whole content as new)
+ * _Tracked_ files that have been modified or deleted since the last commit
+ 
+Think of it like taking photographs: we stage the scene by adding/removing people, or changing people's outfits, when we have a scene we want to save we take a photograph.
+
+# GitHub {background-color="#552D62"}
+
+## git + Github
+
+:::: {.columns}
+
+::: {.column width="50%"}
+The full power comes by connecting a local repo to GitHub. 
+
+ - You can make changes locally and _push_ them to GitHub
+ - You can make changes via the GitHub website and later _pull_ them into your local copy.
+ - Collaborators can also push/pull changes to the repo.
+:::
+
+::: {.column width="50%"}
+```{r, fig.alt = 'Diagram showing arrows to and from your repo and a central remote repo (GitHub). There are more arrows to and from GitHub and the web UI. There are also arrows to and from GitHub and "their repo" representing another person.', fig.align = "center", out.width = "100%", echo = FALSE}
+knitr::include_graphics("../images/how_github_works.png")
+```
+:::
+
+::::
+
+## GitHub
+
+Warwick GitHub Enterprise: <https://github.warwick.ac.uk/>
+
+ - Use for Warwick-specific, private projects
+ - Username will be ITS username
+
+GitHub: <https://github.com/>
+
+ - Free version allows private/public projects
+ - Can share/collaborate with people outside Warwick
+ - Develop your personal portfolio
+
+## Features
+
+GitHub repositories have some nice features:
+
+- `README.md` displayed as HTML
+- Browsable commit history
+- _Issues_ where you/others can note bug reports/TODO/feature requests
+- _Pull requests_ (advanced) where you/others can propose changes to the code to be reviewed
+- _Actions_ (advanced) automated actions when you commit to the repo
+- _Projects_ (advanced) to organize issues (To Do/In Progress/Done)
+- _Wiki_ for project documentation
+- Deploy websites with _pages_
+:::
+
+## Your turn! Explore some GitHub repositories
+
+- [This course website and slides](https://github.com/Warwick-Stats-Resources/r-training)
+- [{palmerpenguins}](https://github.com/allisonhorst/palmerpenguins)
+- [R development guide](https://github.com/r-devel/rdevguide)
+
+## Your turn! Create a GitHub repository
+
+- Login or sign up for a free account at <https://www.github.com>.
+
+    - Recommend to use personal email
+    - Username recommendations:
+    
+        - Incorporate your actual name
+        - Reuse your username from other contexts.
+        - Use a name you can share in professional contexts.
+        - Use all lower case letters.
+- Click on `+` in the top right to create a new, public, repository called `github-intro`.
+
+    - Choose to initialize the repository with a README file
+    
+## Your turn! Edit on GitHub
+:::{.smaller75}
+- Click the pencil icon on the `README.md` file to edit.
+
+   - Update the title
+   - Add some example content using markdown syntax
+   - Use the "Preview changes" tab to check your edits
+   
+- Scroll down to the **Commit changes** section
+    
+    - Add a short description of your changes in the first dialog box, e.g. `add basic information to README`
+
+    - Click the green `Commit changes` button 
+
+    - This will stage and commit the file in one go.
+        
+- View the commit history (look for clock icon with anti-clockwise arrow) and look at the diff for your commit.        
+
+See [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) for more on editing markdown.
+
+:::
+
+## Your turn! Continue experimenting
+
+Further exercises to do while other people set up authentication.
+
+* Try uploading a picture from [Unsplash](https://unsplash.com/). Go to Add file > Upload files. Edit your README to add the image.
+
+* Go to Add file > Create new file. Type `subfolder/` in the "Name your file box" to create a subfolder. Now type `README.md` in the "Name your file box". Add some content to the README and commit - try some new markdown syntax, e.g. emoji or a table.
+
+* [Build a stunning README for your GitHub profile](https://towardsdatascience.com/build-a-stunning-readme-for-your-github-profile-9b80434fe5d7)
+
+# Configuring git and GitHub {background-color="#552D62"}
+
+## Using git locally
+
+Check if you already have git by running the following command in a terminal (e.g. Terminal tab on RStudio).
+
+On MacOS/Linux (or Windows with Rtools)
+```{sh, eval = FALSE}
+which git
+```
+
+On Windows
+
+```{sh, eval = FALSE}
+where git
+```
+
+MacOS: If asked to install the Xcode command line tools, say yes - this will install git.
+
+## Installing git
+
+Windows: 
+
+ - Use the installer from https://git-scm.com/downloads
+ - Check RStudio can find the git executable
+ 
+     - Go to Tools > Global Options > Git/SVN to check
+     - Restart RStudio before trying to use git
+     
+Linux:
+```{sh, eval = FALSE}
+sudo apt-get install git
+```
+or
+```{sh, eval = FALSE}
+sudo yum install git
+```
+
+## Configure git (globally)
+
+Set the default name and email to associate with your git commits:
+
+```r
+library(usethis)
+use_git_config(
+  user.name = "Ada Lovelace",     # your full name
+  user.email = "ada@example.com"  # email associated with GitHub account
+  )
+```
+
+To keep your email private:
+
+   - Go to <https://github.com/settings/emails>, select “Keep my email address private” and “Block command line pushes that expose my email” options
+   - Configure git to use the address provided of the form <ID+username@users.noreply.github.com>
+   
+## Authentication
+
+GitHub requires authentication with a Personal Access Token or SSH key.
+
+| SSH keys                | PAT                 |
+|-------------------------|---------------------|
+| More setup (on Windows) | **usethis** helpers |
+| Once per computer+host  | Renew every 30 days (recommended) |
+| Need for HPC            | Need for **usethis**/other R packages |
+
+Recommend: PAT now (easier), SSH later if needed
+
+## Main recommendations
+
+From {usethis} vignette [Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/git-credentials.html)
+
+Our main recommendations are:
+
+  - Adopt HTTPS as your Git transport protocol.
+  - Turn on two-factor authentication for your GitHub account.
+  - Use a personal access token (PAT) for all Git remote operations from the command line or from R.
+  - Allow tools to store and retrieve your credentials from the Git credential store. If you have previously set your GitHub PAT in .Renviron, stop doing that.
+
+*Highly recommend reading this entire vignette and following all guidance*
+
+## sitrep and vaccinate
+
+```{r}
+#| eval: false
+
+library(usethis) # make sure > v2.0.0
+git_sitrep() # current situation report
+git_vaccinate() # add files to global .gitignore (best practice)
+```
+
+## Get a personal access token (PAT)
+
+First, make sure you're signed into GitHub
+
+```{r}
+#| eval: false
+
+create_github_token()
+```
+
+- Add Note describing use-case (e.g. personal-macbook-pro-2021, project-xyz)
+- Select expiration (recommend default 30 days)
+- Check scope
+- Click 'Generate Token'
+- **Important!** Copy token to clipboard, do not close window until stored!
+- You may want to store token in a secure vault, like 1Passward
+
+## Put your PAT into the local Git credential store
+
+Assume token is on your clipboard
+
+```{r}
+#| eval: false
+gitcreds::gitcreds_set()
+```
+
+- If you don't have a PAT stored, will prompt you to enter: paste!
+- If you do, you will be given a choice to keep/replace/see the password
+  - choose as appropriate
+  - if replacing, paste!
+  
+## PAT maintenance
+
+- By default token will expire after 30 days.
+- Return to ,https://github.com/settings/tokens. and click on its *Note*
+  - or else click on link in e-mail telling you token is about to expire!
+- Regenerate token
+- rerun `gitcreds::gitcreds_set()`
+
+A bit of a pain to do this every month, but only takes a couple of minutes.
+
+## Your turn!
+
+If you need to, generate and store a PAT, as described over last few slides and in the [vignette](https://usethis.r-lib.org/articles/git-credentials.html).
+
+If you already have a PAT set, read the vignette and follow through on other best pracice recommendations.
+
+## Create an RStudio project from a GitHub repo
+
+Now you can clone your GitHub repo locally.
+
+- Go to your repo homepage on GitHub. Click the green "Code" button, copy the HTTPS address (of the form `https://github.com/USERNAME/REPO.git`).
+
+- In RStudio, go to File > New Project… > Version Control > Git.
+
+  - Enter the repo URL you just copied. The project directory name will be filled automatically.
+  - Browse to a location you want the project directory to be created.
+  - Click `Create Project`.
 
 ## Summary
 
