@@ -2,8 +2,6 @@
 title: git and GitHub
 ---
 
-***This page and the slides for this session are still under development***
-
 ## Slides
 
 Here's a link to the [slides](/slides/02-advanced/01-git/index.qmd){target="_blank"} in a new window. 
@@ -17,9 +15,20 @@ Here are the slides embedded:
 
 ### Reading
 
-- TITLE
+- Happy Git and GitHub for the useR by Jenny Bryan
 
-  <LINK>
+  <http://happygitwithr.com>
 
+- GitHub for supporting, reusing, contributing and failing safely by Allison Horst and Julie Lowndes
+  
+  <https://www.openscapes.org/blog/2022/05/27/github-illustrated-series/>
+
+- Version control: A practical introduction to Git and GitHub
+
+  <https://www.jvcasillas.com/github_workshop/index.html#1>
 
 ### Packages
+
+- [usethis](https://usethis.r-lib.org)
+
+- [gert](https://docs.ropensci.org/gert/)

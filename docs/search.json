@@ -354,7 +354,7 @@
     "href": "content/02-advanced/01-git.html",
     "title": "git and GitHub",
     "section": "",
-    "text": "This page and the slides for this session are still under development"
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
   },
   {
     "objectID": "content/02-advanced/01-git.html#slides",
@@ -368,7 +368,7 @@
     "href": "content/02-advanced/01-git.html#resources",
     "title": "git and GitHub",
     "section": "Resources",
-    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+    "text": "Resources\n\nReading\n\nHappy Git and GitHub for the useR by Jenny Bryan\nhttp://happygitwithr.com\nGitHub for supporting, reusing, contributing and failing safely by Allison Horst and Julie Lowndes\nhttps://www.openscapes.org/blog/2022/05/27/github-illustrated-series/\nVersion control: A practical introduction to Git and GitHub\nhttps://www.jvcasillas.com/github_workshop/index.html#1\n\n\n\nPackages\n\nusethis\ngert"
   },
   {
     "objectID": "content/02-advanced/05-C++.html",
@@ -2300,7 +2300,7 @@
     "href": "slides/02-advanced/01-git/index.html#further-benefits-of-github",
     "title": "Open code, git and GitHub",
     "section": "Further benefits of GitHub",
-    "text": "Further benefits of GitHub\nResearch compendia\nPotential to use Binder to so that people can run your code in the browser - For short analysis (<10 min) on small data (< 10MB) - Zero to Binder tutorial [Julia, Python, R]\nSoftware packages\n\nUsers can install Julia/Python/R packages from GitHub\nCan deploy package websites using GitHub pages\nCan benefit from GitHub Actions, e.g. automatically running tests"
+    "text": "Further benefits of GitHub\nResearch compendia\nPotential to use Binder to so that people can run your code in the browser\n\nFor short analysis (<10 min) on small data (< 10MB)\nZero to Binder tutorial [Julia, Python, R]\n\nSoftware packages\n\nUsers can install Julia/Python/R packages from GitHub\nCan deploy package websites using GitHub pages\nCan benefit from GitHub Actions, e.g. automatically running tests"
   },
   {
     "objectID": "slides/02-advanced/01-git/index.html#more-on-open-code-and-software",
@@ -2356,7 +2356,7 @@
     "href": "slides/02-advanced/01-git/index.html#features",
     "title": "Open code, git and GitHub",
     "section": "Features",
-    "text": "Features\nGitHub repositories have some nice features:\n\nREADME.md displayed as HTML\nBrowsable commit history\nIssues where you/others can note bug reports/TODO/feature requests\nPull requests (advanced) where you/others can propose changes to the code to be reviewed\nActions (advanced) automated actions when you commit to the repo\nProjects (advanced) to organize issues (To Do/In Progress/Done)\nWiki for project documentation\nDeploy websites with pages :::"
+    "text": "Features\nGitHub repositories have some nice features:\n\nREADME.md displayed as HTML\nBrowsable commit history\nIssues where you/others can note bug reports/TODO/feature requests\nPull requests (advanced) where you/others can propose changes to the code to be reviewed\nActions (advanced) automated actions when you commit to the repo\nProjects (advanced) to organize issues (To Do/In Progress/Done)\nWiki for project documentation\nDeploy websites with pages"
   },
   {
     "objectID": "slides/02-advanced/01-git/index.html#your-turn-explore-some-github-repositories",
@@ -2419,7 +2419,7 @@
     "href": "slides/02-advanced/01-git/index.html#main-recommendations",
     "title": "Open code, git and GitHub",
     "section": "Main recommendations",
-    "text": "Main recommendations\nFrom {usethis} vignette Managing Git(Hub) Credentials\nOur main recommendations are:\n\nAdopt HTTPS as your Git transport protocol.\nTurn on two-factor authentication for your GitHub account.\nUse a personal access token (PAT) for all Git remote operations from the command line or from R.\nAllow tools to store and retrieve your credentials from the Git credential store. If you have previously set your GitHub PAT in .Renviron, stop doing that.\n\nHighly recommend reading this entire vignette and following all guidance"
+    "text": "Main recommendations\nFrom {usethis} vignette Managing Git(Hub) Credentials:\nOur main recommendations are:\n\nAdopt HTTPS as your Git transport protocol.\nTurn on two-factor authentication for your GitHub account.\nUse a personal access token (PAT) for all Git remote operations from the command line or from R.\nAllow tools to store and retrieve your credentials from the Git credential store. If you have previously set your GitHub PAT in .Renviron, stop doing that.\n\nHighly recommend reading this entire vignette and following all guidance"
   },
   {
     "objectID": "slides/02-advanced/01-git/index.html#sitrep-and-vaccinate",
@@ -2433,7 +2433,7 @@
     "href": "slides/02-advanced/01-git/index.html#get-a-personal-access-token-pat",
     "title": "Open code, git and GitHub",
     "section": "Get a personal access token (PAT)",
-    "text": "Get a personal access token (PAT)\nFirst, make sure you’re signed into GitHub\n\ncreate_github_token()\n\n\nAdd Note describing use-case (e.g. personal-macbook-pro-2021, project-xyz)\nSelect expiration (recommend default 30 days)\nCheck scope\nClick ‘Generate Token’\nImportant! Copy token to clipboard, do not close window until stored!\nYou may want to store token in a secure vault, like 1Passward"
+    "text": "Get a personal access token (PAT)\nFirst, make sure you’re signed into GitHub. Then run\n\nusething::create_github_token()\n\n\nAdd Note describing use-case (e.g. personal-macbook-pro-2021, project-xyz)\nSelect expiration (recommend default 30 days)\nCheck scope\nClick ‘Generate Token’\nImportant! Copy token to clipboard, do not close window until stored!\nYou may want to store token in a secure vault, like 1Passward"
   },
   {
     "objectID": "slides/02-advanced/01-git/index.html#put-your-pat-into-the-local-git-credential-store",
@@ -2447,7 +2447,7 @@
     "href": "slides/02-advanced/01-git/index.html#pat-maintenance",
     "title": "Open code, git and GitHub",
     "section": "PAT maintenance",
-    "text": "PAT maintenance\n\nBy default token will expire after 30 days.\nReturn to ,https://github.com/settings/tokens. and click on its Note\n\nor else click on link in e-mail telling you token is about to expire!\n\nRegenerate token\nrerun gitcreds::gitcreds_set()\n\nA bit of a pain to do this every month, but only takes a couple of minutes."
+    "text": "PAT maintenance\n\nBy default token will expire after 30 days.\nReturn to https://github.com/settings/tokens and click on its Note\n\nor else click on link in e-mail telling you token is about to expire!\n\nRegenerate token\nrerun gitcreds::gitcreds_set()\n\nA bit of a pain to do this every month, but only takes a couple of minutes."
   },
   {
     "objectID": "slides/02-advanced/01-git/index.html#your-turn",
@@ -2468,7 +2468,7 @@
     "href": "slides/02-advanced/01-git/index.html#summary",
     "title": "Open code, git and GitHub",
     "section": "Summary",
-    "text": "Summary\n\nWorking openly encourages good practices\nYour code/software is an asset!\nWe can make steps to improve our own practice"
+    "text": "Summary\n\nWorking openly encourages good practices\nYour code/software is an asset!\nWe can make steps to improve our own practice\ngit and GitHub are invaluable resources for version control and collaboration"
   },
   {
     "objectID": "slides/02-advanced/01-git/index.html#resources",
@@ -2574,5 +2574,96 @@
     "title": "Schedule",
     "section": "",
     "text": "Sessions will be held most Mondays in term time, from 9:30-11:00 in Term 2 for the Advanced R Course.\nAdd the Advanced R Course to your calendar (this link does not work in Safari, Internet Explorer, or Opera Mini)\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#git-tab",
+    "href": "slides/02-advanced/01-git/index.html#git-tab",
+    "title": "Open code, git and GitHub",
+    "section": "Git tab",
+    "text": "Git tab\nA Git tab is added to the pane that is in the top right by default, usually with Environment, History, and Connections tabs.\nThe initial view is equivalent to the output of the terminal command git status.\n\n\nWe can stage changes to commit\n Underlying command:\ngit add <file/folder>.\n\nThen commit a set of changes\n Underlying command:\ngit commit -m \"commit message\""
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#gitignore",
+    "href": "slides/02-advanced/01-git/index.html#gitignore",
+    "title": "Open code, git and GitHub",
+    "section": ".gitignore",
+    "text": ".gitignore\nAt this stage you should see two untracked files in your Git Pane that were created when setting up the project: an .Rproj file and a .gitignore file.\nThe .gitignore file specifies files that git should ignore - they won’t appear in the git pane even as untracked files.\nExamples of how to specify files in .gitignore:\n\nSingle file: .Rhistory\nFile pattern: *.log (all files with .log extension)\nDirectory (and files in it): /dirname/\n\nThe .gitignore file must at least be staged to have an effect."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#first-commit-from-rstudio",
+    "href": "slides/02-advanced/01-git/index.html#first-commit-from-rstudio",
+    "title": "Open code, git and GitHub",
+    "section": "First commit from RStudio",
+    "text": "First commit from RStudio\n\nStage and commit the .Rproj file and .gitignore file, with the message “setup RStudio project”.\nClick on the clock icon in the Git pane to view the history of previous commits.\nClose the “Review Changes” window. Now click the green up arrow to push your changes to GitHub.\nGo to the repo on GitHub and verify your changes have been pushed."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#pulling-changes-from-github",
+    "href": "slides/02-advanced/01-git/index.html#pulling-changes-from-github",
+    "title": "Open code, git and GitHub",
+    "section": "Pulling changes from GitHub",
+    "text": "Pulling changes from GitHub\n\nEdit the README once more on GitHub in a new commit.\nBack in RStudio, on the Git tab, click the blue down arrow to pull the changes from GitHub\nThe changes to README should now appear in your local copy"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#avoid-conflicts",
+    "href": "slides/02-advanced/01-git/index.html#avoid-conflicts",
+    "title": "Open code, git and GitHub",
+    "section": "Avoid conflicts",
+    "text": "Avoid conflicts\nIf you work on both the local and GitHub copy, it’s possible to get out of sync and end up with conflicting versions of the same file.\nIt is possible to fix this, but it can be tricky/confusing. It’s best to avoid problem in first place!\nRecommended practice:\n\nAlways commit and push changes at the end of an RStudio session\nAlways pull changes at the beginning of an RStudio session"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#set-.rprofile-to-check-git-status",
+    "href": "slides/02-advanced/01-git/index.html#set-.rprofile-to-check-git-status",
+    "title": "Open code, git and GitHub",
+    "section": "Set .Rprofile to check git status",
+    "text": "Set .Rprofile to check git status\nThis is a neat trick (credit: Lisa De Bruine)\nOpen your .Rprofile\nusethis::edit_r_profile()\nand add the following (credit: Lisa De Bruine)\ncat(cli::col_blue(system(\"git status -u no\", TRUE)))\nThis will run git status from the command line when you start R, giving a (blue coloured!) message e.g.\nOn branch main Your branch is behind 'origin/main' by 1 commit,\nand can be fast-forwarded.   (use \"git pull\" to update your  \nlocal branch)  nothing to commit, working tree clean\nIf your main branch is behind the main branch on origin (GitHub), you should pull changes before making new edits."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#advanced-amend-commit-before-pushing",
+    "href": "slides/02-advanced/01-git/index.html#advanced-amend-commit-before-pushing",
+    "title": "Open code, git and GitHub",
+    "section": "Advanced: Amend commit (before pushing)",
+    "text": "Advanced: Amend commit (before pushing)\nSometimes we don’t stage everything we intended to include in a commit, e.g. we committed a file before saving the latest changes.\nIf we haven’t yet pushed the commit to GitHub, simply stage the extra commits and check the “Amend previous commit” box under the commit message.\nThe original commit message will be shown - you can edit this to change the message for the amended commit (useful if you forgot to reference a GitHub issue number)"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#advanced-undo-last-commit-before-pushing",
+    "href": "slides/02-advanced/01-git/index.html#advanced-undo-last-commit-before-pushing",
+    "title": "Open code, git and GitHub",
+    "section": "Advanced: Undo last commit (before pushing)",
+    "text": "Advanced: Undo last commit (before pushing)\nAlternatively, you can undo a commit before pushing.\nTo undo the commit, keeping files as they are\n\ngit reset HEAD~1\n\n(change the 1 to a higher number to go back more than 1 commit).\nTo undo the commit and all the changes in that commit\n\ngit reset --hard HEAD~1\n\nThis goes back to the version at the last commit."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#advanced-undo-last-commit-after-pushing",
+    "href": "slides/02-advanced/01-git/index.html#advanced-undo-last-commit-after-pushing",
+    "title": "Open code, git and GitHub",
+    "section": "Advanced: Undo last commit (after pushing)",
+    "text": "Advanced: Undo last commit (after pushing)\nIt is best practice to create a new commit that undoes the changes. Run\n\ngit revert HEAD\n\nThis edits the files to undo the changes in your last commit. You should then commit these edits, with a relevant message.\nIt is possible to use git reset --hard to undo a commit and then git push origin main --force to force this change onto GitHub. Sometimes repository maintainers do not allow this as it rewrites the history, which can cause problems for people that have cloned or forked your repo."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#general-workflow",
+    "href": "slides/02-advanced/01-git/index.html#general-workflow",
+    "title": "Open code, git and GitHub",
+    "section": "General workflow",
+    "text": "General workflow\n\nCommit regularly, once you’ve got a small complete change, e.g. a working draft of a function, a bug fix, a draft of a README.\n\nIt is easier to review/revert changes if they relate to a single file or common issue\n\nIdeally, make a commit everytime you make a substantial, coherent set of changes.\nAt least make a commit every time you take a break, especially when leaving at the end of your working session\nPush often enough that GitHub is a useful backup"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#learning-more",
+    "href": "slides/02-advanced/01-git/index.html#learning-more",
+    "title": "Open code, git and GitHub",
+    "section": "Learning more",
+    "text": "Learning more\n\nHappy Git and GitHub for the useR by Jenny Bryan\nhttp://happygitwithr.com\nGitHub for supporting, reusing, contributing and failing safely by Allison Horst and Julie Lowndes\nhttps://www.openscapes.org/blog/2022/05/27/github-illustrated-series/\nVersion control: A practical introduction to Git and GitHub\nhttps://www.jvcasillas.com/github_workshop/index.html#1"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#adding-an-existing-project-to-github",
+    "href": "slides/02-advanced/01-git/index.html#adding-an-existing-project-to-github",
+    "title": "Open code, git and GitHub",
+    "section": "Adding an existing project to GitHub",
+    "text": "Adding an existing project to GitHub\nThe simplest approach is to create a GitHub repo with just a README as before, create the corresponding RStudio project, copy your files into the new directory, stage and commit them.\nIf you are already using git and want to move the project to GitHub, see Adding a local repository to GitHub using git. Once the project is on GitHub you can clone it into an RStudio project."
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#some-other-tools",
+    "href": "slides/02-advanced/01-git/index.html#some-other-tools",
+    "title": "Open code, git and GitHub",
+    "section": "Some other tools",
+    "text": "Some other tools\n\ngert R package has functions for interacting with git\nIt can be worth using dedicated software for interacting with git/GitHub\n\nGitHub desktop\nGitKraken"
   }
 ]

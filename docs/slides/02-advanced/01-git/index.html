@@ -415,7 +415,7 @@ Ella Kaye | Department of Statistics | University of Warwick
 <section>
 <section id="open-code-and-software" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>Open code and software</h1>
-
+<p>From <a href="https://www.heatherturner.net/talks/gregynog2022/#1" class="uri">https://www.heatherturner.net/talks/gregynog2022/#1</a></p>
 </section>
 <section id="open-practices" class="slide level2">
 <h2>Open practices</h2>
@@ -497,17 +497,6 @@ Ella Kaye | Department of Statistics | University of Warwick
 </div>
 </div>
 </section>
-<section id="further-benefits-of-github" class="slide level2">
-<h2>Further benefits of GitHub</h2>
-<h3 id="research-compendia">Research compendia</h3>
-<p>Potential to use Binder to so that people can run your code in the browser - For short analysis (&lt;10 min) on small data (&lt; 10MB) - <a href="https://the-turing-way.netlify.app/communication/binder/zero-to-binder.html">Zero to Binder</a> tutorial [Julia, Python, R]</p>
-<h3 id="software-packages">Software packages</h3>
-<ul>
-<li>Users can install Julia/Python/R packages from GitHub</li>
-<li>Can deploy package websites using GitHub pages</li>
-<li>Can benefit from GitHub Actions, e.g.&nbsp;automatically running tests</li>
-</ul>
-</section>
 <section id="more-on-open-code-and-software" class="slide level2">
 <h2>More on open code and software</h2>
 <p>See <a href="https://www.heatherturner.net/talks/gregynog2022/#1" class="uri">https://www.heatherturner.net/talks/gregynog2022/#1</a></p>
@@ -545,6 +534,11 @@ Ella Kaye | Department of Statistics | University of Warwick
 <li>When the version was made</li>
 </ul>
 <p>Versions can be compared, restored and merged.</p>
+</section></section>
+<section>
+<section id="git-protection" class="title-slide slide level1 center" data-menu-title="Hadley Wickham and Jenny Bryan quote" data-background-image="../images/github_wickham_bryan_git_quote.png" data-background-size="contain">
+<h1></h1>
+
 </section>
 <section id="git-repository" class="slide level2">
 <h2>git repository</h2>
@@ -620,7 +614,22 @@ Ella Kaye | Department of Statistics | University of Warwick
 <li><em>Actions</em> (advanced) automated actions when you commit to the repo</li>
 <li><em>Projects</em> (advanced) to organize issues (To Do/In Progress/Done)</li>
 <li><em>Wiki</em> for project documentation</li>
-<li>Deploy websites with <em>pages</em> :::</li>
+<li>Deploy websites with <em>pages</em></li>
+</ul>
+</section>
+<section id="further-benefits-of-github" class="slide level2">
+<h2>Further benefits of GitHub</h2>
+<h3 id="research-compendia">Research compendia</h3>
+<p>Potential to use Binder to so that people can run your code in the browser</p>
+<ul>
+<li><p>For short analysis (&lt;10 min) on small data (&lt; 10MB)</p></li>
+<li><p><a href="https://the-turing-way.netlify.app/communication/binder/zero-to-binder.html">Zero to Binder</a> tutorial [Julia, Python, R]</p></li>
+</ul>
+<h3 id="software-packages">Software packages</h3>
+<ul>
+<li><p>Users can install Julia/Python/R packages from GitHub</p></li>
+<li><p>Can deploy package websites using GitHub pages</p></li>
+<li><p>Can benefit from GitHub Actions, e.g.&nbsp;automatically running tests</p></li>
 </ul>
 </section>
 <section id="your-turn-explore-some-github-repositories" class="slide level2">
@@ -703,7 +712,7 @@ Ella Kaye | Department of Statistics | University of Warwick
 <h2>Installing git</h2>
 <p>Windows:</p>
 <ul>
-<li><p>Use the installer from https://git-scm.com/downloads</p></li>
+<li><p>Use the installer from <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a></p></li>
 <li><p>Check RStudio can find the git executable</p>
 <ul>
 <li>Go to Tools &gt; Global Options &gt; Git/SVN to check</li>
@@ -762,7 +771,7 @@ Ella Kaye | Department of Statistics | University of Warwick
 </section>
 <section id="main-recommendations" class="slide level2">
 <h2>Main recommendations</h2>
-<p>From {usethis} vignette <a href="https://usethis.r-lib.org/articles/git-credentials.html">Managing Git(Hub) Credentials</a></p>
+<p>From {usethis} vignette <a href="https://usethis.r-lib.org/articles/git-credentials.html">Managing Git(Hub) Credentials</a>:</p>
 <p>Our main recommendations are:</p>
 <ul>
 <li>Adopt HTTPS as your Git transport protocol.</li>
@@ -782,9 +791,9 @@ Ella Kaye | Department of Statistics | University of Warwick
 </section>
 <section id="get-a-personal-access-token-pat" class="slide level2">
 <h2>Get a personal access token (PAT)</h2>
-<p>First, make sure you’re signed into GitHub</p>
+<p>First, make sure you’re signed into GitHub. Then run</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>usething<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Add Note describing use-case (e.g.&nbsp;personal-macbook-pro-2021, project-xyz)</li>
@@ -814,7 +823,7 @@ Ella Kaye | Department of Statistics | University of Warwick
 <h2>PAT maintenance</h2>
 <ul>
 <li>By default token will expire after 30 days.</li>
-<li>Return to ,https://github.com/settings/tokens. and click on its <em>Note</em>
+<li>Return to <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a> and click on its <em>Note</em>
 <ul>
 <li>or else click on link in e-mail telling you token is about to expire!</li>
 </ul></li>
@@ -841,25 +850,160 @@ Ella Kaye | Department of Statistics | University of Warwick
 </ul></li>
 </ul>
 </section>
+<section id="git-tab" class="slide level2">
+<h2>Git tab</h2>
+<p>A Git tab is added to the pane that is in the top right by default, usually with Environment, History, and Connections tabs.</p>
+<p>The initial view is equivalent to the output of the terminal command <code>git status</code>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We can <em>stage</em> changes to commit</p>
+<p><img data-src="../images/stage_changes.png"> Underlying command:<br>
+<code>git add &lt;file/folder&gt;</code>.</p>
+</div><div class="column" style="width:50%;">
+<p>Then <em>commit</em> a set of changes</p>
+<p><img data-src="../images/commit_changes.png"> Underlying command:<br>
+<code>git commit -m "commit message"</code></p>
+</div>
+</div>
+</section>
+<section id="gitignore" class="slide level2">
+<h2>.gitignore</h2>
+<p>At this stage you should see two untracked files in your Git Pane that were created when setting up the project: an <code>.Rproj</code> file and a <code>.gitignore</code> file.</p>
+<p>The <code>.gitignore</code> file specifies files that git should ignore - they won’t appear in the git pane even as untracked files.</p>
+<p>Examples of how to specify files in <code>.gitignore</code>:</p>
+<ul>
+<li>Single file: <code>.Rhistory</code></li>
+<li>File pattern: <code>*.log</code> (all files with <code>.log</code> extension)</li>
+<li>Directory (and files in it): <code>/dirname/</code></li>
+</ul>
+<p>The <code>.gitignore</code> file must at least be staged to have an effect.</p>
+</section>
+<section id="first-commit-from-rstudio" class="slide level2">
+<h2>First commit from RStudio</h2>
+<ul>
+<li><p>Stage and commit the <code>.Rproj</code> file and <code>.gitignore</code> file, with the message “setup RStudio project”.</p></li>
+<li><p>Click on the clock icon in the Git pane to view the history of previous commits.</p></li>
+<li><p>Close the “Review Changes” window. Now click the green up arrow to push your changes to GitHub.</p></li>
+<li><p>Go to the repo on GitHub and verify your changes have been pushed.</p></li>
+</ul>
+</section>
+<section id="pulling-changes-from-github" class="slide level2">
+<h2>Pulling changes from GitHub</h2>
+<ul>
+<li><p>Edit the README once more on GitHub in a new commit.</p></li>
+<li><p>Back in RStudio, on the Git tab, click the blue down arrow to <em>pull</em> the changes from GitHub</p></li>
+<li><p>The changes to README should now appear in your local copy</p></li>
+</ul>
+</section>
+<section id="avoid-conflicts" class="slide level2">
+<h2>Avoid conflicts</h2>
+<p>If you work on both the local and GitHub copy, it’s possible to get out of sync and end up with conflicting versions of the same file.</p>
+<p>It <em>is</em> possible to fix this, but it can be tricky/confusing. It’s best to avoid problem in first place!</p>
+<p>Recommended practice:</p>
+<ul>
+<li>Always commit and push changes at the end of an RStudio session</li>
+<li>Always pull changes at the beginning of an RStudio session</li>
+</ul>
+</section>
+<section id="set-.rprofile-to-check-git-status" class="slide level2">
+<h2>Set <code>.Rprofile</code> to check git status</h2>
+<p>This is a neat trick (credit: Lisa De Bruine)</p>
+<p>Open your <code>.Rprofile</code></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_profile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and add the following (credit: Lisa De Bruine)</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">cat</span>(cli<span class="sc">::</span><span class="fu">col_blue</span>(<span class="fu">system</span>(<span class="st">"git status -u no"</span>, <span class="cn">TRUE</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will run <code>git status</code> from the command line when you start R, giving a (blue coloured!) message e.g.</p>
+<pre><code>On branch main Your branch is behind 'origin/main' by 1 commit,
+and can be fast-forwarded.   (use "git pull" to update your  
+local branch)  nothing to commit, working tree clean</code></pre>
+<p>If your main branch is behind the main branch on <em>origin</em> (GitHub), you should pull changes before making new edits.</p>
+</section>
+<section id="advanced-amend-commit-before-pushing" class="slide level2">
+<h2>Advanced: Amend commit (before pushing)</h2>
+<p>Sometimes we don’t stage everything we intended to include in a commit, e.g.&nbsp;we committed a file before saving the latest changes.</p>
+<p>If we haven’t yet pushed the commit to GitHub, simply stage the extra commits and check the “Amend previous commit” box under the commit message.</p>
+<p>The original commit message will be shown - you can edit this to change the message for the amended commit (useful if you forgot to reference a GitHub issue number)</p>
+</section>
+<section id="advanced-undo-last-commit-before-pushing" class="slide level2">
+<h2>Advanced: Undo last commit (before pushing)</h2>
+<p>Alternatively, you can undo a commit before pushing.</p>
+<p>To undo the commit, keeping files as they are</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">git</span> reset HEAD~1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(change the 1 to a higher number to go back more than 1 commit).</p>
+<p>To undo the commit <em>and all the changes in that commit</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD~1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This goes back to the version at the last commit.</p>
+</section>
+<section id="advanced-undo-last-commit-after-pushing" class="slide level2">
+<h2>Advanced: Undo last commit (after pushing)</h2>
+<p>It is best practice to create a new commit that undoes the changes. Run</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">git</span> revert HEAD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This edits the files to undo the changes in your last commit. You should then commit these edits, with a relevant message.</p>
+<p>It is possible to use <code>git reset --hard</code> to undo a commit and then <code>git push origin main --force</code> to force this change onto GitHub. Sometimes repository maintainers do not allow this as it rewrites the history, which can cause problems for people that have cloned or forked your repo.</p>
+</section>
+<section id="general-workflow" class="slide level2">
+<h2>General workflow</h2>
+<ul>
+<li><p>Commit regularly, once you’ve got a small complete change, e.g.&nbsp;a working draft of a function, a bug fix, a draft of a README.</p>
+<ul>
+<li>It is easier to review/revert changes if they relate to a single file or common issue</li>
+</ul></li>
+<li><p>Ideally, make a commit everytime you make a substantial, coherent set of changes.</p></li>
+<li><p>At least make a commit every time you take a break, especially when leaving at the end of your working session</p></li>
+<li><p>Push often enough that GitHub is a useful backup</p></li>
+</ul>
+</section>
+<section id="adding-an-existing-project-to-github" class="slide level2">
+<h2>Adding an existing project to GitHub</h2>
+<p>The simplest approach is to create a GitHub repo with just a README as before, create the corresponding RStudio project, copy your files into the new directory, stage and commit them.</p>
+<p>If you are already using git and want to move the project to GitHub, see <a href="https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-using-git">Adding a local repository to GitHub using git</a>. Once the project is on GitHub you can clone it into an RStudio project.</p>
+</section>
+<section id="some-other-tools" class="slide level2">
+<h2>Some other tools</h2>
+<ul>
+<li><p><a href="https://docs.ropensci.org/gert/">gert</a> R package has functions for interacting with git</p></li>
+<li><p>It can be worth using dedicated software for interacting with git/GitHub</p>
+<ul>
+<li><p><a href="https://desktop.github.com">GitHub desktop</a></p></li>
+<li><p><a href="https://www.gitkraken.com">GitKraken</a></p></li>
+</ul></li>
+</ul>
+</section>
 <section id="summary" class="slide level2">
 <h2>Summary</h2>
 <ul>
-<li>Working openly encourages good practices</li>
-<li>Your code/software is an asset!</li>
-<li>We can make steps to improve our own practice</li>
+<li><p>Working openly encourages good practices</p></li>
+<li><p>Your code/software is an asset!</p></li>
+<li><p>We can make steps to improve our own practice</p></li>
+<li><p>git and GitHub are invaluable resources for version control and collaboration</p></li>
+</ul>
+</section></section>
+<section>
+<section id="github-friends" class="title-slide slide level1 center" data-menu-title="GitHub for collaboration" data-background-image="../images/github_friends.png" data-background-size="contain">
+<h1></h1>
+
+</section>
+<section id="learning-more" class="slide level2">
+<h2>Learning more</h2>
+<ul>
+<li><p>Happy Git and GitHub for the useR by Jenny Bryan</p>
+<p><a href="http://happygitwithr.com" class="uri">http://happygitwithr.com</a></p></li>
+<li><p>GitHub for supporting, reusing, contributing and failing safely by Allison Horst and Julie Lowndes</p>
+<p><a href="https://www.openscapes.org/blog/2022/05/27/github-illustrated-series/" class="uri">https://www.openscapes.org/blog/2022/05/27/github-illustrated-series/</a></p></li>
+<li><p>Version control: A practical introduction to Git and GitHub</p>
+<p><a href="https://www.jvcasillas.com/github_workshop/index.html#1" class="uri">https://www.jvcasillas.com/github_workshop/index.html#1</a></p></li>
 </ul>
 </section></section>
 <section>
 <section id="end-matter" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>End Matter</h1>
 
-</section>
-<section id="resources" class="slide level2">
-<h2>Resources</h2>
-<p>Material inspired by and remixed from:</p>
-<ul>
-<li></li>
-</ul>
 </section>
 <section id="license" class="slide level2">
 <h2>License</h2>

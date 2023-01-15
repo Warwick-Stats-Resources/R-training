@@ -27,6 +27,8 @@ format:
 
 # Open code and software {background-color="#552D62"}
 
+From <https://www.heatherturner.net/talks/gregynog2022/#1>
+
 ## Open practices
 
 :::: {.columns}
@@ -120,20 +122,6 @@ Benefits of coding in the open
 
 ::::
 
-## Further benefits of GitHub
-
-### Research compendia
-
-Potential to use Binder to so that people can run your code in the browser
- - For short analysis (<10 min) on small data (< 10MB)
- - [Zero to Binder](https://the-turing-way.netlify.app/communication/binder/zero-to-binder.html) tutorial [Julia, Python, R]
- 
-### Software packages
-
-- Users can install Julia/Python/R packages from GitHub
-- Can deploy package websites using GitHub pages
-- Can benefit from GitHub Actions, e.g. automatically running tests
-
 ## More on open code and software
 
 See <https://www.heatherturner.net/talks/gregynog2022/#1>
@@ -174,6 +162,8 @@ Each version has a unique ID and metadata:
  - When the version was made
  
 Versions can be compared, restored and merged.
+
+# {#git-protection data-menu-title="Hadley Wickham and Jenny Bryan quote" background-image="../images/github_wickham_bryan_git_quote.png" background-size="contain"}
 
 ## git repository
 
@@ -245,7 +235,24 @@ GitHub repositories have some nice features:
 - _Projects_ (advanced) to organize issues (To Do/In Progress/Done)
 - _Wiki_ for project documentation
 - Deploy websites with _pages_
-:::
+
+## Further benefits of GitHub
+
+### Research compendia
+
+Potential to use Binder to so that people can run your code in the browser
+
+ - For short analysis (<10 min) on small data (< 10MB)
+ 
+ - [Zero to Binder](https://the-turing-way.netlify.app/communication/binder/zero-to-binder.html) tutorial [Julia, Python, R]
+ 
+### Software packages
+
+- Users can install Julia/Python/R packages from GitHub
+
+- Can deploy package websites using GitHub pages
+
+- Can benefit from GitHub Actions, e.g. automatically running tests
 
 ## Your turn! Explore some GitHub repositories
 
@@ -323,7 +330,7 @@ MacOS: If asked to install the Xcode command line tools, say yes - this will ins
 
 Windows: 
 
- - Use the installer from https://git-scm.com/downloads
+ - Use the installer from <https://git-scm.com/downloads>
  - Check RStudio can find the git executable
  
      - Go to Tools > Global Options > Git/SVN to check
@@ -369,7 +376,7 @@ Recommend: PAT now (easier), SSH later if needed
 
 ## Main recommendations
 
-From {usethis} vignette [Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/git-credentials.html)
+From {usethis} vignette [Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/git-credentials.html):
 
 Our main recommendations are:
 
@@ -392,12 +399,11 @@ git_vaccinate() # add files to global .gitignore (best practice)
 
 ## Get a personal access token (PAT)
 
-First, make sure you're signed into GitHub
+First, make sure you're signed into GitHub. Then run
 
 ```{r}
 #| eval: false
-
-create_github_token()
+usething::create_github_token()
 ```
 
 - Add Note describing use-case (e.g. personal-macbook-pro-2021, project-xyz)
@@ -424,7 +430,7 @@ gitcreds::gitcreds_set()
 ## PAT maintenance
 
 - By default token will expire after 30 days.
-- Return to ,https://github.com/settings/tokens. and click on its *Note*
+- Return to <https://github.com/settings/tokens> and click on its *Note*
   - or else click on link in e-mail telling you token is about to expire!
 - Regenerate token
 - rerun `gitcreds::gitcreds_set()`
@@ -449,19 +455,186 @@ Now you can clone your GitHub repo locally.
   - Browse to a location you want the project directory to be created.
   - Click `Create Project`.
 
+## Git tab
+
+A Git tab is added to the pane that is in the top right by default, usually with Environment, History, and Connections tabs.
+
+The initial view is equivalent to the output of the terminal command `git status`. 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+We can *stage* changes to commit
+
+![](../images/stage_changes.png)
+Underlying command:  
+`git add <file/folder>`.
+:::
+
+::: {.column width="50%"}
+Then *commit* a set of changes
+
+![](../images/commit_changes.png)
+Underlying command:  
+`git commit -m "commit message"`
+:::
+
+::::
+
+## .gitignore
+
+At this stage you should see two untracked files in your Git Pane that were created when setting up the project: an `.Rproj` file and a `.gitignore` file.
+
+The `.gitignore` file specifies files that git should ignore - they won't appear in the git pane even as untracked files. 
+
+Examples of how to specify files in `.gitignore`:
+
+- Single file: `.Rhistory`
+- File pattern: `*.log` (all files with `.log` extension)
+- Directory (and files in it): `/dirname/`
+
+The `.gitignore` file must at least be staged to have an effect.
+
+## First commit from RStudio
+
+- Stage and commit the `.Rproj` file and `.gitignore` file, with the message "setup RStudio project".
+
+- Click on the clock icon in the Git pane to view the history of previous commits. 
+
+- Close the "Review Changes" window. Now click the green up arrow to push your changes to GitHub.
+
+- Go to the repo on GitHub and verify your changes have been pushed.
+
+## Pulling changes from GitHub
+
+- Edit the README once more on GitHub in a new commit.
+
+- Back in RStudio, on the Git tab, click the blue down arrow to *pull* the changes from GitHub
+
+- The changes to README should now appear in your local copy
+
+## Avoid conflicts
+
+If you work on both the local and GitHub copy, it's possible to get out of sync and end up with conflicting versions of the same file.
+
+It *is* possible to fix this, but it can be tricky/confusing. It's best to avoid problem in first place!
+
+Recommended practice:
+
+- Always commit and push changes at the end of an RStudio session
+- Always pull changes at the beginning of an RStudio session
+
+## Set `.Rprofile` to check git status
+
+This is a neat trick (credit: Lisa De Bruine)
+
+Open your `.Rprofile`
+```r
+usethis::edit_r_profile()
+```
+and add the following (credit: Lisa De Bruine)
+```r
+cat(cli::col_blue(system("git status -u no", TRUE)))
+```
+This will run `git status` from the command line when you start R, giving a (blue coloured!) message e.g.
+```
+On branch main Your branch is behind 'origin/main' by 1 commit,
+and can be fast-forwarded.   (use "git pull" to update your  
+local branch)  nothing to commit, working tree clean
+```
+
+If your main branch is behind the main branch on _origin_ (GitHub), you should pull changes before making new edits.
+
+## Advanced: Amend commit (before pushing)
+
+Sometimes we don't stage everything we intended to include in a commit, e.g. we committed a file before saving the latest changes.
+
+If we haven't yet pushed the commit to GitHub, simply stage the extra commits and check the "Amend previous commit" box under the commit message. 
+
+The original commit message will be shown - you can edit this to change the message for the amended commit (useful if you forgot to reference a GitHub issue number)
+
+## Advanced: Undo last commit (before pushing)
+
+Alternatively, you can undo a commit before pushing.
+
+To undo the commit, keeping files as they are
+```{sh, eval = FALSE}
+git reset HEAD~1
+```
+(change the 1 to a higher number to go back more than 1 commit).
+
+To undo the commit *and all the changes in that commit*
+```{sh, eval = FALSE}
+git reset --hard HEAD~1
+```
+This goes back to the version at the last commit. 
+
+## Advanced: Undo last commit (after pushing)
+
+It is best practice to create a new commit that undoes the changes. Run
+```{sh, eval = FALSE}
+git revert HEAD
+```
+This edits the files to undo the changes in your last commit. You should then commit these edits, with a relevant message.
+
+It is possible to use `git reset --hard` to undo a commit and then `git push origin main --force` to force this change onto GitHub. Sometimes repository maintainers do not allow this as it rewrites the history, which can cause problems for people that have cloned or forked your repo.
+
+## General workflow
+
+* Commit regularly, once you've got a small complete change, e.g. a working draft of a function, a bug fix, a draft of a README.
+
+  - It is easier to review/revert changes if they relate to a single file or common issue
+ 
+ - Ideally, make a commit everytime you make a substantial, coherent set of changes.
+ 
+ - At least make a commit every time you take a break, especially when leaving at the end of your working session
+
+* Push often enough that GitHub is a useful backup
+ 
+
+## Adding an existing project to GitHub
+
+The simplest approach is to create a GitHub repo with just a README as before, create the corresponding RStudio project, copy your files into the new directory, stage and commit them.
+
+If you are already using git and want to move the project to GitHub, see [Adding a local repository to GitHub using git](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-using-git). Once the project is on GitHub you can clone it into an RStudio project.
+
+## Some other tools
+
+- [gert](https://docs.ropensci.org/gert/) R package has functions for interacting with git
+
+- It can be worth using dedicated software for interacting with git/GitHub
+
+  - [GitHub desktop](https://desktop.github.com)
+  
+  - [GitKraken](https://www.gitkraken.com)
+
 ## Summary
 
 - Working openly encourages good practices
+
 - Your code/software is an asset!
+
 - We can make steps to improve our own practice
 
+- git and GitHub are invaluable resources for version control and collaboration
+
+# {#github-friends data-menu-title="GitHub for collaboration" background-image="../images/github_friends.png" background-size="contain"}
+
+## Learning more
+
+- Happy Git and GitHub for the useR by Jenny Bryan
+
+  <http://happygitwithr.com>
+
+- GitHub for supporting, reusing, contributing and failing safely by Allison Horst and Julie Lowndes
+  
+  <https://www.openscapes.org/blog/2022/05/27/github-illustrated-series/>
+
+- Version control: A practical introduction to Git and GitHub
+
+  <https://www.jvcasillas.com/github_workshop/index.html#1>
+
 # End Matter {background-color="#552D62"}
-
-## Resources
-
-Material inspired by and remixed from:
-
-- 
 
 ## License
 
