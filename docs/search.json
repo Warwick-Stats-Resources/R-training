@@ -2433,7 +2433,7 @@
     "href": "slides/02-advanced/01-git/index.html#get-a-personal-access-token-pat",
     "title": "Open code, git and GitHub",
     "section": "Get a personal access token (PAT)",
-    "text": "Get a personal access token (PAT)\nFirst, make sure you’re signed into GitHub. Then run\n\nusething::create_github_token()\n\n\nAdd Note describing use-case (e.g. personal-macbook-pro-2021, project-xyz)\nSelect expiration (recommend default 30 days)\nCheck scope\nClick ‘Generate Token’\nImportant! Copy token to clipboard, do not close window until stored!\nYou may want to store token in a secure vault, like 1Passward"
+    "text": "Get a personal access token (PAT)\nFirst, make sure you’re signed into GitHub. Then run\n\nusethis::create_github_token()\n\n\nAdd Note describing use-case (e.g. personal-macbook-pro-2021, project-xyz)\nSelect expiration (recommend default 30 days)\nCheck scope\nClick ‘Generate Token’\nImportant! Copy token to clipboard, do not close window until stored!\nYou may want to store token in a secure vault, like 1Password"
   },
   {
     "objectID": "slides/02-advanced/01-git/index.html#put-your-pat-into-the-local-git-credential-store",

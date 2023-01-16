@@ -403,7 +403,7 @@ First, make sure you're signed into GitHub. Then run
 
 ```{r}
 #| eval: false
-usething::create_github_token()
+usethis::create_github_token()
 ```
 
 - Add Note describing use-case (e.g. personal-macbook-pro-2021, project-xyz)
@@ -411,7 +411,7 @@ usething::create_github_token()
 - Check scope
 - Click 'Generate Token'
 - **Important!** Copy token to clipboard, do not close window until stored!
-- You may want to store token in a secure vault, like 1Passward
+- You may want to store token in a secure vault, like 1Password
 
 ## Put your PAT into the local Git credential store
 
