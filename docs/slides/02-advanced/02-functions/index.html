@@ -30,6 +30,70 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -342,14 +406,626 @@ Ella Kaye | Department of Statistics | University of Warwick
 <section id="overview" class="slide level2">
 <h2>Overview</h2>
 <ul>
-<li>What we’re covering</li>
+<li>Functions basics</li>
+<li>Documenting and testing</li>
+<li>Error handling</li>
 </ul>
 </section>
-<section id="section" class="title-slide slide level1 center" data-background-color="#552D62">
-<h1>Section</h1>
+<section>
+<section id="functions-basics" class="title-slide slide level1 center" data-background-color="#552D62">
+<h1>Functions basics</h1>
 
 </section>
+<section id="components-of-a-function" class="slide level2">
+<h2>Components of a function</h2>
+<p>Functions are defined by three components:</p>
+<ul>
+<li>the name of the function</li>
+<li>the arguments of the function, inside <code>( )</code></li>
+<li>the body of the function that computes the result, inside <code>{ }</code></li>
+</ul>
+<p>They are created using <code>function()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>t_statistic <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="fu">t.test</span>(x, y)<span class="sc">$</span>statistic</span>
+<span id="cb1-5"><a href="#cb1-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="naming-functions" class="slide level2">
+<h2>Naming Functions</h2>
+<p>As with arguments, function names are important:</p>
+<ul>
+<li><p>use a name that describes what it returns (e.g.&nbsp;<code>t_statistic</code>) or what it does (e.g.&nbsp;<code>remove_na</code>)</p></li>
+<li><p>try to use one convention for combining words (e.g.&nbsp;snake case <code>t_statistic</code> or camel case <code>tStatistic</code>)</p></li>
+<li><p>avoid using the same name as other functions</p></li>
+</ul>
+</section>
+<section id="specified-arguments" class="slide level2">
+<h2>Specified Arguments</h2>
+<p><em>specified</em> arguments are those named in the function definition, e.g.&nbsp; in <code>rnorm()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">args</span>(rnorm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (n, mean = 0, sd = 1) 
+NULL</code></pre>
+</div>
+</div>
+<p>the arguments are <code>n</code>, <code>mean</code> and <code>sd</code>.</p>
+<p><code>mean</code> and <code>sd</code> have been given default values in the function definition, but <code>n</code> has not, so the function fails if the user does not pass a value to <code>n</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">rnorm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in rnorm(): argument "n" is missing, with no default</code></pre>
+</div>
+</div>
+</section>
+<section id="name-and-order-of-arguments" class="slide level2">
+<h2>Name and order of Arguments</h2>
+<p>The user can pass objects to these arguments using their names or by supplying unnamed values in the right order</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  7.860573  7.289619  4.539859 -2.189523 10.284554</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11.298577  8.337103 16.452792 -9.995030 10.859025</code></pre>
+</div>
+</div>
+<p>So naming and order is important! Some guidelines</p>
+<ul>
+<li>put compulsory arguments first, e.g.&nbsp;data</li>
+<li>put rarely used arguments last, e.g.&nbsp;tolerance setting</li>
+<li>use short but meaningful argument names</li>
+<li>if relevant, use the same argument names as similar functions</li>
+</ul>
+</section>
+<section id="using-arguments" class="slide level2">
+<h2>Using Arguments</h2>
+<p>Arguments are used as objects in the function code.</p>
+<p>An new environment is created each time the function is called, separate from the global workspace.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y){</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>    x <span class="ot">&lt;-</span> x <span class="sc">+</span> a</span>
+<span id="cb10-6"><a href="#cb10-6"></a>    x <span class="sc">+</span> y</span>
+<span id="cb10-7"><a href="#cb10-7"></a>}</span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="fu">f</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'a' not found</code></pre>
+</div>
+</div>
+</section>
+<section id="lexical-scoping" class="slide level2">
+<h2>Lexical Scoping</h2>
+<p>If an object is not defined within the function, or passed in as an argument, R looks for it in the <em>parent environment</em> where the function was defined</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb16-4"><a href="#cb16-4"></a>    x <span class="sc">+</span> y</span>
+<span id="cb16-5"><a href="#cb16-5"></a>}</span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="fu">f</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">rm</span>(y)</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">f</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in f(x): object 'y' not found</code></pre>
+</div>
+</div>
+<p>It is safest (and best practice) to use arguments rather than depend on global variables!</p>
+</section>
+<section id="unspecified-arguments" class="slide level2">
+<h2>Unspecified Arguments</h2>
+<p><code>...</code> or the <em>ellipsis</em> allow unspecified arguments to be passed to the function.</p>
+<p>This device is used by functions that work with arbitrary numbers of objects, e.g.&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">args</span>(sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (..., na.rm = FALSE) 
+NULL</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">sum</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 17</code></pre>
+</div>
+</div>
+<p>It can also be used to pass on arguments to another function, e.g.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>t_statistic <span class="ot">&lt;-</span> <span class="cf">function</span>(x, g, ...) {</span>
+<span id="cb24-2"><a href="#cb24-2"></a>    <span class="fu">t.test</span>(x <span class="sc">~</span> g, ...)<span class="sc">$</span>stat</span>
+<span id="cb24-3"><a href="#cb24-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="using-..." class="slide level2">
+<h2>Using <code>...</code></h2>
+<p>Arguments passed to <code>...</code> can be collected into a list for further analysis</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>means <span class="ot">&lt;-</span> <span class="cf">function</span>(...){</span>
+<span id="cb25-2"><a href="#cb25-2"></a>    dots <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
+<span id="cb25-3"><a href="#cb25-3"></a>    <span class="fu">vapply</span>(dots, mean, <span class="fu">numeric</span>(<span class="dv">1</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb25-4"><a href="#cb25-4"></a>}</span>
+<span id="cb25-5"><a href="#cb25-5"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="fu">means</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.0 2.5</code></pre>
+</div>
+</div>
+<p>Similarly the objects could be concatenated using <code>c()</code></p>
+</section>
+<section id="return-values-single" class="slide level2">
+<h2>Return Values (single)</h2>
+<p>By default, functions return the object created by the last line of code</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb27-2"><a href="#cb27-2"></a>    x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>    <span class="fu">log</span>(x)</span>
+<span id="cb27-4"><a href="#cb27-4"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Alternatively <code>return()</code> can be used to terminate the function and return a given object</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb28-2"><a href="#cb28-2"></a>    <span class="cf">if</span> (<span class="fu">all</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="fu">return</span>(<span class="fu">log</span>(x))</span>
+<span id="cb28-3"><a href="#cb28-3"></a>    x[x <span class="sc">&lt;=</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a>    <span class="fu">log</span>(x)</span>
+<span id="cb28-5"><a href="#cb28-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="return-values-multiple" class="slide level2">
+<h2>Return values (multiple)</h2>
+<p>Multiple objects can be returned in a list:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>mean_and_sd <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb29-2"><a href="#cb29-2"></a>  res_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-3"><a href="#cb29-3"></a>  res_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(x)</span>
+<span id="cb29-4"><a href="#cb29-4"></a>  </span>
+<span id="cb29-5"><a href="#cb29-5"></a>  <span class="fu">list</span>(<span class="at">mean =</span> res_mean,</span>
+<span id="cb29-6"><a href="#cb29-6"></a>       <span class="at">sd =</span> res_sd)</span>
+<span id="cb29-7"><a href="#cb29-7"></a>}</span>
+<span id="cb29-8"><a href="#cb29-8"></a></span>
+<span id="cb29-9"><a href="#cb29-9"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb29-10"><a href="#cb29-10"></a><span class="fu">mean_and_sd</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$mean
+[1] 2
 
+$sd
+[1] 1</code></pre>
+</div>
+</div>
+</section>
+<section id="side-effects" class="slide level2">
+<h2>Side Effects</h2>
+<p>A side-effect is a change outside the function that occurs when the function is run, e.g.</p>
+<ul>
+<li>plot to the graphics window or other device</li>
+<li>printing output to the console</li>
+<li>write data to a file</li>
+</ul>
+<p>A function <em>can</em> have many side-effects and a return value, but it is best practice to have a separate function for each task, e.g creating a plot or a table.</p>
+<p>Writing to file is usually best done outside a function.</p>
+</section>
+<section id="exercise-files" class="slide level2">
+<h2>Exercise files</h2>
+<p><a href="https://github.com/Warwick-Stats-Resources/Advanced-R-exercises" class="uri">https://github.com/Warwick-Stats-Resources/Advanced-R-exercises</a></p>
+<ul>
+<li><p>You can get the files by creating a new project from version control in RStudio (if set up)</p></li>
+<li><p>By going to the ‘Code’ button in the repo, then ‘Download ZIP’</p></li>
+</ul>
+</section>
+<section id="your-turn" class="slide level2 smaller80">
+<h2>Your turn!</h2>
+<p>In the <code>qq_norm</code> chunk of <code>exercises.Rmd</code> there is some code to compute the slope and intercept of the line to add to a quantile-quantile plot, comparing sample quantiles against theoretical quantiles of a <span class="math inline">\(N(0, 1)\)</span> distribution.</p>
+<ol type="1">
+<li><p>Turn this code into a function named <code>qq_norm</code> taking the sample data as an argument and returning the slope and intercept in a list.</p></li>
+<li><p>Run this chunk to source the function, then run the <code>normal-QQ</code> chunk which uses the <code>qq_norm</code> function to compute parameters for an example plot.</p></li>
+<li><p>Copy <code>qq_norm</code> to the <code>qq</code> chunk and rename it <code>qq</code>. Add a new argument <code>fun</code> to specify any quantile function (e.g.&nbsp;<code>qt</code>, <code>qf</code>, etc). Give it the default value <code>qnorm</code>. Inside the function use <code>qfun &lt;- match.fun(fun)</code> to get the quantile function matching <code>fun</code>, then use <code>qfun</code> instead of <code>qnorm</code> to compute <code>q_theory</code>. Use <code>...</code> to pass on arguments to <code>qfun</code>.</p></li>
+<li><p>Run the <code>qq</code> chunk and test your function on the <code>t-QQ</code> chunk.</p></li>
+</ol>
+</section>
+<section id="using-functions-from-other-packages" class="slide level2">
+<h2>Using Functions From Other Packages</h2>
+<p>In our own functions (outside of packages), it is possible to use <code>library</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>scale_rows <span class="ot">&lt;-</span> <span class="cf">function</span>(X){</span>
+<span id="cb31-2"><a href="#cb31-2"></a>    <span class="fu">library</span>(matrixStats)</span>
+<span id="cb31-3"><a href="#cb31-3"></a>    X <span class="ot">&lt;-</span> X <span class="sc">-</span> <span class="fu">rowMeans</span>(X)</span>
+<span id="cb31-4"><a href="#cb31-4"></a>    X<span class="sc">/</span><span class="fu">rowSds</span>(X)</span>
+<span id="cb31-5"><a href="#cb31-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>But this loads the entire package, potentially leading to clashes with functions from other packages. It is better to use the <strong>import</strong> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>scale_rows <span class="ot">&lt;-</span> <span class="cf">function</span>(X){</span>
+<span id="cb32-2"><a href="#cb32-2"></a>    import<span class="sc">::</span><span class="fu">from</span>(matrixStats, rowSds)</span>
+<span id="cb32-3"><a href="#cb32-3"></a>    X <span class="ot">&lt;-</span> X <span class="sc">-</span> <span class="fu">rowMeans</span>(X)</span>
+<span id="cb32-4"><a href="#cb32-4"></a>    X<span class="sc">/</span><span class="fu">rowSds</span>(X)</span>
+<span id="cb32-5"><a href="#cb32-5"></a>}</span>
+<span id="cb32-6"><a href="#cb32-6"></a><span class="fu">scale_rows</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<p>Then in our script we don’t need to use <code>library(matrixStats)</code> for <code>rowSds</code> to work (it must be installed though)!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="custom-ggplot" class="slide level2">
+<h2>Custom ggplot</h2>
+<p><strong>ggplot2</strong>, like <strong>dplyr</strong> and other tidyverse packages, uses <em>non-standard evaluation</em>, that is, it refers to variable names in a data frame as if they were objects in the current environment</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y=</span> disp)) <span class="sc">+</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To emulate this, we have to need to <strong>embrace</strong> arguments</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>ggscatter <span class="ot">&lt;-</span> <span class="cf">function</span>(data, x, y){</span>
+<span id="cb34-2"><a href="#cb34-2"></a>    import<span class="sc">::</span><span class="fu">from</span>(ggplot2, ggplot, aes, geom_point)</span>
+<span id="cb34-3"><a href="#cb34-3"></a>    <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> {{ x }}, <span class="at">y =</span> {{ y }})) <span class="sc">+</span></span>
+<span id="cb34-4"><a href="#cb34-4"></a>        <span class="fu">geom_point</span>()</span>
+<span id="cb34-5"><a href="#cb34-5"></a>}</span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="fu">ggscatter</span>(mtcars, <span class="at">x =</span> mpg, <span class="at">y =</span> disp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="externalizing-function-code" class="slide level2">
+<h2>Externalizing function code</h2>
+<p>It is a good idea to separate function code from analysis code.</p>
+<p>Put related functions together and source as required</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">source</span>(<span class="st">"modelFunctions.R"</span>)</span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">source</span>(<span class="st">"plotFunctions.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <strong>import</strong> package enables only necessary, top-level functions to be imported to the global workspace:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>import<span class="sc">::</span><span class="fu">here</span>(poissonModel, quasiPoissonModel, <span class="at">.from =</span> <span class="st">"modelFunctions.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In either case, <code>import::from</code> commands can be put outside the function body to make the code easier to read.</p>
+</section></section>
+<section>
+<section id="documenting-and-testing" class="title-slide slide level1 center" data-background-color="#552D62">
+<h1>Documenting and testing</h1>
+
+</section>
+<section id="documenting-functions" class="slide level2">
+<h2>Documenting Functions</h2>
+<p>Comments help to record what a function does</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># reorder x by grouping variable g</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>groupSort <span class="ot">&lt;-</span> <span class="cf">function</span>(x, g) {</span>
+<span id="cb37-3"><a href="#cb37-3"></a>    ord <span class="ot">&lt;-</span> <span class="fu">order</span>(g) <span class="co">#indices for ascending order of g</span></span>
+<span id="cb37-4"><a href="#cb37-4"></a>    x[ord]</span>
+<span id="cb37-5"><a href="#cb37-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <strong>docstring</strong> package enables <em>roxygen</em> comments to be turned into a help file</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">library</span>(docstring)</span>
+<span id="cb38-2"><a href="#cb38-2"></a>groupSort <span class="ot">&lt;-</span> <span class="cf">function</span>(x, g) {</span>
+<span id="cb38-3"><a href="#cb38-3"></a>    <span class="co">#' Reorder a Vector by a Grouping Variable</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a>    <span class="co">#'</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>    <span class="co">#' @param x a vector</span></span>
+<span id="cb38-6"><a href="#cb38-6"></a>    <span class="co">#' @param g a grouping variable</span></span>
+<span id="cb38-7"><a href="#cb38-7"></a>    ord <span class="ot">&lt;-</span> <span class="fu">order</span>(g) <span class="co">#indices for ascending order of g</span></span>
+<span id="cb38-8"><a href="#cb38-8"></a>    x[ord]</span>
+<span id="cb38-9"><a href="#cb38-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="view-the-help-file-as-usual" class="slide level2">
+<h2>View the help file as usual</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>?groupSort</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="../images/docstring_help_file.png" class="r-stretch quarto-figure-center"><p class="caption">HTML documentation generated by docstring</p><p>For fuller documentation, see the <strong>docstring</strong> vignette.</p>
+<p><strong>ADD LINK TO VIGNETTE</strong></p>
+</section>
+<section id="roxygen" class="slide level2">
+<h2>roxygen</h2>
+<p><strong>ADD A SLIDE WITH SOME RESOURCES ABOUT ROXYGEN</strong></p>
+</section>
+<section id="validation" class="slide level2">
+<h2>Validation</h2>
+<p>When developing a function, we will want to validate its output.</p>
+<p>A simple approach is to try different inputs</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>log_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb40-2"><a href="#cb40-2"></a>    <span class="fu">log</span>(x, <span class="dv">2</span>)</span>
+<span id="cb40-3"><a href="#cb40-3"></a>}</span>
+<span id="cb40-4"><a href="#cb40-4"></a><span class="fu">log_2</span>(<span class="dv">2</span><span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">log_2</span>(<span class="dv">2</span><span class="sc">^</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<p>Doing this each time we change the function becomes tedious to check and error-prone as we miss important tests.</p>
+</section>
+<section id="unit-testing" class="slide level2">
+<h2>Unit testing</h2>
+<p>The <strong>testthat</strong> packages allows us to create a test suite:</p>
+<p><strong>ADD LINK</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">context</span>(<span class="st">"log_2 works correctly"</span>)</span>
+<span id="cb44-2"><a href="#cb44-2"></a></span>
+<span id="cb44-3"><a href="#cb44-3"></a><span class="fu">test_that</span>(<span class="st">"log_2 returns log to base 2"</span>, {</span>
+<span id="cb44-4"><a href="#cb44-4"></a>    <span class="fu">expect_equal</span>(<span class="fu">log_2</span>(<span class="dv">2</span><span class="sc">^</span><span class="dv">3</span>), <span class="dv">3</span>)</span>
+<span id="cb44-5"><a href="#cb44-5"></a>    <span class="fu">expect_equal</span>(<span class="fu">log_2</span>(<span class="dv">2</span><span class="sc">^</span><span class="dv">0</span>), <span class="dv">0</span>)</span>
+<span id="cb44-6"><a href="#cb44-6"></a>})</span>
+<span id="cb44-7"><a href="#cb44-7"></a></span>
+<span id="cb44-8"><a href="#cb44-8"></a><span class="fu">test_that</span>(<span class="st">"negative values give error"</span>, {</span>
+<span id="cb44-9"><a href="#cb44-9"></a>    <span class="fu">expect_error</span>(<span class="fu">log_2</span>(<span class="dv">2</span><span class="sc">^-</span><span class="dv">1</span>))</span>
+<span id="cb44-10"><a href="#cb44-10"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="running-tests" class="slide level2">
+<h2>Running Tests</h2>
+<p>If we save the tests in a file, e.g.&nbsp;<code>tests.R</code>, we can use <code>test_file()</code> to run and check all tests:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="fu">test_file</span>(<span class="st">"tests.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>√ | OK F W S | Context
+x |  2 1     | log_2 works correctly
+--------------------------------------------------------------------------------
+tests.R:9: failure: negative values give error
+`log_2(2^-1)` did not throw an error.
+--------------------------------------------------------------------------------
+
+== Results =====================================================================
+OK:       2
+Failed:   1
+Warnings: 0
+Skipped:  0</code></pre>
+</div>
+</div>
+</section>
+<section id="your-turn-1" class="slide level2 smaller80">
+<h2>Your turn!</h2>
+<p>Copy the <code>qq</code> function to a new R script and save as <code>functions.R</code>. Add roxygen comments at the start of the function body to define a title and parameter documentation.</p>
+<p>Run the <code>documentation</code> chunk of <code>exercises.Rmd</code> to view your documentation.</p>
+<p>Open the <code>tests.R</code> script. Using <code>expect_equal</code> add some tests for the following</p>
+<ul>
+<li>a sample of 100,000 from N(0, 1) gives approximately slope 1, intercept 0</li>
+<li>a sample of 100,000 from N(0, 1/2) gives approximately slope 2, intercept 0</li>
+<li>sample of 100,000 from N(2, 1) gives approximately slope 1, intercept -2</li>
+</ul>
+<p>Use the <code>tol</code> argument in <code>expect_equal</code> to set a tolerance of 0.01.</p>
+<p>Run the <code>tests</code> chunk of <code>exercises.Rmd</code> to run your tests with <code>test_file</code>. Try changing the expected tolerance to get a test to fail.</p>
+</section></section>
+<section>
+<section id="error-handling" class="title-slide slide level1 center" data-background-color="#552D62">
+<h1>Error handling</h1>
+
+</section>
+<section id="sanity-checks" class="slide level2">
+<h2>Sanity checks</h2>
+<p>To avoid mistakes, you may want to add some basic sanity checks</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>logit <span class="ot">&lt;-</span> <span class="cf">function</span>(p){</span>
+<span id="cb47-2"><a href="#cb47-2"></a>    <span class="fu">stopifnot</span>(p <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> p <span class="sc">&lt;</span> <span class="dv">1</span>)</span>
+<span id="cb47-3"><a href="#cb47-3"></a>    <span class="fu">log</span>(p<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> p))</span>
+<span id="cb47-4"><a href="#cb47-4"></a>}</span>
+<span id="cb47-5"><a href="#cb47-5"></a><span class="fu">logit</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in logit(2): p &gt; 0 &amp; p &lt; 1 is not TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">logit</span>(<span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+</section>
+<section id="error-messages" class="slide level2">
+<h2>Error messages</h2>
+<p>Often the R messages can be quite obscure</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>zap <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="cf">if</span> (<span class="fu">max</span>(x) <span class="sc">&lt;</span> <span class="fl">1e7</span>) <span class="dv">0</span> <span class="cf">else</span> x</span>
+<span id="cb51-2"><a href="#cb51-2"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>)</span>
+<span id="cb51-3"><a href="#cb51-3"></a><span class="fu">zap</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in if (max(x) &lt; 1e+07) 0 else x: missing value where TRUE/FALSE needed</code></pre>
+</div>
+</div>
+<p>More helpful error message can be implemented using <code>stop</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>zap <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb53-2"><a href="#cb53-2"></a>    <span class="cf">if</span> (<span class="fu">any</span>(<span class="fu">is.na</span>(x))) <span class="fu">stop</span>(<span class="st">"missing values in x</span><span class="sc">\n</span><span class="st">are"</span>, </span>
+<span id="cb53-3"><a href="#cb53-3"></a>                            <span class="st">" not allowed"</span>)</span>
+<span id="cb53-4"><a href="#cb53-4"></a>    <span class="cf">if</span> (<span class="fu">max</span>(x) <span class="sc">&lt;</span> <span class="fl">1e7</span>) <span class="dv">0</span> <span class="cf">else</span> x</span>
+<span id="cb53-5"><a href="#cb53-5"></a>}</span>
+<span id="cb53-6"><a href="#cb53-6"></a><span class="fu">zap</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in zap(x): missing values in x
+are not allowed</code></pre>
+</div>
+</div>
+</section>
+<section id="warning-messages" class="slide level2">
+<h2>Warning messages</h2>
+<p>Warning messages should be given using <code>warning()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>safe_log2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb55-2"><a href="#cb55-2"></a>    <span class="cf">if</span> (<span class="fu">any</span>(x <span class="sc">==</span> <span class="dv">0</span>)) {</span>
+<span id="cb55-3"><a href="#cb55-3"></a>        x[x <span class="sc">==</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
+<span id="cb55-4"><a href="#cb55-4"></a>        <span class="fu">warning</span>(<span class="st">"zeros replaced by 0.1"</span>)</span>
+<span id="cb55-5"><a href="#cb55-5"></a>    }</span>
+<span id="cb55-6"><a href="#cb55-6"></a>    <span class="fu">log</span>(x, <span class="dv">2</span>)</span>
+<span id="cb55-7"><a href="#cb55-7"></a>}</span>
+<span id="cb55-8"><a href="#cb55-8"></a><span class="fu">safe_log2</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -3.321928  0.000000</code></pre>
+</div>
+</div>
+<p>Other messages can be printed using <code>message()</code>.</p>
+</section>
+<section id="suppressing-warnings" class="slide level2">
+<h2>Suppressing warnings</h2>
+<p>If a warning is expected, you may wish to suppress it</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">log</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.098612      NaN</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>x <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(<span class="fu">log</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>All warnings will be suppressed however!</p>
+<p>Similarly <code>suppressMessages()</code> will suppress messages.</p>
+</section>
+<section id="catching-errorswarnings" class="slide level2">
+<h2>Catching errors/warnings</h2>
+<p>The <strong>purrr</strong> package has various functions to catch issues.</p>
+<p><strong>ADD LINK</strong></p>
+<p><code>possibly()</code> lets you modify a function to return a specified value when there is an error</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">log</span>(<span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in log("a"): non-numeric argument to mathematical function</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb62-2"><a href="#cb62-2"></a>poss_log <span class="ot">&lt;-</span> <span class="fu">possibly</span>(log, <span class="at">otherwise =</span> <span class="cn">NA</span>)</span>
+<span id="cb62-3"><a href="#cb62-3"></a><span class="fu">poss_log</span>(<span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p><code>safely()</code> works in a similar way but returns a list with elements <code>"result"</code> and <code>"error"</code>, so you can record the error message(s).</p>
+<p><code>quietly()</code> lets you modify a function to return printed output, warnings and messages along with the result.</p>
+</section>
+<section id="traceback" class="slide level2">
+<h2><code>traceback()</code></h2>
+<p>When an unexpected error occurs, there are several ways to track down the source of the error, e.g.&nbsp;<code>traceback()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){ <span class="fu">f2</span>(x) }</span>
+<span id="cb64-2"><a href="#cb64-2"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){ x <span class="sc">+</span> qqqq }</span>
+<span id="cb64-3"><a href="#cb64-3"></a><span class="fu">f1</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in f2(x): object 'qqqq' not found</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">traceback</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>2: f2(2) at #1
+1: f1(10)</code></pre>
+</div>
+</div>
+</section>
+<section id="traceback-in-rstudio" class="slide level2">
+<h2><code>traceback()</code> in RStudio</h2>
+<p>In RStudio, if <code>Debug &gt; On Error &gt;  Error Inspector</code> is checked and the traceback has at least 3 calls, the option to show traceback is presented</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){ <span class="fu">f2</span>(x) }</span>
+<span id="cb68-2"><a href="#cb68-2"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){ <span class="fu">f3</span>(x) }</span>
+<span id="cb68-3"><a href="#cb68-3"></a>f3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){ x <span class="sc">+</span> qqqq }</span>
+<span id="cb68-4"><a href="#cb68-4"></a><span class="fu">f1</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in f3(x): object 'qqqq' not found</code></pre>
+</div>
+</div>
+
+<img data-src="../images/error_inspector.png" class="r-stretch quarto-figure-center"><p class="caption">RStudio error inspector giving options to show traceback or rerun with debug</p><aside class="notes">
+<p>Note here about the importance of separating tasks into smaller functions - easier to debug!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="debugonce" class="slide level2">
+<h2><code>debugonce()</code></h2>
+<p><code>debugonce()</code> flags a function for debugging the next time it is called</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">debugonce</span>(f2)</span>
+<span id="cb70-2"><a href="#cb70-2"></a><span class="fu">f1</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in f3(x): object 'qqqq' not found</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>debugging in: f2(2)
+debug at #1: {
+    x + qqqq
+}
+Browse[2]&gt; ls()
+[1] "x"
+Browse[2]&gt; Q</code></pre>
+</div>
+</div>
+<p>When in debug mode type <code>n</code> or <kbd title="enter">↵</kbd> to step to the next line and <code>c</code> to continue to the end of a loop or the end of the function.</p>
+</section>
+<section id="breakpoints" class="slide level2">
+<h2>Breakpoints</h2>
+<p>Stepping through a function line by line can be tedious. In RStudio we can set custom breakpoints in the source pane</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Set breakpoint in RStudio <img data-src="../images/set_breakpoint.png"></p>
+</div><div class="column" style="width:50%;">
+<p>Source the code <img data-src="../images/debug_source.png"></p>
+</div>
+</div>
+</section>
+<section id="start-debugging-from-breakpoints" class="slide level2">
+<h2>Start debugging from breakpoints</h2>
+<p><img data-src="../images/jump_to_breakpoint.png"> :::{.notes} <code>n</code> is automatically printed, so the first prompt is at the breakpoint :::</p>
+</section>
+<section id="rstudios-rerun-with-debug" class="slide level2 smaller90">
+<h2>RStudio’s Rerun with Debug</h2>
+<p>The <code>Rerun with Debug</code> option will rerun the command that created the error and enter debug mode where the error occurred.</p>
+<p>Good points:</p>
+<ul>
+<li>Easy to enter debug mode (when option shown)</li>
+<li>Can click in Traceback pane to view objects at any point in the call stack</li>
+</ul>
+<p>Bad points:</p>
+<ul>
+<li>May have gone past source of error (use breakpoints instead)</li>
+<li>May enter deeply nested function: use <code>recover()</code> to select an earlier entry point</li>
+</ul>
+<p>Alternatively use <code>options(error = recover)</code>, run code to debug, then set <code>options(error = NULL)</code>.</p>
+</section>
+<section id="your-turn-2" class="slide level2 smaller80">
+<h2>Your turn!</h2>
+<p>Open the function <code>debug_practice.R</code> and source the example function <code>f</code>.</p>
+<ol type="1">
+<li><p>Try to run <code>f(10)</code> - there’s an error! Use <code>traceback()</code> to see which function call generated the error, then fix the problem.</p></li>
+<li><p>Run <code>f(10)</code> again - there is another error! Can you fix this directly?</p></li>
+<li><p>Try running <code>f(1)</code> - is the result what you expected? Use <code>debugonce()</code> to setting debugging on <code>f()</code> and re-run <code>f(1)</code>. Step through the function, printing each object as it is created to see what is happening.</p></li>
+<li><p>Can you think how to improve the function? See if you can modify the function to give a sensible result for any integer.</p></li>
+</ol>
+</section></section>
 <section>
 <section id="end-matter" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>End Matter</h1>
@@ -357,10 +1033,9 @@ Ella Kaye | Department of Statistics | University of Warwick
 </section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
-<p>Material inspired by and remixed from:</p>
-<ul>
-<li></li>
-</ul>
+<p>Material (with minor adaptations) from Heather Turner:</p>
+<p><a href="https://hturner.github.io/advanced-r/02_writing_r_functions.html" class="uri">https://hturner.github.io/advanced-r/02_writing_r_functions.html</a></p>
+<p>(with permission)</p>
 </section>
 <section id="license" class="slide level2">
 <h2>License</h2>
@@ -581,6 +1256,44 @@ Ella Kaye | Department of Statistics | University of Warwick
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
