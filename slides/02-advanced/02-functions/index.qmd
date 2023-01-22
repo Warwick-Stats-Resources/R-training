@@ -17,8 +17,8 @@ format:
 
 ## Overview
 
-- Functions basics
-- Documenting and testing
+- Functions basics (review)
+- Beyond the basics
 - Error handling
 
 # Functions basics {background-color="#552D62"}
@@ -103,6 +103,91 @@ x
 a
 ```
 
+## Return Values (single)
+
+By default, functions return the object created by the last line of code
+```{r}
+f <- function(x) {
+    x <- x + 1
+    log(x)
+}
+```
+
+Alternatively `return()` can be used to terminate the function and return
+a given object
+```{r}
+f <- function(x) {
+    if (all(x > 0)) return(log(x))
+    x[x <= 0] <- 0.1
+    log(x)
+}
+```
+
+## Return values (multiple)
+
+Multiple objects can be returned in a list:
+
+```{r}
+mean_and_sd <- function(x) {
+  res_mean <- mean(x, na.rm = TRUE)
+  res_sd <- sd(x)
+  
+  list(mean = res_mean,
+       sd = res_sd)
+}
+
+x <- 1:3
+mean_and_sd(x)
+```
+
+## RStudio Helper
+
+RStudio has a helper to turn code into a function:
+
+1. Select the lines of code that will become the body of the function.
+2. Select "`Code`" > "`Extract Function`" from the menu.
+3. Enter the name of the new function in the dialog box.
+4. Edit the arguments if required.
+5. Add/edit the last line to specify the return value.
+
+## Exercise files
+
+<https://github.com/Warwick-Stats-Resources/Advanced-R-exercises>
+
+- You can get the files by creating a new project from version control in RStudio (if set up)
+
+- By going to the 'Code' button in the repo, then 'Download ZIP', then opening Advanced-R-exercises.Rproj.
+
+## Exercise 1
+
+In the `qq_norm` chunk of `exercises.Rmd` there is some code to compute the slope and intercept of the line to add to a quantile-quantile plot, comparing 
+sample quantiles against theoretical quantiles of a N(0, 1) distribution.
+
+Turn this code into a function named `qq_norm` taking the sample data as an argument and returning the slope and intercept in a list.
+
+Run this chunk to source the function, then run the `normal-QQ` chunk which uses the `qq_norm` function to compute parameters for an example plot.
+
+# Beyond the basics {background-color="#552D62"}
+
+## Function environment
+
+A new environment is created each time the function is called, separate 
+from the global workspace.
+
+```{r, error = TRUE}
+x <- 1
+y <- 3
+f <- function(x, y){
+    a <- 1
+    x <- x + a
+    x + y
+}
+f(x, y)
+x
+a
+```
+
+
 ## Lexical Scoping
 
 If an object is not defined within the function, or passed in as an argument, R looks for it in the *parent environment* where the function was defined
@@ -153,44 +238,6 @@ means(x, y)
 ```
 Similarly the objects could be concatenated using `c()`
 
-
-## Return Values (single)
-
-By default, functions return the object created by the last line of code
-```{r}
-f <- function(x) {
-    x <- x + 1
-    log(x)
-}
-```
-
-Alternatively `return()` can be used to terminate the function and return
-a given object
-```{r}
-f <- function(x) {
-    if (all(x > 0)) return(log(x))
-    x[x <= 0] <- 0.1
-    log(x)
-}
-```
-
-## Return values (multiple)
-
-Multiple objects can be returned in a list:
-
-```{r}
-mean_and_sd <- function(x) {
-  res_mean <- mean(x, na.rm = TRUE)
-  res_sd <- sd(x)
-  
-  list(mean = res_mean,
-       sd = res_sd)
-}
-
-x <- 1:3
-mean_and_sd(x)
-```
-
 ## Side Effects
 
 A side-effect is a change outside the function that occurs when the
@@ -205,33 +252,16 @@ best practice to have a separate function for each task, e.g creating a plot or 
 
 Writing to file is usually best done outside a function.
 
-## Exercise files
+## Excercise 2
 
-<https://github.com/Warwick-Stats-Resources/Advanced-R-exercises>
+Copy your `qq_norm` function to the `qq` chunk and rename it `qq`. 
 
-- You can get the files by creating a new project from version control in RStudio (if set up)
+Add a new argument `fun` to specify any quantile function (e.g. `qt`, `qf`, etc). Give it the default value `qnorm`. 
 
-- By going to the 'Code' button in the repo, then 'Download ZIP'
+Inside the function use `qfun <- match.fun(fun)` to get the quantile function matching `fun`, then use `qfun` instead of `qnorm` to compute `q_theory`. Use `...` to pass on arguments to `qfun`.
 
-## Your turn! {.smaller80}
+Run the `qq` chunk and test your function on the `t-QQ` chunk. 
 
-In the `qq_norm` chunk of `exercises.Rmd` there is some code to compute the 
-slope and intercept of the line to add to a quantile-quantile plot, comparing 
-sample quantiles against theoretical quantiles of a $N(0, 1)$ distribution.
-
-1. Turn this code into a function named `qq_norm` taking the sample data as an 
-argument and returning the slope and intercept in a list.
-
-2. Run this chunk to source the function, then run the `normal-QQ` chunk which uses 
-the `qq_norm` function to compute parameters for an example plot.
-
-3. Copy `qq_norm` to the `qq` chunk and rename it `qq`. Add a new argument `fun` 
-to specify any quantile function (e.g. `qt`, `qf`, etc). Give it the default 
-value `qnorm`. Inside the function use `qfun <- match.fun(fun)` to get 
-the quantile function matching `fun`, then use `qfun` instead of `qnorm` 
-to compute `q_theory`. Use `...` to pass on arguments to `qfun`.
-
-4. Run the `qq` chunk and test your function on the `t-QQ` chunk.
 
 ## Using Functions From Other Packages
 
@@ -297,6 +327,213 @@ import::here(poissonModel, quasiPoissonModel, .from = "modelFunctions.R")
 ```
 
 In either case, `import::from` commands can be put outside the function body to make the code easier to read.
+
+# Error handling {background-color="#552D62"}
+
+## Sanity checks
+
+To avoid mistakes, you may want to add some basic sanity checks
+
+```{r, error = TRUE}
+logit <- function(p){
+    stopifnot(p > 0 & p < 1)
+    log(p/(1 - p))
+}
+logit(2)
+logit(0.5)
+```
+
+## Error messages
+
+Often the R messages can be quite obscure
+
+```{r, error = TRUE}
+zap <- function(x) if (max(x) < 1e7) 0 else x
+x <- c(1, 2, NA)
+zap(x)
+```
+
+More helpful error message can be implemented using `stop`
+
+```{r, error = TRUE}
+zap <- function(x) {
+    if (any(is.na(x))) stop("missing values in x\nare", 
+                            " not allowed")
+    if (max(x) < 1e7) 0 else x
+}
+zap(x)
+```
+
+## Warning messages
+
+Warning messages should be given using `warning()`
+
+```{r}
+safe_log2 <- function(x) {
+    if (any(x == 0)) {
+        x[x == 0] <- 0.1
+        warning("zeros replaced by 0.1")
+    }
+    log(x, 2)
+}
+safe_log2(0:1)
+```
+
+Other messages can be printed using `message()`.
+
+## Suppressing warnings
+
+If a warning is expected, you may wish to suppress it
+
+```{r}
+log(c(3, -1))
+x <- suppressWarnings(log(c(3, -1)))
+```
+
+All warnings will be suppressed however!
+
+Similarly `suppressMessages()` will suppress messages.
+
+## Catching errors/warnings
+
+The [**purrr**](https://purrr.tidyverse.org) package has various functions to catch issues.
+
+`possibly()` lets you modify a function to return a specified value when there 
+is an error
+```{r, message = FALSE, error = TRUE}
+log("a")
+library(purrr)
+poss_log <- possibly(log, otherwise = NA)
+poss_log("a")
+```
+`safely()` works in a similar way but returns a list with elements `"result"` 
+and `"error"`, so you can record the error message(s). 
+
+`quietly()` lets you modify a function to return printed output, warnings and 
+messages along with the result.
+
+## `traceback()`
+
+When an unexpected error occurs, there are several ways to track down the source of the error, e.g. `traceback()`
+
+```{r, error = TRUE}
+f1 <- function(x){ f2(x) }
+f2 <- function(x){ x + qqqq }
+f1(10)
+```
+
+```{r, results = "hide"}
+traceback()
+```
+```{r, echo = FALSE}
+cat("2: f2(2) at #1\n1: f1(10)")
+```
+
+## `traceback()` in RStudio
+
+In RStudio, if `Debug > On Error >  Error Inspector` is checked and the 
+traceback has at least 3 calls, the option to show traceback is presented
+
+```{r error=TRUE}
+f1 <- function(x){ f2(x) }
+f2 <- function(x){ f3(x) }
+f3 <- function(x){ x + qqqq }
+f1(10)
+```
+
+![RStudio error inspector giving options to show traceback or rerun with debug](../images/error_inspector.png)
+
+:::{.notes}
+Note here about the importance of separating tasks into smaller functions
+- easier to debug!
+:::
+
+## `debugonce()`
+
+`debugonce()` flags a function for debugging the next time it is called
+
+```{r, results = "hide", error = TRUE}
+debugonce(f2)
+f1(10)
+```
+```{r, echo = FALSE}
+cat("debugging in: f2(2)\ndebug at #1: {\n    x + qqqq\n}\nBrowse[2]> ls()\n[1] \"x\"\nBrowse[2]> Q")
+```
+
+When in debug mode type `n` or <kbd title = "enter">&#8629;</kbd> to step 
+to the next line and `c` to continue to the end of a loop or the end of the function.
+
+## Breakpoints
+
+Stepping through a function line by line can be tedious. In RStudio we 
+can set custom breakpoints in the source pane
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Set breakpoint in RStudio
+![](../images/set_breakpoint.png)
+:::
+
+::: {.column width="50%"}
+Source the code
+![](../images/debug_source.png)
+:::
+
+::::
+
+## Start debugging from breakpoints
+
+![](../images/jump_to_breakpoint.png)
+:::{.notes}
+`n` is automatically printed, so the first prompt is at the breakpoint
+:::
+
+## RStudio's Rerun with Debug {.smaller90}
+
+The `Rerun with Debug` option will rerun the command that created the 
+error and enter debug mode where the error occurred.
+
+Good points:
+
+ - Easy to enter debug mode (when option shown)
+ - Can click in Traceback pane to view objects at any point in the call stack
+ 
+Bad points:
+
+ - May have gone past source of error (use breakpoints instead)
+ - May enter deeply nested function: use `recover()` to select an earlier 
+ entry point
+
+Alternatively use `options(error = recover)`, 
+run code to debug, then set `options(error = NULL)`.
+
+## Exercise 3 {.smaller80}
+
+Open `debug_practice.R` and source the function `f()`.
+
+Try to run `f(10)` - there's an error! Use `traceback()` to see which function call generated the error, then fix the problem. 
+
+Run `f(10)` again - there is another error! Can you fix this directly given the error message?
+
+Try running `f(1)` - is the result what you expected? Use `debugonce()` to set debugging on `f()` and re-run `f(1)`. Step through the function, printing each object as it is created to see what is happening.
+
+Can you think how to improve the function? See if you can modify the function to give a sensible result for any integer.
+
+
+# End Matter {background-color="#552D62"}
+
+## Resources
+
+Material (with minor adaptations) from Heather Turner:
+
+<https://hturner.github.io/IISA2022/01_developing_r_functions.html>
+
+(with permission)
+
+## License
+
+Licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){target="_blank"}).
 
 # Documenting and testing {background-color="#552D62"}
 
@@ -413,217 +650,3 @@ Use the `tol` argument in `expect_equal` to set a tolerance of 0.01.
 
 Run the `tests` chunk of `exercises.Rmd` to run your tests with `test_file`. Try changing the expected tolerance to get a test to fail.
 
-# Error handling {background-color="#552D62"}
-
-## Sanity checks
-
-To avoid mistakes, you may want to add some basic sanity checks
-
-```{r, error = TRUE}
-logit <- function(p){
-    stopifnot(p > 0 & p < 1)
-    log(p/(1 - p))
-}
-logit(2)
-logit(0.5)
-```
-
-## Error messages
-
-Often the R messages can be quite obscure
-
-```{r, error = TRUE}
-zap <- function(x) if (max(x) < 1e7) 0 else x
-x <- c(1, 2, NA)
-zap(x)
-```
-
-More helpful error message can be implemented using `stop`
-
-```{r, error = TRUE}
-zap <- function(x) {
-    if (any(is.na(x))) stop("missing values in x\nare", 
-                            " not allowed")
-    if (max(x) < 1e7) 0 else x
-}
-zap(x)
-```
-
-## Warning messages
-
-Warning messages should be given using `warning()`
-
-```{r}
-safe_log2 <- function(x) {
-    if (any(x == 0)) {
-        x[x == 0] <- 0.1
-        warning("zeros replaced by 0.1")
-    }
-    log(x, 2)
-}
-safe_log2(0:1)
-```
-
-Other messages can be printed using `message()`.
-
-## Suppressing warnings
-
-If a warning is expected, you may wish to suppress it
-
-```{r}
-log(c(3, -1))
-x <- suppressWarnings(log(c(3, -1)))
-```
-
-All warnings will be suppressed however!
-
-Similarly `suppressMessages()` will suppress messages.
-
-## Catching errors/warnings
-
-The **purrr** package has various functions to catch issues.
-
-**ADD LINK**
-
-`possibly()` lets you modify a function to return a specified value when there 
-is an error
-```{r, message = FALSE, error = TRUE}
-log("a")
-library(purrr)
-poss_log <- possibly(log, otherwise = NA)
-poss_log("a")
-```
-`safely()` works in a similar way but returns a list with elements `"result"` 
-and `"error"`, so you can record the error message(s). 
-
-`quietly()` lets you modify a function to return printed output, warnings and 
-messages along with the result.
-
-## `traceback()`
-
-When an unexpected error occurs, there are several ways to track down the source of the error, e.g. `traceback()`
-
-```{r, error = TRUE}
-f1 <- function(x){ f2(x) }
-f2 <- function(x){ x + qqqq }
-f1(10)
-```
-
-```{r, results = "hide"}
-traceback()
-```
-```{r, echo = FALSE}
-cat("2: f2(2) at #1\n1: f1(10)")
-```
-
-## `traceback()` in RStudio
-
-In RStudio, if `Debug > On Error >  Error Inspector` is checked and the 
-traceback has at least 3 calls, the option to show traceback is presented
-
-```{r error=TRUE}
-f1 <- function(x){ f2(x) }
-f2 <- function(x){ f3(x) }
-f3 <- function(x){ x + qqqq }
-f1(10)
-```
-
-![RStudio error inspector giving options to show traceback or rerun with debug](../images/error_inspector.png)
-
-:::{.notes}
-Note here about the importance of separating tasks into smaller functions
-- easier to debug!
-:::
-
-## `debugonce()`
-
-`debugonce()` flags a function for debugging the next time it is called
-
-```{r, results = "hide", error = TRUE}
-debugonce(f2)
-f1(10)
-```
-```{r, echo = FALSE}
-cat("debugging in: f2(2)\ndebug at #1: {\n    x + qqqq\n}\nBrowse[2]> ls()\n[1] \"x\"\nBrowse[2]> Q")
-```
-
-When in debug mode type `n` or <kbd title = "enter">&#8629;</kbd> to step 
-to the next line and `c` to continue to the end of a loop or the end of the function.
-
-## Breakpoints
-
-Stepping through a function line by line can be tedious. In RStudio we 
-can set custom breakpoints in the source pane
-
-:::: {.columns}
-
-::: {.column width="50%"}
-Set breakpoint in RStudio
-![](../images/set_breakpoint.png)
-:::
-
-::: {.column width="50%"}
-Source the code
-![](../images/debug_source.png)
-:::
-
-::::
-
-## Start debugging from breakpoints
-
-![](../images/jump_to_breakpoint.png)
-:::{.notes}
-`n` is automatically printed, so the first prompt is at the breakpoint
-:::
-
-## RStudio's Rerun with Debug {.smaller90}
-
-The `Rerun with Debug` option will rerun the command that created the 
-error and enter debug mode where the error occurred.
-
-Good points:
-
- - Easy to enter debug mode (when option shown)
- - Can click in Traceback pane to view objects at any point in the call stack
- 
-Bad points:
-
- - May have gone past source of error (use breakpoints instead)
- - May enter deeply nested function: use `recover()` to select an earlier 
- entry point
-
-Alternatively use `options(error = recover)`, 
-run code to debug, then set `options(error = NULL)`.
-
-## Your turn! {.smaller80}
-
-Open the function `debug_practice.R` and source the example function `f`.
-
-1. Try to run `f(10)` - there's an error! Use `traceback()` to see which 
-function call generated the error, then fix the problem. 
-
-2. Run `f(10)` again - there is another error! Can you fix this directly?
-
-3. Try running `f(1)` - is the result what you expected? Use `debugonce()` to 
-setting debugging on `f()` and re-run `f(1)`. Step through the function,
-printing each object as it is created to see what is happening.
-
-4. Can you think how to improve the function? See if you can modify the 
-function to give a sensible result for any integer.
-
-
-# End Matter {background-color="#552D62"}
-
-## Resources
-
-Material (with minor adaptations) from Heather Turner:
-
-<https://hturner.github.io/advanced-r/02_writing_r_functions.html>
-
-(with permission)
-
-
-
-## License
-
-Licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){target="_blank"}).

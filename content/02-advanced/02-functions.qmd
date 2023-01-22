@@ -2,8 +2,6 @@
 title: Functions
 ---
 
-***This page and the slides for this session are still under development***
-
 ## Slides
 
 Here's a link to the [slides](/slides/02-advanced/02-functions/index.qmd){target="_blank"} in a new window. 
@@ -13,13 +11,3 @@ Here are the slides embedded:
 <iframe class="slide-deck ar3x2" src="/slides/02-advanced/02-functions/index.html" title="Functions slides">
 </iframe>
 
-## Resources
-
-### Reading
-
-- TITLE
-
-  <LINK>
-
-
-### Packages

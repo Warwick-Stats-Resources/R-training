@@ -333,21 +333,7 @@
     "href": "content/02-advanced/02-functions.html",
     "title": "Functions",
     "section": "",
-    "text": "This page and the slides for this session are still under development"
-  },
-  {
-    "objectID": "content/02-advanced/02-functions.html#slides",
-    "href": "content/02-advanced/02-functions.html#slides",
-    "title": "Functions",
-    "section": "Slides",
-    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/02-advanced/02-functions.html#resources",
-    "href": "content/02-advanced/02-functions.html#resources",
-    "title": "Functions",
-    "section": "Resources",
-    "text": "Resources\n\nReading\n\nTITLE\n\n\n\n\nPackages"
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
   },
   {
     "objectID": "content/02-advanced/01-git.html",
@@ -355,13 +341,6 @@
     "title": "git and GitHub",
     "section": "",
     "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/02-advanced/01-git.html#slides",
-    "href": "content/02-advanced/01-git.html#slides",
-    "title": "git and GitHub",
-    "section": "Slides",
-    "text": "Slides\nHere’s a link to the slides in a new window.\nHere are the slides embedded:"
   },
   {
     "objectID": "content/02-advanced/01-git.html#resources",
@@ -2296,13 +2275,6 @@
     "text": "Sharing code in an online repository\n\n\nPros\n\nVersion control (commit history + releases)\nREADME.md for quick documentation\nFacilitates contribution (bug reports, patches)\nCan use CITATION.cff file for clear citation GitHub\nLinks to Zenodo for publishing releases\n\nCons\n\nLearning curve to take full advantage"
   },
   {
-    "objectID": "slides/02-advanced/01-git/index.html#further-benefits-of-github",
-    "href": "slides/02-advanced/01-git/index.html#further-benefits-of-github",
-    "title": "Open code, git and GitHub",
-    "section": "Further benefits of GitHub",
-    "text": "Further benefits of GitHub\nResearch compendia\nPotential to use Binder to so that people can run your code in the browser\n\nFor short analysis (<10 min) on small data (< 10MB)\nZero to Binder tutorial [Julia, Python, R]\n\nSoftware packages\n\nUsers can install Julia/Python/R packages from GitHub\nCan deploy package websites using GitHub pages\nCan benefit from GitHub Actions, e.g. automatically running tests"
-  },
-  {
     "objectID": "slides/02-advanced/01-git/index.html#more-on-open-code-and-software",
     "href": "slides/02-advanced/01-git/index.html#more-on-open-code-and-software",
     "title": "Open code, git and GitHub",
@@ -2357,6 +2329,13 @@
     "title": "Open code, git and GitHub",
     "section": "Features",
     "text": "Features\nGitHub repositories have some nice features:\n\nREADME.md displayed as HTML\nBrowsable commit history\nIssues where you/others can note bug reports/TODO/feature requests\nPull requests (advanced) where you/others can propose changes to the code to be reviewed\nActions (advanced) automated actions when you commit to the repo\nProjects (advanced) to organize issues (To Do/In Progress/Done)\nWiki for project documentation\nDeploy websites with pages"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#further-benefits-of-github",
+    "href": "slides/02-advanced/01-git/index.html#further-benefits-of-github",
+    "title": "Open code, git and GitHub",
+    "section": "Further benefits of GitHub",
+    "text": "Further benefits of GitHub\nResearch compendia\nPotential to use Binder to so that people can run your code in the browser\n\nFor short analysis (<10 min) on small data (< 10MB)\nZero to Binder tutorial [Julia, Python, R]\n\nSoftware packages\n\nUsers can install Julia/Python/R packages from GitHub\nCan deploy package websites using GitHub pages\nCan benefit from GitHub Actions, e.g. automatically running tests"
   },
   {
     "objectID": "slides/02-advanced/01-git/index.html#your-turn-explore-some-github-repositories",
@@ -2464,118 +2443,6 @@
     "text": "Create an RStudio project from a GitHub repo\nNow you can clone your GitHub repo locally.\n\nGo to your repo homepage on GitHub. Click the green “Code” button, copy the HTTPS address (of the form https://github.com/USERNAME/REPO.git).\nIn RStudio, go to File > New Project… > Version Control > Git.\n\nEnter the repo URL you just copied. The project directory name will be filled automatically.\nBrowse to a location you want the project directory to be created.\nClick Create Project."
   },
   {
-    "objectID": "slides/02-advanced/01-git/index.html#summary",
-    "href": "slides/02-advanced/01-git/index.html#summary",
-    "title": "Open code, git and GitHub",
-    "section": "Summary",
-    "text": "Summary\n\nWorking openly encourages good practices\nYour code/software is an asset!\nWe can make steps to improve our own practice\ngit and GitHub are invaluable resources for version control and collaboration"
-  },
-  {
-    "objectID": "slides/02-advanced/01-git/index.html#resources",
-    "href": "slides/02-advanced/01-git/index.html#resources",
-    "title": "Open code, git and GitHub",
-    "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:"
-  },
-  {
-    "objectID": "slides/02-advanced/01-git/index.html#license",
-    "href": "slides/02-advanced/01-git/index.html#license",
-    "title": "Open code, git and GitHub",
-    "section": "License",
-    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "slides/02-advanced/06-classes-methods/index.html#overview",
-    "href": "slides/02-advanced/06-classes-methods/index.html#overview",
-    "title": "Classes and Methods",
-    "section": "Overview",
-    "text": "Overview\n\nWhat we’re covering"
-  },
-  {
-    "objectID": "slides/02-advanced/06-classes-methods/index.html#resources",
-    "href": "slides/02-advanced/06-classes-methods/index.html#resources",
-    "title": "Classes and Methods",
-    "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:"
-  },
-  {
-    "objectID": "slides/02-advanced/06-classes-methods/index.html#license",
-    "href": "slides/02-advanced/06-classes-methods/index.html#license",
-    "title": "Classes and Methods",
-    "section": "License",
-    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "slides/02-advanced/02-functions/index.html#overview",
-    "href": "slides/02-advanced/02-functions/index.html#overview",
-    "title": "Functions",
-    "section": "Overview",
-    "text": "Overview\n\nFunctions basics\nDocumenting and testing\nError handling"
-  },
-  {
-    "objectID": "slides/02-advanced/02-functions/index.html#resources",
-    "href": "slides/02-advanced/02-functions/index.html#resources",
-    "title": "Functions",
-    "section": "Resources",
-    "text": "Resources\nMaterial (with minor adaptations) from Heather Turner:\nhttps://hturner.github.io/advanced-r/02_writing_r_functions.html\n(with permission)"
-  },
-  {
-    "objectID": "slides/02-advanced/02-functions/index.html#license",
-    "href": "slides/02-advanced/02-functions/index.html#license",
-    "title": "Functions",
-    "section": "License",
-    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "slides/02-advanced/03-memory-parallel/index.html#overview",
-    "href": "slides/02-advanced/03-memory-parallel/index.html#overview",
-    "title": "Memory and Parallelisation",
-    "section": "Overview",
-    "text": "Overview\n\nWhat we’re covering"
-  },
-  {
-    "objectID": "slides/02-advanced/03-memory-parallel/index.html#resources",
-    "href": "slides/02-advanced/03-memory-parallel/index.html#resources",
-    "title": "Memory and Parallelisation",
-    "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:"
-  },
-  {
-    "objectID": "slides/02-advanced/03-memory-parallel/index.html#license",
-    "href": "slides/02-advanced/03-memory-parallel/index.html#license",
-    "title": "Memory and Parallelisation",
-    "section": "License",
-    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "slides/02-advanced/05-C++/index.html#overview",
-    "href": "slides/02-advanced/05-C++/index.html#overview",
-    "title": "C++ and Rcpp",
-    "section": "Overview",
-    "text": "Overview\n\nWhat we’re covering"
-  },
-  {
-    "objectID": "slides/02-advanced/05-C++/index.html#resources",
-    "href": "slides/02-advanced/05-C++/index.html#resources",
-    "title": "C++ and Rcpp",
-    "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:"
-  },
-  {
-    "objectID": "slides/02-advanced/05-C++/index.html#license",
-    "href": "slides/02-advanced/05-C++/index.html#license",
-    "title": "C++ and Rcpp",
-    "section": "License",
-    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Sessions will be held most Mondays in term time, from 9:30-11:00 in Term 2 for the Advanced R Course.\nAdd the Advanced R Course to your calendar (this link does not work in Safari, Internet Explorer, or Opera Mini)\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
-  },
-  {
     "objectID": "slides/02-advanced/01-git/index.html#git-tab",
     "href": "slides/02-advanced/01-git/index.html#git-tab",
     "title": "Open code, git and GitHub",
@@ -2646,13 +2513,6 @@
     "text": "General workflow\n\nCommit regularly, once you’ve got a small complete change, e.g. a working draft of a function, a bug fix, a draft of a README.\n\nIt is easier to review/revert changes if they relate to a single file or common issue\n\nIdeally, make a commit everytime you make a substantial, coherent set of changes.\nAt least make a commit every time you take a break, especially when leaving at the end of your working session\nPush often enough that GitHub is a useful backup"
   },
   {
-    "objectID": "slides/02-advanced/01-git/index.html#learning-more",
-    "href": "slides/02-advanced/01-git/index.html#learning-more",
-    "title": "Open code, git and GitHub",
-    "section": "Learning more",
-    "text": "Learning more\n\nHappy Git and GitHub for the useR by Jenny Bryan\nhttp://happygitwithr.com\nGitHub for supporting, reusing, contributing and failing safely by Allison Horst and Julie Lowndes\nhttps://www.openscapes.org/blog/2022/05/27/github-illustrated-series/\nVersion control: A practical introduction to Git and GitHub\nhttps://www.jvcasillas.com/github_workshop/index.html#1"
-  },
-  {
     "objectID": "slides/02-advanced/01-git/index.html#adding-an-existing-project-to-github",
     "href": "slides/02-advanced/01-git/index.html#adding-an-existing-project-to-github",
     "title": "Open code, git and GitHub",
@@ -2665,6 +2525,55 @@
     "title": "Open code, git and GitHub",
     "section": "Some other tools",
     "text": "Some other tools\n\ngert R package has functions for interacting with git\nIt can be worth using dedicated software for interacting with git/GitHub\n\nGitHub desktop\nGitKraken"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#summary",
+    "href": "slides/02-advanced/01-git/index.html#summary",
+    "title": "Open code, git and GitHub",
+    "section": "Summary",
+    "text": "Summary\n\nWorking openly encourages good practices\nYour code/software is an asset!\nWe can make steps to improve our own practice\ngit and GitHub are invaluable resources for version control and collaboration"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#learning-more",
+    "href": "slides/02-advanced/01-git/index.html#learning-more",
+    "title": "Open code, git and GitHub",
+    "section": "Learning more",
+    "text": "Learning more\n\nHappy Git and GitHub for the useR by Jenny Bryan\nhttp://happygitwithr.com\nGitHub for supporting, reusing, contributing and failing safely by Allison Horst and Julie Lowndes\nhttps://www.openscapes.org/blog/2022/05/27/github-illustrated-series/\nVersion control: A practical introduction to Git and GitHub\nhttps://www.jvcasillas.com/github_workshop/index.html#1"
+  },
+  {
+    "objectID": "slides/02-advanced/01-git/index.html#license",
+    "href": "slides/02-advanced/01-git/index.html#license",
+    "title": "Open code, git and GitHub",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/02-advanced/06-classes-methods/index.html#overview",
+    "href": "slides/02-advanced/06-classes-methods/index.html#overview",
+    "title": "Classes and Methods",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/02-advanced/06-classes-methods/index.html#resources",
+    "href": "slides/02-advanced/06-classes-methods/index.html#resources",
+    "title": "Classes and Methods",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/02-advanced/06-classes-methods/index.html#license",
+    "href": "slides/02-advanced/06-classes-methods/index.html#license",
+    "title": "Classes and Methods",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#overview",
+    "href": "slides/02-advanced/02-functions/index.html#overview",
+    "title": "Functions",
+    "section": "Overview",
+    "text": "Overview\n\nFunctions basics (review)\nBeyond the basics\nError handling"
   },
   {
     "objectID": "slides/02-advanced/02-functions/index.html#components-of-a-function",
@@ -2692,7 +2601,7 @@
     "href": "slides/02-advanced/02-functions/index.html#name-and-order-of-arguments",
     "title": "Functions",
     "section": "Name and order of Arguments",
-    "text": "Name and order of Arguments\nThe user can pass objects to these arguments using their names or by supplying unnamed values in the right order\n\nrnorm(5, 1, 10)\n\n[1]  7.860573  7.289619  4.539859 -2.189523 10.284554\n\nrnorm(5, sd = 10)\n\n[1] 11.298577  8.337103 16.452792 -9.995030 10.859025\n\n\nSo naming and order is important! Some guidelines\n\nput compulsory arguments first, e.g. data\nput rarely used arguments last, e.g. tolerance setting\nuse short but meaningful argument names\nif relevant, use the same argument names as similar functions"
+    "text": "Name and order of Arguments\nThe user can pass objects to these arguments using their names or by supplying unnamed values in the right order\n\nrnorm(5, 1, 10)\n\n[1]  5.108557 21.023061  2.147342  7.937678 -3.102047\n\nrnorm(5, sd = 10)\n\n[1] -5.846403  1.878586  3.888573  5.845032 20.039860\n\n\nSo naming and order is important! Some guidelines\n\nput compulsory arguments first, e.g. data\nput rarely used arguments last, e.g. tolerance setting\nuse short but meaningful argument names\nif relevant, use the same argument names as similar functions"
   },
   {
     "objectID": "slides/02-advanced/02-functions/index.html#using-arguments",
@@ -2700,6 +2609,48 @@
     "title": "Functions",
     "section": "Using Arguments",
     "text": "Using Arguments\nArguments are used as objects in the function code.\nAn new environment is created each time the function is called, separate from the global workspace.\n\nx <- 1\ny <- 3\nf <- function(x, y){\n    a <- 1\n    x <- x + a\n    x + y\n}\nf(x, y)\n\n[1] 5\n\nx\n\n[1] 1\n\na\n\nError in eval(expr, envir, enclos): object 'a' not found"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#return-values-single",
+    "href": "slides/02-advanced/02-functions/index.html#return-values-single",
+    "title": "Functions",
+    "section": "Return Values (single)",
+    "text": "Return Values (single)\nBy default, functions return the object created by the last line of code\n\nf <- function(x) {\n    x <- x + 1\n    log(x)\n}\n\nAlternatively return() can be used to terminate the function and return a given object\n\nf <- function(x) {\n    if (all(x > 0)) return(log(x))\n    x[x <= 0] <- 0.1\n    log(x)\n}"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#return-values-multiple",
+    "href": "slides/02-advanced/02-functions/index.html#return-values-multiple",
+    "title": "Functions",
+    "section": "Return values (multiple)",
+    "text": "Return values (multiple)\nMultiple objects can be returned in a list:\n\nmean_and_sd <- function(x) {\n  res_mean <- mean(x, na.rm = TRUE)\n  res_sd <- sd(x)\n  \n  list(mean = res_mean,\n       sd = res_sd)\n}\n\nx <- 1:3\nmean_and_sd(x)\n\n$mean\n[1] 2\n\n$sd\n[1] 1"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#rstudio-helper",
+    "href": "slides/02-advanced/02-functions/index.html#rstudio-helper",
+    "title": "Functions",
+    "section": "RStudio Helper",
+    "text": "RStudio Helper\nRStudio has a helper to turn code into a function:\n\nSelect the lines of code that will become the body of the function.\nSelect “Code” > “Extract Function” from the menu.\nEnter the name of the new function in the dialog box.\nEdit the arguments if required.\nAdd/edit the last line to specify the return value."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#exercise-files",
+    "href": "slides/02-advanced/02-functions/index.html#exercise-files",
+    "title": "Functions",
+    "section": "Exercise files",
+    "text": "Exercise files\nhttps://github.com/Warwick-Stats-Resources/Advanced-R-exercises\n\nYou can get the files by creating a new project from version control in RStudio (if set up)\nBy going to the ‘Code’ button in the repo, then ‘Download ZIP’, then opening Advanced-R-exercises.Rproj."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#exercise-1",
+    "href": "slides/02-advanced/02-functions/index.html#exercise-1",
+    "title": "Functions",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nIn the qq_norm chunk of exercises.Rmd there is some code to compute the slope and intercept of the line to add to a quantile-quantile plot, comparing sample quantiles against theoretical quantiles of a N(0, 1) distribution.\nTurn this code into a function named qq_norm taking the sample data as an argument and returning the slope and intercept in a list.\nRun this chunk to source the function, then run the normal-QQ chunk which uses the qq_norm function to compute parameters for an example plot."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#function-environment",
+    "href": "slides/02-advanced/02-functions/index.html#function-environment",
+    "title": "Functions",
+    "section": "Function environment",
+    "text": "Function environment\nA new environment is created each time the function is called, separate from the global workspace.\n\nx <- 1\ny <- 3\nf <- function(x, y){\n    a <- 1\n    x <- x + a\n    x + y\n}\nf(x, y)\n\n[1] 5\n\nx\n\n[1] 1\n\na\n\nError in eval(expr, envir, enclos): object 'a' not found"
   },
   {
     "objectID": "slides/02-advanced/02-functions/index.html#lexical-scoping",
@@ -2723,20 +2674,6 @@
     "text": "Using ...\nArguments passed to ... can be collected into a list for further analysis\n\nmeans <- function(...){\n    dots <- list(...)\n    vapply(dots, mean, numeric(1), na.rm = TRUE)\n}\nx <- 1\ny <- 2:3\nmeans(x, y)\n\n[1] 1.0 2.5\n\n\nSimilarly the objects could be concatenated using c()"
   },
   {
-    "objectID": "slides/02-advanced/02-functions/index.html#return-values-single",
-    "href": "slides/02-advanced/02-functions/index.html#return-values-single",
-    "title": "Functions",
-    "section": "Return Values (single)",
-    "text": "Return Values (single)\nBy default, functions return the object created by the last line of code\n\nf <- function(x) {\n    x <- x + 1\n    log(x)\n}\n\nAlternatively return() can be used to terminate the function and return a given object\n\nf <- function(x) {\n    if (all(x > 0)) return(log(x))\n    x[x <= 0] <- 0.1\n    log(x)\n}"
-  },
-  {
-    "objectID": "slides/02-advanced/02-functions/index.html#return-values-multiple",
-    "href": "slides/02-advanced/02-functions/index.html#return-values-multiple",
-    "title": "Functions",
-    "section": "Return values (multiple)",
-    "text": "Return values (multiple)\nMultiple objects can be returned in a list:\n\nmean_and_sd <- function(x) {\n  res_mean <- mean(x, na.rm = TRUE)\n  res_sd <- sd(x)\n  \n  list(mean = res_mean,\n       sd = res_sd)\n}\n\nx <- 1:3\nmean_and_sd(x)\n\n$mean\n[1] 2\n\n$sd\n[1] 1"
-  },
-  {
     "objectID": "slides/02-advanced/02-functions/index.html#side-effects",
     "href": "slides/02-advanced/02-functions/index.html#side-effects",
     "title": "Functions",
@@ -2744,18 +2681,11 @@
     "text": "Side Effects\nA side-effect is a change outside the function that occurs when the function is run, e.g.\n\nplot to the graphics window or other device\nprinting output to the console\nwrite data to a file\n\nA function can have many side-effects and a return value, but it is best practice to have a separate function for each task, e.g creating a plot or a table.\nWriting to file is usually best done outside a function."
   },
   {
-    "objectID": "slides/02-advanced/02-functions/index.html#your-turn",
-    "href": "slides/02-advanced/02-functions/index.html#your-turn",
+    "objectID": "slides/02-advanced/02-functions/index.html#excercise-2",
+    "href": "slides/02-advanced/02-functions/index.html#excercise-2",
     "title": "Functions",
-    "section": "Your turn!",
-    "text": "Your turn!\nIn the qq_norm chunk of exercises.Rmd there is some code to compute the slope and intercept of the line to add to a quantile-quantile plot, comparing sample quantiles against theoretical quantiles of a \\(N(0, 1)\\) distribution.\n\nTurn this code into a function named qq_norm taking the sample data as an argument and returning the slope and intercept in a list.\nRun this chunk to source the function, then run the normal-QQ chunk which uses the qq_norm function to compute parameters for an example plot.\nCopy qq_norm to the qq chunk and rename it qq. Add a new argument fun to specify any quantile function (e.g. qt, qf, etc). Give it the default value qnorm. Inside the function use qfun <- match.fun(fun) to get the quantile function matching fun, then use qfun instead of qnorm to compute q_theory. Use ... to pass on arguments to qfun.\nRun the qq chunk and test your function on the t-QQ chunk."
-  },
-  {
-    "objectID": "slides/02-advanced/02-functions/index.html#exercise-files",
-    "href": "slides/02-advanced/02-functions/index.html#exercise-files",
-    "title": "Functions",
-    "section": "Exercise files",
-    "text": "Exercise files\nhttps://github.com/Warwick-Stats-Resources/Advanced-R-exercises\n\nYou can get the files by creating a new project from version control in RStudio (if set up)\nBy going to the ‘Code’ button in the repo, then ‘Download ZIP’"
+    "section": "Excercise 2",
+    "text": "Excercise 2\nCopy your qq_norm function to the qq chunk and rename it qq.\nAdd a new argument fun to specify any quantile function (e.g. qt, qf, etc). Give it the default value qnorm.\nInside the function use qfun <- match.fun(fun) to get the quantile function matching fun, then use qfun instead of qnorm to compute q_theory. Use ... to pass on arguments to qfun.\nRun the qq chunk and test your function on the t-QQ chunk."
   },
   {
     "objectID": "slides/02-advanced/02-functions/index.html#using-functions-from-other-packages",
@@ -2777,6 +2707,104 @@
     "title": "Functions",
     "section": "Externalizing function code",
     "text": "Externalizing function code\nIt is a good idea to separate function code from analysis code.\nPut related functions together and source as required\n\nsource(\"modelFunctions.R\")\nsource(\"plotFunctions.R\")\n\nThe import package enables only necessary, top-level functions to be imported to the global workspace:\n\nimport::here(poissonModel, quasiPoissonModel, .from = \"modelFunctions.R\")\n\nIn either case, import::from commands can be put outside the function body to make the code easier to read."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#sanity-checks",
+    "href": "slides/02-advanced/02-functions/index.html#sanity-checks",
+    "title": "Functions",
+    "section": "Sanity checks",
+    "text": "Sanity checks\nTo avoid mistakes, you may want to add some basic sanity checks\n\nlogit <- function(p){\n    stopifnot(p > 0 & p < 1)\n    log(p/(1 - p))\n}\nlogit(2)\n\nError in logit(2): p > 0 & p < 1 is not TRUE\n\nlogit(0.5)\n\n[1] 0"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#error-messages",
+    "href": "slides/02-advanced/02-functions/index.html#error-messages",
+    "title": "Functions",
+    "section": "Error messages",
+    "text": "Error messages\nOften the R messages can be quite obscure\n\nzap <- function(x) if (max(x) < 1e7) 0 else x\nx <- c(1, 2, NA)\nzap(x)\n\nError in if (max(x) < 1e+07) 0 else x: missing value where TRUE/FALSE needed\n\n\nMore helpful error message can be implemented using stop\n\nzap <- function(x) {\n    if (any(is.na(x))) stop(\"missing values in x\\nare\", \n                            \" not allowed\")\n    if (max(x) < 1e7) 0 else x\n}\nzap(x)\n\nError in zap(x): missing values in x\nare not allowed"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#warning-messages",
+    "href": "slides/02-advanced/02-functions/index.html#warning-messages",
+    "title": "Functions",
+    "section": "Warning messages",
+    "text": "Warning messages\nWarning messages should be given using warning()\n\nsafe_log2 <- function(x) {\n    if (any(x == 0)) {\n        x[x == 0] <- 0.1\n        warning(\"zeros replaced by 0.1\")\n    }\n    log(x, 2)\n}\nsafe_log2(0:1)\n\n[1] -3.321928  0.000000\n\n\nOther messages can be printed using message()."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#suppressing-warnings",
+    "href": "slides/02-advanced/02-functions/index.html#suppressing-warnings",
+    "title": "Functions",
+    "section": "Suppressing warnings",
+    "text": "Suppressing warnings\nIf a warning is expected, you may wish to suppress it\n\nlog(c(3, -1))\n\n[1] 1.098612      NaN\n\nx <- suppressWarnings(log(c(3, -1)))\n\nAll warnings will be suppressed however!\nSimilarly suppressMessages() will suppress messages."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#catching-errorswarnings",
+    "href": "slides/02-advanced/02-functions/index.html#catching-errorswarnings",
+    "title": "Functions",
+    "section": "Catching errors/warnings",
+    "text": "Catching errors/warnings\nThe purrr package has various functions to catch issues.\npossibly() lets you modify a function to return a specified value when there is an error\n\nlog(\"a\")\n\nError in log(\"a\"): non-numeric argument to mathematical function\n\nlibrary(purrr)\nposs_log <- possibly(log, otherwise = NA)\nposs_log(\"a\")\n\n[1] NA\n\n\nsafely() works in a similar way but returns a list with elements \"result\" and \"error\", so you can record the error message(s).\nquietly() lets you modify a function to return printed output, warnings and messages along with the result."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#traceback",
+    "href": "slides/02-advanced/02-functions/index.html#traceback",
+    "title": "Functions",
+    "section": "traceback()",
+    "text": "traceback()\nWhen an unexpected error occurs, there are several ways to track down the source of the error, e.g. traceback()\n\nf1 <- function(x){ f2(x) }\nf2 <- function(x){ x + qqqq }\nf1(10)\n\nError in f2(x): object 'qqqq' not found\n\n\n\ntraceback()\n\n\n\n2: f2(2) at #1\n1: f1(10)"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#traceback-in-rstudio",
+    "href": "slides/02-advanced/02-functions/index.html#traceback-in-rstudio",
+    "title": "Functions",
+    "section": "traceback() in RStudio",
+    "text": "traceback() in RStudio\nIn RStudio, if Debug > On Error >  Error Inspector is checked and the traceback has at least 3 calls, the option to show traceback is presented\n\nf1 <- function(x){ f2(x) }\nf2 <- function(x){ f3(x) }\nf3 <- function(x){ x + qqqq }\nf1(10)\n\nError in f3(x): object 'qqqq' not found\n\n\n\nRStudio error inspector giving options to show traceback or rerun with debug\nNote here about the importance of separating tasks into smaller functions - easier to debug!"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#debugonce",
+    "href": "slides/02-advanced/02-functions/index.html#debugonce",
+    "title": "Functions",
+    "section": "debugonce()",
+    "text": "debugonce()\ndebugonce() flags a function for debugging the next time it is called\n\ndebugonce(f2)\nf1(10)\n\nError in f3(x): object 'qqqq' not found\n\n\n\n\ndebugging in: f2(2)\ndebug at #1: {\n    x + qqqq\n}\nBrowse[2]> ls()\n[1] \"x\"\nBrowse[2]> Q\n\n\nWhen in debug mode type n or ↵ to step to the next line and c to continue to the end of a loop or the end of the function."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#breakpoints",
+    "href": "slides/02-advanced/02-functions/index.html#breakpoints",
+    "title": "Functions",
+    "section": "Breakpoints",
+    "text": "Breakpoints\nStepping through a function line by line can be tedious. In RStudio we can set custom breakpoints in the source pane\n\n\nSet breakpoint in RStudio \n\nSource the code"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#start-debugging-from-breakpoints",
+    "href": "slides/02-advanced/02-functions/index.html#start-debugging-from-breakpoints",
+    "title": "Functions",
+    "section": "Start debugging from breakpoints",
+    "text": "Start debugging from breakpoints\n :::{.notes} n is automatically printed, so the first prompt is at the breakpoint :::"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#rstudios-rerun-with-debug",
+    "href": "slides/02-advanced/02-functions/index.html#rstudios-rerun-with-debug",
+    "title": "Functions",
+    "section": "RStudio’s Rerun with Debug",
+    "text": "RStudio’s Rerun with Debug\nThe Rerun with Debug option will rerun the command that created the error and enter debug mode where the error occurred.\nGood points:\n\nEasy to enter debug mode (when option shown)\nCan click in Traceback pane to view objects at any point in the call stack\n\nBad points:\n\nMay have gone past source of error (use breakpoints instead)\nMay enter deeply nested function: use recover() to select an earlier entry point\n\nAlternatively use options(error = recover), run code to debug, then set options(error = NULL)."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#exercise-3",
+    "href": "slides/02-advanced/02-functions/index.html#exercise-3",
+    "title": "Functions",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nOpen debug_practice.R and source the function f().\nTry to run f(10) - there’s an error! Use traceback() to see which function call generated the error, then fix the problem.\nRun f(10) again - there is another error! Can you fix this directly given the error message?\nTry running f(1) - is the result what you expected? Use debugonce() to set debugging on f() and re-run f(1). Step through the function, printing each object as it is created to see what is happening.\nCan you think how to improve the function? See if you can modify the function to give a sensible result for any integer."
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#resources",
+    "href": "slides/02-advanced/02-functions/index.html#resources",
+    "title": "Functions",
+    "section": "Resources",
+    "text": "Resources\nMaterial (with minor adaptations) from Heather Turner:\nhttps://hturner.github.io/IISA2022/01_developing_r_functions.html\n(with permission)"
+  },
+  {
+    "objectID": "slides/02-advanced/02-functions/index.html#license",
+    "href": "slides/02-advanced/02-functions/index.html#license",
+    "title": "Functions",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   },
   {
     "objectID": "slides/02-advanced/02-functions/index.html#documenting-functions",
@@ -2821,94 +2849,59 @@
     "text": "Running Tests\nIf we save the tests in a file, e.g. tests.R, we can use test_file() to run and check all tests:\n\nlibrary(testthat)\ntest_file(\"tests.R\")\n\n\n\n√ | OK F W S | Context\nx |  2 1     | log_2 works correctly\n--------------------------------------------------------------------------------\ntests.R:9: failure: negative values give error\n`log_2(2^-1)` did not throw an error.\n--------------------------------------------------------------------------------\n\n== Results =====================================================================\nOK:       2\nFailed:   1\nWarnings: 0\nSkipped:  0"
   },
   {
-    "objectID": "slides/02-advanced/02-functions/index.html#your-turn-1",
-    "href": "slides/02-advanced/02-functions/index.html#your-turn-1",
+    "objectID": "slides/02-advanced/02-functions/index.html#your-turn",
+    "href": "slides/02-advanced/02-functions/index.html#your-turn",
     "title": "Functions",
     "section": "Your turn!",
     "text": "Your turn!\nCopy the qq function to a new R script and save as functions.R. Add roxygen comments at the start of the function body to define a title and parameter documentation.\nRun the documentation chunk of exercises.Rmd to view your documentation.\nOpen the tests.R script. Using expect_equal add some tests for the following\n\na sample of 100,000 from N(0, 1) gives approximately slope 1, intercept 0\na sample of 100,000 from N(0, 1/2) gives approximately slope 2, intercept 0\nsample of 100,000 from N(2, 1) gives approximately slope 1, intercept -2\n\nUse the tol argument in expect_equal to set a tolerance of 0.01.\nRun the tests chunk of exercises.Rmd to run your tests with test_file. Try changing the expected tolerance to get a test to fail."
   },
   {
-    "objectID": "slides/02-advanced/02-functions/index.html#sanity-checks",
-    "href": "slides/02-advanced/02-functions/index.html#sanity-checks",
-    "title": "Functions",
-    "section": "Sanity checks",
-    "text": "Sanity checks\nTo avoid mistakes, you may want to add some basic sanity checks\n\nlogit <- function(p){\n    stopifnot(p > 0 & p < 1)\n    log(p/(1 - p))\n}\nlogit(2)\n\nError in logit(2): p > 0 & p < 1 is not TRUE\n\nlogit(0.5)\n\n[1] 0"
+    "objectID": "slides/02-advanced/03-memory-parallel/index.html#overview",
+    "href": "slides/02-advanced/03-memory-parallel/index.html#overview",
+    "title": "Memory and Parallelisation",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
   },
   {
-    "objectID": "slides/02-advanced/02-functions/index.html#error-messages",
-    "href": "slides/02-advanced/02-functions/index.html#error-messages",
-    "title": "Functions",
-    "section": "Error messages",
-    "text": "Error messages\nOften the R messages can be quite obscure\n\nzap <- function(x) if (max(x) < 1e7) 0 else x\nx <- c(1, 2, NA)\nzap(x)\n\nError in if (max(x) < 1e+07) 0 else x: missing value where TRUE/FALSE needed\n\n\nMore helpful error message can be implemented using stop\n\nzap <- function(x) {\n    if (any(is.na(x))) stop(\"missing values in x\\nare\", \n                            \" not allowed\")\n    if (max(x) < 1e7) 0 else x\n}\nzap(x)\n\nError in zap(x): missing values in x\nare not allowed"
+    "objectID": "slides/02-advanced/03-memory-parallel/index.html#resources",
+    "href": "slides/02-advanced/03-memory-parallel/index.html#resources",
+    "title": "Memory and Parallelisation",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
   },
   {
-    "objectID": "slides/02-advanced/02-functions/index.html#warning-messages",
-    "href": "slides/02-advanced/02-functions/index.html#warning-messages",
-    "title": "Functions",
-    "section": "Warning messages",
-    "text": "Warning messages\nWarning messages should be given using warning()\n\nsafe_log2 <- function(x) {\n    if (any(x == 0)) {\n        x[x == 0] <- 0.1\n        warning(\"zeros replaced by 0.1\")\n    }\n    log(x, 2)\n}\nsafe_log2(0:1)\n\n[1] -3.321928  0.000000\n\n\nOther messages can be printed using message()."
+    "objectID": "slides/02-advanced/03-memory-parallel/index.html#license",
+    "href": "slides/02-advanced/03-memory-parallel/index.html#license",
+    "title": "Memory and Parallelisation",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   },
   {
-    "objectID": "slides/02-advanced/02-functions/index.html#suppressing-warnings",
-    "href": "slides/02-advanced/02-functions/index.html#suppressing-warnings",
-    "title": "Functions",
-    "section": "Suppressing warnings",
-    "text": "Suppressing warnings\nIf a warning is expected, you may wish to suppress it\n\nlog(c(3, -1))\n\n[1] 1.098612      NaN\n\nx <- suppressWarnings(log(c(3, -1)))\n\nAll warnings will be suppressed however!\nSimilarly suppressMessages() will suppress messages."
+    "objectID": "slides/02-advanced/05-C++/index.html#overview",
+    "href": "slides/02-advanced/05-C++/index.html#overview",
+    "title": "C++ and Rcpp",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
   },
   {
-    "objectID": "slides/02-advanced/02-functions/index.html#catching-errorswarnings",
-    "href": "slides/02-advanced/02-functions/index.html#catching-errorswarnings",
-    "title": "Functions",
-    "section": "Catching errors/warnings",
-    "text": "Catching errors/warnings\nThe purrr package has various functions to catch issues.\nADD LINK\npossibly() lets you modify a function to return a specified value when there is an error\n\nlog(\"a\")\n\nError in log(\"a\"): non-numeric argument to mathematical function\n\nlibrary(purrr)\nposs_log <- possibly(log, otherwise = NA)\nposs_log(\"a\")\n\n[1] NA\n\n\nsafely() works in a similar way but returns a list with elements \"result\" and \"error\", so you can record the error message(s).\nquietly() lets you modify a function to return printed output, warnings and messages along with the result."
+    "objectID": "slides/02-advanced/05-C++/index.html#resources",
+    "href": "slides/02-advanced/05-C++/index.html#resources",
+    "title": "C++ and Rcpp",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
   },
   {
-    "objectID": "slides/02-advanced/02-functions/index.html#traceback",
-    "href": "slides/02-advanced/02-functions/index.html#traceback",
-    "title": "Functions",
-    "section": "traceback()",
-    "text": "traceback()\nWhen an unexpected error occurs, there are several ways to track down the source of the error, e.g. traceback()\n\nf1 <- function(x){ f2(x) }\nf2 <- function(x){ x + qqqq }\nf1(10)\n\nError in f2(x): object 'qqqq' not found\n\n\n\ntraceback()\n\n\n\n2: f2(2) at #1\n1: f1(10)"
+    "objectID": "slides/02-advanced/05-C++/index.html#license",
+    "href": "slides/02-advanced/05-C++/index.html#license",
+    "title": "C++ and Rcpp",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   },
   {
-    "objectID": "slides/02-advanced/02-functions/index.html#debugonce",
-    "href": "slides/02-advanced/02-functions/index.html#debugonce",
-    "title": "Functions",
-    "section": "debugonce()",
-    "text": "debugonce()\ndebugonce() flags a function for debugging the next time it is called\n\ndebugonce(f2)\nf1(10)\n\nError in f3(x): object 'qqqq' not found\n\n\n\n\ndebugging in: f2(2)\ndebug at #1: {\n    x + qqqq\n}\nBrowse[2]> ls()\n[1] \"x\"\nBrowse[2]> Q\n\n\nWhen in debug mode type n or ↵ to step to the next line and c to continue to the end of a loop or the end of the function."
-  },
-  {
-    "objectID": "slides/02-advanced/02-functions/index.html#breakpoints",
-    "href": "slides/02-advanced/02-functions/index.html#breakpoints",
-    "title": "Functions",
-    "section": "Breakpoints",
-    "text": "Breakpoints\nStepping through a function line by line can be tedious. In RStudio we can set custom breakpoints in the source pane\n\n\nSet breakpoint in RStudio \n\nSource the code"
-  },
-  {
-    "objectID": "slides/02-advanced/02-functions/index.html#start-debugging-from-breakpoints",
-    "href": "slides/02-advanced/02-functions/index.html#start-debugging-from-breakpoints",
-    "title": "Functions",
-    "section": "Start debugging from breakpoints",
-    "text": "Start debugging from breakpoints\n :::{.notes} n is automatically printed, so the first prompt is at the breakpoint :::"
-  },
-  {
-    "objectID": "slides/02-advanced/02-functions/index.html#rstudios-rerun-with-debug",
-    "href": "slides/02-advanced/02-functions/index.html#rstudios-rerun-with-debug",
-    "title": "Functions",
-    "section": "RStudio’s Rerun with Debug",
-    "text": "RStudio’s Rerun with Debug\nThe Rerun with Debug option will rerun the command that created the error and enter debug mode where the error occurred.\nGood points:\n\nEasy to enter debug mode (when option shown)\nCan click in Traceback pane to view objects at any point in the call stack\n\nBad points:\n\nMay have gone past source of error (use breakpoints instead)\nMay enter deeply nested function: use recover() to select an earlier entry point\n\nAlternatively use options(error = recover), run code to debug, then set options(error = NULL)."
-  },
-  {
-    "objectID": "slides/02-advanced/02-functions/index.html#your-turn-2",
-    "href": "slides/02-advanced/02-functions/index.html#your-turn-2",
-    "title": "Functions",
-    "section": "Your turn!",
-    "text": "Your turn!\nOpen the function debug_practice.R and source the example function f.\n\nTry to run f(10) - there’s an error! Use traceback() to see which function call generated the error, then fix the problem.\nRun f(10) again - there is another error! Can you fix this directly?\nTry running f(1) - is the result what you expected? Use debugonce() to setting debugging on f() and re-run f(1). Step through the function, printing each object as it is created to see what is happening.\nCan you think how to improve the function? See if you can modify the function to give a sensible result for any integer."
-  },
-  {
-    "objectID": "slides/02-advanced/02-functions/index.html#traceback-in-rstudio",
-    "href": "slides/02-advanced/02-functions/index.html#traceback-in-rstudio",
-    "title": "Functions",
-    "section": "traceback() in RStudio",
-    "text": "traceback() in RStudio\nIn RStudio, if Debug > On Error >  Error Inspector is checked and the traceback has at least 3 calls, the option to show traceback is presented\n\nf1 <- function(x){ f2(x) }\nf2 <- function(x){ f3(x) }\nf3 <- function(x){ x + qqqq }\nf1(10)\n\nError in f3(x): object 'qqqq' not found\n\n\n\nRStudio error inspector giving options to show traceback or rerun with debug\nNote here about the importance of separating tasks into smaller functions - easier to debug!"
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Sessions will be held most Mondays in term time, from 9:30-11:00 in Term 2 for the Advanced R Course.\nAdd the Advanced R Course to your calendar (this link does not work in Safari, Internet Explorer, or Opera Mini)\nPlease use the links in the sidebar to navigate to the full schedule for each term.\nNote that these are all subject to change."
   }
 ]
