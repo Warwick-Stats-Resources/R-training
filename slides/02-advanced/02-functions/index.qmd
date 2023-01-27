@@ -87,7 +87,7 @@ So naming and order is important! Some guidelines
 
 Arguments are used as objects in the function code.
 
-An new environment is created each time the function is called, separate 
+A new environment is created each time the function is called, separate 
 from the global workspace.
 
 ```{r, error = TRUE}
@@ -256,9 +256,9 @@ Writing to file is usually best done outside a function.
 
 Copy your `qq_norm` function to the `qq` chunk and rename it `qq`. 
 
-Add a new argument `fun` to specify any quantile function (e.g. `qt`, `qf`, etc). Give it the default value `qnorm`. 
+Add a new argument `qfun` to specify any quantile function (e.g. `qt`, `qf`, etc). Give it the default value `qnorm`. 
 
-Inside the function use `qfun <- match.fun(fun)` to get the quantile function matching `fun`, then use `qfun` instead of `qnorm` to compute `q_theory`. Use `...` to pass on arguments to `qfun`.
+In the body of `qq`, use `qfun` instead of `qnorm` to compute `q_theory`. Use `...` to pass on arguments to `qfun`.
 
 Run the `qq` chunk and test your function on the `t-QQ` chunk. 
 
@@ -485,6 +485,7 @@ Source the code
 ## Start debugging from breakpoints
 
 ![](../images/jump_to_breakpoint.png)
+
 :::{.notes}
 `n` is automatically printed, so the first prompt is at the breakpoint
 :::
