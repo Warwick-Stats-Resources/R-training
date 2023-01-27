@@ -2,6 +2,8 @@
 title: "Join the class"
 ---
 
+**UPDATE: The Advanced R training scheduled for Term 2 has been cancelled. We hope to reschedule to this training at a later date.**
+
 For Term 2, the Advanced R Course will take place on Microsoft Teams most Mondays from 9:30-11am. Please see the [schedule](schedule/02-advanced.qmd) for the week-by-week outline.
 
 Please note that you must be a member of the University of Warwick to attend these classes, so you must be signed into Teams with your university account to join.
