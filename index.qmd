@@ -20,6 +20,8 @@ All slides and further resources can be accessed from the [content](content.qmd)
 
 ## Session details
 
+**UPDATE: The Advanced R training scheduled for Term 2 has been cancelled. We hope to reschedule to this training at a later date.**
+
 {{< fa calendar >}} &nbsp; Most Mondays in term time
 
 {{< fa clock >}} &nbsp; 9:30-11:00 (Term 2)
